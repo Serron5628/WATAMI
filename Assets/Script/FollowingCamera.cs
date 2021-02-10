@@ -27,7 +27,7 @@ public class FollowingCamera : MonoBehaviour
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         if (Input.GetMouseButton(0))
         {
-           
+
         }
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
 
@@ -38,11 +38,17 @@ public class FollowingCamera : MonoBehaviour
 
     void updateAngle(float x, float y)
     {
-        x = azimuthalAngle - x * mouseXSensitivity;
-        azimuthalAngle = Mathf.Repeat(x, 360);
+        if (Input.GetMouseButton(0))
+        {
+        }
+        else
+        {
+            x = azimuthalAngle - x * mouseXSensitivity;
+            azimuthalAngle = Mathf.Repeat(x, 360);
+            y = polarAngle + y * mouseYSensitivity;
+            polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
+        }
 
-        y = polarAngle + y * mouseYSensitivity;
-        polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
     }
 
     void updateDistance(float scroll)
@@ -53,6 +59,7 @@ public class FollowingCamera : MonoBehaviour
 
     void updatePosition(Vector3 lookAtPos)
     {
+        //多分ここらへんでCameraの座標いじってる
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
         transform.position = new Vector3(
