@@ -22,7 +22,7 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float minDistance = 3.0f;
     [SerializeField] private float maxDistance = 20.0f;
     [SerializeField] private float minPolarAngle = 30.0f;
-    [SerializeField] private float maxPolarAngle = 80.0f;
+    [SerializeField] private float maxPolarAngle = 140.0f;
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
