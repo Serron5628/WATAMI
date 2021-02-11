@@ -28,28 +28,32 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
-
-    //壁貫通
-
-    //
-    private void OnTriggerExit(Collider other)
+    private void Start()
     {
         distance = 10.0f;
     }
+
     void Update()
     {
+        //壁貫通
+        //
         Vector3 Target = target.transform.position;
         Ray ray = new Ray(Target, transform.position);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, distance))
         {
-            float dis = Vector3.Distance(Target, hit.point);
+            float dist = Vector3.Distance(transform.position, hit.point);
             Debug.Log(distance);
-            transform.position = hit.point;
-            distance = 2.0f;
+            distance = dist;
+        }
+        else 
+        {
+            transform.position = ray.direction * distance;
         }
         Debug.DrawLine(Target, transform.position, Color.red, 0f, false);
+        //
+        //
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false)
@@ -66,10 +70,6 @@ public class FollowingCamera : MonoBehaviour
     void LateUpdate()
     {
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        if (Input.GetMouseButton(0))
-        {
-
-        }
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
 
         var lookAtPos = target.transform.position + offset;
@@ -89,7 +89,7 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            Cursor.visible = false;
+            //Cursor.visible = false;
             //Debug.Log("falseです");
             x = azimuthalAngle - x * mouseXSensitivity;
             azimuthalAngle = Mathf.Repeat(x, 360);
