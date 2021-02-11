@@ -43,7 +43,7 @@ public class FollowingCamera : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, distance))
         {
-            float dist = Vector3.Distance(transform.position, hit.point);
+            float dist = Vector3.Distance(Target, hit.point);
             Debug.Log(distance);
             distance = dist;
         }
