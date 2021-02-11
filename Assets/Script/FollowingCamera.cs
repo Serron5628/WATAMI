@@ -16,7 +16,7 @@ public class FollowingCamera : MonoBehaviour
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = false;
-
+    
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
@@ -35,25 +35,30 @@ public class FollowingCamera : MonoBehaviour
 
     void Update()
     {
+        //float dis = distance;
         //壁貫通
         //
         Vector3 Target = target.transform.position;
         Ray ray = new Ray(Target, transform.position);
         RaycastHit hit;
 
+        
+
         if (Physics.Raycast(ray, out hit, distance))
         {
+            //dis = distance;
             float dist = Vector3.Distance(Target, hit.point);
             Debug.Log(distance);
             distance = dist;
         }
-        else 
+        else if(Vector3.Distance(Target, transform.position) <= 10)
         {
-            transform.position = ray.direction * distance;
+            //distance = 10.0f;
         }
         Debug.DrawLine(Target, transform.position, Color.red, 0f, false);
         //
         //
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false)
