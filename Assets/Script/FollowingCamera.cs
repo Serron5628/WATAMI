@@ -11,20 +11,21 @@ using System.Collections.Generic;
 public class FollowingCamera : MonoBehaviour
 {
     public GameObject target; // an object to follow
-    //public GameObject surface;
-
+    public GameObject camdis;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = false;
-    
+    //bool flag2 = true;
+
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
 
-    [SerializeField] private float minDistance = 5.0f;
+    [SerializeField] private float minDistance = 1.0f;
     [SerializeField] private float maxDistance = 10.0f;
     [SerializeField] private float minPolarAngle = 30.0f;
     [SerializeField] private float maxPolarAngle = 140.0f;
+
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
@@ -32,32 +33,28 @@ public class FollowingCamera : MonoBehaviour
     {
         distance = 10.0f;
     }
-
-    void Update()
+    private void OnCollisionStay(Collision collision)
     {
-        //float dis = distance;
-        //壁貫通
-        //
         Vector3 Target = target.transform.position;
         Ray ray = new Ray(Target, transform.position);
         RaycastHit hit;
 
-        
-
         if (Physics.Raycast(ray, out hit, distance))
         {
-            //dis = distance;
             float dist = Vector3.Distance(Target, hit.point);
             Debug.Log(distance);
             distance = dist;
         }
-        else if(Vector3.Distance(Target, transform.position) <= 10)
-        {
-            //distance = 10.0f;
-        }
         Debug.DrawLine(Target, transform.position, Color.red, 0f, false);
-        //
-        //
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        distance = 10;
+    }
+    void Update()
+    {
+        
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -71,12 +68,10 @@ public class FollowingCamera : MonoBehaviour
             }
         }
     }
-
     void LateUpdate()
     {
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
-
         var lookAtPos = target.transform.position + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
@@ -94,7 +89,6 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            //Cursor.visible = false;
             //Debug.Log("falseです");
             x = azimuthalAngle - x * mouseXSensitivity;
             azimuthalAngle = Mathf.Repeat(x, 360);
@@ -105,13 +99,11 @@ public class FollowingCamera : MonoBehaviour
             view_text.text = "カメラ固定 : OFF";
         }
     }
-
     void updateDistance(float scroll)
     {
         scroll = distance - scroll * scrollSensitivity;
         distance = Mathf.Clamp(scroll, minDistance, maxDistance);
     }
-
     void updatePosition(Vector3 lookAtPos)
     {
         //多分ここらへんでCameraの座標いじってる
