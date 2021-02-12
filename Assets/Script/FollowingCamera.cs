@@ -15,14 +15,14 @@ public class FollowingCamera : MonoBehaviour
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = false;
-    //bool flag2 = true;
+    bool flag2 = true;
 
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
 
     [SerializeField] private float minDistance = 1.0f;
-    [SerializeField] private float maxDistance = 10.0f;
+    [SerializeField] private float maxDistance = 15.0f;
     [SerializeField] private float minPolarAngle = 30.0f;
     [SerializeField] private float maxPolarAngle = 140.0f;
 
@@ -37,6 +37,17 @@ public class FollowingCamera : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         disdata = distance;
+    }
+    private void FixedUpdate()
+    {
+        if (flag2 == false && distance < disdata)
+        {
+            distance += 0.2f;
+        }
+        else
+        {
+            flag2 = true;
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -54,7 +65,7 @@ public class FollowingCamera : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        distance = disdata;
+        flag2 = false;
     }
     void Update()
     {

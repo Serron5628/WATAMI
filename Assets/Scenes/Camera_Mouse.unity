@@ -412,7 +412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927015072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -526,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.49999997, y: -0.000000005163625, z: 0.00000000298122, w: 0.86602545}
-  m_LocalPosition: {x: 0.000000059624405, y: 10.660254, z: -5}
+  m_LocalPosition: {x: 0.000000059624405, y: 9.660254, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -552,7 +552,7 @@ MonoBehaviour:
   polarAngle: 30
   azimuthalAngle: 270
   minDistance: 1
-  maxDistance: 10
+  maxDistance: 15
   minPolarAngle: 30
   maxPolarAngle: 140
   mouseXSensitivity: 5
