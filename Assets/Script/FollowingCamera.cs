@@ -33,6 +33,11 @@ public class FollowingCamera : MonoBehaviour
     {
         distance = 10.0f;
     }
+    float disdata;
+    private void OnCollisionEnter(Collision collision)
+    {
+        disdata = distance;
+    }
     private void OnCollisionStay(Collision collision)
     {
         Vector3 Target = target.transform.position;
@@ -45,17 +50,14 @@ public class FollowingCamera : MonoBehaviour
             Debug.Log(distance);
             distance = dist;
         }
-        Debug.DrawLine(Target, transform.position, Color.red, 0f, false);
+        Debug.DrawLine(Target, transform.position, Color.magenta, 0f, false);
     }
     private void OnCollisionExit(Collision collision)
     {
-        distance = 10;
+        distance = disdata;
     }
     void Update()
     {
-        
-
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false)
