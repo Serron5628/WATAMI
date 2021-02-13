@@ -8,7 +8,7 @@ public class PlayerController02 : MonoBehaviour
     float inputVertical;
     Rigidbody rb;
 
-    float moveSpeed = 3f;
+    float moveSpeed = 7.0f;
 
     void Start()
     {

@@ -29,6 +29,9 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
+
+    [SerializeField] private float mouserotaXSpd = 2.0f;
+    [SerializeField] private float mouserotaYSpd = 1.0f;
     private void Start()
     {
         distance = 10.0f;
@@ -103,9 +106,9 @@ public class FollowingCamera : MonoBehaviour
         else
         {
             //Debug.Log("falseです");
-            x = azimuthalAngle - x * mouseXSensitivity;
+            x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
             azimuthalAngle = Mathf.Repeat(x, 360);
-            y = polarAngle + y * mouseYSensitivity;
+            y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
             polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
 
             Text view_text = camera_view.GetComponent<Text>();
