@@ -14,8 +14,9 @@ public class FollowingCamera : MonoBehaviour
     public GameObject camdis;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
-    bool flag = true;
-    bool flag2 = true;
+    bool flag = true;//カメラの固定
+    bool flag2 = true;//カメラのズーム
+    //bool flag3 = true;
 
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
@@ -45,17 +46,6 @@ public class FollowingCamera : MonoBehaviour
             disdata = distance;
         }
     }
-    private void FixedUpdate()
-    {
-        if (flag2 == false && distance < disdata)
-        {
-            distance += 0.2f;
-        }
-        else
-        {
-            flag2 = true;
-        }
-    }
     private void OnCollisionStay(Collision collision)
     {
         Vector3 Target = target.transform.position;
@@ -65,14 +55,32 @@ public class FollowingCamera : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distance))
         {
             float dist = Vector3.Distance(Target, hit.point);
+
+
+            if (distance > dist)
+            {
+                distance = dist;
+            }
             Debug.Log(distance);
-            distance = dist;
         }
-        Debug.DrawLine(Target, transform.position, Color.magenta, 0f, false);
+        else
+
+            Debug.DrawLine(Target, transform.position, Color.magenta, 0f, false);
     }
     private void OnCollisionExit(Collision collision)
     {
         flag2 = false;
+    }
+    private void FixedUpdate()
+    {
+        if (flag2 == false && distance <= disdata)
+        {
+            distance += 1.0f;
+        }
+        else
+        {
+            flag2 = true;
+        }
     }
     void Update()
     {
@@ -111,15 +119,12 @@ public class FollowingCamera : MonoBehaviour
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
-            
             //Debug.Log("trueです--------------------------------");
-
             Text view_text = camera_view.GetComponent<Text>();
             view_text.text = "カメラ固定 : ON";
         }
         else
         {
-           
             //Debug.Log("falseです");
             x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
             azimuthalAngle = Mathf.Repeat(x, 360);
