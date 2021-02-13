@@ -14,18 +14,18 @@ public class FollowingCamera : MonoBehaviour
     public GameObject camdis;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
-    bool flag = false;
+    bool flag = true;
     bool flag2 = true;
 
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
+    [SerializeField] private float reDistance = 7.0f;
 
-    [SerializeField] private float minDistance = 1.0f;
+    [SerializeField] private float minDistance = 2.0f;
     [SerializeField] private float maxDistance = 15.0f;
     [SerializeField] private float minPolarAngle = 30.0f;
     [SerializeField] private float maxPolarAngle = 140.0f;
-
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
     [SerializeField] private float scrollSensitivity = 5.0f;
@@ -34,12 +34,16 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouserotaYSpd = 1.0f;
     private void Start()
     {
+        //flag = false;
         distance = 10.0f;
     }
     float disdata;
     private void OnCollisionEnter(Collision collision)
     {
-        disdata = distance;
+        if (distance > reDistance)
+        {
+            disdata = distance;
+        }
     }
     private void FixedUpdate()
     {
@@ -83,6 +87,16 @@ public class FollowingCamera : MonoBehaviour
                 flag = false;
             }
         }
+        if (flag == true)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     void LateUpdate()
     {
@@ -97,7 +111,7 @@ public class FollowingCamera : MonoBehaviour
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
-            Cursor.visible = true;
+            
             //Debug.Log("trueです--------------------------------");
 
             Text view_text = camera_view.GetComponent<Text>();
@@ -105,6 +119,7 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
+           
             //Debug.Log("falseです");
             x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
             azimuthalAngle = Mathf.Repeat(x, 360);
