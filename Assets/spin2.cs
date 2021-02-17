@@ -24,5 +24,9 @@ public class spin2 : MonoBehaviour
             transform.Rotate(new Vector3(0, -10, 0));
             HUGE.hugeScale();
         }
+        if (Input.GetKey(KeyCode.R))
+        {
+            HUGE.ResetE();
+        }
     }
 }
