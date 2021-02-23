@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerParachute : MonoBehaviour
 {
     // Start is called before the first frame update
+    PlayerMove player;
     Rigidbody rb;
     Vector3 pos;
     Vector3 updraftPos;
@@ -18,6 +19,7 @@ public class PlayerParachute : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GetComponent<PlayerMove>();
     }
 
     void FixedUpdate()
@@ -35,6 +37,7 @@ public class PlayerParachute : MonoBehaviour
         //上昇時
         if (useParachute == true && inUpdraft == true)
         {
+            player.playerState = player.parachuteUP;
             pos = transform.position;
             float nextPosY = pos.y + riseSpeed;
             float updraftEnd = updraftPos.y + (updraftScl.y / 2);
@@ -77,16 +80,7 @@ public class PlayerParachute : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(-0.1f, 0.0f, 0.0f);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(0.1f, 0.0f, 0.0f);
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.P))
         {
             useParachute = true;
         }
@@ -96,6 +90,7 @@ public class PlayerParachute : MonoBehaviour
             rb.useGravity = true;
             useParachute = false;
             tmp = 0;
+            player.playerState = player.nullStr;
         }
 
         //Debug.Log(rb.velocity);
