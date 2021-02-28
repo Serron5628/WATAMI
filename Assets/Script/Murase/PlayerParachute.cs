@@ -37,7 +37,7 @@ public class PlayerParachute : MonoBehaviour
         //上昇時
         if (useParachute == true && inUpdraft == true)
         {
-            player.playerState = player.parachuteUP;
+            player.playerState = player.parachuteUPState;
             pos = transform.position;
             float nextPosY = pos.y + riseSpeed;
             float updraftEnd = updraftPos.y + (updraftScl.y / 2);
@@ -90,7 +90,6 @@ public class PlayerParachute : MonoBehaviour
             rb.useGravity = true;
             useParachute = false;
             tmp = 0;
-            player.playerState = player.nullStr;
         }
 
         //Debug.Log(rb.velocity);
