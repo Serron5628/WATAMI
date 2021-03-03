@@ -12,10 +12,14 @@ public class PlayerParachute : MonoBehaviour
     Vector3 updraftScl;
     public float minFallSpeed;
     public float riseSpeed;
-    bool useParachute = false;
+    public bool useParachute = false;
     bool inUpdraft = false;
     bool reachEndPos = false;
     int tmp = 0;
+
+    string parachuteUPState = "Pup";
+    string parachuteDOWNState = "Pdown";
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +31,7 @@ public class PlayerParachute : MonoBehaviour
         //下降時　終端速度(minFallSpeed)
         if (useParachute == true && inUpdraft == false && rb.velocity.y <= 0)
         {
+            player.playerState = parachuteDOWNState;
             rb.mass = 1;
             rb.drag = 2;
             rb.useGravity = false;
@@ -37,7 +42,7 @@ public class PlayerParachute : MonoBehaviour
         //上昇時
         if (useParachute == true && inUpdraft == true)
         {
-            player.playerState = player.parachuteUPState;
+            player.playerState = parachuteUPState;
             pos = transform.position;
             float nextPosY = pos.y + riseSpeed;
             float updraftEnd = updraftPos.y + (updraftScl.y / 2);

@@ -9,23 +9,23 @@ public class PlayerMove : MonoBehaviour
 
     Rigidbody rb;
     GroundCheck groundCheck;
+    PlayerParachute parachute;
 
     public string playerState;
     string jumpState = "Jump";
     string groundState = "Ground";
     string fallState = "Fall";
-    public string parachuteUPState = "Pup";
-    
-    //public float gravity;　　//（注）ゲーム全体の重力変更
+  
+    public float gravity;　　//（注）ゲーム全体の重力変更
     public float jumpUPPower;
     public float jumpForwardPower;
-    public float gravity;
     float moveSpeed = 7.0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         groundCheck = GameObject.Find("GroundChecker").GetComponent<GroundCheck>();
+        parachute = GetComponent<PlayerParachute>();
         Physics.gravity = new Vector3(0, -gravity, 0);
     }
 
@@ -50,6 +50,20 @@ public class PlayerMove : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(moveForward);
             }
         }
+        if (parachute.useParachute == true)
+        {
+            moveSpeed = 3.0f;
+           
+            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;          
+            Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+            rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+
+            if (moveForward != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(moveForward);
+            }
+        }
+
         if (playerState == fallState)
         {
             rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
@@ -72,9 +86,8 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck.isGround == true)
         {
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
-                || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
-)
+            //ジャンプ時における方向入力の有無
+            if (inputHorizontal != 0 || inputVertical != 0)
             {
                 playerState = jumpState;
                 rb.velocity = Vector3.zero;
@@ -97,7 +110,14 @@ public class PlayerMove : MonoBehaviour
 
         if (rb.velocity.y < 0 && playerState != jumpState)
         {
-            playerState = fallState;
+            if (parachute.useParachute == true)
+            {
+                
+            }
+            else
+            {
+                playerState = fallState;
+            }       
         }
     }
 }

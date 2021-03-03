@@ -807,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minFallSpeed: 2
   riseSpeed: 0.3
+  useParachute: 0
 --- !u!54 &1627430440
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -836,6 +837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 
-  parachuteUPState: Pup
-  jumpPowerUP: 6.5
-  jumpPowerForward: 0.0001
+  gravity: 16
+  jumpUPPower: 8
+  jumpForwardPower: 4
