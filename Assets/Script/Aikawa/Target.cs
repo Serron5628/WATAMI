@@ -8,7 +8,7 @@ using System.Collections.Generic;
 /// The camera can be moved by left mouse drag and mouse wheel.
 /// </summary>
 [ExecuteInEditMode, DisallowMultipleComponent]
-public class FollowingCamera : MonoBehaviour
+public class Target : MonoBehaviour
 {
     public GameObject target; // an object to follow
     public GameObject camdis;
@@ -73,7 +73,7 @@ public class FollowingCamera : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (flag2 == false && distance < disdata)//
+        if (flag2 == false && distance <= disdata)
         {
             distance += 1.0f;
         }
@@ -139,11 +139,9 @@ public class FollowingCamera : MonoBehaviour
     {
         scroll = distance - scroll * scrollSensitivity;
         distance = Mathf.Clamp(scroll, minDistance, maxDistance);
-        //flag2 = true;
     }
     void updatePosition(Vector3 lookAtPos)
     {
-        
         //多分ここらへんでCameraの座標いじってる
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
