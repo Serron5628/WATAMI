@@ -8,17 +8,25 @@ using System.Collections.Generic;
 /// The camera can be moved by left mouse drag and mouse wheel.
 /// </summary>
 [ExecuteInEditMode, DisallowMultipleComponent]
-public class FollowingCamera : MonoBehaviour
+public class LockOn : MonoBehaviour
 {
     public GameObject target; // an object to follow
+    private GameObject Etarget;
+
+    private const int ROTATE_BUTTON = 1;
+    private const float ANGLE_LIMIT_UP = 60f;
+    private const float ANGLE_LIMIT_DOWN = -60f;
+
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
+    public GameObject player;
+    public GameObject mainCamera;
+    //public float rotate_speed;
+
     bool flag = true;//カメラの固定
     bool flag2 = true;//カメラのズーム
-    bool Lock = false;//ロックオンは"Q"でいいかなって思ってる
     //bool flag3 = true;
 
-    
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
@@ -35,39 +43,23 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
 
-    private GameObject Etarget;
+
 
     private void Start()
     {
         //flag = false;
         distance = 10.0f;
+        mainCamera = Camera.main.gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
+        // lockOnTargetDetector = player.GetComponentInChildren<LockOn>();
     }
-    protected void OnTriggerEnter(Collider c)
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = c.gameObject;
-        }
-
-    }
-
-    protected void OnTriggerExit(Collider c)
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = null;
-        }
-    }
-
-    public GameObject getTarget()
-    {
-        return this.Etarget;
-    }
-
     float disdata;
     private void OnCollisionEnter(Collision collision)
     {
-        if (distance > reDistance) disdata = distance;
+        if (distance > reDistance)
+        {
+            disdata = distance;
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -78,7 +70,12 @@ public class FollowingCamera : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distance))
         {
             float dist = Vector3.Distance(Target, hit.point);
-            if (distance > dist) distance = dist;
+
+
+            if (distance > dist)
+            {
+                distance = dist;
+            }
             Debug.Log(distance);
         }
         else
@@ -91,25 +88,29 @@ public class FollowingCamera : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (flag2 == false && distance < disdata) distance += 1.2f;
-        else flag2 = true;
-
-    }
-    void Update()
-    {
-        if (!(Etarget == null))
+        if (flag2 == false && distance < disdata)//
         {
-            Debug.Log("出来てるっぽい");
+            distance += 1.2f;
         }
         else
         {
-            Debug.Log("おったまげー！");
+            flag2 = true;
         }
+    }
+    void Update()
+    {
+        
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (flag == false) flag = true;
-            else flag = false;
+            if (flag == false)
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+            }
         }
         if (flag == true)
         {
@@ -121,6 +122,7 @@ public class FollowingCamera : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
     }
     void LateUpdate()
     {
@@ -130,7 +132,10 @@ public class FollowingCamera : MonoBehaviour
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
-
+    private void lockOnTargetObject(GameObject Etarget)
+    {
+        transform.LookAt(Etarget.transform, Vector3.up);
+    }
     void updateAngle(float x, float y)
     {
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
@@ -143,20 +148,7 @@ public class FollowingCamera : MonoBehaviour
         else
         {
             //Debug.Log("falseです");
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (Lock == false) Lock = true;
-                else if (Lock == true) Lock = false;
-            }
-            if (Lock == false)
-            {
-                x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
-            }
-            else if (Lock == true)
-            {
-                x = 0;
-            }
-
+            x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
             azimuthalAngle = Mathf.Repeat(x, 360);
             y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
             polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
@@ -180,6 +172,7 @@ public class FollowingCamera : MonoBehaviour
         transform.position = new Vector3(
             lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
             lookAtPos.y + distance * Mathf.Cos(dp),
-            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da)) ; 
+      
     }
 }
