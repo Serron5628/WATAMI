@@ -11,6 +11,7 @@ public class MotiRotate : MonoBehaviour
     float rad;
     float previousRad;
     float tan = 0f;
+    float RotationCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +37,24 @@ public class MotiRotate : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             tan += Mathf.Tan(dRad); //タンジェント // * mPos.magnitude;
-            Player.transform.Rotate(new Vector3(0, tan / 50, 0));
-            HUGE.hugeScale();
+            Player.transform.Rotate(new Vector3(0, tan / 50, 0));//プレイヤーの回転
+
+            if(dRad>1||dRad<-1) //フレームの角度の差が1以上あれば餅伸ばし実行
+            {
+                RotationCount += 1;//回転数
+                HUGE.hugeScale();
+            }
+            if(RotationCount>1)
+            {
+                HUGE.hugeScale();//餅伸ばし開始
+            }
         }
         previousRad = rad; // 今のフレームの角度を保存
         if (Input.GetMouseButtonUp(0))
         {
+            RotationCount = 0;//回転数リセット
             tan = 0;
-            HUGE.ResetE();
+            HUGE.ResetE();//餅の大きさリセット
         }
     }
 }
