@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    float inputHorizontal;
-    float inputVertical;
-
     Rigidbody rb;
     GroundCheck groundCheck;
     PlayerParachute parachute;
@@ -20,6 +17,11 @@ public class PlayerMove : MonoBehaviour
     public float jumpUPPower;
     public float jumpForwardPower;
     float moveSpeed = 7.0f;
+    float inputHorizontal;
+    float inputVertical;
+
+    bool isJumping = false;
+    int jumpflag = 0;
 
     void Start()
     {
@@ -64,6 +66,25 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        if (playerState == jumpState)
+        {
+            if (isJumping == false)
+            {
+                if (jumpflag == 1)
+                {
+                    Vector3 v = transform.forward;
+                    Vector3 vn = v.normalized;
+
+                    rb.AddForce(vn.x * jumpForwardPower, jumpUPPower, vn.z * jumpForwardPower, ForceMode.Impulse);
+                }
+                if (jumpflag == 2)
+                {
+                    rb.AddForce(0.0f, jumpUPPower, 0.0f, ForceMode.Impulse);
+                }
+                isJumping = true;
+            }
+        }
+
         if (playerState == fallState)
         {
             rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
@@ -82,6 +103,7 @@ public class PlayerMove : MonoBehaviour
         if (groundCheck.isGround == true && rb.velocity.y <= 0)
         {
             playerState = groundState;
+            isJumping = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck.isGround == true)
@@ -92,19 +114,14 @@ public class PlayerMove : MonoBehaviour
                 playerState = jumpState;
                 rb.velocity = Vector3.zero;
 
-                Vector3 v = transform.forward;
-                Vector3 vn = v.normalized;
-
-                Debug.Log(vn.x);
-                Debug.Log(vn.z);
-              
-                rb.AddForce(vn.x * jumpForwardPower, jumpUPPower,vn.z * jumpForwardPower, ForceMode.Impulse);
+                jumpflag = 1;
             }
             else
             {
                 playerState = jumpState;
                 rb.velocity = Vector3.zero;
-                rb.AddForce(0.0f, jumpUPPower, 0.0f, ForceMode.Impulse);
+
+                jumpflag = 2;
             }
         }
 
