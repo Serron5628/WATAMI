@@ -10,15 +10,16 @@ using System.Collections.Generic;
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class FollowingCamera : MonoBehaviour
 {
-    public GameObject target; // an object to follow
+    public GameObject player; // an object to follow
+    public GameObject enemy;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = true;//カメラの固定
     bool flag2 = true;//カメラのズーム
     bool Lock = false;//ロックオンは"Q"でいいかなって思ってる
-    //bool flag3 = true;
+                      //bool flag3 = true;
 
-    
+
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
@@ -48,7 +49,6 @@ public class FollowingCamera : MonoBehaviour
         {
             Etarget = c.gameObject;
         }
-
     }
 
     protected void OnTriggerExit(Collider c)
@@ -71,7 +71,7 @@ public class FollowingCamera : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        Vector3 Target = target.transform.position;
+        Vector3 Target = player.transform.position;
         Ray ray = new Ray(Target, transform.position);
         RaycastHit hit;
 
@@ -97,15 +97,6 @@ public class FollowingCamera : MonoBehaviour
     }
     void Update()
     {
-        if (!(Etarget == null))
-        {
-            Debug.Log("出来てるっぽい");
-        }
-        else
-        {
-            Debug.Log("おったまげー！");
-        }
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false) flag = true;
@@ -126,7 +117,8 @@ public class FollowingCamera : MonoBehaviour
     {
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
-        var lookAtPos = target.transform.position + offset;
+        var lookAtPos = player.transform.position + offset;
+        var lookAtPosW = enemy.transform.position + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
@@ -151,15 +143,27 @@ public class FollowingCamera : MonoBehaviour
             if (Lock == false)
             {
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
+                y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
+                azimuthalAngle = Mathf.Repeat(x, 360);
+                polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
             else if (Lock == true)
             {
-                x = 0;
+                if (!Etarget)
+                {
+                    Transform Etransform = Etarget.transform;
+                    Vector3 Epos = Etransform.position;
+
+                    Epos.x = azimuthalAngle - Epos.x;
+                    Epos.y = polarAngle + Epos.y;
+                    azimuthalAngle = Mathf.Repeat(Epos.x, 360);
+                    polarAngle = Mathf.Clamp(Epos.y, minPolarAngle, maxPolarAngle);
+                }
             }
 
-            azimuthalAngle = Mathf.Repeat(x, 360);
-            y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-            polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
+            //azimuthalAngle = Mathf.Repeat(x, 360);
+            //y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
+            //polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
 
             Text view_text = camera_view.GetComponent<Text>();
             view_text.text = "カメラ固定 : OFF";

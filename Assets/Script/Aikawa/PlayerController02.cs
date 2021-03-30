@@ -33,9 +33,6 @@ public class PlayerController02 : MonoBehaviour
         rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
 
         // キャラクターの向きを進行方向に
-        if (moveForward != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(moveForward);
-        }
+        if (moveForward != Vector3.zero) transform.rotation = Quaternion.LookRotation(moveForward);
     }
 }
