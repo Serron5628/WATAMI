@@ -26,8 +26,11 @@ public class huge : MonoBehaviour
 
     public void ResetE()
     {
-        transform.localScale = new Vector3(2.0f, 0.1f, 0.5f);
-        transform.localPosition = new Vector3(1.5f, 0, 0);
-        plus = 0;
+        transform.localScale = new Vector3(2.0f+plus, 0.1f, 0.5f);
+        transform.localPosition = new Vector3(1.5f+plus*0.5f, 0, 0);
+        if(plus>0)
+        {
+            plus = plus - 0.1f;
+        }
     }
 }
