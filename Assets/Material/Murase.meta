@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/Script/Kurosawa.meta
-guid: 0724e82c25b4a634e826d56eae1f9a4f
+guid: 963e900acc34c684b8100d21303a3357
 =======
 guid: f1ec96a84b13c354099669a447f4a4fe
 >>>>>>> origin/master:Assets/Material/Murase.meta
-=======
-guid: 9a4c4a39e08c77444b51c98020d6a9dc
->>>>>>> origin/master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
