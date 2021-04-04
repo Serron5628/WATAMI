@@ -12,7 +12,7 @@ public class spin2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.S))
         {
@@ -22,6 +22,20 @@ public class spin2 : MonoBehaviour
             //rb.AddTorque(torque, ForceMode.Acceleration);
             //rb.AddForceAtPosition(torque, ForceMode.Acceleration, transform.position);
             transform.Rotate(new Vector3(0, -10, 0));
+            HUGE.hugeScale();
+        }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            //torque = Vector3.left;
+            //float turn = Input.GetAxis("Horizontal");
+            //rb.AddTorque(transform.up * torque * turn);
+            //rb.AddTorque(torque, ForceMode.Acceleration);
+            //rb.AddForceAtPosition(torque, ForceMode.Acceleration, transform.position);
+            transform.Rotate(new Vector3(0, 10, 0));
+            HUGE.hugeScale();
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
             HUGE.hugeScale();
         }
         if (Input.GetKey(KeyCode.R))
