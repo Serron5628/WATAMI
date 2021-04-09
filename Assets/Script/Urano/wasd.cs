@@ -6,7 +6,7 @@ public class wasd : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField]
-    float speed;
+    float speed = 1000;
     // Start is called before the first frame update
     void Start()
     {
