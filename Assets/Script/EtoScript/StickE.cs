@@ -5,7 +5,6 @@ using UnityEngine;
 public class StickE : MonoBehaviour
 {
     public GameObject moti;
-    public GameObject Pool;
     public GameObject ropeEnd;
     public float GOGO;
     private FixedJoint fixedJoint;
@@ -45,7 +44,7 @@ public class StickE : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        if(fixedJoint==null&&ReParent==true)
+        if(fixedJoint==null&&ReParent==true&&other.gameObject.name=="MOTI")
         {
             this.gameObject.transform.parent = moti.gameObject.transform;
             rb.isKinematic = true;

@@ -1318,7 +1318,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moti: {fileID: 438440670}
-  Pool: {fileID: 515516736}
   ropeEnd: {fileID: 917897694}
   GOGO: 100
   flyOn: 0
