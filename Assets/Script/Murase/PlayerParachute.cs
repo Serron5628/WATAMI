@@ -10,15 +10,16 @@ public class PlayerParachute : MonoBehaviour
     Vector3 pos;
     Vector3 updraftPos;
     Vector3 updraftScl;
+    public float moveSpeed;
     public float minFallSpeed;
     public float riseSpeed;
     public bool useParachute = false;
-    bool inUpdraft = false;
+    public bool inUpdraft = false;
     bool reachEndPos = false;
     int tmp = 0;
-
+    
     string parachuteUPState = "Pup";
-    string parachuteDOWNState = "Pdown";
+    public string parachuteDOWNState = "Pdown";
 
     void Start()
     {
@@ -29,15 +30,22 @@ public class PlayerParachute : MonoBehaviour
     void FixedUpdate()
     {
         //下降時　終端速度(minFallSpeed)
-        if (useParachute == true && inUpdraft == false && rb.velocity.y <= 0)
+        if (useParachute == true && inUpdraft == false)
         {
-            player.playerState = parachuteDOWNState;
-            rb.mass = 1;
-            rb.drag = 2;
-            rb.useGravity = false;
-            var target_velocity = new Vector3(0f, -minFallSpeed, 0f);
-            rb.AddForce(target_velocity * rb.mass * rb.drag / (1f - rb.drag * Time.fixedDeltaTime));
-            //Debug.Log(rb.velocity.magnitude);
+            if (rb.velocity.y < -0.1)
+            {
+                player.playerState = parachuteDOWNState;
+                rb.mass = 1;
+                rb.drag = 2;
+                rb.useGravity = false;
+                var target_velocity = new Vector3(0f, -minFallSpeed, 0f);
+                rb.AddForce(target_velocity * rb.mass * rb.drag / (1f - rb.drag * Time.fixedDeltaTime));
+                //Debug.Log(rb.velocity.magnitude);
+            }
+            else
+            {
+                rb.useGravity = true;
+            }
         }
         //上昇時
         if (useParachute == true && inUpdraft == true)
@@ -107,6 +115,14 @@ public class PlayerParachute : MonoBehaviour
         updraftPos = other.transform.position;
         updraftScl = other.transform.localScale;
 
+        if (other.gameObject.CompareTag("Updraft"))
+        {
+            inUpdraft = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Updraft"))
         {
             inUpdraft = true;
