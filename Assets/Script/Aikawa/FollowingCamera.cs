@@ -11,7 +11,7 @@ using System.Collections.Generic;
 public class FollowingCamera : MonoBehaviour
 {
     public GameObject player; // an object to follow
-    public GameObject enemy;
+   // public GameObject enemy;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = true;//カメラの固定
@@ -43,7 +43,7 @@ public class FollowingCamera : MonoBehaviour
         //flag = false;
         distance = 10.0f;
     }
-    protected void OnTriggerEnter(Collider c)
+    protected void OnTriggerEnter(Collider c) 
     {
         if (c.gameObject.tag == "Enemy")
         {
@@ -118,7 +118,7 @@ public class FollowingCamera : MonoBehaviour
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         updateDistance(Input.GetAxis("Mouse ScrollWheel"));
         var lookAtPos = player.transform.position + offset;
-        var lookAtPosW = enemy.transform.position + offset;
+        //var lookAtPosW = enemy.transform.position + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
@@ -128,9 +128,13 @@ public class FollowingCamera : MonoBehaviour
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
+            
             //Debug.Log("trueです--------------------------------");
-            Text view_text = camera_view.GetComponent<Text>();
-            view_text.text = "カメラ固定 : ON";
+            if (!(camera_view == null))
+            {
+                Text view_text = camera_view.GetComponent<Text>();
+                view_text.text = "カメラ固定 : ON";
+            }
         }
         else
         {
@@ -164,9 +168,12 @@ public class FollowingCamera : MonoBehaviour
             //azimuthalAngle = Mathf.Repeat(x, 360);
             //y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
             //polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
-
-            Text view_text = camera_view.GetComponent<Text>();
-            view_text.text = "カメラ固定 : OFF";
+            
+            if (!(camera_view == null))
+            {
+                Text view_text = camera_view.GetComponent<Text>();
+                view_text.text = "カメラ固定 : OFF";
+            }
         }
     }
     void updateDistance(float scroll)
@@ -177,7 +184,6 @@ public class FollowingCamera : MonoBehaviour
     }
     void updatePosition(Vector3 lookAtPos)
     {
-
         //多分ここらへんでCameraの座標いじってる
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;

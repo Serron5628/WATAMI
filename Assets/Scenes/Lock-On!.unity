@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1699394438}
-  enemy: {fileID: 431454384}
+  enemy: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   camera_view: {fileID: 1469727126}
   distance: 10
