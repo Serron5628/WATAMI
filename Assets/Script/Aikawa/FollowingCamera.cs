@@ -122,14 +122,16 @@ public class FollowingCamera : MonoBehaviour
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
+    private void LockOn()
+    { 
+
+    }
 
     void updateAngle(float x, float y)
     {
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
-            
-            //Debug.Log("trueです--------------------------------");
             if (!(camera_view == null))
             {
                 Text view_text = camera_view.GetComponent<Text>();
@@ -138,7 +140,6 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            //Debug.Log("falseです");
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (Lock == false) Lock = true;
@@ -165,10 +166,6 @@ public class FollowingCamera : MonoBehaviour
                 }
             }
 
-            //azimuthalAngle = Mathf.Repeat(x, 360);
-            //y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-            //polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
-            
             if (!(camera_view == null))
             {
                 Text view_text = camera_view.GetComponent<Text>();
@@ -180,7 +177,6 @@ public class FollowingCamera : MonoBehaviour
     {
         scroll = distance - scroll * scrollSensitivity;
         distance = Mathf.Clamp(scroll, minDistance, maxDistance);
-        //flag2 = true;
     }
     void updatePosition(Vector3 lookAtPos)
     {
