@@ -147,6 +147,7 @@ public class FollowingCamera : MonoBehaviour
             }
             if (Lock == false)
             {
+                Debug.Log("Lock=false");
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
                 azimuthalAngle = Mathf.Repeat(x, 360);
@@ -154,15 +155,20 @@ public class FollowingCamera : MonoBehaviour
             }
             else if (Lock == true)
             {
+                Debug.Log("Lock=true");
                 if (!Etarget)
                 {
-                    Transform Etransform = Etarget.transform;
-                    Vector3 Epos = Etransform.position;
+                    x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
+                    y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
+                    azimuthalAngle = Mathf.Repeat(x, 360);
+                    polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
+                    //Transform Etransform = Etarget.transform;
+                    //Vector3 Epos = Etransform.position;
 
-                    Epos.x = azimuthalAngle - Epos.x;
-                    Epos.y = polarAngle + Epos.y;
-                    azimuthalAngle = Mathf.Repeat(Epos.x, 360);
-                    polarAngle = Mathf.Clamp(Epos.y, minPolarAngle, maxPolarAngle);
+                    //Epos.x = azimuthalAngle - Epos.x;
+                    //Epos.y = polarAngle + Epos.y;
+                    //azimuthalAngle = Mathf.Repeat(Epos.x, 360);
+                    //polarAngle = Mathf.Clamp(Epos.y, minPolarAngle, maxPolarAngle);
                 }
             }
 
