@@ -11,13 +11,14 @@ using System.Collections.Generic;
 public class FollowingCamera : MonoBehaviour
 {
     public GameObject player; // an object to follow
-   // public GameObject enemy;
+    public GameObject enemyTest;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = true;//カメラの固定
     bool flag2 = true;//カメラのズーム
-    bool Lock = false;//ロックオンは"Q"でいいかなって思ってる
-                      //bool flag3 = true;
+
+
+    //ここからカメラのX,Z座標を移動させておく
 
 
     [SerializeField] private float distance = 7.0f; // distance from following object
@@ -36,32 +37,9 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
 
-    private GameObject Etarget;
-
     private void Start()
     {
-        //flag = false;
         distance = 10.0f;
-    }
-    protected void OnTriggerEnter(Collider c) 
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = c.gameObject;
-        }
-    }
-
-    protected void OnTriggerExit(Collider c)
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = null;
-        }
-    }
-
-    public GameObject getTarget()
-    {
-        return this.Etarget;
     }
 
     float disdata;
@@ -71,19 +49,20 @@ public class FollowingCamera : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        Vector3 Target = player.transform.position;
-        Ray ray = new Ray(Target, transform.position);
+        Vector3 PlayerPos = player.transform.position;
+        Ray ray = new Ray(PlayerPos, transform.position);
         RaycastHit hit;
+
 
         if (Physics.Raycast(ray, out hit, distance))
         {
-            float dist = Vector3.Distance(Target, hit.point);
+            float dist = Vector3.Distance(PlayerPos, hit.point);
             if (distance > dist) distance = dist;
             Debug.Log(distance);
         }
         else
 
-            Debug.DrawLine(Target, transform.position, Color.magenta, 0f, false);
+            Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -97,6 +76,12 @@ public class FollowingCamera : MonoBehaviour
     }
     void Update()
     {
+        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        updateDistance(Input.GetAxis("Mouse ScrollWheel"));
+        var lookAtPos = player.transform.position + offset;
+        updatePosition(lookAtPos);
+        transform.LookAt(lookAtPos);
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false) flag = true;
@@ -115,16 +100,27 @@ public class FollowingCamera : MonoBehaviour
     }
     void LateUpdate()
     {
-        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        updateDistance(Input.GetAxis("Mouse ScrollWheel"));
-        var lookAtPos = player.transform.position + offset;
-        //var lookAtPosW = enemy.transform.position + offset;
-        updatePosition(lookAtPos);
-        transform.LookAt(lookAtPos);
+        //updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        //updateDistance(Input.GetAxis("Mouse ScrollWheel"));
+        //var lookAtPos = player.transform.position + offset;
+        ////var lookAtPosW = enemy.transform.position + offset;
+        //updatePosition(lookAtPos);
+        //transform.LookAt(lookAtPos);
     }
-    private void LockOn()
-    { 
 
+    bool Elock = false;
+    public void enemyFlag()
+    {
+        if (Elock == false)
+        {
+            Debug.Log("false");
+            Elock = true;
+        }
+        else if (Elock == true)
+        {
+            Debug.Log("true");
+            Elock = false;
+        }
     }
 
     void updateAngle(float x, float y)
@@ -140,36 +136,21 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Elock == false)
             {
-                if (Lock == false) Lock = true;
-                else if (Lock == true) Lock = false;
-            }
-            if (Lock == false)
-            {
-                Debug.Log("Lock=false");
+                //Debug.Log("no");
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
                 azimuthalAngle = Mathf.Repeat(x, 360);
                 polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
-            else if (Lock == true)
+            else if (Elock == true)
             {
-                Debug.Log("Lock=true");
-                if (!Etarget)
-                {
-                    x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
-                    y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-                    azimuthalAngle = Mathf.Repeat(x, 360);
-                    polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
-                    //Transform Etransform = Etarget.transform;
-                    //Vector3 Epos = Etransform.position;
-
-                    //Epos.x = azimuthalAngle - Epos.x;
-                    //Epos.y = polarAngle + Epos.y;
-                    //azimuthalAngle = Mathf.Repeat(Epos.x, 360);
-                    //polarAngle = Mathf.Clamp(Epos.y, minPolarAngle, maxPolarAngle);
-                }
+                //Debug.Log("ok");
+                x = 0;
+                y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
+                azimuthalAngle = Mathf.Repeat(x, 360);
+                polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
 
             if (!(camera_view == null))
