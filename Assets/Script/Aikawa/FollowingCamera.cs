@@ -72,7 +72,6 @@ public class FollowingCamera : MonoBehaviour
     {
         if (flag2 == false && distance < disdata) distance += 1.2f;
         else flag2 = true;
-
     }
     void Update()
     {
@@ -113,12 +112,12 @@ public class FollowingCamera : MonoBehaviour
     {
         if (Elock == false)
         {
-            Debug.Log("false");
+            //Debug.Log("false");
             Elock = true;
         }
         else if (Elock == true)
         {
-            Debug.Log("true");
+           //    Debug.Log("true");
             Elock = false;
         }
     }

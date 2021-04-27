@@ -49,7 +49,7 @@ public class enemyLockOn : MonoBehaviour
     }
 
     bool LockE = false;
-
+    int cnt = 0;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -66,12 +66,15 @@ public class enemyLockOn : MonoBehaviour
                 //Debug.Log("LockE=true");
                 if (!Etarget)
                 {
+                   
                 }
                 else
                 {
+                    cnt += 1;
+                    Debug.Log(cnt);
                     enemyLock.GetComponent<FollowingCamera>().enemyFlag();
                     //this.transform.LookAt(Etarget.transform);
-                }
+                }   
             }
         }
         //if (LockE == false)
