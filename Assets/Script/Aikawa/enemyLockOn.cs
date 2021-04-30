@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class enemyLockOn : MonoBehaviour
 {
-    public GameObject enemyLock;
-    private void Start()
-    {
-        enemyLock = GameObject.Find("Main Camera");
-    }
+    public GameObject MainCamecra;
     private GameObject Etarget;
 
     protected void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = c.gameObject;
-        }
+        if (c.gameObject.tag == "Enemy") Etarget = c.gameObject;
     }
+
     float distanceE;
     private void OnTriggerStay(Collider other)
     {
         Vector3 enemyPos = Etarget.transform.position;
         Ray ray = new Ray(enemyPos, transform.position);
         RaycastHit hit;
-
 
         if (Physics.Raycast(ray, out hit, distanceE))
         {
@@ -33,65 +26,48 @@ public class enemyLockOn : MonoBehaviour
             Debug.Log(distanceE);
         }
         else
-
             Debug.DrawLine(enemyPos, transform.position, Color.magenta, 0f, false);
     }
+
     protected void OnTriggerExit(Collider c)
     {
-        if (c.gameObject.tag == "Enemy")
+        if (c.gameObject.tag == "Enemy") Etarget = null;
+        if (testE == true)
         {
-            Etarget = null;
+            testE = false;
+           GetComponent<FollowingCamera>().enemyFlag();
         }
     }
+
     public GameObject getTarget()
     {
         return this.Etarget;
     }
 
-    bool LockE = false;
-    int cnt = 0;
+    bool testE = false;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        var lookAtPosE = Etarget.transform.position;
+        if (!Etarget)
         {
-            if (LockE == false) LockE = true;
-            else if (LockE == true) LockE = false;
-
-            if (LockE == false)
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                //Debug.Log("LockE=false");
-            }
-            else if (LockE == true)
-            {
-                //Debug.Log("LockE=true");
-                if (!Etarget)
-                {
-                   
-                }
-                else
-                {
-                    cnt += 1;
-                    Debug.Log(cnt);
-                    enemyLock.GetComponent<FollowingCamera>().enemyFlag();
-                    //this.transform.LookAt(Etarget.transform);
-                }   
+                if (testE == false) testE = true;
+                else testE = false;
+                GetComponent<FollowingCamera>().enemyFlag();
             }
         }
-        //if (LockE == false)
-        //{
-        //    Debug.Log("LockE=false");
-        //}
-        //else if (LockE == true)
-        //{
-        //    Debug.Log("LockE=true");
-        //    if (!Etarget)
-        //    {
-        //    }
-        //    else
-        //    {
-        //        enemyLock.GetComponent<FollowingCamera>().enemyFlag();
-        //        //this.transform.LookAt(Etarget.transform);
-        //    }
-        //}
+        if (testE == true)
+        {
+            MainCamecra.transform.LookAt(lookAtPosE);
+            //MainCamecra.transform.position = new Vector3(
+            //   lookAtPosE.x,
+            //   lookAtPosE.y + 5.0f,
+            //   lookAtPosE.z + 10.0f);
+            //Debug.Log(lookAtPosE.y + 5.0f);
+        }
     }
 }

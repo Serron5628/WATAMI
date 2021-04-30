@@ -17,10 +17,6 @@ public class FollowingCamera : MonoBehaviour
     bool flag = true;//カメラの固定
     bool flag2 = true;//カメラのズーム
 
-
-    //ここからカメラのX,Z座標を移動させておく
-
-
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
     [SerializeField] private float azimuthalAngle = 270.0f; // angle with x-axis
@@ -97,29 +93,12 @@ public class FollowingCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
-    void LateUpdate()
-    {
-        //updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        //updateDistance(Input.GetAxis("Mouse ScrollWheel"));
-        //var lookAtPos = player.transform.position + offset;
-        ////var lookAtPosW = enemy.transform.position + offset;
-        //updatePosition(lookAtPos);
-        //transform.LookAt(lookAtPos);
-    }
 
     bool Elock = false;
     public void enemyFlag()
     {
-        if (Elock == false)
-        {
-            //Debug.Log("false");
-            Elock = true;
-        }
-        else if (Elock == true)
-        {
-           //    Debug.Log("true");
-            Elock = false;
-        }
+        if (Elock == false) Elock = true;
+        else if (Elock == true) Elock = false;
     }
 
     void updateAngle(float x, float y)
@@ -137,19 +116,13 @@ public class FollowingCamera : MonoBehaviour
         {
             if (Elock == false)
             {
-                //Debug.Log("no");
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
                 azimuthalAngle = Mathf.Repeat(x, 360);
                 polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
-            else if (Elock == true)
+            else
             {
-                //Debug.Log("ok");
-                x = 0;
-                y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-                azimuthalAngle = Mathf.Repeat(x, 360);
-                polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
 
             if (!(camera_view == null))
@@ -161,17 +134,33 @@ public class FollowingCamera : MonoBehaviour
     }
     void updateDistance(float scroll)
     {
-        scroll = distance - scroll * scrollSensitivity;
-        distance = Mathf.Clamp(scroll, minDistance, maxDistance);
+        if (Elock == false)
+        {
+            scroll = distance - scroll * scrollSensitivity;
+            distance = Mathf.Clamp(scroll, minDistance, maxDistance);
+        }
+        else
+        {
+            distance = 5.0f;
+        }
     }
     void updatePosition(Vector3 lookAtPos)
     {
-        //多分ここらへんでCameraの座標いじってる
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
-        transform.position = new Vector3(
-            lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
-            lookAtPos.y + distance * Mathf.Cos(dp),
-            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+        if (Elock == false)
+        {
+            transform.position = new Vector3(
+                lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
+                lookAtPos.y + distance * Mathf.Cos(dp),
+                lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+        }
+        else
+        {
+            transform.position = new Vector3(
+                 lookAtPos.x,
+                 lookAtPos.y * Mathf.Cos(dp),
+                 lookAtPos.z);
+        }
     }
 }
