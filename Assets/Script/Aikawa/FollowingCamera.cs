@@ -33,9 +33,11 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
 
+    bool Elock;
     private void Start()
     {
         distance = 10.0f;
+        Elock = false;
     }
 
     float disdata;
@@ -54,7 +56,6 @@ public class FollowingCamera : MonoBehaviour
         {
             float dist = Vector3.Distance(PlayerPos, hit.point);
             if (distance > dist) distance = dist;
-            Debug.Log(distance);
         }
         else
 
@@ -94,10 +95,15 @@ public class FollowingCamera : MonoBehaviour
         }
     }
 
-    bool Elock = false;
+    
     public void enemyFlag()
     {
-        if (Elock == false) Elock = true;
+        if (Elock == false)
+        {
+            Elock = true;
+            Debug.Log("A");
+        }
+
         else if (Elock == true) Elock = false;
     }
 
@@ -123,6 +129,8 @@ public class FollowingCamera : MonoBehaviour
             }
             else
             {
+                azimuthalAngle =0;
+                polarAngle =0;
             }
 
             if (!(camera_view == null))
@@ -157,10 +165,7 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector3(
-                 lookAtPos.x,
-                 lookAtPos.y * Mathf.Cos(dp),
-                 lookAtPos.z);
+            
         }
     }
 }

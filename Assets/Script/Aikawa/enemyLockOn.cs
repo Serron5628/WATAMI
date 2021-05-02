@@ -5,6 +5,7 @@ using UnityEngine;
 public class enemyLockOn : MonoBehaviour
 {
     public GameObject MainCamecra;
+    public GameObject Player;
     private GameObject Etarget;
 
     protected void OnTriggerEnter(Collider c)
@@ -35,7 +36,7 @@ public class enemyLockOn : MonoBehaviour
         if (testE == true)
         {
             testE = false;
-           GetComponent<FollowingCamera>().enemyFlag();
+           MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
         }
     }
 
@@ -48,6 +49,7 @@ public class enemyLockOn : MonoBehaviour
     private void Update()
     {
         var lookAtPosE = Etarget.transform.position;
+        var playerPos = Player.transform.position;
         if (!Etarget)
         {
         }
@@ -57,17 +59,16 @@ public class enemyLockOn : MonoBehaviour
             {
                 if (testE == false) testE = true;
                 else testE = false;
-                GetComponent<FollowingCamera>().enemyFlag();
+                MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
             }
         }
         if (testE == true)
         {
             MainCamecra.transform.LookAt(lookAtPosE);
-            //MainCamecra.transform.position = new Vector3(
-            //   lookAtPosE.x,
-            //   lookAtPosE.y + 5.0f,
-            //   lookAtPosE.z + 10.0f);
-            //Debug.Log(lookAtPosE.y + 5.0f);
+            MainCamecra.transform.position = new Vector3(
+                playerPos.x,
+                playerPos.y + 5.0f,
+                playerPos.z);
         }
     }
 }
