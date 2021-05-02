@@ -36,7 +36,8 @@ public class enemyLockOn : MonoBehaviour
         if (testE == true)
         {
             testE = false;
-           MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
+            MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
+            MainCamecra.GetComponent<FollowingCamera>().enemyFlagDistance();
         }
     }
 
@@ -46,14 +47,14 @@ public class enemyLockOn : MonoBehaviour
     }
 
     bool testE = false;
+    float Kyori;
     private void Update()
     {
         var lookAtPosE = Etarget.transform.position;
         var playerPos = Player.transform.position;
-        if (!Etarget)
-        {
-        }
-        else
+        //Kyori = Vector3.Distance(playerPos, lookAtPosE);
+        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+        if (Etarget)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -70,5 +71,9 @@ public class enemyLockOn : MonoBehaviour
                 playerPos.y + 5.0f,
                 playerPos.z);
         }
+    }
+    private void FixedUpdate()
+    {
+        
     }
 }

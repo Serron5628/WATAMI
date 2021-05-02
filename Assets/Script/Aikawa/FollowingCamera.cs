@@ -95,7 +95,6 @@ public class FollowingCamera : MonoBehaviour
         }
     }
 
-    
     public void enemyFlag()
     {
         if (Elock == false)
@@ -105,6 +104,10 @@ public class FollowingCamera : MonoBehaviour
         }
 
         else if (Elock == true) Elock = false;
+    }
+    public void enemyFlagDistance()
+    {
+        distance = maxDistance;
     }
 
     void updateAngle(float x, float y)
@@ -127,11 +130,6 @@ public class FollowingCamera : MonoBehaviour
                 azimuthalAngle = Mathf.Repeat(x, 360);
                 polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
-            else
-            {
-                azimuthalAngle =0;
-                polarAngle =0;
-            }
 
             if (!(camera_view == null))
             {
@@ -147,10 +145,6 @@ public class FollowingCamera : MonoBehaviour
             scroll = distance - scroll * scrollSensitivity;
             distance = Mathf.Clamp(scroll, minDistance, maxDistance);
         }
-        else
-        {
-            distance = 5.0f;
-        }
     }
     void updatePosition(Vector3 lookAtPos)
     {
@@ -165,7 +159,7 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-            
+
         }
     }
 }
