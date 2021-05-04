@@ -6,6 +6,7 @@ public class enemyLockOn : MonoBehaviour
 {
     public GameObject MainCamecra;
     public GameObject Player;
+    public GameObject palayerCenter;
     private GameObject Etarget;
 
     protected void OnTriggerEnter(Collider c)
@@ -61,19 +62,17 @@ public class enemyLockOn : MonoBehaviour
                 if (testE == false) testE = true;
                 else testE = false;
                 MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
+                palayerCenter.GetComponent<centerLockOn>().centerLock();
             }
         }
         if (testE == true)
         {
             MainCamecra.transform.LookAt(lookAtPosE);
-            MainCamecra.transform.position = new Vector3(
-                playerPos.x,
-                playerPos.y + 5.0f,
-                playerPos.z);
+            palayerCenter.transform.LookAt(lookAtPosE);
+            //MainCamecra.transform.position = new Vector3(
+            //    playerPos.x,
+            //    playerPos.y + 5.0f,
+            //    playerPos.z);
         }
-    }
-    private void FixedUpdate()
-    {
-        
     }
 }

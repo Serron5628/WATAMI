@@ -10,8 +10,8 @@ using System.Collections.Generic;
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class FollowingCamera : MonoBehaviour
 {
-    public GameObject player; // an object to follow
-    public GameObject enemyTest;
+    public GameObject player;
+    public GameObject playerCenter;// an object to follow
     public Vector3 offset; // offset form the target object
     public GameObject camera_view = null;
     bool flag = true;//カメラの固定
@@ -33,13 +33,18 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
 
+    //lockOn
+    [SerializeField] private float cX = 0.0f;
+    [SerializeField] private float cY = 3.0f;
+    [SerializeField] private float cZ = -5.0f;
+
     bool Elock;
     private void Start()
     {
         distance = 10.0f;
         Elock = false;
     }
-
+    
     float disdata;
     private void OnCollisionEnter(Collision collision)
     {
@@ -159,7 +164,11 @@ public class FollowingCamera : MonoBehaviour
         }
         else
         {
-
+            //transform.position = new Vector3(
+            //lookAtPos.x,
+            //lookAtPos.y + 5.0f,
+            //lookAtPos.z);
+            transform.localPosition = new Vector3(cX, cY, cZ);
         }
     }
 }
