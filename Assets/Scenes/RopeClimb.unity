@@ -233,8 +233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 
   gravity: 16
+  moveSpeed: 7
   jumpUPPower: 8
   jumpForwardPower: 4
+  fallkansei: 0.2
 --- !u!114 &709289330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709289328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0.98}
+  m_LocalPosition: {x: 0, y: 0.5, z: -2.99}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 327546215}
@@ -352,9 +354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1bbcde69138f0498e36ce165f8632e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
   minFallSpeed: 4
   riseSpeed: 0.3
   useParachute: 0
+  inUpdraft: 0
+  parachuteDOWNState: Pdown
 --- !u!1 &1086499074
 GameObject:
   m_ObjectHideFlags: 0
