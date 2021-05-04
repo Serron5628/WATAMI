@@ -227,7 +227,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 0
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7832776958584406962
@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 7832776958584406963}
   - component: {fileID: 7832776958584406965}
   - component: {fileID: 7832776958584406964}
-  - component: {fileID: 3529599889093895557}
   m_Layer: 5
   m_Name: HPGauge_Grreen
   m_TagString: Untagged
@@ -302,23 +301,9 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 0
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3529599889093895557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7832776958584406962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959408e439518ca42bdacab6e8857c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objHPGauge: {fileID: 7832776958584406962}
-  objTextHPValue: {fileID: 0}
 --- !u!1 &7832776958944887298
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,5 +356,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959408e439518ca42bdacab6e8857c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objHPGauge: {fileID: 7832776958944887298}
+  objHPGauge: {fileID: 7832776958584406962}
   objTextHPValue: {fileID: 7832776957427466670}
