@@ -56,7 +56,6 @@ public class FollowingCamera : MonoBehaviour
         Ray ray = new Ray(PlayerPos, transform.position);
         RaycastHit hit;
 
-
         if (Physics.Raycast(ray, out hit, distance))
         {
             float dist = Vector3.Distance(PlayerPos, hit.point);
@@ -162,13 +161,6 @@ public class FollowingCamera : MonoBehaviour
                 lookAtPos.y + distance * Mathf.Cos(dp),
                 lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
         }
-        else
-        {
-            //transform.position = new Vector3(
-            //lookAtPos.x,
-            //lookAtPos.y + 5.0f,
-            //lookAtPos.z);
-            transform.localPosition = new Vector3(cX, cY, cZ);
-        }
+        else transform.localPosition = new Vector3(cX, cY, cZ);
     }
 }
