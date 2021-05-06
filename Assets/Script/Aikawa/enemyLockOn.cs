@@ -48,6 +48,7 @@ public class enemyLockOn : MonoBehaviour
     }
 
     bool testE = false;
+    bool LookE = false;
     private void Update()
     {
         var lookAtPosE = Etarget.transform.position;
@@ -57,6 +58,7 @@ public class enemyLockOn : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+
                 if (testE == false) testE = true;
                 else testE = false;
                 MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
@@ -64,8 +66,15 @@ public class enemyLockOn : MonoBehaviour
         }
         if (testE == true)
         {
+            LookE = true;
             //MainCamecra.transform.LookAt(lookAtPosE);
-            palayerCenter.transform.LookAt(lookAtPosE);
         }
+        else LookE = false;
+    }
+    private void FixedUpdate()
+    {
+        var lookAtPosE = Etarget.transform.position;
+        var playerPos = Player.transform.position;
+        if (LookE == true) palayerCenter.transform.LookAt(lookAtPosE);
     }
 }
