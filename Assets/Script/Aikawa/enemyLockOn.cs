@@ -85,3 +85,4 @@ public class enemyLockOn : MonoBehaviour
             if (LookE == true) palayerCenter.transform.LookAt(lookAtPosE);
         }
     }
+}
