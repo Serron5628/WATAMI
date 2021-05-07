@@ -114,6 +114,7 @@ public class FollowingCamera : MonoBehaviour
         else if (Elock == true) Elock = false;
     }
 
+    float copyX,xx;
     void updateAngle(float x, float y)
     {
         Vector3 playerRote = player.transform.localEulerAngles;
@@ -133,14 +134,16 @@ public class FollowingCamera : MonoBehaviour
             {
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
+                azimuthalAngle = Mathf.Repeat(x, 360);
             }
             else
             {
+                //マウスの座標にすればよくね？
                 x = playerRote.y;
                 y = 60;// polarAngle;
-
+                azimuthalAngle = Mathf.Repeat(x, 360);
             }
-            azimuthalAngle = Mathf.Repeat(x, 360);
+            
             polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle); if (!(camera_view == null))
             {
                 Text view_text = camera_view.GetComponent<Text>();
