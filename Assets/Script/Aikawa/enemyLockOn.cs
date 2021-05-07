@@ -32,7 +32,7 @@ public class enemyLockOn : MonoBehaviour
             else
                 Debug.DrawLine(enemyPos, transform.position, Color.magenta, 0f, false);
         }
-        
+
     }
 
     protected void OnTriggerExit(Collider c)
@@ -79,7 +79,9 @@ public class enemyLockOn : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        var lookAtPosE = Etarget.transform.position;
-        if (LookE == true) palayerCenter.transform.LookAt(lookAtPosE);
+        if (Etarget)
+        {
+            var lookAtPosE = Etarget.transform.position;
+            if (LookE == true) palayerCenter.transform.LookAt(lookAtPosE);
+        }
     }
-}
