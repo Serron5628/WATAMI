@@ -8,7 +8,6 @@ public class MotiRotate : MonoBehaviour
     Vector2 mPos;
     Vector3 screenSizeHalf;
     public MotiHuge HUGE;
-    float rad;
     float previousRad;
     float tan = 0f;
     float RotationCount = 0;
@@ -36,6 +35,10 @@ public class MotiRotate : MonoBehaviour
         float dRad = rad - previousRad; // 前のフレームの角度との差
         if (Input.GetMouseButton(0))
         {
+            if(RotationCount == 0)
+            {
+                HUGE.ResetE();//餅の大きさリセット
+            }
             tan += Mathf.Tan(dRad); //タンジェント // * mPos.magnitude;
             Player.transform.Rotate(new Vector3(0, tan / 50, 0));//プレイヤーの回転
 
@@ -54,7 +57,6 @@ public class MotiRotate : MonoBehaviour
         {
             RotationCount = 0;//回転数リセット
             tan = 0;
-            HUGE.ResetE();//餅の大きさリセット
         }
     }
 }
