@@ -13,9 +13,11 @@ public class FollowingCamera : MonoBehaviour
     public GameObject player;
     public GameObject playerCenter;// an object to follow
     public Vector3 offset; // offset form the target object
-    public GameObject camera_view = null;
+    public GameObject camera_view;
+    public GameObject xText;
+    public GameObject playerRote_y;
     bool flag = true;//カメラの固定
-    bool flag2 = true;//カメラのズーム
+    bool zoomFlag = true;//カメラのズーム
 
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
@@ -32,24 +34,27 @@ public class FollowingCamera : MonoBehaviour
 
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
-
-    //lockOn
+    
     [SerializeField] private float cX = 0.0f;
     [SerializeField] private float cY = 3.0f;
     [SerializeField] private float cZ = -5.0f;
 
+    //Vector3 beforePos;
+    float X, Y;
     bool Elock;
+
     private void Start()
     {
         distance = 10.0f;
         Elock = false;
     }
-    
+
     float disdata;
     private void OnCollisionEnter(Collision collision)
     {
         if (distance > reDistance) disdata = distance;
     }
+
     private void OnCollisionStay(Collision collision)
     {
         Vector3 PlayerPos = player.transform.position;
@@ -65,15 +70,18 @@ public class FollowingCamera : MonoBehaviour
 
             Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        flag2 = false;
+        zoomFlag = false;
     }
+
     private void FixedUpdate()
     {
-        if (flag2 == false && distance < disdata) distance += 1.2f;
-        else flag2 = true;
+        if (zoomFlag == false && distance < disdata) distance += 1.2f;
+        else zoomFlag = true;
     }
+
     void Update()
     {
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -101,21 +109,15 @@ public class FollowingCamera : MonoBehaviour
 
     public void enemyFlag()
     {
-        if (Elock == false)
-        {
-            Elock = true;
-            Debug.Log("A");
-        }
-
-        else if (Elock == true) Elock = false;
-    }
-    public void enemyFlagDistance()
-    {
         distance = maxDistance;
+        if (Elock == false) Elock = true;
+        else if (Elock == true) Elock = false;
     }
 
     void updateAngle(float x, float y)
     {
+        Vector3 playerRote = player.transform.localEulerAngles;
+        Vector3 playerCenterRote = playerCenter.transform.localEulerAngles;
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
@@ -131,17 +133,32 @@ public class FollowingCamera : MonoBehaviour
             {
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-                azimuthalAngle = Mathf.Repeat(x, 360);
-                polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
+            else
+            {
+                x = playerRote.y;
+                y = 60;// polarAngle;
 
-            if (!(camera_view == null))
+            }
+            azimuthalAngle = Mathf.Repeat(x, 360);
+            polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle); if (!(camera_view == null))
             {
                 Text view_text = camera_view.GetComponent<Text>();
                 view_text.text = "カメラ固定 : OFF";
             }
+            if (xText)
+            {
+                Text view_X = xText.GetComponent<Text>();
+                view_X.text = "x = " + x;
+            }
+            if (playerRote_y)
+            {
+                Text view_playerRote_y = playerRote_y.GetComponent<Text>();
+                view_playerRote_y.text = "playerRote.y = " + playerRote.y;
+            }
         }
     }
+
     void updateDistance(float scroll)
     {
         if (Elock == false)
@@ -150,6 +167,7 @@ public class FollowingCamera : MonoBehaviour
             distance = Mathf.Clamp(scroll, minDistance, maxDistance);
         }
     }
+
     void updatePosition(Vector3 lookAtPos)
     {
         var da = azimuthalAngle * Mathf.Deg2Rad;
@@ -161,6 +179,9 @@ public class FollowingCamera : MonoBehaviour
                 lookAtPos.y + distance * Mathf.Cos(dp),
                 lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
         }
-        else transform.localPosition = new Vector3(cX, cY, cZ);
+        else
+        {
+            transform.localPosition = new Vector3(cX, cY, cZ);
+        }
     }
 }

@@ -38,7 +38,6 @@ public class enemyLockOn : MonoBehaviour
         {
             testE = false;
             MainCamecra.GetComponent<FollowingCamera>().enemyFlag();
-            MainCamecra.GetComponent<FollowingCamera>().enemyFlagDistance();
         }
     }
 
@@ -74,7 +73,6 @@ public class enemyLockOn : MonoBehaviour
     private void FixedUpdate()
     {
         var lookAtPosE = Etarget.transform.position;
-        var playerPos = Player.transform.position;
         if (LookE == true) palayerCenter.transform.LookAt(lookAtPosE);
     }
 }
