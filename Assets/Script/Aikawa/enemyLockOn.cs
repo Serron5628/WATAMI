@@ -17,18 +17,22 @@ public class enemyLockOn : MonoBehaviour
     float distanceE;
     private void OnTriggerStay(Collider other)
     {
-        Vector3 enemyPos = Etarget.transform.position;
-        Ray ray = new Ray(enemyPos, transform.position);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, distanceE))
+        if (Etarget)
         {
-            float dist = Vector3.Distance(enemyPos, hit.point);
-            if (distanceE > dist) distanceE = dist;
-            Debug.Log(distanceE);
+            Vector3 enemyPos = Etarget.transform.position;
+            Ray ray = new Ray(enemyPos, transform.position);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, distanceE))
+            {
+                float dist = Vector3.Distance(enemyPos, hit.point);
+                if (distanceE > dist) distanceE = dist;
+                Debug.Log(distanceE);
+            }
+            else
+                Debug.DrawLine(enemyPos, transform.position, Color.magenta, 0f, false);
         }
-        else
-            Debug.DrawLine(enemyPos, transform.position, Color.magenta, 0f, false);
+        
     }
 
     protected void OnTriggerExit(Collider c)
@@ -50,7 +54,10 @@ public class enemyLockOn : MonoBehaviour
     bool LookE = false;
     private void Update()
     {
-        var lookAtPosE = Etarget.transform.position;
+        if (Etarget)
+        {
+            var lookAtPosE = Etarget.transform.position;
+        }
         var playerPos = Player.transform.position;
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         if (Etarget)
