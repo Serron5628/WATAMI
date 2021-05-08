@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 3087b42fb53c222469006bae7a3dabcf
+=======
 <<<<<<< HEAD:Assets/Model.meta
 guid: f59407d8ebe45c4458112f4f7c27ef2d
 =======
 guid: d5a6c50e32bc38848a75edc45b6cc4ec
 >>>>>>> origin/master:Assets/Material/Aikawa.meta
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
