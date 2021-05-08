@@ -2253,8 +2253,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 
   gravity: 16
+  moveSpeed: 8
   jumpUPPower: 8
   jumpForwardPower: 4
+  fallkansei: 0
 --- !u!54 &646921899
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2269,7 +2271,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &646921900
 CapsuleCollider:
@@ -2310,9 +2312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1bbcde69138f0498e36ce165f8632e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0
   minFallSpeed: 2
   riseSpeed: 0.3
   useParachute: 0
+  inUpdraft: 0
+  parachuteDOWNState: Pdown
 --- !u!114 &646921903
 MonoBehaviour:
   m_ObjectHideFlags: 0
