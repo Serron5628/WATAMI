@@ -92,8 +92,11 @@ public class PlayerRopeClimb : MonoBehaviour
         //Debug.Log(isClimbing);
 
         //キャンセル行動
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && isClimbing == true)
         {
+            playermoveScript.playerState = playermoveScript.fallState;
+            
+            rb.velocity = Vector3.zero;
             isClimbing = false;
             rb.useGravity = true;
             playermoveScript.enabled = true;

@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     public string playerState;
     string jumpState = "Jump";
     string groundState = "Ground";
-    string fallState = "Fall";
+    public string fallState = "Fall";
 
     public float gravity;　　//（注）ゲーム全体の重力変更
     public float moveSpeed;
