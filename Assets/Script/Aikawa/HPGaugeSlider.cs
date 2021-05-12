@@ -5,11 +5,11 @@ using UnityEngine.UI;
  
 public class HPGaugeSlider : MonoBehaviour
 {
+    [SerializeField] private int maxHp = 100, hp;
     public GameObject Camera;
     public GameObject preHPGauge;
     private HPGauge hPGauge;
     private Slider slider;
-    private int maxHp = 100, hp;
     float inputHorizontal;
     float inputVertical;
 
