@@ -7,7 +7,11 @@ TagManager:
   - Enemy
   - Updraft
   - Ground
+<<<<<<< HEAD
   - Rope
+=======
+  - camera1
+>>>>>>> master
   layers:
   - Default
   - TransparentFX

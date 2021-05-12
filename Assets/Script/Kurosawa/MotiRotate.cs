@@ -39,12 +39,12 @@ public class MotiRotate : MonoBehaviour
             tan += Mathf.Tan(dRad); //タンジェント // * mPos.magnitude;
             Player.transform.Rotate(new Vector3(0, tan / 50, 0));//プレイヤーの回転
 
-            if(dRad>1||dRad<-1) //フレームの角度の差が1以上あれば餅伸ばし実行
+            if (dRad > 1 || dRad < -1) //フレームの角度の差が1以上あれば餅伸ばし実行
             {
                 RotationCount += 1;//回転数
                 HUGE.hugeScale();
             }
-            if(RotationCount>1)
+            if (RotationCount > 1)
             {
                 HUGE.hugeScale();//餅伸ばし開始
             }
