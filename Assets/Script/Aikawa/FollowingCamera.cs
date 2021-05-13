@@ -10,15 +10,14 @@ using System.Collections.Generic;
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class FollowingCamera : MonoBehaviour
 {
-    public GameObject player; // an object to follow
-    public GameObject enemy;
+    public GameObject player;
+    public GameObject playerCenter;// an object to follow
     public Vector3 offset; // offset form the target object
-    public GameObject camera_view = null;
+    public GameObject camera_view;
+    public GameObject xText;
+    public GameObject playerRote_y;
     bool flag = true;//カメラの固定
-    bool flag2 = true;//カメラのズーム
-    bool Lock = false;//ロックオンは"Q"でいいかなって思ってる
-                      //bool flag3 = true;
-
+    bool zoomFlag = true;//カメラのズーム
 
     [SerializeField] private float distance = 7.0f; // distance from following object
     [SerializeField] private float polarAngle = 20.0f; // angle with y-axis
@@ -35,33 +34,19 @@ public class FollowingCamera : MonoBehaviour
 
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
+    
+    [SerializeField] private float cX = 0.0f;
+    [SerializeField] private float cY = 3.0f;
+    [SerializeField] private float cZ = -5.0f;
 
-    private GameObject Etarget;
+    //Vector3 beforePos;
+    float X, Y;
+    bool Elock;
 
     private void Start()
     {
-        //flag = false;
         distance = 10.0f;
-    }
-    protected void OnTriggerEnter(Collider c)
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = c.gameObject;
-        }
-    }
-
-    protected void OnTriggerExit(Collider c)
-    {
-        if (c.gameObject.tag == "Enemy")
-        {
-            Etarget = null;
-        }
-    }
-
-    public GameObject getTarget()
-    {
-        return this.Etarget;
+        Elock = false;
     }
 
     float disdata;
@@ -69,34 +54,42 @@ public class FollowingCamera : MonoBehaviour
     {
         if (distance > reDistance) disdata = distance;
     }
+
     private void OnCollisionStay(Collision collision)
     {
-        Vector3 Target = player.transform.position;
-        Ray ray = new Ray(Target, transform.position);
+        Vector3 PlayerPos = player.transform.position;
+        Ray ray = new Ray(PlayerPos, transform.position);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, distance))
         {
-            float dist = Vector3.Distance(Target, hit.point);
+            float dist = Vector3.Distance(PlayerPos, hit.point);
             if (distance > dist) distance = dist;
-            Debug.Log(distance);
         }
         else
 
-            Debug.DrawLine(Target, transform.position, Color.magenta, 0f, false);
+            Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        flag2 = false;
+        zoomFlag = false;
     }
+
     private void FixedUpdate()
     {
-        if (flag2 == false && distance < disdata) distance += 1.2f;
-        else flag2 = true;
-
+        if (zoomFlag == false && distance < disdata) distance += 1.2f;
+        else zoomFlag = true;
     }
+
     void Update()
     {
+        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        updateDistance(Input.GetAxis("Mouse ScrollWheel"));
+        var lookAtPos = player.transform.position + offset;
+        updatePosition(lookAtPos);
+        transform.LookAt(lookAtPos);
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (flag == false) flag = true;
@@ -113,77 +106,85 @@ public class FollowingCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
-    void LateUpdate()
+
+    public void enemyFlag()
     {
-        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        updateDistance(Input.GetAxis("Mouse ScrollWheel"));
-        var lookAtPos = player.transform.position + offset;
-        var lookAtPosW = enemy.transform.position + offset;
-        updatePosition(lookAtPos);
-        transform.LookAt(lookAtPos);
+        distance = maxDistance;
+        if (Elock == false) Elock = true;
+        else if (Elock == true) Elock = false;
     }
 
+    float copyX,xx;
     void updateAngle(float x, float y)
     {
+        Vector3 playerRote = player.transform.localEulerAngles;
+        Vector3 playerCenterRote = playerCenter.transform.localEulerAngles;
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
-            //Debug.Log("trueです--------------------------------");
-            Text view_text = camera_view.GetComponent<Text>();
-            view_text.text = "カメラ固定 : ON";
+            if (!(camera_view == null))
+            {
+                Text view_text = camera_view.GetComponent<Text>();
+                view_text.text = "カメラ固定 : ON";
+            }
         }
         else
         {
-            //Debug.Log("falseです");
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (Lock == false) Lock = true;
-                else if (Lock == true) Lock = false;
-            }
-            if (Lock == false)
+            if (Elock == false)
             {
                 x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
                 y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
                 azimuthalAngle = Mathf.Repeat(x, 360);
-                polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
             }
-            else if (Lock == true)
+            else
             {
-                if (!Etarget)
-                {
-                    Transform Etransform = Etarget.transform;
-                    Vector3 Epos = Etransform.position;
-
-                    Epos.x = azimuthalAngle - Epos.x;
-                    Epos.y = polarAngle + Epos.y;
-                    azimuthalAngle = Mathf.Repeat(Epos.x, 360);
-                    polarAngle = Mathf.Clamp(Epos.y, minPolarAngle, maxPolarAngle);
-                }
+                //マウスの座標にすればよくね？
+                x = playerRote.y;
+                y = 60;// polarAngle;
+                azimuthalAngle = Mathf.Repeat(x, 360);
             }
-
-            //azimuthalAngle = Mathf.Repeat(x, 360);
-            //y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-            //polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
-
-            Text view_text = camera_view.GetComponent<Text>();
-            view_text.text = "カメラ固定 : OFF";
+            
+            polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle); if (!(camera_view == null))
+            {
+                Text view_text = camera_view.GetComponent<Text>();
+                view_text.text = "カメラ固定 : OFF";
+            }
+            if (xText)
+            {
+                Text view_X = xText.GetComponent<Text>();
+                view_X.text = "x = " + x;
+            }
+            if (playerRote_y)
+            {
+                Text view_playerRote_y = playerRote_y.GetComponent<Text>();
+                view_playerRote_y.text = "playerRote.y = " + playerRote.y;
+            }
         }
     }
+
     void updateDistance(float scroll)
     {
-        scroll = distance - scroll * scrollSensitivity;
-        distance = Mathf.Clamp(scroll, minDistance, maxDistance);
-        //flag2 = true;
+        if (Elock == false)
+        {
+            scroll = distance - scroll * scrollSensitivity;
+            distance = Mathf.Clamp(scroll, minDistance, maxDistance);
+        }
     }
+
     void updatePosition(Vector3 lookAtPos)
     {
-
-        //多分ここらへんでCameraの座標いじってる
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
-        transform.position = new Vector3(
-            lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
-            lookAtPos.y + distance * Mathf.Cos(dp),
-            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+        if (Elock == false)
+        {
+            transform.position = new Vector3(
+                lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
+                lookAtPos.y + distance * Mathf.Cos(dp),
+                lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+        }
+        else
+        {
+            transform.localPosition = new Vector3(cX, cY, cZ);
+        }
     }
 }
