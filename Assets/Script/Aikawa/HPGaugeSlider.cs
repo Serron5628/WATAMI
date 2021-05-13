@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- 
+
 public class HPGaugeSlider : MonoBehaviour
 {
     [SerializeField] private int maxHp = 100, hp;
@@ -10,8 +10,6 @@ public class HPGaugeSlider : MonoBehaviour
     public GameObject preHPGauge;
     private HPGauge hPGauge;
     private Slider slider;
-    float inputHorizontal;
-    float inputVertical;
 
     private void Awake()
     {
@@ -21,12 +19,16 @@ public class HPGaugeSlider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject objCanvas = GameObject.Find("Canvas");
-        GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
-        hPGauge = objHPGauge.GetComponent<HPGauge>();
-        hPGauge.MaxHP = maxHp;
-        slider = gameObject.GetComponent<Slider>();
-        slider.value = (float)hp / maxHp;
+        GameObject Hp = GameObject.FindGameObjectWithTag("HP");
+        if (!Hp)
+        {
+            GameObject objCanvas = GameObject.Find("Canvas");
+            GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
+            hPGauge = objHPGauge.GetComponent<HPGauge>();
+            hPGauge.MaxHP = maxHp;
+            slider = gameObject.GetComponent<Slider>();
+            slider.value = (float)hp / maxHp;
+        }
     }
 
     // Update is called once per frame
