@@ -34,7 +34,9 @@ public class HPGaugeSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject camera = GameObject.Find("Main Camera");
         GameObject.Find("Canvas").transform.LookAt(Camera.transform);
+        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
         hp = Mathf.FloorToInt(maxHp * slider.value);
         hPGauge.HP = hp;
     }
