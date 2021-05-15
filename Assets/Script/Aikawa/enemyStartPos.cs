@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyStartPos : MonoBehaviour
 {
     public GameObject Enemy;
-    Vector3 UIPos = new Vector3(0.0f, 1.0f, 20.0f);
+    Vector3 UIPos = new Vector3(0.0f, 0.0f, 20.0f);
     // Start is called before the first frame update
     void Start()
     {
