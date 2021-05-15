@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotiHuriorosi : MonoBehaviour
+public class CharaAnimation : MonoBehaviour
 {
-    private Animator Moti;
-    public MotiHuge HUGE;
-    private string motiStr = "isMoti";
-    bool MotiAnimation = false;
+    private Animator usagi;
+    private string usagiStr = "isCharaAnim";
+    bool CharaAnim = false;
     // Start is called before the first frame update
     void Start()
     {
-        this.Moti = GetComponent<Animator>();
-        this.Moti.SetBool(motiStr, false);
+        this.usagi = GetComponent<Animator>();
+        this.usagi.SetBool(usagiStr, false);
     }
 
     // Update is called once per frame
@@ -20,27 +19,27 @@ public class MotiHuriorosi : MonoBehaviour
     {
         if(Input.GetMouseButtonUp(0))
         {
-            MotiAnimation = true;
+            CharaAnim = true;
         }
         else
         {
             if(Input.GetMouseButton(0))
             {
-                MotiAnimation = false;
+                CharaAnim = false;
             }
         }
     }
     private void FixedUpdate()
     {
-        if(MotiAnimation)
+        if(CharaAnim)
         {
-            this.Moti.SetBool(motiStr, true);
+            this.usagi.SetBool(usagiStr, true);
         }
         else
         {
-            if(MotiAnimation==false)
+            if(CharaAnim==false)
             {
-                this.Moti.SetBool(motiStr, false);
+                this.usagi.SetBool(usagiStr, false);
             }
         }
     }
