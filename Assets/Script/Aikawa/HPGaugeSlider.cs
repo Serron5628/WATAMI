@@ -36,7 +36,7 @@ public class HPGaugeSlider : MonoBehaviour
     {
         GameObject camera = GameObject.Find("Main Camera");
         GameObject.Find("Canvas").transform.LookAt(Camera.transform);
-        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
+       // GameObject.Find("CanvasE").transform.LookAt(camera.transform);
         hp = Mathf.FloorToInt(maxHp * slider.value);
         hPGauge.HP = hp;
     }
