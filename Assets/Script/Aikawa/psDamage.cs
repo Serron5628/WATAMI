@@ -12,6 +12,8 @@ public class psDamage : MonoBehaviour
     }
     public void OnCollisionExit(Collision collision)
     {
-        slider.GetComponent<DamageValue>().Attack_1();
+        if (collision.gameObject.tag == "enemy") 
+            slider.GetComponent<DamageValue>().Attack_1();
+
     }
 }

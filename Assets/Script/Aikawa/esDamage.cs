@@ -10,8 +10,12 @@ public class esDamage : MonoBehaviour
     {
         
     }
+    
     public void OnCollisionExit(Collision collision)
     {
-        slider.GetComponent<DamageValue>().Attack_1();
+        if (collision.gameObject.tag == "Player")
+        {
+            slider.GetComponent<DamageValue>().Attack_1();
+        }
     }
 }

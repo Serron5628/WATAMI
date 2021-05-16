@@ -8,31 +8,54 @@ public class DamageValue : MonoBehaviour
 {
 
     Slider hpSlider;
-    [SerializeField] float maxHp = 10f;
-    [SerializeField] float nowHp = 10f;
+    [SerializeField] int maxHp;
+    //[SerializeField] int nowHp = 10;
+    int nowHp;
+    public GameObject preHPGauge;
+    public Canvas objCanvas;
+    private HPGauge hPGauge;
 
-    // Use this for initialization
+
+    private void Awake()
+    {
+        nowHp = maxHp;
+    }
+
     void Start()
     {
-        hpSlider = GetComponent<Slider>();
-       
+        //GameObject objCanvas = GameObject.Find("Canvas");
+        GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
+        hPGauge = objHPGauge.GetComponent<HPGauge>();
+        hPGauge.MaxHP = maxHp;
+
+        hpSlider = gameObject.GetComponent<Slider>();
+
         //スライダーの最大値の設定
         hpSlider.maxValue = maxHp;
-        hpSlider.value = nowHp;
+        hpSlider.value = (float)nowHp / maxHp;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        hpSlider.value = nowHp;
-    }
+        GameObject camera = GameObject.Find("Main Camera");
+        GameObject.Find("Canvas").transform.LookAt(camera.transform);
+        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
 
+        //nowHp = Mathf.FloorToInt(maxHp * hpSlider.value);
+        hPGauge.HP = nowHp;
+        hpSlider.value = (float)nowHp / maxHp;
+        Debug.Log(hpSlider.value);
+    }
+    int cnt = 0;
     public void Method()
     {
     }
-    int cnt = 0;
     public void Attack_1()
     {
+        cnt += 1;
+        Debug.Log(cnt);
         nowHp -= 1;
     }
     public void Attack_2()
