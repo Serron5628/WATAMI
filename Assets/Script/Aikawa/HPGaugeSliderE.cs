@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPGaugeSlider : MonoBehaviour
+public class HPGaugeSliderE : MonoBehaviour
 {
     private int maxHp = 1, hp;
-    public GameObject Camera;
     public GameObject preHPGauge;
+    public GameObject objCanvas;
     private HPGauge hPGauge;
     private Slider slider;
+    public Canvas Canvas;
 
     private void Awake()
     {
@@ -19,8 +20,7 @@ public class HPGaugeSlider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject objCanvas = GameObject.Find("Canvas");
-        GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
+        GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, Canvas.transform);
         hPGauge = objHPGauge.GetComponent<HPGauge>();
         hPGauge.MaxHP = maxHp;
         slider = gameObject.GetComponent<Slider>();
@@ -31,7 +31,7 @@ public class HPGaugeSlider : MonoBehaviour
     void Update()
     {
         GameObject camera = GameObject.Find("Main Camera");
-        GameObject.Find("Canvas").transform.LookAt(Camera.transform);
+        objCanvas.transform.LookAt(camera.transform);
        // GameObject.Find("CanvasE").transform.LookAt(camera.transform);
         hp = Mathf.FloorToInt(maxHp * slider.value);
         hPGauge.HP = hp;
