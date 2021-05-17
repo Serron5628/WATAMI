@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Prefab.meta
+guid: 62033e042407ac34f9613b414e4d43a6
+=======
+guid: f1ec96a84b13c354099669a447f4a4fe
+>>>>>>> master:Assets/Material/Murase.meta
+=======
 guid: 14b055475a6c13548bd877bd3c058244
+>>>>>>> d9619ab81218a12c911482a91164a7c5953e4a3c
+=======
+guid: f1ec96a84b13c354099669a447f4a4fe
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

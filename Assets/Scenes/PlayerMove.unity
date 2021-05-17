@@ -805,9 +805,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1bbcde69138f0498e36ce165f8632e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
   minFallSpeed: 2
   riseSpeed: 0.3
   useParachute: 0
+  inUpdraft: 0
+  parachuteDOWNState: Pdown
 --- !u!54 &1627430440
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -838,5 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 
   gravity: 16
+  moveSpeed: 7
   jumpUPPower: 8
   jumpForwardPower: 4
+  fallkansei: 0.2
