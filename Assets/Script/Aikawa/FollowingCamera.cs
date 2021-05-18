@@ -118,7 +118,6 @@ public class FollowingCamera : MonoBehaviour
     void updateAngle(float x, float y)
     {
         Vector3 playerRote = player.transform.localEulerAngles;
-        Vector3 playerCenterRote = playerCenter.transform.localEulerAngles;
         //Mouseの左長押しでCameraのアングル固定　//KeyboardでCamera固定
         if (Input.GetMouseButton(0) || flag == true)
         {
