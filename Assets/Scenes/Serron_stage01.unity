@@ -1051,13 +1051,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162865899}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1417344494}
-  m_Father: {fileID: 646921897}
-  m_RootOrder: 2
+  m_Father: {fileID: 1616741920}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &178385027 stripped
 Transform:
@@ -3066,6 +3066,7 @@ GameObject:
   - component: {fileID: 646921898}
   - component: {fileID: 646921902}
   - component: {fileID: 646921903}
+  - component: {fileID: 646921904}
   m_Layer: 0
   m_Name: Kogane
   m_TagString: Player
@@ -3086,7 +3087,6 @@ Transform:
   m_Children:
   - {fileID: 1616741920}
   - {fileID: 1768975634}
-  - {fileID: 162865900}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3103,6 +3103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 
+  fallState: Fall
   gravity: 16
   moveSpeed: 8
   jumpUPPower: 8
@@ -3183,6 +3184,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 646921896}
   HUGE: {fileID: 1417344490}
+--- !u!95 &646921904
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646921896}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9dd3d8d772850034e9ffc396817bb838, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &652715084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed159597525d19548ac5221fa71ae49a,
@@ -6151,6 +6171,8 @@ GameObject:
   - component: {fileID: 1417344492}
   - component: {fileID: 1417344491}
   - component: {fileID: 1417344490}
+  - component: {fileID: 1417344496}
+  - component: {fileID: 1417344495}
   m_Layer: 0
   m_Name: mochi_cap
   m_TagString: Moti
@@ -6246,6 +6268,38 @@ Transform:
   m_Father: {fileID: 162865900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!95 &1417344495
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417344489}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1208637fa3c95904fb6af7a344474a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1417344496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417344489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acdc4e96a3e26f4584c72b5cc5cfe38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HUGE: {fileID: 1417344490}
 --- !u!1 &1451240270
 GameObject:
   m_ObjectHideFlags: 0
