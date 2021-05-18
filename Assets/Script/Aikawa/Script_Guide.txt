@@ -1,0 +1,27 @@
+1.カメラオブジェクトに「Sphere Collider」をつけて
+　scaleのx,y,zの値をすべて0.01にする
+　（Rigidbodyを付け忘れないように）
+
+2.「FollowingCamera」をカメラオブジェクトにアタッチ
+
+3.「player」にplayerオブジェクトを入れておｋなはず
+
+※「Ｅ」と左ボタン長押しでカメラ固定
+　「Ｑ」は作成中のため間違えて触らないように注意
+
+□キャラクターの向きをカメラの進行方向に合わせるスクリプト
+
+void FixedUpdate()
+    {
+        // カメラの方向から、X-Z平面の単位ベクトルを取得
+        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+
+        // 方向キーの入力値とカメラの向きから、移動方向を決定
+        Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+        // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+        rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+
+        // キャラクターの向きを進行方向に
+        if (moveForward != Vector3.zero) transform.rotation = Quaternion.LookRotation(moveForward);
+    }
