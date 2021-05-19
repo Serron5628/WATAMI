@@ -7,7 +7,6 @@ public class HitControllTemp : MonoBehaviour
     int hitCount;
     bool stickFlag;
     [SerializeField] GameObject donguri;
-    [SerializeField] GameObject moti;
     // Start is called before the first frame update
     void Start()
     {
