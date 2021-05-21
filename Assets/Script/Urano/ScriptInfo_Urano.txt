@@ -1,0 +1,11 @@
+EneDestCount.cs
+一定数倒したら何かしらを出現させるためのトリガー用のスクリプト。
+そのエリアごとに1つずつ空のオブジェクトに入れる。
+
+EnemyDestroy.cs
+範囲外に出た敵を消すためのスクリプト。
+Senterは残したい範囲の中心、Widthは残したい範囲の幅、Minimumには落下判定の高さを入れる。前のX, Y, ZはそれぞれのPositionの座標軸。
+EneDestCount.csと併用したい場合はCounterにEneDestCount.csを入れた空のオブジェクトを入れる。
+
+wasd.cs
+存在価値無し。
