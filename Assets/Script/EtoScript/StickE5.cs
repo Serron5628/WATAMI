@@ -23,7 +23,7 @@ public class StickE5 : MonoBehaviour
     void OnTriggerStay(Collider collision)
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        if (collision.gameObject.name=="MOTI"&&ReParent==true)
+        if (collision.gameObject.name=="mochi_cap"&&ReParent==true)
         {
             this.gameObject.transform.parent = moti.gameObject.transform;
             rb.isKinematic = true;
