@@ -66,7 +66,7 @@ public class MotiRotate : MonoBehaviour
                     HUGE.KeepScale();
                 }
             }
-            if (RotationCount > 3)
+            if (RotationCount > 4)
             {
                 HUGE.hugeScale();//餅伸ばし開始
             }
