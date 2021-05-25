@@ -28,7 +28,7 @@ public class StickE5 : MonoBehaviour
         Vector3 localAngle = myTransform.localEulerAngles;
 
         rb = gameObject.GetComponent<Rigidbody>();
-        if (collision.gameObject.name=="MOTI")
+        if (collision.gameObject.name=="mochi_cap")
         {
             localAngle.x = 0;
             localAngle.y = 0;
