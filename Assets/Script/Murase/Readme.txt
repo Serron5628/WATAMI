@@ -4,8 +4,10 @@
 操作:WASD,十字キー　→　移動　　スペースキー　→　ジャンプ
 変数
 Gravity　ゲーム全体の重力量　ジャンプの落下速度が速くなる
+moveSpeed　地上にいるキャラクターの移動速度
 JumpUPPower　ジャンプの跳躍力
 JumpForwardPower　ジャンプの前進移動量
+fallkansei 落下時の慣性量（値が1のときはそれまでのXZ成分のまま、値が０だと垂直に落下する）
 
 ・PlayerParachute
 アタッチ対象:メインキャラクター
@@ -13,8 +15,18 @@ JumpForwardPower　ジャンプの前進移動量
 上昇気流エリアを示すオブジェクトに"Updraft"タグを割り当てる
 操作:Pキー
 変数
+moveSpeed　パラシュート使用時のキャラクターが前進する速度
 MinFallSpeed　滑空時の終端速度（このスピードより遅くならない）
 RiseSpeed　上昇気流エリアでの上昇速度
+
+・PlayerRopeClimb
+アタッチ対称:メインキャラクター
+内容：円柱を登り降りする動き
+操作：W,↑キーで上移動、S,↓キーで下移動、A,←キーで左回転、D,→キーで右回転
+Bキーで登る動作のキャンセル
+変数
+climbSpeed　上下移動速度
+rotateSpeed　回転速度
 
 ・GroundCheck
 アタッチ対象:プレイヤー足元の空のゲームオブジェクト

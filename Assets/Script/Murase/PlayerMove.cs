@@ -11,17 +11,24 @@ public class PlayerMove : MonoBehaviour
     public string playerState;
     string jumpState = "Jump";
     string groundState = "Ground";
-    string fallState = "Fall";
-  
+    public string fallState = "Fall";
+
     public float gravity;　　//（注）ゲーム全体の重力変更
+    public float moveSpeed;
     public float jumpUPPower;
     public float jumpForwardPower;
-    float moveSpeed = 7.0f;
+    public float fallkansei;
     float inputHorizontal;
     float inputVertical;
 
     bool isJumping = false;
+    bool setFallVelocity = false;
+    Vector3 fallVelocity;
+    int startJumpflag = 0;
     int jumpflag = 0;
+    int groundcheckCount1 = 0;
+    int groundcheckCount2 = 0;
+    int groundcheckCount3 = 0;
 
     void Start()
     {
@@ -33,10 +40,9 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerState == groundState)
+        if (playerState != fallState && playerState != jumpState
+            && parachute.useParachute == false)
         {
-            moveSpeed = 7.0f;
-
             // カメラの方向から、X-Z平面の単位ベクトルを取得
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
@@ -54,11 +60,9 @@ public class PlayerMove : MonoBehaviour
         }
         if (parachute.useParachute == true)
         {
-            moveSpeed = 3.0f;
-           
-            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;          
+            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-            rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+            rb.velocity = moveForward * parachute.moveSpeed + new Vector3(0, rb.velocity.y, 0);
 
             if (moveForward != Vector3.zero)
             {
@@ -87,7 +91,14 @@ public class PlayerMove : MonoBehaviour
 
         if (playerState == fallState)
         {
-            rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
+            if (setFallVelocity == false)
+            {
+                fallVelocity = new Vector3(rb.velocity.x * fallkansei, 0.0f, rb.velocity.z * fallkansei);
+
+                setFallVelocity = true;
+            }
+
+            rb.velocity = new Vector3(fallVelocity.x, rb.velocity.y, fallVelocity.z);
         }
     }
 
@@ -98,16 +109,35 @@ public class PlayerMove : MonoBehaviour
             inputHorizontal = Input.GetAxisRaw("Horizontal");
             inputVertical = Input.GetAxisRaw("Vertical");
         }
-       
-
-        if (groundCheck.isGround == true && rb.velocity.y <= 0)
+        if (playerState != fallState)
         {
-            playerState = groundState;
-            isJumping = false;
+            setFallVelocity = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && groundCheck.isGround == true)
+        if (playerState == jumpState && groundCheck.isGround == false)
         {
+            startJumpflag = 0;
+        }
+
+        if (groundCheck.isGround == true)
+        {
+            if (startJumpflag == 1)
+            {
+
+            }
+            else
+            {
+                playerState = groundState;
+                isJumping = false;
+                groundcheckCount1 = 0;
+                groundcheckCount2 = 0;
+                groundcheckCount3 = 0;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && playerState == groundState)
+        {
+            startJumpflag = 1;
             //ジャンプ時における方向入力の有無
             if (inputHorizontal != 0 || inputVertical != 0)
             {
@@ -125,16 +155,45 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (rb.velocity.y < 0 && playerState != jumpState)
+        if (rb.velocity.y < -0.1 && playerState != jumpState)
         {
             if (parachute.useParachute == true)
             {
-                
+
             }
             else
             {
                 playerState = fallState;
-            }       
+            }
+        }
+
+        //Unityで接地判定がとれなかったときの保険
+        if (playerState == fallState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        {
+            groundcheckCount1 += 1;
+            if (groundcheckCount1 >= 5)
+            {
+                playerState = groundState;
+                groundcheckCount1 = 0;
+            }
+        }
+        if (playerState == jumpState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        {
+            groundcheckCount2 += 1;
+            if (groundcheckCount2 >= 5)
+            {
+                playerState = groundState;
+                groundcheckCount2 = 0;
+            }
+        }
+        if (playerState == parachute.parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        {
+            groundcheckCount3 += 1;
+            if (groundcheckCount3 >= 5)
+            {
+                playerState = groundState;
+                groundcheckCount3 = 0;
+            }
         }
     }
 }
