@@ -36,8 +36,7 @@ public class DamageValue : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         GameObject camera = GameObject.Find("Main Camera");
         GameObject.Find("Canvas").transform.LookAt(camera.transform);
@@ -45,8 +44,16 @@ public class DamageValue : MonoBehaviour
 
         //nowHp = Mathf.FloorToInt(maxHp * hpSlider.value);
         hPGauge.HP = nowHp;
-        hpSlider.value = (float)nowHp / maxHp;
+        if (nowHp >= 0)
+            hpSlider.value = (float)nowHp / maxHp;
+        else if (nowHp < 0)
+            nowHp = 0;
         Debug.Log(hpSlider.value);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
     int cnt = 0;
     public void Method()

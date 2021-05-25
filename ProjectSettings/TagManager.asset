@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
+  - Ground
+  - Moti
+  - Updraft
   layers:
   - Default
   - TransparentFX
