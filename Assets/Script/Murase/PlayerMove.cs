@@ -40,7 +40,8 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerState == groundState)
+        if (playerState != fallState && playerState != jumpState
+            && parachute.useParachute == false)
         {
             // カメラの方向から、X-Z平面の単位ベクトルを取得
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
@@ -113,6 +114,11 @@ public class PlayerMove : MonoBehaviour
             setFallVelocity = false;
         }
 
+        if (playerState == jumpState && groundCheck.isGround == false)
+        {
+            startJumpflag = 0;
+        }
+
         if (groundCheck.isGround == true)
         {
             if (startJumpflag == 1)
@@ -122,21 +128,11 @@ public class PlayerMove : MonoBehaviour
             else
             {
                 playerState = groundState;
+                isJumping = false;
+                groundcheckCount1 = 0;
+                groundcheckCount2 = 0;
+                groundcheckCount3 = 0;
             }
-        }
-
-        if (playerState == jumpState && groundCheck.isGround == false)
-        {
-            startJumpflag = 0;
-        }
-
-
-        if (playerState == groundState)
-        {
-            isJumping = false;
-            groundcheckCount1 = 0;
-            groundcheckCount2 = 0;
-            groundcheckCount3 = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && playerState == groundState)
