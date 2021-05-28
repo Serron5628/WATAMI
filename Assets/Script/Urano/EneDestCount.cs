@@ -21,5 +21,6 @@ public class EneDestCount : MonoBehaviour
             appear.SetActive(true);
             Destroy(this.gameObject);
         }
+        Debug.Log(count);
     }
 }
