@@ -19,16 +19,20 @@ public class MotiHuge : MonoBehaviour
 
     public void hugeScale()
     {
-        transform.localScale = new Vector3(0.5f, 0.01f + plus, 0.5f);
-        transform.localPosition = new Vector3(-0.5f - plus, 0.5f, 0f);//(1.5f+plus*0.5f, 0, 0);-0.5f - plus
-        plus = plus + 0.0005f;
-        if (plus > 3)
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.01f + plus);
+        //transform.localPosition = new Vector3(-0.5f - plus, 0.5f, 0f);//(1.5f+plus*0.5f, 0, 0);-0.5f - plus
+        plus = plus + 0.005f;
+        if (plus > 5)
         {
-            plus = 3;//餅の大きさの限界
+            plus = 5;//餅の大きさの限界
         }
 
     }
-
+    public void KeepScale()
+    {
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.01f);
+        transform.localPosition = new Vector3(0f, 0.5f, 0f);
+    }
     public void ResetE()
     {
         transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);//マウス放したときに餅のサイズを０にする
