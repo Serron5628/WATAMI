@@ -17,13 +17,13 @@ public class StickE5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerStay(Collider collision)
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        if (collision.gameObject.name=="MOTI"&&ReParent==true)
+        if (collision.gameObject.name == "Moti_main" && ReParent == true)
         {
             this.gameObject.transform.parent = moti.gameObject.transform;
             rb.isKinematic = true;
