@@ -6,17 +6,14 @@ using UnityEngine.UI;
 public class psDamage : MonoBehaviour
 {
     public Slider slider;
-    GameObject enemy;
-    private void FixedUpdate() {
-        enemy = GameObject.FindGameObjectWithTag("enemy");
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
     public void OnCollisionExit(Collision collision)
     {
-        if(enemy)
-        {
         if (collision.gameObject.tag == "enemy") 
             slider.GetComponent<DamageValue>().Attack_1();
-        }
 
     }
 }
