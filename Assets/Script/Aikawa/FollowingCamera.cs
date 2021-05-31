@@ -12,7 +12,6 @@ public class FollowingCamera : MonoBehaviour
 {
     public GameObject player;
     public GameObject playerCenter;// an object to follow
-    public GameObject testRayhitP;
     public Vector3 offset; // offset form the target object
     public GameObject camera_view;
     public GameObject xText;
@@ -35,7 +34,7 @@ public class FollowingCamera : MonoBehaviour
 
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
-
+    
     [SerializeField] private float cX = 0.0f;
     [SerializeField] private float cY = 3.0f;
     [SerializeField] private float cZ = -5.0f;
@@ -43,41 +42,32 @@ public class FollowingCamera : MonoBehaviour
     //Vector3 beforePos;
     float X, Y;
     bool Elock;
-    bool whichD;
-    float dist;
-
-    Ray ray;
-    Vector3 PlayerPos;
-    RaycastHit hit;
 
     private void Start()
     {
         distance = 10.0f;
         Elock = false;
-        whichD = false;
     }
 
     float disdata;
     private void OnCollisionEnter(Collision collision)
     {
-        if (distance >= reDistance) disdata = distance;
+        if (distance > reDistance) disdata = distance;
     }
 
     private void OnCollisionStay(Collision collision)
     {
+        Vector3 PlayerPos = player.transform.position;
+        Ray ray = new Ray(PlayerPos, transform.position);
+        RaycastHit hit;
+
         if (Physics.Raycast(ray, out hit, distance))
         {
-            dist = Vector3.Distance(PlayerPos, hit.point);
-            if (distance > dist)
-            {
-                distance = dist;
-                whichD = true;
-                testRayhitP.transform.position = hit.point;
-            }
-            else
-                whichD = false;
+            float dist = Vector3.Distance(PlayerPos, hit.point);
+            if (distance > dist) distance = dist;
         }
         else
+
             Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
     }
 
@@ -88,11 +78,8 @@ public class FollowingCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerPos = player.transform.position;
-        ray = new Ray(PlayerPos, this.transform.position);
         if (zoomFlag == false && distance < disdata) distance += 1.2f;
         else zoomFlag = true;
-        
     }
 
     void Update()
@@ -127,7 +114,7 @@ public class FollowingCamera : MonoBehaviour
         else if (Elock == true) Elock = false;
     }
 
-    float copyX, xx;
+    float copyX,xx;
     void updateAngle(float x, float y)
     {
         Vector3 playerRote = player.transform.localEulerAngles;
@@ -155,7 +142,7 @@ public class FollowingCamera : MonoBehaviour
                 y = 60;// polarAngle;
                 azimuthalAngle = Mathf.Repeat(x, 360);
             }
-
+            
             polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle); if (!(camera_view == null))
             {
                 Text view_text = camera_view.GetComponent<Text>();
@@ -164,12 +151,12 @@ public class FollowingCamera : MonoBehaviour
             if (xText)
             {
                 Text view_X = xText.GetComponent<Text>();
-                view_X.text = "dist " + dist + ", distdata " + disdata;
+                view_X.text = "x = " + x;
             }
             if (playerRote_y)
             {
                 Text view_playerRote_y = playerRote_y.GetComponent<Text>();
-                view_playerRote_y.text = "distance " + distance;
+                view_playerRote_y.text = "playerRote.y = " + playerRote.y;
             }
         }
     }

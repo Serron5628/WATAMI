@@ -5,15 +5,10 @@ using UnityEngine;
 public class HitControllTemp : MonoBehaviour
 {
     int hitCount;
-    bool stickFlag;
-    [SerializeField] GameObject donguri;
-    public GameObject counter;
     // Start is called before the first frame update
     void Start()
     {
         hitCount = 0;
-        stickFlag = false;
-
     }
 
     void FixedUpdate()
@@ -21,23 +16,11 @@ public class HitControllTemp : MonoBehaviour
         //HP減ったときに何かするってなったらここいじってくれればおｋ
         if(hitCount == 10)
         {
-            stickFlag = true;
 
         }
         else if(hitCount == 20)
         {
 
-        }
-
-        if(stickFlag == true)
-        {
-            donguri.GetComponent<StickE5>().enabled = true;
-            if (counter == true)
-            {
-                counter.GetComponent<EneDestCount>().count--;
-                Destroy(this);
-            }
-            donguri.GetComponent<EnemyMove>().enabled = false;
         }
     }
 
@@ -47,8 +30,8 @@ public class HitControllTemp : MonoBehaviour
         if(other.gameObject.tag == "Moti")
         {
             hitCount++;
-            //Debug.Log("hit!");
+            Debug.Log("hit!");
         }
-        
+        Debug.Log(hitCount);
     }
 }

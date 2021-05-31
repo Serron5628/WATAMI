@@ -5,7 +5,9 @@ using UnityEngine;
 public class spin2 : MonoBehaviour
 {
     public huge HUGE;
+    public StickE4 stickE4;
     //public ReleaseE releaseE;
+    bool rotational;
     //bool rotational3;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,7 @@ public class spin2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rotational = stickE4.rotationOn;
         //rotational3 = releaseE.rotational2;
         //if(rotational==true)
         //{

@@ -14,14 +14,6 @@ public class SizeE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //Transform myTransform = this.transform;
-        //Vector3 localAngle = myTransform.localEulerAngles;
-        //localAngle.x = 0;
-        //localAngle.y = 0;
-        //localAngle.z = 0;
-        //myTransform.localEulerAngles = localAngle;
-
         Vector3 lossScale = transform.lossyScale;
         Vector3 localScale = transform.localScale;
         transform.localScale = new Vector3(
