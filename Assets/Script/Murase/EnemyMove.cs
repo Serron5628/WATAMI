@@ -13,6 +13,8 @@ public class EnemyMove : MonoBehaviour
     public float Speed;
     public float rotateSpeed;
     public float stopDist;
+    public bool isAttack;
+    public bool distant;
 
     private Animator animator;
 
@@ -30,17 +32,20 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
+        isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
 
         if (target != null && agent.enabled == true)
         {
             agent.destination = target.position;
             agent.speed = Speed;
-            agent.stoppingDistance = stopDist;
+            /*経路探索を終了するstoppingDistanceとアニメーションを遷移させるstopDistが同じ値だと
+            　不具合があったので、-0.3fした距離を設定*/
+            agent.stoppingDistance = stopDist - 0.3f;
         }
 
         if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
         {
+            distant = true;
             agent.enabled = false;
             obstacle.enabled = true;
 
@@ -59,6 +64,7 @@ public class EnemyMove : MonoBehaviour
         else
         {
             this.animator.SetBool(panchStr, false);
+            distant = false;
             
             if (isAttack == false)
             {
