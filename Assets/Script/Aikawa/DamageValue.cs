@@ -18,12 +18,11 @@ public class DamageValue : MonoBehaviour
 
     private void Awake()
     {
-        //nowHp = maxHp;
+        nowHp = maxHp;
     }
 
     void Start()
     {
-        nowHp = maxHp;
         //GameObject objCanvas = GameObject.Find("Canvas");
         GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
         hPGauge = objHPGauge.GetComponent<HPGauge>();
@@ -40,8 +39,9 @@ public class DamageValue : MonoBehaviour
     private void FixedUpdate()
     {
         GameObject camera = GameObject.Find("Main Camera");
-
         GameObject.Find("Canvas").transform.LookAt(camera.transform);
+        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
+
         //nowHp = Mathf.FloorToInt(maxHp * hpSlider.value);
         hPGauge.HP = nowHp;
         if (nowHp >= 0)
@@ -50,11 +50,19 @@ public class DamageValue : MonoBehaviour
             nowHp = 0;
         Debug.Log(hpSlider.value);
     }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    int cnt = 0;
     public void Method()
     {
     }
     public void Attack_1()
     {
+        cnt += 1;
+        Debug.Log(cnt);
         nowHp -= 1;
     }
     public void Attack_2()
