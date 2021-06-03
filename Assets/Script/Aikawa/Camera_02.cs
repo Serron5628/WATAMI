@@ -32,13 +32,12 @@ public class Camera_02 : MonoBehaviour
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
-    float dis,disdate;
+    float dis,disdate=3.0f;
     Ray ray;
     Vector3 CameraPos1;
     
     void Start()
     {
-        disdate = 10;
         transform.position = new Vector3();
     }
 

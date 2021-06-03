@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,12 +35,11 @@ public class DamageValue : MonoBehaviour
         hpSlider.value = (float)nowHp / maxHp;
         
     }
-
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
         GameObject camera = GameObject.Find("Main Camera");
         GameObject.Find("Canvas").transform.LookAt(camera.transform);
-        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
 
         //nowHp = Mathf.FloorToInt(maxHp * hpSlider.value);
         hPGauge.HP = nowHp;
@@ -49,10 +48,6 @@ public class DamageValue : MonoBehaviour
         else if (nowHp < 0)
             nowHp = 0;
         Debug.Log(hpSlider.value);
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
     }
     int cnt = 0;
