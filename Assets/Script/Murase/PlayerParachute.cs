@@ -90,7 +90,7 @@ public class PlayerParachute : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Fixedupdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.P))
         {
