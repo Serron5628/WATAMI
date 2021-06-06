@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     string jumpState = "Jump";
     string groundState = "Ground";
     public string fallState = "Fall";
+    public int count = 0;
 
     public float gravity;　　//（注）ゲーム全体の重力変更
     public float moveSpeed;
@@ -103,6 +104,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(groundcheckCount2);
+        //Debug.Log(groundCheck.isGround);
         if (playerState != jumpState)
         {
             inputHorizontal = Input.GetAxisRaw("Horizontal");
@@ -125,7 +128,7 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (playerState == jumpState && groundCheck.isGround == false)
+        if (playerState == jumpState && groundCheck.isGround == false && rb.velocity.y < -0.1)
         {
             startJumpflag = 0;
         }
@@ -134,13 +137,15 @@ public class PlayerMove : MonoBehaviour
         if (playerState == groundState)
         {
             isJumping = false;
+            count = 0;
             groundcheckCount1 = 0;
             groundcheckCount2 = 0;
             groundcheckCount3 = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && playerState == groundState)
+        if (Input.GetKeyDown(KeyCode.Space) && playerState == groundState && count == 0)
         {
+            count = 1;
             startJumpflag = 1;
             //ジャンプ時における方向入力の有無
             if (inputHorizontal != 0 || inputVertical != 0)
@@ -172,7 +177,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         //Unityで接地判定がとれなかったときの保険
-        if (playerState == fallState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        if (playerState == fallState && Mathf.Abs(rb.velocity.y) <= 0.001)
         {
             groundcheckCount1 += 1;
             if (groundcheckCount1 >= 5)
@@ -181,7 +186,7 @@ public class PlayerMove : MonoBehaviour
                 groundcheckCount1 = 0;
             }
         }
-        if (playerState == jumpState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        if (playerState == jumpState && Mathf.Abs(rb.velocity.y) <= 0.001)
         {
             groundcheckCount2 += 1;
             if (groundcheckCount2 >= 5)
@@ -190,7 +195,7 @@ public class PlayerMove : MonoBehaviour
                 groundcheckCount2 = 0;
             }
         }
-        if (playerState == parachute.parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.1)
+        if (playerState == parachute.parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.001)
         {
             groundcheckCount3 += 1;
             if (groundcheckCount3 >= 5)

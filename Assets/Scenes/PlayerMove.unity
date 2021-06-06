@@ -428,6 +428,128 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &303956823
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5478437599705091428, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554840, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554841, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_Name
+      value: Kogane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554842, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554843, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: fallkansei
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554844, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75f489529adbfba47848015ea2661f9e, type: 3}
+--- !u!1 &610745380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5478437600558554841, guid: 75f489529adbfba47848015ea2661f9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 303956823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610745381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610745380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e04ededc6b55f46b90bdf2ffadfe48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Warp: {fileID: 0}
+--- !u!114 &610745382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610745380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86070b1ba8de4b346befa912e1507e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 2
+  rotateSpeed: 3
 --- !u!1 &758446681
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1627430435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1028,6 +1150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 
   fallState: Fall
+  count: 0
   gravity: 16
   moveSpeed: 7
   jumpUPPower: 8
