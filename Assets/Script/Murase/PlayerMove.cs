@@ -30,12 +30,17 @@ public class PlayerMove : MonoBehaviour
     int groundcheckCount2 = 0;
     int groundcheckCount3 = 0;
 
+    private CriAtomSource KoganeRun;  //サウンド関連
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         groundCheck = GameObject.Find("GroundChecker").GetComponent<GroundCheck>();
         parachute = GetComponent<PlayerParachute>();
         Physics.gravity = new Vector3(0, -gravity, 0);
+
+        //CriAtomSourceの取得
+        KoganeRun = GetComponent<CriAtomSource>();
     }
 
     void FixedUpdate()
@@ -99,6 +104,24 @@ public class PlayerMove : MonoBehaviour
             }
 
             rb.velocity = new Vector3(fallVelocity.x, rb.velocity.y, fallVelocity.z);
+        }
+
+        //足音実装
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            KoganeRun.Play();
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            KoganeRun.Play();
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            KoganeRun.Play();
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            KoganeRun.Play();
         }
     }
 
