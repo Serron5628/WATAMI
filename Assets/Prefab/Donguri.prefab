@@ -101,8 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  donguri: {fileID: 0}
   Speed: 1
+  rotateSpeed: 0
   stopDist: 5
+  isAttack: 0
+  distant: 0
 --- !u!64 &6133303688642392769
 MeshCollider:
   m_ObjectHideFlags: 0
