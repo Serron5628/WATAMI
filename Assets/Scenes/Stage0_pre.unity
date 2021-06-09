@@ -12188,7 +12188,7 @@ MonoBehaviour:
   player: {fileID: 1255879392}
   camera_view: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  distance: 0.95663637
+  distance: 5
   disZoomSpeed: 20
   polarAngle: 80
   azimuthalAngle: 270
@@ -12258,8 +12258,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988642277}
-  m_LocalRotation: {x: 0.08715574, y: -0.000000005939547, z: 5.1964305e-10, w: 0.9961947}
-  m_LocalPosition: {x: 0.0007784738, y: 2.4601758, z: 0.03465988}
+  m_LocalRotation: {x: 0.08715576, y: -0.0000000059410614, z: 5.1977567e-10, w: 0.9961947}
+  m_LocalPosition: {x: 0.0007785213, y: 3.1622987, z: -3.9472759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
