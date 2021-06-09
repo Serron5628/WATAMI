@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 8681816247706562957}
   - component: {fileID: 8681816247706562959}
   - component: {fileID: 8681816247706562956}
+  - component: {fileID: 397733963154992207}
   m_Layer: 5
   m_Name: text
   m_TagString: Untagged
@@ -228,6 +229,21 @@ MonoBehaviour:
   m_Text: 'HP
 
 '
+--- !u!114 &397733963154992207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681816247706562946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8681816248368651285
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +255,7 @@ GameObject:
   - component: {fileID: 8681816248368651284}
   - component: {fileID: 8681816248368651286}
   - component: {fileID: 8681816248368651287}
+  - component: {fileID: 769038658942666703}
   m_Layer: 5
   m_Name: hpValue
   m_TagString: Untagged
@@ -306,6 +323,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 000
+--- !u!114 &769038658942666703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681816248368651285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8681816249190626460
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,3 +405,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2dbb59e8a66cd43b5fd8a2f74a5c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIcenter: {fileID: 0}
+  pCenter: {fileID: 0}
