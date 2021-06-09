@@ -462,6 +462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
       propertyPath: m_RootOrder
@@ -623,6 +628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Donguri (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
@@ -1839,6 +1849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
       propertyPath: m_RootOrder
@@ -1940,6 +1955,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1961,7 +1991,7 @@ PrefabInstance:
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.000000015887386
       objectReference: {fileID: 0}
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -1971,7 +2001,7 @@ PrefabInstance:
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.0000000382779
       objectReference: {fileID: 0}
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -1981,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 1.5000005
       objectReference: {fileID: 0}
     - target: {fileID: 640152947308259718, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -2008,20 +2038,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1896496051115542814, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 1988642277}
+    - target: {fileID: 1896496051115542814, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
+      propertyPath: objCanvas
+      value: 
+      objectReference: {fileID: 2013970352}
     - target: {fileID: 5769630990002340563, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.001
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 5769630990002340563, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.001
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 5769630990002340563, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.001
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 5769630990002340563, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -2031,7 +2071,7 @@ PrefabInstance:
     - target: {fileID: 7090552406890215550, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: hpCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 9190379738416421253, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -2814,6 +2854,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
       propertyPath: m_RootOrder
@@ -3279,6 +3324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
       propertyPath: m_RootOrder
@@ -3639,7 +3689,7 @@ GameObject:
   - component: {fileID: 750607197}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: StartWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4146,7 +4196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23174
+  m_Name: pb_Mesh16438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5475,7 +5525,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23110
+  m_Name: pb_Mesh16378
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5984,6 +6034,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8bac497ff3d4754d82e3eef35298054, type: 3}
+--- !u!1 &1255879392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5732617829162002090, guid: 75f489529adbfba47848015ea2661f9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 168736668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257370174
 GameObject:
   m_ObjectHideFlags: 0
@@ -7102,6 +7158,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
       propertyPath: m_RootOrder
@@ -7594,6 +7655,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.98768, y: 1, z: 0.1564}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1780564688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1780564689}
+  m_Layer: 0
+  m_Name: UIcenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1780564689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780564688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 763427003}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1828218625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7987,6 +8078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Donguri (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
@@ -12089,12 +12185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1593c5e4e600647a43051405f13604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 763426996}
+  player: {fileID: 1255879392}
   camera_view: {fileID: 0}
-  view: {fileID: 0}
-  view2: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
-  distance: 0.09999998
+  distance: 0.95663637
   disZoomSpeed: 20
   polarAngle: 80
   azimuthalAngle: 270
@@ -12164,8 +12258,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988642277}
-  m_LocalRotation: {x: 0.087155364, y: -0.000000005939751, z: 5.196586e-10, w: 0.9961948}
-  m_LocalPosition: {x: 0.0000000011743713, y: 2.5173647, z: 0.90151924}
+  m_LocalRotation: {x: 0.08715574, y: -0.000000005939547, z: 5.1964305e-10, w: 0.9961947}
+  m_LocalPosition: {x: 0.0007784738, y: 2.4601758, z: 0.03465988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12316,6 +12410,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.564, y: 1, z: 0.564}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2013970351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7090552406890215550, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 287490526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &2013970352 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1555424581911009326, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 287490526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013970353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013970351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2dbb59e8a66cd43b5fd8a2f74a5c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIcenter: {fileID: 1780564688}
+  pCenter: {fileID: 1255879392}
 --- !u!1 &2034057103
 GameObject:
   m_ObjectHideFlags: 0
@@ -13288,6 +13408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Donguri
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853342065277942040, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
