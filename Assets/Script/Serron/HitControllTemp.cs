@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HitControllTemp : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class HitControllTemp : MonoBehaviour
     {
         hitCount = 0;
         stickFlag = false;
-
     }
 
     void FixedUpdate()
@@ -38,6 +38,7 @@ public class HitControllTemp : MonoBehaviour
                 Destroy(this);
             }
             donguri.GetComponent<EnemyMove>().enabled = false;
+            donguri.GetComponent<NavMeshAgent>().enabled = false;
         }
     }
 
