@@ -89,7 +89,6 @@ public class PlayerParachute : MonoBehaviour
             }
         }
     }
-
     // Update is called once per frame
     void Update()
     {

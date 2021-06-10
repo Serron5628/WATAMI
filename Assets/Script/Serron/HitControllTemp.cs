@@ -7,6 +7,7 @@ public class HitControllTemp : MonoBehaviour
     int hitCount;
     bool stickFlag;
     [SerializeField] GameObject donguri;
+    public GameObject counter;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,12 @@ public class HitControllTemp : MonoBehaviour
         if(stickFlag == true)
         {
             donguri.GetComponent<StickE5>().enabled = true;
+            if (counter == true)
+            {
+                counter.GetComponent<EneDestCount>().count--;
+                Destroy(this);
+            }
+            donguri.GetComponent<EnemyMove>().enabled = false;
         }
     }
 
@@ -40,8 +47,8 @@ public class HitControllTemp : MonoBehaviour
         if(other.gameObject.tag == "Moti")
         {
             hitCount++;
-            Debug.Log("hit!");
+            //Debug.Log("hit!");
         }
-        Debug.Log(hitCount);
+        
     }
 }

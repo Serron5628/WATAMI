@@ -33,9 +33,9 @@ public class EnemyDestroy : MonoBehaviour
         {
             if (counter != null)
             {
-                counter.count--;
+                //counter.count--;
             }
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 }
