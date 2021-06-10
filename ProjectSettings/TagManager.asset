@@ -9,6 +9,8 @@ TagManager:
   - Updraft
   - Rope
   - Warp
+  - enemy
+  - StartWall
   layers:
   - Default
   - TransparentFX

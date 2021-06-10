@@ -1,76 +1,38 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 public class DamageValue : MonoBehaviour
 {
-
     Slider hpSlider;
     [SerializeField] int maxHp;
-    //[SerializeField] int nowHp = 10;
     int nowHp;
     public GameObject preHPGauge;
     public Canvas objCanvas;
     private HPGauge hPGauge;
-
-
-    private void Awake()
-    {
+    private void Awake(){
         nowHp = maxHp;
     }
-
-    void Start()
-    {
-        //GameObject objCanvas = GameObject.Find("Canvas");
+    void Start(){
         GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
         hPGauge = objHPGauge.GetComponent<HPGauge>();
         hPGauge.MaxHP = maxHp;
-
         hpSlider = gameObject.GetComponent<Slider>();
-
-        //スライダーの最大値の設定
         hpSlider.maxValue = maxHp;
         hpSlider.value = (float)nowHp / maxHp;
-        
     }
-
-    private void FixedUpdate()
-    {
-        GameObject camera = GameObject.Find("Main Camera");
-        GameObject.Find("Canvas").transform.LookAt(camera.transform);
-        GameObject.Find("CanvasE").transform.LookAt(camera.transform);
-
-        //nowHp = Mathf.FloorToInt(maxHp * hpSlider.value);
+    void Update(){ 
         hPGauge.HP = nowHp;
-        if (nowHp >= 0)
-            hpSlider.value = (float)nowHp / maxHp;
-        else if (nowHp < 0)
-            nowHp = 0;
-        Debug.Log(hpSlider.value);
+        if (nowHp >= 0) hpSlider.value = (float)nowHp / maxHp;
+        else if (nowHp < 0)nowHp = 0;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    int cnt = 0;
-    public void Method()
-    {
-    }
-    public void Attack_1()
-    {
-        cnt += 1;
-        Debug.Log(cnt);
+    public void Attack_1(){
         nowHp -= 1;
     }
-    public void Attack_2()
-    {
+    public void Attack_2(){
         nowHp -= 3;
     }
-    public void Attack_3()
-    {
+    public void Attack_3(){
         nowHp -= 10;
     }
 }
