@@ -11,6 +11,8 @@ TagManager:
   - Warp
   - enemy
   - StartWall
+  - Boss
+  - lastAttack
   layers:
   - Default
   - TransparentFX

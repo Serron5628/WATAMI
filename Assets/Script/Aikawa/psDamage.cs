@@ -19,5 +19,7 @@ public class psDamage : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy") 
             slider.GetComponent<DamageValue>().Attack_1();
+        else if(other.gameObject.tag=="Boss")
+            slider.GetComponent<DamageValue>().Attack_2();
     }
 }
