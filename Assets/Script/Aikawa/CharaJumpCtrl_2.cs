@@ -7,40 +7,16 @@ public class CharaJumpCtrl_2 : MonoBehaviour
     private Animator usagi;
     private string usagiStr = "isHissatu";
     public static bool HissatuAnim = false;
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         this.usagi = GetComponent<Animator>();
         this.usagi.SetBool(usagiStr, false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButtonUp(0))
-        {
-            HissatuAnim = true;
-        }
-        else
-        {
-            if(Input.GetMouseButton(0))
-            {
-                HissatuAnim = false;
-            }
-        }
+    void Update(){
+        if(Input.GetMouseButtonUp(0))HissatuAnim = true;
+        else if(Input.GetMouseButton(0)) HissatuAnim = false;
     }
-    void FixedUpdate()
-    {
-        if (HissatuAnim)
-        {
-            this.usagi.SetBool(usagiStr, true);
-        }
-        else
-        {
-            if (HissatuAnim == false)
-            {
-                this.usagi.SetBool(usagiStr, false);
-            }
-        }
+    void FixedUpdate(){
+        if (HissatuAnim)this.usagi.SetBool(usagiStr, true);
+        else if (HissatuAnim == false)this.usagi.SetBool(usagiStr, false);
     }
 }
