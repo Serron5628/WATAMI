@@ -3,19 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class esDamage : MonoBehaviour
-{
+public class esDamage : MonoBehaviour{
     public Slider slider;
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-    
-    public void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            slider.GetComponent<DamageValue>().Attack_1();
-        }
+    public void OnTriggerEnter(Collider other){
+        if (other.gameObject.tag == "lastAttack")slider.GetComponent<DamageValue>().Attack_3();
+        if (other.gameObject.tag == "Moti")slider.GetComponent<DamageValue>().Attack_1();
     }
 }

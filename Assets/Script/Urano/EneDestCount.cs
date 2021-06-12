@@ -22,6 +22,6 @@ public class EneDestCount : MonoBehaviour
             appear.GetComponent<EnemyMove>().enabled = true;
             Destroy(this.gameObject);
         }
-        Debug.Log(count);
+        //Debug.Log(count);
     }
 }
