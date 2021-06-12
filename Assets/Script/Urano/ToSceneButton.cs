@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ToSceneButton : MonoBehaviour
 {
-    [SerializeField]
-    string nextStageName;
+    public string nextStageName;
+    string pushStage;
     [SerializeField]
     float waitTime;
     public void NextScene()
     {
+        pushStage = nextStageName;
         Invoke("ChangeScene", waitTime);
     }
 
     void ChangeScene()
     {
-        SceneManager.LoadScene(nextStageName);
+        SceneManager.LoadScene(pushStage);
     }
 }
