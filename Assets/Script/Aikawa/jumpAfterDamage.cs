@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class jumpAfterDamage : CharaJumpCtrl_2{
-    public static float attackTime=0.0f;
-    public void Update(){
-        if(HissatuAnim == true){
-            attackTime+=Time.deltaTime;
-            LastAttack();
-        }
-        //if(attackTime>=)
+    public GameObject lastAttack;
+    public static float attackTime=0.0f,motiTime=0.0f;
+    public static bool attackFlag,bigMotiFlag;
+    public void Start(){
+        attackFlag = false;
+        lastAttack.SetActive(false);
     }
-    public void LastAttack(){
-         Debug.Log("振り下ろし確認");
+    public void Update(){
+        if(Input.GetMouseButtonUp(0))attackFlag=true;
+        if(attackTime>=1.0f){
+            SuperAttack();
+            lastAttack.SetActive(true);
+        }
+        if(attackTime>=2.0f){
+            attackFlag=false;
+            lastAttack.SetActive(false);
+        }
+
+        if(attackFlag == true)attackTime+=Time.deltaTime;
+        else attackTime = 0.0f;
+    }
+    public void SuperAttack(){
+         Debug.Log(attackTime);
     }
 }

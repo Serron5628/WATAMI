@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - StartWall
   - Boss
+  - lastAttack
   layers:
   - Default
   - TransparentFX

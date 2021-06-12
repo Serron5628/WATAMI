@@ -12,11 +12,13 @@ public class CharaJumpCtrl_2 : MonoBehaviour
         this.usagi.SetBool(usagiStr, false);
     }
     void Update(){
-        if(Input.GetMouseButtonUp(0))HissatuAnim = true;
-        else if(Input.GetMouseButton(0)) HissatuAnim = false;
-    }
-    void FixedUpdate(){
-        if (HissatuAnim)this.usagi.SetBool(usagiStr, true);
-        else if (HissatuAnim == false)this.usagi.SetBool(usagiStr, false);
+        if(Input.GetMouseButtonUp(0)){
+            this.usagi.SetBool(usagiStr, true);
+            HissatuAnim = true;
+        }
+        if(Input.GetMouseButton(0)){
+                this.usagi.SetBool(usagiStr, false);
+                HissatuAnim = false;
+        }
     }
 }

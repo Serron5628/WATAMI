@@ -33,7 +33,7 @@ public class Camera_02 : MonoBehaviour{
     Ray ray;
     Vector3 CameraPos1;
     void Start(){
-        distance = 5.0f;
+        distance = 6.0f;
         disdata = distance;
     }
 
@@ -43,7 +43,7 @@ public class Camera_02 : MonoBehaviour{
         ray = new Ray(PlayerPos, CameraPos1);
         Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
         if (Physics.Linecast(PlayerPos,transform.position, out hit)) {
-            if (hit.collider.tag != "Player"&&hit.collider.tag != "Moti"&&hit.collider.tag != "enemy"&&hit.collider.tag != "StartWall"){
+            if (hit.collider.tag != "Player"&&hit.collider.tag != "Moti"&&hit.collider.tag != "enemy"&&hit.collider.tag != "StartWall"&&hit.collider.tag != "lastAttack"){
                 minusDistance();
                 dis = Vector3.Distance(PlayerPos,hit.point);
             }
