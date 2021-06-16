@@ -13,19 +13,17 @@ public class Camera_02 : MonoBehaviour{
     public GameObject camera_view;
     public Vector3 offset;
     
-    bool cameraLock = true,cameraZoom = false;
+    bool cameraLock = true;
 
     [SerializeField] private float distance = 5.0f; 
     [SerializeField] private float disZoomSpeed = 20.0f;
     [SerializeField] private float polarAngle = 80.0f; 
     [SerializeField] private float azimuthalAngle = 270.0f; 
-    [SerializeField] private float reDistance = 7.0f;
 
     [SerializeField] private float minPolarAngle = 20.0f;
     [SerializeField] private float maxPolarAngle = 140.0f;
     [SerializeField] private float mouseXSensitivity = 5.0f;
     [SerializeField] private float mouseYSensitivity = 5.0f;
-    [SerializeField] private float scrollSensitivity = 5.0f;
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
