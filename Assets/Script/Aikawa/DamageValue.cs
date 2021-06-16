@@ -23,16 +23,15 @@ public class DamageValue : MonoBehaviour
     }
     void Update(){ 
         hPGauge.HP = nowHp;
-        if (nowHp >= 0) hpSlider.value = (float)nowHp / maxHp;
-        else if (nowHp < 0)nowHp = 0;
+        hpSlider.value = (float)nowHp / maxHp;
     }
     public void Attack_1(){
-        nowHp -= 1;
+        if (nowHp >= 1)nowHp -= 1;
     }
     public void Attack_2(){
-        nowHp -= 3;
+        if (nowHp >= 3)nowHp -= 3;
     }
     public void Attack_3(){
-        nowHp -= 10;
+        if (nowHp >= 10)nowHp -= 10;
     }
 }
