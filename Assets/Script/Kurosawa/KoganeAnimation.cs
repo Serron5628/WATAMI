@@ -8,6 +8,7 @@ public class KoganeAnimation : MonoBehaviour
     private Animator animator;
 
     private string rotateStr = "isRotate";
+    private string walkStr = "isWalk";
     void Start()
     {
         this.animator = GetComponent<Animator>();
@@ -25,6 +26,14 @@ public class KoganeAnimation : MonoBehaviour
         {
             //wait
             this.animator.SetBool(rotateStr, false);
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            this.animator.SetBool(walkStr, true);
+        }
+        else
+        {
+            this.animator.SetBool(walkStr, false);
         }
     }
 }
