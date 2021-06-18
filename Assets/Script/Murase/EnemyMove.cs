@@ -44,49 +44,50 @@ public class EnemyMove : MonoBehaviour
             agent.stoppingDistance = stopDist - 0.3f;
         }
 
+        this.animator.enabled = true;
+        isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
+
+        if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+        {
+            distant = true;
+            agent.enabled = false;
+            obstacle.enabled = true;
+
+            //経路探索をストップした後にプレイヤーの方を向かせる
+            /*if (setVec == false)
+            {
+                Vector3 vec = target.position - transform.position;
+                Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
+                transform.LookAt(nvec);
+                setVec = true;
+            }*/
+
+            this.animator.SetBool(walkStr, false);
+            this.animator.SetBool(panchStr, true);
+        }
+        else
+        {
+            this.animator.SetBool(panchStr, false);
+            distant = false;
+
+            if (isAttack == false)
+            {
+
+                agent.enabled = true;
+                obstacle.enabled = false;
+
+                this.animator.SetBool(walkStr, true);
+            }
+        }
         //プロトタイプでの使用
         //プレイヤーがステージに入ってから動きだす
-        if (warpScript.Warp == null)
+        /*if (warpScript.Warp == null)
         {
-            this.animator.enabled = true;
-            isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
-
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
-            {
-                distant = true;
-                agent.enabled = false;
-                obstacle.enabled = true;
-
-                //経路探索をストップした後にプレイヤーの方を向かせる
-                /*if (setVec == false)
-                {
-                    Vector3 vec = target.position - transform.position;
-                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                    transform.LookAt(nvec);
-                    setVec = true;
-                }*/
-
-                this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(panchStr, true);
-            }
-            else
-            {
-                this.animator.SetBool(panchStr, false);
-                distant = false;
-
-                if (isAttack == false)
-                {
-
-                    agent.enabled = true;
-                    obstacle.enabled = false;
-
-                    this.animator.SetBool(walkStr, true);
-                }
-            }
+            
         }
         else
         {
             this.animator.enabled = false;
-        }
+        }*/
     }
 }
