@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class psDamage : MonoBehaviour
+public class PDamage : MonoBehaviour
 {
     public Slider slider;
     private void OnCollisionEnter(Collision collision)

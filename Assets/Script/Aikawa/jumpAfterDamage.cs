@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jumpAfterDamage : CharaJumpCtrl_2{
+public class JumpAfterDamage : CharaJumpCtrl_2{
     public GameObject lastAttack;
     public static float attackTime=0.0f,motiTime=0.0f;
     public static bool attackFlag,bigMotiFlag;
@@ -25,6 +25,5 @@ public class jumpAfterDamage : CharaJumpCtrl_2{
         else attackTime = 0.0f;
     }
     public void SuperAttack(){
-         Debug.Log(attackTime);
     }
 }
