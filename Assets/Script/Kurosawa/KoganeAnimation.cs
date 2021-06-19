@@ -8,6 +8,7 @@ public class KoganeAnimation : MonoBehaviour
     private Animator animator;
 
     private string rotateStr = "isRotate";
+    private string runStr = "isRun";
     void Start()
     {
         this.animator = GetComponent<Animator>();
@@ -16,6 +17,15 @@ public class KoganeAnimation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            this.animator.SetBool(runStr, true);
+        }
+        else
+        {
+            this.animator.SetBool(runStr, false);
+        }
+
         if(Input.GetMouseButton(0))
         {
             //wait next Rotation
