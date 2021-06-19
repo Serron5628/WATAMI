@@ -507,13 +507,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5478437600558554843, guid: 75f489529adbfba47848015ea2661f9e,
         type: 3}
+      propertyPath: PmoveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554843, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: PriseSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554843, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
       propertyPath: fallkansei
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554843, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: PminFallSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5478437600558554844, guid: 75f489529adbfba47848015ea2661f9e,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5478437600558554847, guid: 75f489529adbfba47848015ea2661f9e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f489529adbfba47848015ea2661f9e, type: 3}
@@ -1150,9 +1170,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 
   fallState: Fall
-  count: 0
   gravity: 16
   moveSpeed: 7
   jumpUPPower: 8
   jumpForwardPower: 4
   fallkansei: 0.2
+  PmoveSpeed: 0
+  PminFallSpeed: 0
+  PriseSpeed: 0
+  useParachute: 0
+  inUpdraft: 0
