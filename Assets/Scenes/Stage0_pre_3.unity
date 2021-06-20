@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,6 +410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3028419800086648617, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
+      propertyPath: HP1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028419800086648617, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
@@ -656,12 +661,10 @@ MonoBehaviour:
   disZoomSpeed: 20
   polarAngle: 80
   azimuthalAngle: 270
-  reDistance: 7
   minPolarAngle: 20
   maxPolarAngle: 140
   mouseXSensitivity: 5
   mouseYSensitivity: 5
-  scrollSensitivity: 5
   mouserotaXSpd: 2
   mouserotaYSpd: 1
 --- !u!81 &102689956
@@ -4611,6 +4614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028419800086648617, guid: e844de70d712b5a469844ae582ab1b75,
+        type: 3}
+      propertyPath: HP1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3028419800086648617, guid: e844de70d712b5a469844ae582ab1b75,
         type: 3}
