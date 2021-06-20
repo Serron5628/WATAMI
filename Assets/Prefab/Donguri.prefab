@@ -204,6 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5753790766a22c4ebd9631ab6de39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP1: 5
+  HP2: 0
   donguri: {fileID: 5853342065277942040}
   counter: {fileID: 0}
 --- !u!114 &4049734509397629983
