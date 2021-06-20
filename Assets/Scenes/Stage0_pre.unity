@@ -2285,6 +2285,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &278156048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
+    type: 3}
+  m_PrefabInstance: {fileID: 187491316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &282869344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5853342065516260705, guid: e844de70d712b5a469844ae582ab1b75,
+    type: 3}
+  m_PrefabInstance: {fileID: 1922746486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &285415998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,18 +2344,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &278156048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
-    type: 3}
-  m_PrefabInstance: {fileID: 187491316}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &282869344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5853342065516260705, guid: e844de70d712b5a469844ae582ab1b75,
-    type: 3}
-  m_PrefabInstance: {fileID: 1922746486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &303686549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
@@ -7792,7 +7792,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 1
+  _volume: 0.508
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
