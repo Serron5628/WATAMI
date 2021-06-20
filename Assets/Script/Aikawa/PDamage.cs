@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class PDamage : MonoBehaviour
 {
     public Slider slider;
-    private void OnCollisionEnter(Collision collision)
-    {
-
-    }
     public void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "enemy") 
