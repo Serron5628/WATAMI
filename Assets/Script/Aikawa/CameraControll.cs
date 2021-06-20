@@ -10,12 +10,13 @@ public class CameraControll : MonoBehaviour {
     private bool bossDeath=false;
     private Vector3 moveTargetPos;
     public float targetPosRatio = 0.2f;//最初に見ている位置
-    public float distance = 20.0f;
+    public float distance = 10.0f;
     public float endingHeight = 5.0f;
-    private float endingCameraDistance;
-    private float bossDistance;
-    public float endingCameraSpeed=0.3f;//endingCameraが移動する速さ
+    private float endingCameraDistance,bossDistance;
+    public float endingCameraSpeed=1.0f;//endingCameraが移動する速さ
     public float zoomInSpeed = 5.0f;
+    public float direction = 2.0f;//2なら30度
+    private float z;
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
@@ -29,13 +30,13 @@ public class CameraControll : MonoBehaviour {
         bossDistance = Vector3.Distance(bossObjPos,endingCamera.transform.position);
         if(Input.GetKeyDown(KeyCode.Q))DestroyBoss();
         if(bossDeath==true){
-            endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,-endingCameraDistance+distance);
             if(targetPosRatio<=1)targetPosRatio += Time.deltaTime * endingCameraSpeed;
-            if(bossDistance>distance+2.0f)endingCameraDistance -= Time.deltaTime * endingCameraSpeed;
-            else if(bossDistance+2.0f<distance)  endingCameraDistance += Time.deltaTime * zoomInSpeed;
+            if(endingCameraDistance!=distance/direction)endingCameraDistance=distance/2;
+            if(bossDistance-2.0f>distance)z += Time.deltaTime * zoomInSpeed;
+            else if(bossDistance<distance)z -= Time.deltaTime* zoomInSpeed;
             UpdateCameraPos(moveTargetPos,bossObjPos);
             UpdateCharaLockAt(bossObjPos,playerPos);
-        }else endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,-0.0f);
+        }else endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,0.0f);
         Debug.Log(bossDistance);
 	}
     public void DestroyBoss(){
@@ -48,10 +49,11 @@ public class CameraControll : MonoBehaviour {
         bossDeath=true;
     }
     public void UpdateCharaLockAt(Vector3 bossObjPos, Vector3 playerPos){
-        player.transform.LookAt(new Vector3(bossObjPos.x,bossObjPos.y-2.0f,bossObjPos.z));
-        bossObj.transform.LookAt(new Vector3(playerPos.x,playerPos.y+2.0f,playerPos.z));
+        player.transform.LookAt(new Vector3(bossObjPos.x,playerPos.y,bossObjPos.z));
+        bossObj.transform.LookAt(new Vector3(playerPos.x,bossObjPos.y,playerPos.z));
     }
     public void UpdateCameraPos(Vector3 moveTargetPos,Vector3 bossObjPos){
+        endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,z);
         mainCamera.transform.position= endingCamera.transform.position;
         sub.transform.LookAt(bossObjPos);
         endingCamera.transform.LookAt(moveTargetPos);
