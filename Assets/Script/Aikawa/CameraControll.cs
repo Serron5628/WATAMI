@@ -29,7 +29,7 @@ public class CameraControll : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Q))DestroyBoss();
         if(bossDeath==true){
             if(targetPosRatio<=1)targetPosRatio += Time.deltaTime * endingCameraSpeed;
-            if(endingCameraDistance!=distance/direction)endingCameraDistance=distance/2;
+            if(endingCameraDistance!=distance/direction)endingCameraDistance=distance/direction;
             if(bossDistance-2.0f>distance)z += Time.deltaTime * zoomInSpeed;
             else if(bossDistance<distance)z -= Time.deltaTime* zoomInSpeed;
             UpdateCameraPos(moveTargetPos,bossObjPos);
