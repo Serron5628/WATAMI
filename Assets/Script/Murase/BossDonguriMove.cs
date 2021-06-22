@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove: MonoBehaviour
+public class BossDonguriMove : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform target;
     public GameObject donguri;
     NavMeshAgent agent;
@@ -23,6 +22,7 @@ public class EnemyMove: MonoBehaviour
     private string panchStr = "isPanch";
 
     bool setVec = false;
+    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -79,15 +79,5 @@ public class EnemyMove: MonoBehaviour
                 this.animator.SetBool(walkStr, true);
             }
         }
-        //プロトタイプでの使用
-        //プレイヤーがステージに入ってから動きだす
-        /*if (warpScript.Warp == null)
-        {
-            
-        }
-        else
-        {
-            this.animator.enabled = false;
-        }*/
     }
 }
