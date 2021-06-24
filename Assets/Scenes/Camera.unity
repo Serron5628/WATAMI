@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 102689957}
   - component: {fileID: 102689956}
   - component: {fileID: 102689955}
+  - component: {fileID: 102689959}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -765,6 +766,28 @@ Transform:
   m_Father: {fileID: 11925750}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102689959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102689954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c81d5fc29820e4d9764b668f6e9274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1922190381}
+  camera_view: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  distance: 6
+  disZoomSpeed: 20
+  polarAngle: 80
+  azimuthalAngle: 270
+  minPolarAngle: 20
+  maxPolarAngle: 140
+  cameraMoveSpeed: 200
 --- !u!4 &108168320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5853342065277942041, guid: e844de70d712b5a469844ae582ab1b75,
@@ -830,14 +853,15 @@ MonoBehaviour:
   endingCamera: {fileID: 1760272973}
   bossObj: {fileID: 7105920141996165644}
   player: {fileID: 763426996}
+  attackCameraPos: {x: 0, y: 10, z: -4}
   wall: {fileID: 1970437359}
   cameraText: {fileID: 782191445}
   targetPosRatio: 0.2
   distance: 15
   endingHeight: 3
-  endingCameraSpeed: 1
-  zoomInSpeed: 5
-  direction: 2
+  endingCameraSpeed: 0.5
+  zoomInSpeed: 2
+  direction: 3
 --- !u!4 &111637150
 Transform:
   m_ObjectHideFlags: 0
@@ -3926,7 +3950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384474821}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1333d937df607734c90b48b176240267, type: 3}
   m_Name: 
