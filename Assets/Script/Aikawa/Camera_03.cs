@@ -9,7 +9,7 @@ using UnityEditor;
 /// The camera can be moved by left mouse drag and mouse wheel.
 /// </summary>
 [ExecuteInEditMode, DisallowMultipleComponent]
-public class Camera_02 : MonoBehaviour{
+public class Camera_03 : MonoBehaviour{
     public GameObject player;
     public GameObject camera_view;
     public Vector3 offset;
@@ -22,10 +22,7 @@ public class Camera_02 : MonoBehaviour{
 
     [SerializeField] private float minPolarAngle = 20.0f;
     [SerializeField] private float maxPolarAngle = 140.0f;
-    [SerializeField] private float mouseXSensitivity = 5.0f;
-    [SerializeField] private float mouseYSensitivity = 5.0f;
-    [SerializeField] private float mouserotaXSpd = 2.0f;
-    [SerializeField] private float mouserotaYSpd = 1.0f;
+    [SerializeField] private int cameraMoveSpeed = 200;
     
     float dis,disdata;
     Ray ray;
@@ -49,9 +46,15 @@ public class Camera_02 : MonoBehaviour{
                 hit.collider.tag !="StartWall"&&
                 hit.collider.tag !="LastAttack"
                 )minusDistance();
-        }
-        else plusDistance();
-        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        }else plusDistance();
+        if(Input.GetKey(KeyCode.Q))
+            azimuthalAngle -= Time.deltaTime * cameraMoveSpeed;
+        if(Input.GetKey(KeyCode.E))
+            azimuthalAngle += Time.deltaTime * cameraMoveSpeed;
+        if(Input.GetKey(KeyCode.Alpha2))
+            polarAngle -= Time.deltaTime * cameraMoveSpeed;
+        if(Input.GetKey(KeyCode.X))
+            polarAngle += Time.deltaTime * cameraMoveSpeed;
         var lookAtPos = PlayerPos + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
@@ -62,14 +65,6 @@ public class Camera_02 : MonoBehaviour{
     public void plusDistance(){
         if(disdata>distance+0.2f) distance += disZoomSpeed * Time.deltaTime;
     }
-
-    void updateAngle(float x, float y){
-        x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
-        y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
-        azimuthalAngle = Mathf.Repeat(x, 360);
-        polarAngle = Mathf.Clamp(y, minPolarAngle, maxPolarAngle);
-    }
-
     void updatePosition(Vector3 lookAtPos){
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
