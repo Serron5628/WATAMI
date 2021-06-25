@@ -10,15 +10,12 @@ public class EnemyMove: MonoBehaviour
     public GameObject donguri;
     NavMeshAgent agent;
     NavMeshObstacle obstacle;
-    PlayerWarp warpScript;
     public float Speed;
     public float rotateSpeed;
     public float stopDist;
-    public bool isAttack;
-    public bool distant;
+    public float searchDist;
 
     private Animator animator;
-
     private string walkStr = "isWalk";
     private string panchStr = "isPanch";
 
@@ -29,65 +26,63 @@ public class EnemyMove: MonoBehaviour
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
         GameObject targetObject = target.gameObject;
-        warpScript = targetObject.GetComponent<PlayerWarp>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null && agent.enabled == true)
+        bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
+        bool isWait = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Wait");
+
+        if (Vector3.Distance(agent.transform.position, target.position) <= searchDist)
         {
-            agent.destination = target.position;
-            agent.speed = Speed;
-            /*経路探索を終了するstoppingDistanceとアニメーションを遷移させるstopDistが同じ値だと
-            　不具合があったので、-0.3fした距離を設定*/
-            agent.stoppingDistance = stopDist - 0.3f;
-        }
-
-        this.animator.enabled = true;
-        isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
-
-        if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
-        {
-            distant = true;
-            agent.enabled = false;
-            obstacle.enabled = true;
-
-            //経路探索をストップした後にプレイヤーの方を向かせる
-            /*if (setVec == false)
+            if (target != null && agent.enabled == true)
             {
-                Vector3 vec = target.position - transform.position;
-                Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                transform.LookAt(nvec);
-                setVec = true;
-            }*/
+                agent.destination = target.position;
+                agent.speed = Speed;
+                /*経路探索を終了するstoppingDistanceとアニメーションを遷移させるstopDistが同じ値だと
+                　不具合があったので、-0.3fした距離を設定*/
+                agent.stoppingDistance = stopDist - 0.3f;
+            }
 
-            this.animator.SetBool(walkStr, false);
-            this.animator.SetBool(panchStr, true);
-        }
-        else
-        {
-            this.animator.SetBool(panchStr, false);
-            distant = false;
-
-            if (isAttack == false)
+            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
+                agent.enabled = false;
+                obstacle.enabled = true;
 
-                agent.enabled = true;
-                obstacle.enabled = false;
+                //Waitモーション時にプレイヤーの方を向かせる
+                if (isWait == true)
+                {
+                    float speed = 0.03f;
+                    Vector3 vec = target.position - transform.position;
+                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
+                    Quaternion rotation = Quaternion.LookRotation(nvec);
+                    transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+                    //transform.LookAt(nvec);
+                    setVec = true;
+                }
 
-                this.animator.SetBool(walkStr, true);
+                this.animator.SetBool(walkStr, false);
+                this.animator.SetBool(panchStr, true);
+            }
+            else
+            {
+                this.animator.SetBool(panchStr, false);
+
+                if (isAttack == false)
+                {
+
+                    agent.enabled = true;
+                    obstacle.enabled = false;
+
+                    this.animator.SetBool(walkStr, true);
+                }
             }
         }
-        //プロトタイプでの使用
-        //プレイヤーがステージに入ってから動きだす
-        /*if (warpScript.Warp == null)
-        {
-            
-        }
         else
         {
-            this.animator.enabled = false;
-        }*/
+            this.agent.enabled = false;
+            this.animator.SetBool(walkStr, false);
+        }
     }
 }
