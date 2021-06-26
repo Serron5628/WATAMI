@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove: MonoBehaviour
+public class BossDonguriMove : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform target;
     public GameObject donguri;
     NavMeshAgent agent;
@@ -14,12 +13,13 @@ public class EnemyMove: MonoBehaviour
     public float rotateSpeed;
     public float stopDist;
     public float searchDist;
-
+   
     private Animator animator;
     private string walkStr = "isWalk";
-    private string panchStr = "isPanch";
+    private string stampStr = "isStamp";
 
     bool setVec = false;
+    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -31,11 +31,12 @@ public class EnemyMove: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Panch");
+        bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Stamp");
         bool isWait = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Wait");
 
         if (Vector3.Distance(agent.transform.position, target.position) <= searchDist)
         {
+
             if (target != null && agent.enabled == true)
             {
                 agent.destination = target.position;
@@ -63,11 +64,11 @@ public class EnemyMove: MonoBehaviour
                 }
 
                 this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(panchStr, true);
+                this.animator.SetBool(stampStr, true);
             }
             else
             {
-                this.animator.SetBool(panchStr, false);
+                this.animator.SetBool(stampStr, false);
 
                 if (isAttack == false)
                 {
@@ -77,7 +78,7 @@ public class EnemyMove: MonoBehaviour
 
                     this.animator.SetBool(walkStr, true);
                 }
-            }
+            }      
         }
         else
         {
