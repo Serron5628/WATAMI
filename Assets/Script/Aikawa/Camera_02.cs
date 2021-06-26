@@ -32,7 +32,6 @@ public class Camera_02 : MonoBehaviour{
     Vector3 CameraPos1;
     List<string> tagList = new List<string>();
     void Start(){
-        Cursor.visible = false;
         distance = 6.0f;
         disdata = distance;
     }
