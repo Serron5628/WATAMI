@@ -19,13 +19,14 @@ public class CameraControll : MonoBehaviour {
     private float endingCameraDistance,bossDistance,z;
     private bool pause=false;
     private bool attack=false;
+    bool start=false;
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
-        CursorOff();
         Camera_02True();
 	}
 	void Update () {
+        start = true;
         var bossObjPos = bossObj.transform.position;
         var playerPos = player.transform.position;
         var moveTargetPos = Vector3.Lerp(player.transform.position,bossObj.transform.position,targetPosRatio);
@@ -34,16 +35,16 @@ public class CameraControll : MonoBehaviour {
         if(Input.GetMouseButton(0)){
             pause = true;
             AttackCamera(playerPos);
-        }
-        else if(Input.GetMouseButtonUp(0)){
+        }else if(Input.GetMouseButtonUp(0)){
             pause = false;
             Camera_02True();
         }
-        if(Input.GetKey(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape)){
             if(pause==false)
                 pause = true;
             else{
-                pause = false;
+                //pause = false;
+                CursorOff();
                 Camera_02True();
             }
         }
@@ -61,11 +62,10 @@ public class CameraControll : MonoBehaviour {
             UpdateCharaLockAt(bossObjPos,playerPos);
         }else
             endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,0.0f);
-        if(pause==true){
+        if(pause==true&&start==true){
             CursorOn();
             Pause();
-        }
-        else CursorOff();
+        }else if(pause==false&&start==true) CursorOff();
 	}
     public void Pause(){
         mainCamera.GetComponent<Camera_02>().enabled=false;
