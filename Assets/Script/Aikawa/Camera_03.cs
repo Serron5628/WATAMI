@@ -40,7 +40,8 @@ public class Camera_03 : MonoBehaviour{
         Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
         if (Physics.Linecast(PlayerPos,transform.position, out hit)) {
             dis = Vector3.Distance(PlayerPos,hit.point);
-            if(hit.collider.tag !="Moti"&&
+            if(dis+0.2f<=distance&&
+                hit.collider.tag !="Moti"&&
                 hit.collider.tag !="Player"&&
                 hit.collider.tag !="enemy"&&
                 hit.collider.tag !="StartWall"&&
@@ -60,7 +61,7 @@ public class Camera_03 : MonoBehaviour{
         transform.LookAt(lookAtPos);
     }
     public void minusDistance(){
-        if(distance>dis)distance = dis;
+        distance = dis;
     }
     public void plusDistance(){
         if(disdata>distance+0.2f) distance += disZoomSpeed * Time.deltaTime;
