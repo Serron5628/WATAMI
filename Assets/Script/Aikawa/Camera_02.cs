@@ -11,11 +11,10 @@ using UnityEditor;
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class Camera_02 : MonoBehaviour{
     public GameObject player;
-    public GameObject camera_view;
     public Vector3 offset;
     
     bool cameraLock = true;
-    [SerializeField] private float distance = 5.0f; 
+    [SerializeField] private float distance = 7.0f; 
     [SerializeField] private float disZoomSpeed = 20.0f;
     [SerializeField] private float polarAngle = 80.0f; 
     [SerializeField] private float azimuthalAngle = 270.0f; 
@@ -28,31 +27,28 @@ public class Camera_02 : MonoBehaviour{
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
     float dis,disdata;
-    Ray ray;
-    Vector3 CameraPos1;
-    List<string> tagList = new List<string>();
+    private GameObject hitObj;
+   
     void Start(){
-        distance = 6.0f;
         disdata = distance;
     }
     void Update(){
         RaycastHit hit;
-        Vector3 PlayerPos = player.transform.position;
-        ray = new Ray(PlayerPos, CameraPos1);
-        Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
-        if (Physics.Linecast(PlayerPos,transform.position, out hit)) {
-            dis = Vector3.Distance(PlayerPos,hit.point);
-            if(dis+0.2f<=distance&&
-                hit.collider.tag !="Moti"&&
-                hit.collider.tag !="Player"&&
-                hit.collider.tag !="enemy"&&
-                hit.collider.tag !="StartWall"&&
-                hit.collider.tag !="LastAttack"
-                )minusDistance();
+        Vector3 playerPos = player.transform.position;
+        Vector3 cameraPos1 = transform.position;
+        //Ray ray = new Ray(playerPos + offset, cameraPos1);
+        Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);
+        if (Physics.Linecast(playerPos+offset,transform.position, out hit)) {
+            dis = Vector3.Distance(playerPos+offset,hit.point);
+            hitObj = hit.collider.gameObject;
+            if(dis+0.2f<=distance&&(
+                hit.collider.tag =="Floor"||
+                hit.collider.tag =="Wall"
+            ))minusDistance();
         }
         else if(disdata>distance+0.2f)plusDistance();
         updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        var lookAtPos = PlayerPos + offset;
+        var lookAtPos = playerPos + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }

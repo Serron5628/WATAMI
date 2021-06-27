@@ -13,6 +13,8 @@ TagManager:
   - StartWall
   - Boss
   - lastAttack
+  - Floor
+  - Wall
   layers:
   - Default
   - TransparentFX

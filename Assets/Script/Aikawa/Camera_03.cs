@@ -11,7 +11,6 @@ using UnityEditor;
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class Camera_03 : MonoBehaviour{
     public GameObject player;
-    public GameObject camera_view;
     public Vector3 offset;
     
     bool cameraLock = true;
@@ -26,19 +25,18 @@ public class Camera_03 : MonoBehaviour{
     
     float dis,disdata;
     Ray ray;
-    Vector3 CameraPos1;
-    List<string> tagList = new List<string>();
     void Start(){
         distance = 6.0f;
         disdata = distance;
     }
     void Update(){
         RaycastHit hit;
-        Vector3 PlayerPos = player.transform.position;
-        ray = new Ray(PlayerPos, CameraPos1);
-        Debug.DrawLine(PlayerPos, transform.position, Color.magenta, 0f, false);
-        if (Physics.Linecast(PlayerPos,transform.position, out hit)) {
-            dis = Vector3.Distance(PlayerPos,hit.point);
+        Vector3 playerPos = player.transform.position;
+        Vector3 cameraPos1= transform.position;
+        ray = new Ray(playerPos, cameraPos1);
+        Debug.DrawLine(playerPos, transform.position, Color.magenta, 0f, false);
+        if (Physics.Linecast(playerPos,transform.position, out hit)) {
+            dis = Vector3.Distance(playerPos,hit.point);
             if(dis+0.2f<=distance&&
                 hit.collider.tag !="Moti"&&
                 hit.collider.tag !="Player"&&
@@ -55,7 +53,7 @@ public class Camera_03 : MonoBehaviour{
             polarAngle -= Time.deltaTime * cameraMoveSpeed;
         if(Input.GetKey(KeyCode.X))
             polarAngle += Time.deltaTime * cameraMoveSpeed;
-        var lookAtPos = PlayerPos + offset;
+        var lookAtPos = playerPos + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
