@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraControll : MonoBehaviour {
 
+    public Text text;
     public GameObject mainCamera,sub,endingCamera; 
     public GameObject bossObj,player;
     public Vector3 attackCameraPos;
-    public GameObject wall,cameraText;
+    public GameObject wall;
     private bool bossDeath=false;
     private Vector3 moveTargetPos = new Vector3(0.0f,12.0f,-4.0f);
     [SerializeField] public float targetPosRatio = 0.2f;//最初に見ている位置、0ならPlayer、1ならBoss
@@ -19,7 +21,8 @@ public class CameraControll : MonoBehaviour {
     private float endingCameraDistance,bossDistance,z;
     private bool pause=false;
     private bool attack=false;
-    bool start=false;
+    bool start=false,esc=true;
+    string cursor;
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
@@ -27,6 +30,19 @@ public class CameraControll : MonoBehaviour {
 	}
 	void Update () {
         start = true;
+        if(pause==true&&start==true){
+            CursorOn();
+            Pause();
+        }else if(pause==false&&start==true){
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            CursorOff();
+            Camera_02True();
+        }
+        if(esc==true&&start==true)
+            Time.timeScale = 1.0f;
+        else if(esc==false&&start==true)
+            Time.timeScale = 0.0f;
         var bossObjPos = bossObj.transform.position;
         var playerPos = player.transform.position;
         var moveTargetPos = Vector3.Lerp(player.transform.position,bossObj.transform.position,targetPosRatio);
@@ -39,55 +55,42 @@ public class CameraControll : MonoBehaviour {
             pause = false;
             Camera_02True();
         }
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            if(pause==false)
-                pause = true;
-            else{
-                //pause = false;
-                CursorOff();
-                Camera_02True();
-            }
+        if(Input.GetKeyDown(KeyCode.Escape)&&pause==false){
+            pause = true;
+            esc=false;
+        }else if(Input.GetKeyDown(KeyCode.Escape)){
+            pause = false;
+            esc=true;
         }
         else if(Input.GetKeyDown(KeyCode.B))
             DestroyBoss();
-        else if(Input.GetKeyDown(KeyCode.R))
+        else if(Input.GetKeyDown(KeyCode.R)&&bossDeath==true)
             BossCameraReset();
-        else if(Input.GetKeyDown(KeyCode.Alpha1))
-            Camera_02True();
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
-            Camera_03True();
         if(bossDeath==true){
             EndingCameraMove(bossObjPos,playerPos);
             UpdateCameraPos(moveTargetPos,bossObjPos);
             UpdateCharaLockAt(bossObjPos,playerPos);
         }else
             endingCamera.transform.localPosition = new Vector3(endingCameraDistance,endingHeight,0.0f);
-        if(pause==true&&start==true){
-            CursorOn();
-            Pause();
-        }else if(pause==false&&start==true) CursorOff();
+        if(text)text.text = "Cursor="+cursor;
 	}
     public void Pause(){
         mainCamera.GetComponent<Camera_02>().enabled=false;
-        mainCamera.GetComponent<Camera_03>().enabled=false;
     }
     public void Camera_02True(){
         mainCamera.GetComponent<Camera_02>().enabled=true;
-        mainCamera.GetComponent<Camera_03>().enabled=false;
-    }
-    public void Camera_03True(){
-        mainCamera.GetComponent<Camera_02>().enabled=false;
-        mainCamera.GetComponent<Camera_03>().enabled=true;
     }
     public void AttackCamera(Vector3 playerPos){
         mainCamera.transform.position=playerPos + attackCameraPos;
         mainCamera.transform.LookAt(playerPos);
     }
     public void CursorOn(){
+        cursor = "ON";
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
     public void CursorOff(){
+        cursor = "OFF";
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -107,9 +110,7 @@ public class CameraControll : MonoBehaviour {
         player.gameObject.GetComponent<Rigidbody>().isKinematic = true; 
         endingCamera.gameObject.SetActive(true);
         wall.gameObject.SetActive(false);
-        cameraText.gameObject.SetActive(false);
         mainCamera.GetComponent<Camera_02>().enabled=false;
-        mainCamera.GetComponent<Camera_03>().enabled=false;
         bossDeath=true;
     }
     public void BossCameraReset(){
@@ -118,9 +119,7 @@ public class CameraControll : MonoBehaviour {
         player.gameObject.GetComponent<Rigidbody>().isKinematic = false; 
         endingCamera.gameObject.SetActive(false);
         wall.gameObject.SetActive(true);
-        cameraText.gameObject.SetActive(true);
         mainCamera.GetComponent<Camera_02>().enabled=true;
-        mainCamera.GetComponent<Camera_03>().enabled=false;
         bossDeath=false;
     }
     public void UpdateCharaLockAt(Vector3 bossObjPos, Vector3 playerPos){
