@@ -59,6 +59,11 @@ public class EnemyMove: MonoBehaviour
                     Quaternion rotation = Quaternion.LookRotation(nvec);
                     transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
                     //transform.LookAt(nvec);
+                    Vector3 enemyVec = transform.eulerAngles;
+                    enemyVec.x = 0.0f;
+                    enemyVec.z = 0.0f;
+
+                    transform.eulerAngles = enemyVec;
                     setVec = true;
                 }
 
