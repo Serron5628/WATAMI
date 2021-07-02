@@ -46,8 +46,10 @@ public class Camera_02 : MonoBehaviour{
                 hit.collider.tag =="Wall"
             ))minusDistance();
         }
-        else if(disdata>distance+0.2f)plusDistance();
-        updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        else if(disdata>distance+0.2f)
+            plusDistance();
+        if(!(Input.GetMouseButton(0)))
+            updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         var lookAtPos = playerPos + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
@@ -59,7 +61,7 @@ public class Camera_02 : MonoBehaviour{
         distance += disZoomSpeed * Time.deltaTime;
     }
 
-    void updateAngle(float x, float y){
+    public void updateAngle(float x, float y){
         x = azimuthalAngle - x * mouseXSensitivity * mouserotaXSpd;
         y = polarAngle + y * mouseYSensitivity * mouserotaYSpd;
         azimuthalAngle = Mathf.Repeat(x, 360);

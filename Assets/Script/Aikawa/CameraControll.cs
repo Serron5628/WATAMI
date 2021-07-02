@@ -23,6 +23,7 @@ public class CameraControll : MonoBehaviour {
     private bool attack=false;
     bool start=false,esc=true;
     string cursor;
+    private Camera_02 CameraCs;
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
@@ -30,12 +31,10 @@ public class CameraControll : MonoBehaviour {
 	}
 	void Update () {
         start = true;
-        if(pause==true&&start==true){
+        if(pause==true&&start==true&&!(Input.GetMouseButton(0))){
             CursorOn();
             Pause();
-        }else if(pause==false&&start==true){
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+        }else if(pause==false&&start==true&&!(Input.GetMouseButton(0))){
             CursorOff();
             Camera_02True();
         }
@@ -48,13 +47,8 @@ public class CameraControll : MonoBehaviour {
         var moveTargetPos = Vector3.Lerp(player.transform.position,bossObj.transform.position,targetPosRatio);
         sub.transform.position = Vector3.Lerp(player.transform.position,bossObj.transform.position,0.5f);
         bossDistance = Vector3.Distance(bossObjPos,endingCamera.transform.position);
-        if(Input.GetMouseButton(0)){
-            pause = true;
-            AttackCamera(playerPos);
-        }else if(Input.GetMouseButtonUp(0)){
-            pause = false;
-            Camera_02True();
-        }
+        if(Input.GetMouseButton(0))
+            CursorOn();
         if(Input.GetKeyDown(KeyCode.Escape)&&pause==false){
             pause = true;
             esc=false;
