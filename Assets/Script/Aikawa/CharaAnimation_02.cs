@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharaJumpCtrl_2 : MonoBehaviour
+public class CharaAnimation_02 : MonoBehaviour
 {
     private Animator usagi;
-    private string usagiStr = "isHissatu";
-    public static bool HissatuAnim = false;
+    private string usagiStr = "isCharaAnim";
+    bool CharaAnim = false;
     void Start(){
         this.usagi = GetComponent<Animator>();
         this.usagi.SetBool(usagiStr, false);
     }
     void Update(){
-        if(Input.GetMouseButtonUp(0)){
+        if(Input.GetMouseButtonUp(0))
+            CharaAnim = true;
+        else
+            CharaAnim = false;
+        if(CharaAnim)
             this.usagi.SetBool(usagiStr, true);
-            HissatuAnim = true;
-        }
-        else{
+        else
             this.usagi.SetBool(usagiStr, false);
-            HissatuAnim = false;
-        }
     }
 }
