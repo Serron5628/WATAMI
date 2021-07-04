@@ -20,14 +20,13 @@ public class CameraControll : MonoBehaviour {
     [SerializeField] public float direction = 2.0f;//2なら30度,正三角形の一辺を割る数にしてある
     private float endingCameraDistance,bossDistance,z;
     private bool pause=false;
-    private bool attack=false;
     bool start=false,esc=true;
     string cursor;
-    private Camera_02 CameraCs;
+    private CameraMove CameraCs;
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
-        Camera_02True();
+        CameraMoveTrue();
 	}
 	void Update () {
         start = true;
@@ -36,7 +35,7 @@ public class CameraControll : MonoBehaviour {
             Pause();
         }else if(pause==false&&start==true&&!(Input.GetMouseButton(0))){
             CursorOff();
-            Camera_02True();
+            CameraMoveTrue();
         }
         if(esc==true&&start==true)
             Time.timeScale = 1.0f;
@@ -69,10 +68,10 @@ public class CameraControll : MonoBehaviour {
         if(text)text.text = "Cursor="+cursor;
 	}
     public void Pause(){
-        mainCamera.GetComponent<Camera_02>().enabled=false;
+        mainCamera.GetComponent<CameraMove>().enabled=false;
     }
-    public void Camera_02True(){
-        mainCamera.GetComponent<Camera_02>().enabled=true;
+    public void CameraMoveTrue(){
+        mainCamera.GetComponent<CameraMove>().enabled=true;
     }
     public void AttackCamera(Vector3 playerPos){
         mainCamera.transform.position=playerPos + attackCameraPos;
@@ -104,7 +103,7 @@ public class CameraControll : MonoBehaviour {
         player.gameObject.GetComponent<Rigidbody>().isKinematic = true; 
         endingCamera.gameObject.SetActive(true);
         wall.gameObject.SetActive(false);
-        mainCamera.GetComponent<Camera_02>().enabled=false;
+        mainCamera.GetComponent<CameraMove>().enabled=false;
         bossDeath=true;
     }
     public void BossCameraReset(){
@@ -113,7 +112,7 @@ public class CameraControll : MonoBehaviour {
         player.gameObject.GetComponent<Rigidbody>().isKinematic = false; 
         endingCamera.gameObject.SetActive(false);
         wall.gameObject.SetActive(true);
-        mainCamera.GetComponent<Camera_02>().enabled=true;
+        mainCamera.GetComponent<CameraMove>().enabled=true;
         bossDeath=false;
     }
     public void UpdateCharaLockAt(Vector3 bossObjPos, Vector3 playerPos){

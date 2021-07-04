@@ -133,7 +133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14754
+  m_Name: pb_Mesh14908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -867,7 +867,7 @@ GameObject:
   - component: {fileID: 259464351}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2097,7 +2097,6 @@ GameObject:
   - component: {fileID: 763867625}
   - component: {fileID: 763867624}
   - component: {fileID: 763867623}
-  - component: {fileID: 763867622}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -2105,27 +2104,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &763867622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763867621}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c81d5fc29820e4d9764b668f6e9274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5732617829061693750}
-  offset: {x: 0, y: 2, z: 0}
-  distance: 6
-  disZoomSpeed: 20
-  polarAngle: 80
-  azimuthalAngle: 270
-  minPolarAngle: 20
-  maxPolarAngle: 140
-  cameraMoveSpeed: 200
 --- !u!114 &763867623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,7 +2285,7 @@ GameObject:
   - component: {fileID: 846138454}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2502,7 +2480,7 @@ GameObject:
   - component: {fileID: 893470733}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2594,7 +2572,7 @@ GameObject:
   - component: {fileID: 893985358}
   - component: {fileID: 893985357}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2831,6 +2809,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1486020120999623700, guid: f1ac47512fb1e1946a5ac1820841a8f3,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 1555424581911009326, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_RenderMode
@@ -2912,7 +2895,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3824252986346109814, guid: f1ac47512fb1e1946a5ac1820841a8f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f1ac47512fb1e1946a5ac1820841a8f3, type: 3}
 --- !u!224 &976198557 stripped
 RectTransform:
@@ -3399,7 +3383,7 @@ GameObject:
   - component: {fileID: 1302903052}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4734,13 +4718,14 @@ GameObject:
   - component: {fileID: 1970437362}
   - component: {fileID: 1970437361}
   - component: {fileID: 1970437360}
+  - component: {fileID: 1970437365}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1970437360
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8450,6 +8435,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970437365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970437359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a3b6145fe712e40b0e127c4e1f6995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  floor: {fileID: 893985356}
 --- !u!1 &1971487262
 GameObject:
   m_ObjectHideFlags: 0
@@ -10021,6 +10020,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2580298405088708666, guid: bdad3742c89865142ab05922972cac06,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Attack
+      objectReference: {fileID: 0}
     - target: {fileID: 3420008300381545676, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10079,7 +10083,7 @@ PrefabInstance:
     - target: {fileID: 8887635267707013384, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8887635267707013386, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
@@ -10144,7 +10148,7 @@ PrefabInstance:
     - target: {fileID: 8887635267707013388, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8887635267707013389, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
@@ -10161,29 +10165,6 @@ PrefabInstance:
     - {fileID: 3985800944612624521, guid: bdad3742c89865142ab05922972cac06, type: 3}
     - {fileID: 162711243116826456, guid: bdad3742c89865142ab05922972cac06, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bdad3742c89865142ab05922972cac06, type: 3}
---- !u!1 &3985800943848923216 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8887635267707013386, guid: bdad3742c89865142ab05922972cac06,
-    type: 3}
-  m_PrefabInstance: {fileID: 3985800943848923215}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3985800943848923217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3985800943848923216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2996cd8e885e9c946a8c8b344ce5607c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 16
-  moveSpeed: 8
-  jumpUPPower: 8
-  jumpForwardPower: 4
-  fallkansei: 0
 --- !u!1 &4030410851999833210
 GameObject:
   m_ObjectHideFlags: 0

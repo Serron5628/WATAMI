@@ -10,11 +10,12 @@ public class DamageValue : MonoBehaviour
     public GameObject preHPGauge;
     public Canvas objCanvas;
     private HPGauge hPGauge;
+    GameObject objHPGauge;
     private void Awake(){
         nowHp = maxHp;
     }
     void Start(){
-        GameObject objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
+        objHPGauge = (GameObject)Instantiate(preHPGauge, objCanvas.transform);
         hPGauge = objHPGauge.GetComponent<HPGauge>();
         hPGauge.MaxHP = maxHp;
         hpSlider = gameObject.GetComponent<Slider>();
@@ -24,6 +25,9 @@ public class DamageValue : MonoBehaviour
     void Update(){ 
         hPGauge.HP = nowHp;
         hpSlider.value = (float)nowHp / maxHp;
+    }
+    public void Attack(){
+        
     }
     public void Attack_1(){
         if (nowHp >= 1)nowHp -= 1;
