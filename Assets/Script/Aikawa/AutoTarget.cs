@@ -5,38 +5,54 @@ using UnityEngine;
 public class AutoTarget : MonoBehaviour
 {
     public static GameObject targetOgj;
-    public float targetDist = 20.0f;
+    public float targetDist = 10.0f;
     private float targetDistSave;
     public static GameObject[] targets;
+    //public static float[] disTate;
     public GameObject player;
+    public GameObject redRange;
     private float dist;
     private bool lockState=false;
     void Start(){
+        redRange.SetActive(false);
         if(!player)
             player = GameObject.FindGameObjectWithTag("Player");
         targetDistSave = targetDist;
     }
     void Update(){
+        targets = GameObject.FindGameObjectsWithTag("Boss");
         var playerPos = player.transform.position;
         AutoLockOn(playerPos);
+        for(int i = 0; i < targets.Length; i++){
+            var disArray = Vector3.Distance(new Vector3(
+                targets[i].transform.position.x,playerPos.y,targets[i].transform.position.z) , playerPos);
+            if((float)disArray<targetDistSave){
+                redRange.SetActive(true);
+                break;
+            }
+            else
+                redRange.SetActive(false);
+        }
     }
     public void AutoLockOn(Vector3 playerPos){
-        targets = GameObject.FindGameObjectsWithTag("Boss");
         foreach (GameObject target in targets){
-            Vector3 targetPos = new Vector3(target.transform.position.x,playerPos.y,target.transform.position.z);
-            dist = Vector3.Distance(targetPos , playerPos);
+            dist = Vector3.Distance(new Vector3(target.transform.position.x,playerPos.y,target.transform.position.z) , playerPos);
+            /*
             Debug.DrawLine(new Vector3(
                 target.transform.position.x,playerPos.y,target.transform.position.z),
                 playerPos, Color.blue, 0f, false);
+            */
             if(targetDist>dist){
                 targetOgj=target;
                 targetDist = dist;
+                redRange.transform.position = new Vector3(
+                    targetOgj.transform.position.x,targetOgj.transform.position.y-3.0f,targetOgj.transform.position.z);
                 if(lockState==true)
-                    player.transform.LookAt(targetPos);
-            }else
+                    player.transform.LookAt(new Vector3(target.transform.position.x,playerPos.y,target.transform.position.z));
+            }else{
                 targetDist = targetDistSave;
+            }
         }
-        Debug.Log(targetOgj);
     }
     public void BoosLockOn(){
         lockState=true;
