@@ -2432,7 +2432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5732617829061693750}
   offset: {x: 0, y: 1.5, z: 0}
-  distance: 6
+  distance: 8
   disZoomSpeed: 20
   polarAngle: 80
   azimuthalAngle: 270
@@ -2500,8 +2500,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763867621}
-  m_LocalRotation: {x: 0.08715578, y: -0.000000017914452, z: 0.0000000015673122, w: 0.9961947}
-  m_LocalPosition: {x: 4.68646, y: 1.010947, z: -29.883213}
+  m_LocalRotation: {x: 0.08715577, y: -0.000000013435839, z: 0.0000000011754839, w: 0.9961947}
+  m_LocalPosition: {x: 4.68646, y: 1.3582432, z: -31.852829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1427661647}
@@ -3959,7 +3959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
