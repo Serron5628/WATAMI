@@ -120,7 +120,7 @@ public class AttackController : MonoBehaviour{
         if(lockState==true)
             player. transform.rotation = Quaternion.LookRotation(moveForward);
     }
-    public void BoosAttack(){
+    public void BossAttack(){
         lockState=true;
     }
     public void BossAttacked(){
