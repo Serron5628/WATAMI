@@ -12,6 +12,10 @@ public class MotiRotate : MonoBehaviour
     float tan = 0f;
     float RotationCount = 0;
     bool action = false;
+
+    private CriAtomSource MotiWind;
+    public GameObject MotiSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,8 @@ public class MotiRotate : MonoBehaviour
         // マウスの初期位置
         mPos = Input.mousePosition - screenSizeHalf;
         previousRad = Mathf.Atan2(mPos.x, mPos.y);
+
+        MotiWind = MotiSound.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -65,6 +71,10 @@ public class MotiRotate : MonoBehaviour
                 {
                     HUGE.KeepScale();
                 }
+
+                //ここで餅の回転する音を鳴らす
+                MotiWind.Play();
+
             }
             if (RotationCount > 4)
             {
