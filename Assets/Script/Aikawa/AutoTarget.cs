@@ -28,22 +28,20 @@ public class AutoTarget : MonoBehaviour
                 targets[i].transform.position.x,playerPos.y,targets[i].transform.position.z) , playerPos);
             if((float)disArray<targetDistSave){
                 redRange.SetActive(true);
+                redRange.transform.Rotate(new Vector3(0, 0, 100*Time.deltaTime));
                 break;
             }
-            else
+            else{
                 redRange.SetActive(false);
+            }
         }
     }
     public void AutoLockOn(Vector3 playerPos){
         foreach (GameObject target in targets){
             dist = Vector3.Distance(new Vector3(target.transform.position.x,playerPos.y,target.transform.position.z) , playerPos);
-            /*
-            Debug.DrawLine(new Vector3(
-                target.transform.position.x,playerPos.y,target.transform.position.z),
-                playerPos, Color.blue, 0f, false);
-            */
             if(targetDist>dist){
                 targetOgj=target;
+                redRange.SetActive(true);
                 targetDist = dist;
                 redRange.transform.position = new Vector3(
                     targetOgj.transform.position.x,targetOgj.transform.position.y-3.0f,targetOgj.transform.position.z);
