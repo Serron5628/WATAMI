@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class AttackController : MonoBehaviour{
     public static GameObject targetOgj;
+    public GameObject playerParent;
     public float targetDist = 10.0f;
-    private float targetDistSave;
+    private float targetDistSave,time=0.0f;
     private int attackWay=1;
     public static GameObject[] targets;
     public GameObject player;
     public GameObject redRange;
+    public GameObject arrowObj;
     public Text modeTaxt;
     private int mode=1;
     private float dist;
@@ -35,6 +37,7 @@ public class AttackController : MonoBehaviour{
         var cameraForward = Vector3.Scale(
             Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+        var playerPos = player.transform.position;
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             attackWay=1;
             TextColor();
@@ -50,7 +53,13 @@ public class AttackController : MonoBehaviour{
         if(Input.GetKeyDown(KeyCode.Alpha4)){
             attackWay=4;
             TextColor();        
-        }          
+        }
+        if(!(Input.GetMouseButton(0)))
+            time += Time.deltaTime;
+        else
+            time = 0.0f;
+        if(time>2.0f||mode!=4)
+            arrowObj.SetActive(false);
         switch(attackWay){
             case 1:
                 mode=1;
@@ -58,21 +67,8 @@ public class AttackController : MonoBehaviour{
             case 2:
                 mode=2;
                 targets = GameObject.FindGameObjectsWithTag("Boss");
-                var playerPos = player.transform.position;
                 AutoLockOn(playerPos);
-                for(int i = 0; i < targets.Length; i++){
-                    var disArray = Vector3.Distance(new Vector3(
-                        targets[i].transform.position.x,playerPos.y,
-                        targets[i].transform.position.z) , playerPos);
-                    if((float)disArray<targetDistSave){
-                        redRange.SetActive(true);
-                        redRange.transform.Rotate(new Vector3(0, 0, 100*Time.deltaTime));
-                        break;
-                    }
-                    else{
-                        redRange.SetActive(false);
-                    }
-                }
+                RangeRote(playerPos);
                 break;
             case 3:
                 mode=3;
@@ -80,6 +76,7 @@ public class AttackController : MonoBehaviour{
                 break;
             case 4:
                 mode=4;
+                AttackTowardsTheArrow(playerPos,cameraForward);
                 break;
         }
         if(attackWay!=2)
@@ -116,14 +113,46 @@ public class AttackController : MonoBehaviour{
             }
         }
     }
+    public void RangeRote(Vector3 playerPos){
+        for(int i = 0; i < targets.Length; i++){
+            var disArray = Vector3.Distance(new Vector3(
+                targets[i].transform.position.x,playerPos.y,
+                targets[i].transform.position.z) , playerPos);
+                if((float)disArray<targetDistSave){
+                    redRange.SetActive(true);
+                    redRange.transform.Rotate(new Vector3(0, 0, 100*Time.deltaTime));
+                    break;
+                }
+                else{
+                    redRange.SetActive(false);
+                }
+            }
+    }
     public void CameraForwardAttack(Vector3 moveForward){
         if(lockState==true)
             player. transform.rotation = Quaternion.LookRotation(moveForward);
     }
+    public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward){
+        if(Input.GetMouseButton(0))
+            arrowObj.SetActive(true);
+        if(Input.GetMouseButtonDown(0))
+            arrowObj. transform.rotation = Quaternion.LookRotation(cameraForward);
+        Vector3 arrowForward = Vector3.Scale(
+            arrowObj.transform.forward, new Vector3(1, 0, 1)).normalized;
+        arrowObj.transform.position = new Vector3(playerPos.x, 1,playerPos.z);
+        if(Input.GetKey(KeyCode.Q))
+            arrowObj.transform.Rotate(new Vector3(0, -200*Time.deltaTime,0));
+        if(Input.GetKey(KeyCode.E))
+            arrowObj.transform.Rotate(new Vector3(0, 200*Time.deltaTime,0));
+        if(lockState==true)
+            player. transform.rotation = Quaternion.LookRotation(arrowForward);
+    }
     public void BossAttack(){
         lockState=true;
+        playerParent.GetComponent<PlayerMove>().enabled=false;
     }
     public void BossAttacked(){
         lockState=false;
+        playerParent.GetComponent<PlayerMove>().enabled=true;
     }
 }
