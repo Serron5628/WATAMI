@@ -10,7 +10,7 @@ using UnityEditor;
 /// </summary>
 [ExecuteInEditMode, DisallowMultipleComponent]
 public class CameraMove : MonoBehaviour{
-    public GameObject player;
+    public GameObject player,playerParent;
     public Vector3 offset;
     
     [SerializeField] private float distance = 7.0f; 
@@ -34,8 +34,7 @@ public class CameraMove : MonoBehaviour{
     void Update(){
         RaycastHit hit;
         Vector3 playerPos = player.transform.position;
-        Vector3 cameraPos1 = transform.position;
-        //Ray ray = new Ray(playerPos + offset, cameraPos1);
+        Vector3 playerParentPos = playerParent.transform.position;
         Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);
         if (Physics.Linecast(playerPos+offset,transform.position, out hit)) {
             dis = Vector3.Distance(playerPos+offset,hit.point);
@@ -49,7 +48,7 @@ public class CameraMove : MonoBehaviour{
             plusDistance();
         if(!(Input.GetMouseButton(0)))
             updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        var lookAtPos = playerPos + offset;
+        var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
     }
