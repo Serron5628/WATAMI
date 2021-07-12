@@ -54,10 +54,10 @@ public class AttackController : MonoBehaviour{
             attackWay=4;
             TextColor();        
         }
-        if(!(Input.GetMouseButton(0)))
-            time += Time.deltaTime;
-        else
+        if(Input.GetMouseButton(0))
             time = 0.0f;
+        else if(time<3.0)
+            time += Time.deltaTime;
         if(time>2.0f||mode!=4)
             arrowObj.SetActive(false);
         switch(attackWay){
