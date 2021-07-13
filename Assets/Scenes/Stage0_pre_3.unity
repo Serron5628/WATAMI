@@ -10819,7 +10819,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1679583713}
+      objectReference: {fileID: 1270297154}
     - target: {fileID: 3211623227736666335, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: arrowObj
