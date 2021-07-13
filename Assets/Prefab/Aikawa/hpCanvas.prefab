@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 1555424581911009326}
   - component: {fileID: 4533331152125753713}
   - component: {fileID: 8787058828329971021}
+  - component: {fileID: -6517209758077538869}
   m_Layer: 5
   m_Name: hpCanvas
   m_TagString: Untagged
@@ -436,6 +437,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &-6517209758077538869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090552406890215550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08a94d24d2bcfe41af82fc454d41272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIcenter: {fileID: 0}
+  pCenter: {fileID: 0}
+  uIPos: {x: 0, y: 2, z: 0}
 --- !u!1 &7696344438056944473
 GameObject:
   m_ObjectHideFlags: 0
