@@ -38,6 +38,7 @@ public class AttackController : MonoBehaviour{
             Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
         var playerPos = player.transform.position;
+        var playerParentPos = playerParent.transform.position;
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             attackWay=1;
             TextColor();
@@ -76,7 +77,7 @@ public class AttackController : MonoBehaviour{
                 break;
             case 4:
                 mode=4;
-                AttackTowardsTheArrow(playerPos,cameraForward);
+                AttackTowardsTheArrow(playerPos,cameraForward,playerParentPos);
                 break;
         }
         if(attackWay!=2)
@@ -132,14 +133,14 @@ public class AttackController : MonoBehaviour{
         if(lockState==true)
             player. transform.rotation = Quaternion.LookRotation(moveForward);
     }
-    public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward){
+    public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward, Vector3 playerParentPos){
         if(Input.GetMouseButton(0))
             arrowObj.SetActive(true);
         if(Input.GetMouseButtonDown(0))
             arrowObj. transform.rotation = Quaternion.LookRotation(cameraForward);
         Vector3 arrowForward = Vector3.Scale(
             arrowObj.transform.forward, new Vector3(1, 0, 1)).normalized;
-        arrowObj.transform.position = new Vector3(playerPos.x, 1,playerPos.z);
+        arrowObj.transform.position = new Vector3(playerParentPos.x, 1,playerParentPos.z);
         if(Input.GetKey(KeyCode.Q))
             arrowObj.transform.Rotate(new Vector3(0, -200*Time.deltaTime,0));
         if(Input.GetKey(KeyCode.E))
