@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HpUIpos : MonoBehaviour
+public class HpPos : MonoBehaviour
 {
     GameObject cameraObj;
     public GameObject UIcenter,pCenter;
