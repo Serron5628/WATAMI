@@ -5,6 +5,7 @@ using UnityEngine;
 public class MotiHuge : MonoBehaviour
 {
     public float plus;
+    public float bairitu;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class MotiHuge : MonoBehaviour
 
     public void hugeScale()
     {
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.01f + plus);
+        transform.localScale = new Vector3(0f+plus, 1f, 1f+bairitu*plus );
         //transform.localPosition = new Vector3(-0.5f - plus, 0.5f, 0f);//(1.5f+plus*0.5f, 0, 0);-0.5f - plus
         plus = plus + 0.005f;
         if (plus > 5)
@@ -30,8 +31,8 @@ public class MotiHuge : MonoBehaviour
     }
     public void KeepScale()
     {
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.01f);
-        transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        transform.localScale = new Vector3(0f, 0f, 0f);
+        transform.localPosition = new Vector3(0f, 0.25f, 0f);
     }
     public void ResetE()
     {
