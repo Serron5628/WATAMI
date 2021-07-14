@@ -44,7 +44,7 @@ public class CameraMove : MonoBehaviour{
                 hit.collider.tag =="Wall"
             ))minusDistance();
         }
-        else if(disdata>distance+0.2f)
+        else if(disdata>distance)
             plusDistance();
         if(!(Input.GetMouseButton(0)))
             updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
