@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour{
     public GameObject player,playerParent;
     public Vector3 offset;
     
-    [SerializeField] private float distance = 7.0f; 
+    private float distance = 9.0f; 
     [SerializeField] private float disZoomSpeed = 20.0f;
     [SerializeField] private float polarAngle = 80.0f; 
     [SerializeField] private float azimuthalAngle = 270.0f; 
@@ -41,10 +41,11 @@ public class CameraMove : MonoBehaviour{
             hitObj = hit.collider.gameObject;
             if(dis+0.2f<=distance&&(
                 hit.collider.tag =="Floor"||
-                hit.collider.tag =="Wall"
+                hit.collider.tag =="Wall"||
+                hit.collider.tag =="Ground"
             ))minusDistance();
         }
-        else if(disdata>distance)
+        else if(disdata>distance+0.2f)
             plusDistance();
         if(!(Input.GetMouseButton(0)))
             updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
