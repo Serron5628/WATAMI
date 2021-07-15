@@ -133,7 +133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh55716
+  m_Name: pb_Mesh21092
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1805,7 +1805,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: fedc75da63b32e249bccd7450cd29351, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -3352,7 +3352,7 @@ PrefabInstance:
     - target: {fileID: 1740121989495066850, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1896496051115542814, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
@@ -3418,7 +3418,7 @@ PrefabInstance:
     - target: {fileID: 9190379738416421253, guid: f1ac47512fb1e1946a5ac1820841a8f3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3824252986346109814, guid: f1ac47512fb1e1946a5ac1820841a8f3, type: 3}
@@ -3698,6 +3698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957a2f45385ce8948a1eee0107c22962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usagi: {fileID: 0}
+  usagiStr: isHissatu
   lastAttack: {fileID: 0}
 --- !u!114 &1201423614
 MonoBehaviour:
@@ -11973,7 +11975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7105920141996165645
 Transform:
   m_ObjectHideFlags: 0
