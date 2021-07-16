@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
 /// <summary>
 /// The camera added this script will follow the specified object.
