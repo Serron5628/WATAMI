@@ -90,7 +90,7 @@ public class AttackController : MonoBehaviour{
                 targetDist = dist;
                 redRange.transform.position = new Vector3(
                     targetOgj.transform.position.x,
-                    targetOgj.transform.position.y-0.3f,
+                    targetOgj.transform.position.y + 0.01f,
                     targetOgj.transform.position.z);
                 if(lockState==true)
                     player.transform.LookAt(new Vector3(

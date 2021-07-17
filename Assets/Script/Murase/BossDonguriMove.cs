@@ -24,6 +24,7 @@ public class BossDonguriMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = donguri.GetComponent<Animator>();
         if(!playerObj)playerObj = GameObject.FindGameObjectWithTag("Player");
+        obstacle = GetComponent<NavMeshObstacle>();
     }
     void Update()
     {
