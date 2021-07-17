@@ -25,13 +25,15 @@ public class AttackController : MonoBehaviour{
             player = GameObject.FindGameObjectWithTag("Player");
         targetDistSave = targetDist;
         TextColor();
+
+        attackWay = 2;
     }
     void TextColor(){
         a_flag = true;
         a_color = 1;
     }
     void Update(){
-        modeTaxt.text = "MODE : " + mode;
+        //modeTaxt.text = "MODE : " + mode;
         var inputHorizontal = Input.GetAxisRaw("Horizontal");
         var inputVertical = Input.GetAxisRaw("Vertical");
         var cameraForward = Vector3.Scale(
@@ -39,6 +41,7 @@ public class AttackController : MonoBehaviour{
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
         var playerPos = player.transform.position;
         var playerParentPos = playerParent.transform.position;
+        /*
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             attackWay=1;
             TextColor();
@@ -55,6 +58,7 @@ public class AttackController : MonoBehaviour{
             attackWay=4;
             TextColor();        
         }
+        */
         if(Input.GetMouseButton(0))
             time = 0.0f;
         else if(time<3.0)

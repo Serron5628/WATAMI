@@ -152,10 +152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   donguri: {fileID: 2081068731656266457}
-  Speed: 0.5
+  Speed: 0.6
   rotateSpeed: 0
   stopDist: 1.4
-  searchDist: 5
+  searchDist: 8
 --- !u!64 &4989361769300694071
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   xWidth: 40
   zWidth: 40
   yMinimum: -8
-  counter: {fileID: 0}
+  inCounter: {fileID: 0}
 --- !u!195 &4632863600390063673
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5753790766a22c4ebd9631ab6de39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP1: 5
+  HP1: 1
   HP2: 0
   donguri: {fileID: 4691385996534898670}
   counter: {fileID: 0}

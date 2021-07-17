@@ -15,12 +15,13 @@ public class EnemyDestroy : MonoBehaviour
     [SerializeField]
     float yMinimum;
     Vector3 enemyPos;
-    public EneDestCount counter;
+    public GameObject inCounter;
+    EneDestCount counter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        counter = inCounter.GetComponent<EneDestCount>();
     }
 
     // Update is called once per frame
