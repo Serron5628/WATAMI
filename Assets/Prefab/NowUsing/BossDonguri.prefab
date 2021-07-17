@@ -274,7 +274,7 @@ MonoBehaviour:
   donguri: {fileID: 6039349757918341560}
   Speed: 0.4
   rotateSpeed: 7
-  stopDist: 2
+  stopDist: 3.5
   searchDist: 15
 --- !u!195 &6850394269008453456
 NavMeshAgent:
