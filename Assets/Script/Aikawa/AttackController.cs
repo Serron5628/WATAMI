@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class AttackController : MonoBehaviour{
-    public GameObject targetOgj;
+    public static GameObject targetOgj;
     public GameObject playerParent;
     public float targetDist = 10.0f;
     private float targetDistSave,time=0.0f;
+    private int attackWay=2;
     public static GameObject[] targets;
     public GameObject player;
     public GameObject redRange;
     public GameObject arrowObj;
     public Text modeTaxt;
-    private int mode=1;
+    private int mode=2;
     private float dist;
     private bool lockState=false;
     bool a_flag;
@@ -30,6 +31,7 @@ public class AttackController : MonoBehaviour{
         a_color = 1;
     }
     void Update(){
+        modeTaxt.text = "MODE : " + mode;
         var inputHorizontal = Input.GetAxisRaw("Horizontal");
         var inputVertical = Input.GetAxisRaw("Vertical");
         var cameraForward = Vector3.Scale(
@@ -37,17 +39,37 @@ public class AttackController : MonoBehaviour{
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
         var playerPos = player.transform.position;
         var playerParentPos = playerParent.transform.position;
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            attackWay=2;
+            TextColor();
+        }
         if(Input.GetMouseButton(0))
             time = 0.0f;
         else if(time<3.0)
             time += Time.deltaTime;
         if(time>2.0f||mode!=4)
             arrowObj.SetActive(false);
-        
-        targets = GameObject.FindGameObjectsWithTag("Boss");
-        AutoLockOn(playerPos);
-        RangeRote(playerPos);
-        redRange.SetActive(false);
+        switch(attackWay){
+            case 1:
+                mode=1;
+                break;
+            case 2:
+                mode=2;
+                targets = GameObject.FindGameObjectsWithTag("Boss");
+                AutoLockOn(playerPos);
+                RangeRote(playerPos);
+                break;
+            case 3:
+                mode=3;
+                CameraForwardAttack(cameraForward);
+                break;
+            case 4:
+                mode=4;
+                AttackTowardsTheArrow(playerPos,cameraForward,playerParentPos);
+                break;
+        }
+        if(attackWay!=2)
+            redRange.SetActive(false);
         if (a_flag) {
             modeTaxt.color = new Color (0, 0, 0, a_color);
             a_color -=  Time.deltaTime;
@@ -63,12 +85,13 @@ public class AttackController : MonoBehaviour{
                 target.transform.position.x,playerPos.y,
                 target.transform.position.z) , playerPos);
             if(targetDist>dist){
+                targetOgj=target;
                 redRange.SetActive(true);
                 targetDist = dist;
                 redRange.transform.position = new Vector3(
-                    target.transform.position.x,
-                    target.transform.position.y-3.0f,
-                    target.transform.position.z);
+                    targetOgj.transform.position.x,
+                    targetOgj.transform.position.y-0.3f,
+                    targetOgj.transform.position.z);
                 if(lockState==true)
                     player.transform.LookAt(new Vector3(
                         target.transform.position.x,
