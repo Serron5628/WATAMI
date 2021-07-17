@@ -155,7 +155,7 @@ MonoBehaviour:
   Speed: 0.6
   rotateSpeed: 0
   stopDist: 1.4
-  searchDist: 8
+  searchDist: 15
 --- !u!64 &4989361769300694071
 MeshCollider:
   m_ObjectHideFlags: 0

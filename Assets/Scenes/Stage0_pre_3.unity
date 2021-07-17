@@ -626,6 +626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 1704280562191423911, guid: 07ecb0b65c1979147bb3e80bd287e6f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07ecb0b65c1979147bb3e80bd287e6f8, type: 3}
 --- !u!4 &140226523 stripped
@@ -778,6 +783,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -1593,6 +1603,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -2403,6 +2418,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -3173,6 +3193,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -3330,6 +3355,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -3487,6 +3517,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -4002,7 +4037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee29a3ce3251a64690093d3302252eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStageName: Stage0_pre_3
+  nextStageName: Start
   waitTime: 0
 --- !u!114 &1513192667
 MonoBehaviour:
@@ -4048,11 +4083,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1513192666}
-        m_MethodName: 
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4392,6 +4427,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -8713,6 +8753,11 @@ PrefabInstance:
       propertyPath: inCounter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 7466607907844206541, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti
@@ -9241,6 +9286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plus: 0.05
+  bairitu: 0
 --- !u!95 &3872318117065668315
 Animator:
   serializedVersion: 3

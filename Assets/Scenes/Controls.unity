@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee29a3ce3251a64690093d3302252eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStageName: Stage0_pre
+  nextStageName: Stage0_pre_3
   waitTime: 0.5
 --- !u!114 &135377575
 MonoBehaviour:
@@ -693,7 +693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u3059\u305F\u3041\u3068 !"
+  m_Text: "\u3059\u305F\u3041\u3068"
 --- !u!222 &1726197710
 CanvasRenderer:
   m_ObjectHideFlags: 0
