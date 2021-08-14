@@ -49,7 +49,7 @@ public class BossDonguriMove : MonoBehaviour
             if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
                 agent.enabled = false;
-                obstacle.enabled = true;
+                //obstacle.enabled = true;
 
                 //Waitモーション時にプレイヤーの方を向かせる
                 if (isWait == true)
@@ -79,7 +79,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
 
                     agent.enabled = true;
-                    obstacle.enabled = false;
+                    //obstacle.enabled = false;
 
                     this.animator.SetBool(walkStr, true);
                 }
