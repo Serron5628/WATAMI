@@ -173,19 +173,19 @@ public class PlayerMove : MonoBehaviour
         }
 
         //足音実装
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             KoganeRun.Play();
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             KoganeRun.Play();
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             KoganeRun.Play();
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             KoganeRun.Play();
         }

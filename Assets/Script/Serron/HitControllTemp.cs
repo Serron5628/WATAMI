@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class HitControllTemp : MonoBehaviour
 {
     int hitCount;
+    //HP1は第一段階のHP。第2形態とかがない敵ならこの値の設定だけでいい
+    public int HP1;
+    public int HP2;
     bool stickFlag;
     [SerializeField] GameObject donguri;
     public GameObject counter;
@@ -19,13 +22,14 @@ public class HitControllTemp : MonoBehaviour
     void FixedUpdate()
     {
         //HP減ったときに何かするってなったらここいじってくれればおｋ
-        if(hitCount == 10)
+        if(hitCount == HP1)
         {
+            //stickFlagがtrueになるとstickEのスクリプトを活性化
             stickFlag = true;
-
         }
-        else if(hitCount == 20)
+        else if(hitCount == HP2)
         {
+            //第2段階に入る処理とかはここ。
 
         }
 
@@ -39,12 +43,14 @@ public class HitControllTemp : MonoBehaviour
             }
             donguri.GetComponent<EnemyMove>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
+            donguri.GetComponentInChildren<Animator>().enabled = false;
+
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //ヒットした回数を数えてる。HP計算するなら引き算に変えた方がいい
+        //ヒットした回数を数えてる。
         if(other.gameObject.tag == "Moti")
         {
             hitCount++;

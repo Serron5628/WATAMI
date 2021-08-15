@@ -16,9 +16,9 @@ public class CharaJumpCtrl_2 : MonoBehaviour
             this.usagi.SetBool(usagiStr, true);
             HissatuAnim = true;
         }
-        if(Input.GetMouseButton(0)){
-                this.usagi.SetBool(usagiStr, false);
-                HissatuAnim = false;
+        else{
+            this.usagi.SetBool(usagiStr, false);
+            HissatuAnim = false;
         }
     }
 }
