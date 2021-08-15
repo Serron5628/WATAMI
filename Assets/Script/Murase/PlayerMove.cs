@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     bool isJumping = false;
     bool setFallVelocity = false;
+    bool pushmouse;
     Vector3 fallVelocity;
     int startJumpflag = 0;
     int jumpflag = 0;
@@ -66,7 +67,14 @@ public class PlayerMove : MonoBehaviour
             // キャラクターの向きを進行方向に
             if (moveForward != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(moveForward);
+                if (pushmouse)
+                {
+
+                }
+                else
+                {
+                    transform.rotation = Quaternion.LookRotation(moveForward);
+                }
             }
         }
         if (useParachute == true)
@@ -193,6 +201,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        pushmouse = Input.GetMouseButton(0);
+
         if (playerState != jumpState)
         {
             inputHorizontal = Input.GetAxisRaw("Horizontal");
@@ -277,7 +287,7 @@ public class PlayerMove : MonoBehaviour
         if (playerState == fallState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount1 += 1;
-            if (groundcheckCount1 >= 5)
+            if (groundcheckCount1 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount1 = 0;
@@ -286,7 +296,7 @@ public class PlayerMove : MonoBehaviour
         if (playerState == jumpState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount2 += 1;
-            if (groundcheckCount2 >= 5)
+            if (groundcheckCount2 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount2 = 0;
@@ -295,7 +305,7 @@ public class PlayerMove : MonoBehaviour
         if (playerState == parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount3 += 1;
-            if (groundcheckCount3 >= 5)
+            if (groundcheckCount3 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount3 = 0;
