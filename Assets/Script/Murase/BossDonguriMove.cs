@@ -46,7 +46,12 @@ public class BossDonguriMove : MonoBehaviour
             if (Vector3.Distance(agent.transform.position, playerPos) <= stopDist)
             {
                 agent.enabled = false;
+<<<<<<< HEAD
                 obstacle.enabled = true;
+=======
+                //obstacle.enabled = true;
+
+>>>>>>> master
                 //Waitモーション時にプレイヤーの方を向かせる
                 if (isWait == true)
                 {
@@ -70,7 +75,7 @@ public class BossDonguriMove : MonoBehaviour
                 if (isAttack == false)
                 {
                     agent.enabled = true;
-                    obstacle.enabled = false;
+                    //obstacle.enabled = false;
 
                     this.animator.SetBool(walkStr, true);
                 }
