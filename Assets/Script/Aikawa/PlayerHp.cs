@@ -7,7 +7,6 @@ public class PlayerHp : MonoBehaviour{
     public float maxHp = 50f,nowHp;
     private float damageCountTime = 0.0f;
     void Start(){
-        //hpSlider = GetComponent<Slider>();
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
     }
@@ -18,36 +17,40 @@ public class PlayerHp : MonoBehaviour{
     }
     private TouchObj touchObj;
     void Update(){
-        damageCountTime += Time.deltaTime;
         switch(touchObj){
             case TouchObj.ENEMY:
+                damageCountTime += Time.deltaTime;
                 if(damageCountTime>1){
                     Damage_01();
                     damageCountTime=0.0f;
                 }
                 break;
             case TouchObj.BOSS:
+                damageCountTime += Time.deltaTime;
                 if(damageCountTime>1){
                     Damage_02();
                     damageCountTime=0.0f;
                 }
                 break;
+            case TouchObj.NULLTOUTCH:
+                damageCountTime=0.0f;
+                break;
         }
     }
     private void OnTriggerEnter(Collider other) {
-        damageCountTime=0.0f;
-        if(other.gameObject.tag=="enemy")
+        if(other.gameObject.tag=="enemy"){
             Damage_01();
-        else if(other.gameObject.tag=="Boss")
-            Damage_02();
-    }
-    private void OnTriggerStay(Collider other) {
-        if(other.gameObject.tag=="enemy")
             touchObj = TouchObj.ENEMY;
-        else if(other.gameObject.tag=="Boss")
+        }else if(other.gameObject.tag=="Boss"){
+            Damage_02();
             touchObj = TouchObj.BOSS;
-        else
-            touchObj = TouchObj.NULLTOUTCH;
+        }
+    }
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag=="enemy"||
+            other.gameObject.tag=="Boss"){
+                touchObj = TouchObj.NULLTOUTCH;
+            }
     }
     public void Damage_01(){
         hpSlider.value -= 1;
