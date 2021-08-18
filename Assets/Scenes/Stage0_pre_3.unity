@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09304438, g: 0.11882646, b: 0.15370443, a: 1}
+  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1618,6 +1618,7 @@ Transform:
   m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 508841783}
+  - {fileID: 1291355003}
   m_Father: {fileID: 1971487263}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3698,9 +3699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957a2f45385ce8948a1eee0107c22962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usagi: {fileID: 0}
-  usagiStr: isHissatu
-  lastAttack: {fileID: 0}
 --- !u!114 &1201423614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3793,6 +3791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plus: 0
+  bairitu: 0
 --- !u!65 &1203580657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4021,6 +4020,50 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e844de70d712b5a469844ae582ab1b75, type: 3}
+--- !u!1 &1291355002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291355003}
+  - component: {fileID: 1291355004}
+  m_Layer: 0
+  m_Name: GroundBoxCollider
+  m_TagString: Ground
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291355003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291355002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.16, z: 0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 311628875}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1291355004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291355002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1302903051
 GameObject:
   m_ObjectHideFlags: 0
@@ -10021,6 +10064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plus: 0.05
+  bairitu: 0
 --- !u!114 &837520956036705347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10852,6 +10896,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6959939078940856031, guid: bdad3742c89865142ab05922972cac06,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6959939079926340964, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: m_RootOrder
@@ -11126,6 +11175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plus: 0.05
+  bairitu: 0
 --- !u!95 &3872318117065668315
 Animator:
   serializedVersion: 3
