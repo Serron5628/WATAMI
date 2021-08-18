@@ -6,12 +6,13 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody rb;
     GroundCheck groundCheck;
-    PlayerParachute parachute;
 
     public string playerState;
     string jumpState = "Jump";
     string groundState = "Ground";
     public string fallState = "Fall";
+    string parachuteUPState = "Pup";
+    string parachuteDOWNState = "Pdown";
 
     public float gravity;　　//（注）ゲーム全体の重力変更
     public float moveSpeed;
@@ -23,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 
     bool isJumping = false;
     bool setFallVelocity = false;
+    bool pushmouse;
     Vector3 fallVelocity;
     int startJumpflag = 0;
     int jumpflag = 0;
@@ -30,13 +32,22 @@ public class PlayerMove : MonoBehaviour
     int groundcheckCount2 = 0;
     int groundcheckCount3 = 0;
 
-    private CriAtomSource KoganeRun;  //サウンド関連
+    Vector3 pos;
+    Vector3 updraftPos;
+    Vector3 updraftScl;
+    public float PmoveSpeed;
+    public float PminFallSpeed;
+    public float PriseSpeed;
+    public bool useParachute = false;
+    public bool inUpdraft = false;
+    bool reachEndPos = false;
+    int tmp = 0;
 
+    private CriAtomSource KoganeRun;  //サウンド関連
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         groundCheck = GameObject.Find("GroundChecker").GetComponent<GroundCheck>();
-        parachute = GetComponent<PlayerParachute>();
         Physics.gravity = new Vector3(0, -gravity, 0);
 
         //CriAtomSourceの取得
@@ -49,24 +60,28 @@ public class PlayerMove : MonoBehaviour
         {
             // カメラの方向から、X-Z平面の単位ベクトルを取得
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-
             // 方向キーの入力値とカメラの向きから、移動方向を決定
             Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-
             // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
             rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
-
             // キャラクターの向きを進行方向に
             if (moveForward != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(moveForward);
+                if (pushmouse)
+                {
+
+                }
+                else
+                {
+                    transform.rotation = Quaternion.LookRotation(moveForward);
+                }
             }
         }
-        if (parachute.useParachute == true)
+        if (useParachute == true)
         {
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-            rb.velocity = moveForward * parachute.moveSpeed + new Vector3(0, rb.velocity.y, 0);
+            rb.velocity = moveForward * PmoveSpeed + new Vector3(0, rb.velocity.y, 0);
 
             if (moveForward != Vector3.zero)
             {
@@ -105,6 +120,66 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector3(fallVelocity.x, rb.velocity.y, fallVelocity.z);
         }
 
+        //下降時　終端速度(minFallSpeed)
+        if (useParachute == true && inUpdraft == false)
+        {
+            if (rb.velocity.y < -0.1)
+            {
+                playerState = parachuteDOWNState;
+                rb.mass = 1;
+                rb.drag = 2;
+                rb.useGravity = false;
+                var target_velocity = new Vector3(0f, -PminFallSpeed, 0f);
+                rb.AddForce(target_velocity * rb.mass * rb.drag / (1f - rb.drag * Time.fixedDeltaTime));
+                //Debug.Log(rb.velocity.magnitude);
+            }
+            else
+            {
+                rb.useGravity = true;
+            }
+        }
+        //上昇時
+        if (useParachute == true && inUpdraft == true)
+        {
+            playerState = parachuteUPState;
+            pos = transform.position;
+            float nextPosY = pos.y + PriseSpeed;
+            float updraftEnd = updraftPos.y + (updraftScl.y / 2);
+
+            rb.drag = 0;
+            rb.useGravity = false;
+
+            if (tmp == 0)
+            {
+                rb.velocity = Vector3.zero;
+                tmp = 1;
+            }
+
+            if (pos.y >= updraftEnd)
+            {
+                reachEndPos = true;
+            }
+            else
+            {
+                reachEndPos = false;
+            }
+
+            if (reachEndPos == false)
+            {
+                //次の座標が上昇気流範囲を越える場合の補正
+                if (nextPosY > updraftEnd)
+                {
+                    float tmpSpeed = updraftEnd - pos.y;
+                    transform.Translate(0.0f, tmpSpeed, 0.0f);
+                    reachEndPos = true;
+                }
+                else
+                {
+                    transform.Translate(0.0f, PriseSpeed, 0.0f);
+                }
+            }
+        }
+
         //足音実装
         if (Input.GetKey(KeyCode.W))
         {
@@ -126,6 +201,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        pushmouse = Input.GetMouseButton(0);
+
         if (playerState != jumpState)
         {
             inputHorizontal = Input.GetAxisRaw("Horizontal");
@@ -134,6 +211,18 @@ public class PlayerMove : MonoBehaviour
         if (playerState != fallState)
         {
             setFallVelocity = false;
+        }
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            useParachute = true;
+        }
+        else
+        {
+            rb.drag = 0;
+            rb.useGravity = true;
+            useParachute = false;
+            tmp = 0;
         }
 
         if (groundCheck.isGround == true)
@@ -184,7 +273,7 @@ public class PlayerMove : MonoBehaviour
 
         if (rb.velocity.y < -0.1 && playerState != jumpState)
         {
-            if (parachute.useParachute == true)
+            if (useParachute == true)
             {
 
             }
@@ -198,7 +287,7 @@ public class PlayerMove : MonoBehaviour
         if (playerState == fallState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount1 += 1;
-            if (groundcheckCount1 >= 5)
+            if (groundcheckCount1 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount1 = 0;
@@ -207,20 +296,44 @@ public class PlayerMove : MonoBehaviour
         if (playerState == jumpState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount2 += 1;
-            if (groundcheckCount2 >= 5)
+            if (groundcheckCount2 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount2 = 0;
             }
         }
-        if (playerState == parachute.parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.00001)
+        if (playerState == parachuteDOWNState && Mathf.Abs(rb.velocity.y) <= 0.00001)
         {
             groundcheckCount3 += 1;
-            if (groundcheckCount3 >= 5)
+            if (groundcheckCount3 >= 20)
             {
                 playerState = groundState;
                 groundcheckCount3 = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Updraft"))
+        {
+            updraftPos = other.transform.position;
+            updraftScl = other.transform.localScale;
+            inUpdraft = true;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Updraft"))
+        {
+            inUpdraft = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Updraft"))
+        {
+            inUpdraft = false;
         }
     }
 }
