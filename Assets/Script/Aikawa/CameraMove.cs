@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour{
     public Vector3 offset;
     
     private float distance = 9.0f; 
-    [SerializeField] private float disZoomSpeed = 20.0f;
+    [SerializeField] private float disZoomSpeed = 1.0f;
     [SerializeField] private float polarAngle = 80.0f; 
     [SerializeField] private float azimuthalAngle = 270.0f; 
 
@@ -24,11 +24,13 @@ public class CameraMove : MonoBehaviour{
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
-    float dis,disdata;
+    float dis,disdata,disZoomSpeedData;
+    float touchTime=0.0f;
     private GameObject hitObj;
    
     void Start(){
         disdata = distance;
+        disZoomSpeedData = disZoomSpeed;
     }
     void Update(){
         RaycastHit hit;
@@ -36,21 +38,29 @@ public class CameraMove : MonoBehaviour{
         Vector3 playerParentPos = playerParent.transform.position;
         Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);
         if (Physics.Linecast(playerPos+offset,transform.position, out hit)) {
+            touchTime = 0.0f;
             dis = Vector3.Distance(playerPos+offset,hit.point);
             hitObj = hit.collider.gameObject;
-            if(dis+0.2f<=distance&&(
+            if(dis-2.0f<=distance&&(
                 hit.collider.tag =="Floor"||
                 hit.collider.tag =="Wall"||
                 hit.collider.tag =="Ground"
             ))minusDistance();
         }
-        else if(disdata>distance+0.2f)
+        else if(distance<disdata){
+            if(touchTime<10)
+                touchTime += Time.deltaTime;
             plusDistance();
+        }
         if(!(Input.GetMouseButton(0)))
             updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
+        if(touchTime>0.2f)
+            disZoomSpeed = 20.0f;
+        else
+            disZoomSpeed = disZoomSpeedData;
     }
     public void minusDistance(){
         distance = dis;
