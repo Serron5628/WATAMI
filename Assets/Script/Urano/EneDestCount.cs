@@ -18,8 +18,7 @@ public class EneDestCount : MonoBehaviour
     {
         if (count <= 0)
         {
-            appear.SetActive(true);
-            appear.GetComponent<EnemyMove>().enabled = true;
+            appear.SetActive(true); 
             Destroy(this.gameObject);
         }
         //Debug.Log(count);

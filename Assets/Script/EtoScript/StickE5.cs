@@ -7,7 +7,7 @@ public class StickE5 : MonoBehaviour
     public bool ReParent;
     public GameObject moti;
     public DeleteE deleteE;
-    Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,6 @@ public class StickE5 : MonoBehaviour
         if (collision.gameObject.name == "mochi" && ReParent == true)
         {
             this.gameObject.transform.parent = moti.gameObject.transform;
-            rb.isKinematic = true;
         }
     }
 }
