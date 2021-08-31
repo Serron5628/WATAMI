@@ -67,9 +67,9 @@ GameObject:
   - component: {fileID: 7466607907844206541}
   - component: {fileID: 4632863600390063673}
   - component: {fileID: 7026286948427055991}
-  - component: {fileID: 9137508687613935750}
   - component: {fileID: 4190321203424457183}
   - component: {fileID: 2887815861698247401}
+  - component: {fileID: 9137508687613935750}
   m_Layer: 0
   m_Name: Donguri
   m_TagString: enemy
@@ -227,21 +227,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &9137508687613935750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4691385996534898670}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2ca664da42cb64a9c9731dfcebdc92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReParent: 0
-  moti: {fileID: 0}
-  deleteE: {fileID: 2887815861698247401}
 --- !u!114 &4190321203424457183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +257,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteOn: 0
   reParent: 0
+--- !u!114 &9137508687613935750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691385996534898670}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2ca664da42cb64a9c9731dfcebdc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReParent: 0
+  moti: {fileID: 0}
+  deleteE: {fileID: 2887815861698247401}
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
