@@ -8,13 +8,13 @@ public class AttackController : MonoBehaviour{
     public GameObject playerParent;
     public float targetDist = 10.0f;
     private float targetDistSave,time=0.0f;
-    private int attackWay=1;
+    private int attackWay=2;
     public static GameObject[] targets;
     public GameObject player;
     public GameObject redRange;
     public GameObject arrowObj;
     public Text modeTaxt;
-    private int mode=1;
+    private int mode=2;
     private float dist;
     private bool lockState=false;
     bool a_flag;
@@ -31,7 +31,7 @@ public class AttackController : MonoBehaviour{
         a_color = 1;
     }
     void Update(){
-        modeTaxt.text = "MODE : " + mode;
+        //modeTaxt.text = "MODE : " + mode;
         var inputHorizontal = Input.GetAxisRaw("Horizontal");
         var inputVertical = Input.GetAxisRaw("Vertical");
         var cameraForward = Vector3.Scale(
@@ -39,6 +39,7 @@ public class AttackController : MonoBehaviour{
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
         var playerPos = player.transform.position;
         var playerParentPos = playerParent.transform.position;
+        /*
         if(Input.GetKeyDown(KeyCode.Alpha1)){
             attackWay=1;
             TextColor();
@@ -55,6 +56,7 @@ public class AttackController : MonoBehaviour{
             attackWay=4;
             TextColor();        
         }
+        */
         if(Input.GetMouseButton(0))
             time = 0.0f;
         else if(time<3.0)
@@ -62,15 +64,18 @@ public class AttackController : MonoBehaviour{
         if(time>2.0f||mode!=4)
             arrowObj.SetActive(false);
         switch(attackWay){
+            /*
             case 1:
                 mode=1;
                 break;
+            */
             case 2:
                 mode=2;
                 targets = GameObject.FindGameObjectsWithTag("Boss");
                 AutoLockOn(playerPos);
                 RangeRote(playerPos);
                 break;
+            /*
             case 3:
                 mode=3;
                 CameraForwardAttack(cameraForward);
@@ -79,6 +84,7 @@ public class AttackController : MonoBehaviour{
                 mode=4;
                 AttackTowardsTheArrow(playerPos,cameraForward,playerParentPos);
                 break;
+            */
         }
         if(attackWay!=2)
             redRange.SetActive(false);
