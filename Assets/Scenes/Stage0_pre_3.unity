@@ -4496,7 +4496,7 @@ GameObject:
   - component: {fileID: 1411437010}
   - component: {fileID: 1411437009}
   m_Layer: 0
-  m_Name: BGMkari(CriAtomSource)
+  m_Name: BGM(CriAtomSource)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4515,14 +4515,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnStart: 1
-  _cueName: BGMkari
+  _cueName: GyokutoGekka
   _cueSheet: Mochitto_Music
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 0.1
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
