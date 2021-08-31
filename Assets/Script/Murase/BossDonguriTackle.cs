@@ -6,7 +6,8 @@ public class BossDonguriTackle : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody rb;
-    bool isTackle = false;
+    WallCheck wallcheck;
+    public bool isTackle = false;
     int keyCount = 0;
     public float speed;
     public float AddSpeed;
@@ -15,6 +16,7 @@ public class BossDonguriTackle : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        wallcheck = GameObject.Find("WallCheck").GetComponent<WallCheck>();
         SetSpeed = speed;
     }
 
@@ -39,10 +41,18 @@ public class BossDonguriTackle : MonoBehaviour
 
         if (isTackle)
         {
-            speed += AddSpeed;
-            speed = Mathf.Clamp(speed, 0, MaxSpeed);
-            rb.velocity = Vector3.zero;
-            rb.velocity = transform.forward * speed;
+            if (wallcheck.touchWall == true)
+            {
+                rb.velocity = Vector3.zero;
+                isTackle = false;
+            }
+            else
+            {
+                speed += AddSpeed;
+                speed = Mathf.Clamp(speed, 0, MaxSpeed);
+                rb.velocity = Vector3.zero;
+                rb.velocity = transform.forward * speed;
+            }
         }
     }
 }
