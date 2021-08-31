@@ -5353,7 +5353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playOnStart: 0
-  _cueName: KoganeRun
+  _cueName: KoganeMoveZyari
   _cueSheet: Mochitto_SFX
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
