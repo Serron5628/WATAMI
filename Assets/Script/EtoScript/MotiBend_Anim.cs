@@ -16,8 +16,8 @@ public class MotiBend_Anim : MonoBehaviour
     float tan = 0f;
     float RotationCount = 0;
     bool action = false;
-    float mousu_move_x = Input.GetAxis("Mousu X");
-    float mousu_move_y = Input.GetAxis("Mousu Y");
+    float mousu_move_x = Input.GetAxis("Mouse X");
+    float mousu_move_y = Input.GetAxis("Mouse Y");
 
     //float current_length = this.animator.GetFloat("Length");
     //public GameObject Player;
