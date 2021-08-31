@@ -16,6 +16,8 @@ public class MotiBend_Anim : MonoBehaviour
     float tan = 0f;
     float RotationCount = 0;
     bool action = false;
+    float mousu_move_x = Input.GetAxis("Mouse X");
+    float mousu_move_y = Input.GetAxis("Mouse Y");
 
     //float current_length = this.animator.GetFloat("Length");
     //public GameObject Player;
@@ -45,8 +47,17 @@ public class MotiBend_Anim : MonoBehaviour
             //action = true;
             //this.animator.SetBool(bendStr, true);
             float blend = this.animator.GetFloat("Blend");
-            blend = blend+0.1f*Time.deltaTime;
+            float blend2 = this.animator.GetFloat("Blend2");
+            if((mousu_move_x>=0&&mousu_move_y>=0)|| (mousu_move_x >= 0 && mousu_move_y <= 0)|| (mousu_move_x <= 0 && mousu_move_y <= 0) || (mousu_move_x <= 0 && mousu_move_y <= 0))
+            {
+                blend = blend + 0.1f * Time.deltaTime;
+            }
+            else if ((mousu_move_x <= 0 && mousu_move_y >= 0) || (mousu_move_x <= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0))
+            {
+                blend2 = blend2 + 0.1f * Time.deltaTime;
+            }
             this.animator.SetFloat("Blend", blend);
+            this.animator.SetFloat("Blend2", blend2);
 
             tan = 0;
             RotationCount = 0;
@@ -56,8 +67,11 @@ public class MotiBend_Anim : MonoBehaviour
             //action = false;
             float blend = this.animator.GetFloat("Blend");
             blend = 0.0f;
+            float blend2 = this.animator.GetFloat("Blend2");
+            blend2 = 0.0f;
             //blend = blend;
             this.animator.SetFloat("Blend", blend);
+            this.animator.SetFloat("Blend2", blend2);
 
         }
         if (Input.GetMouseButtonUp(0))
