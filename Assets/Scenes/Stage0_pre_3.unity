@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
+  m_IndirectSpecularColor: {r: 0.09304438, g: 0.11882646, b: 0.15370443, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -407,6 +407,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971487263}
     m_Modifications:
+    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _pitch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _cueSheet
+      value: Mochitto_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _playOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00000061255423
@@ -10083,6 +10098,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971487263}
     m_Modifications:
+    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00000061255423
@@ -10549,10 +10569,17 @@ MonoBehaviour:
   target: {fileID: 5478437600725379396}
   donguri: {fileID: 2036713938}
   particleObj: {fileID: 629190162}
+  wallCheckObj: {fileID: 0}
   Speed: 1.5
   rotateSpeed: 7
   stopDist: 6
   searchDist: 15
+  BreathDist: 0
+  Tspeed: 0
+  TAddSpeed: 0
+  TMaxSpeed: 0
+  TstunTime: 0
+  timecount: 0
   AttackSelectTime: 120
   selectAttack: 0
 --- !u!208 &7105920141996165647
