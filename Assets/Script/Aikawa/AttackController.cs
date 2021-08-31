@@ -110,7 +110,7 @@ public class AttackController : MonoBehaviour{
                     targetOgj.transform.position.x,
                     targetOgj.transform.position.y-3.0f,
                     targetOgj.transform.position.z);
-                if(lockState==true)
+                if(lockState)
                     player.transform.LookAt(new Vector3(
                         target.transform.position.x,
                         playerPos.y,
@@ -136,7 +136,7 @@ public class AttackController : MonoBehaviour{
             }
     }
     public void CameraForwardAttack(Vector3 moveForward){
-        if(lockState==true)
+        if(lockState)
             player. transform.rotation = Quaternion.LookRotation(moveForward);
     }
     public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward, Vector3 playerParentPos){
@@ -151,7 +151,7 @@ public class AttackController : MonoBehaviour{
             arrowObj.transform.Rotate(new Vector3(0, -200*Time.deltaTime,0));
         if(Input.GetKey(KeyCode.E))
             arrowObj.transform.Rotate(new Vector3(0, 200*Time.deltaTime,0));
-        if(lockState==true)
+        if(lockState)
             player. transform.rotation = Quaternion.LookRotation(arrowForward);
     }
     public void BossAttack(){

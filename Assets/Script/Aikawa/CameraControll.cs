@@ -32,16 +32,16 @@ public class CameraControll : MonoBehaviour {
 
 	void Update () {
         start = true;
-        if(pause==true&&start==true&&!(Input.GetMouseButton(0))){
+        if(pause&&start&&!(Input.GetMouseButton(0))){
             CursorOn();
             Pause();
-        }else if(pause==false&&start==true&&!(Input.GetMouseButton(0))){
+        }else if(!pause&&start&&!(Input.GetMouseButton(0))){
             CursorOff();
             CameraMoveTrue();
         }
-        if(esc==true&&start==true)
+        if(esc&&start)
             Time.timeScale = 1.0f;
-        else if(esc==false&&start==true)
+        else if(!esc&&start)
             Time.timeScale = 0.0f;
         var bossObjPos = bossObj.transform.position;
         var playerPos = player.transform.position;
@@ -52,7 +52,7 @@ public class CameraControll : MonoBehaviour {
         bossDistance = Vector3.Distance(bossObjPos,endingCamera.transform.position);
         if(Input.GetMouseButton(0))
             CursorOn();
-        if(Input.GetKeyDown(KeyCode.Escape)&&pause==false){
+        if(Input.GetKeyDown(KeyCode.Escape)&&!pause){
             pause = true;
             esc=false;
         }else if(Input.GetKeyDown(KeyCode.Escape)){
@@ -61,16 +61,17 @@ public class CameraControll : MonoBehaviour {
         }
         //else if(Input.GetKeyDown(KeyCode.B))
         //    DestroyBoss();
-        else if(Input.GetKeyDown(KeyCode.R)&&bossDeath==true)
+        else if(Input.GetKeyDown(KeyCode.R)&&bossDeath)
             BossCameraReset();
-        if(bossDeath==true){
+        if(bossDeath){
             EndingCameraMove(bossObjPos,playerPos);
             UpdateCameraPos(moveTargetPos,bossObjPos);
             UpdateCharaLockAt(bossObjPos,playerPos);
         }else
             endingCamera.transform.localPosition = new Vector3(
                 endingCameraDistance,endingHeight,0.0f);
-        if(text)text.text = "Cursor="+cursor;
+        if(text)
+            text.text = "Cursor="+cursor;
 	}
 
     public void Pause(){

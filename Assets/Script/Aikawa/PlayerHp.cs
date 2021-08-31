@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerHp : MonoBehaviour{
     public Slider hpSlider;
-    public float maxHp = 50f,nowHp;
+    public float maxHp = 50.0f,nowHp;
     private float damageCountTime = 0.0f;
     void Start(){
         hpSlider.maxValue = maxHp;
