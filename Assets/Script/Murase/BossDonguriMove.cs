@@ -46,6 +46,9 @@ public class BossDonguriMove : MonoBehaviour
     private int TstartTime = 4;
     private bool startTackle = false;
 
+    //サウンド関係の部分
+    private CriAtomSource Breath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,9 @@ public class BossDonguriMove : MonoBehaviour
         attackCount = 0;
         particle.Stop();
         TSetSpeed = Tspeed;
+
+        //サウンド
+        Breath = GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -244,6 +250,9 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     particle.Play();
                     isParticle = true;
+
+                    //サウンド
+                    Breath.Play();
                 }  
                 else
                 {
