@@ -13,7 +13,7 @@ public class BossHP : MonoBehaviour{
     }
     void OnTriggerEnter(Collider other){
         if(other.tag=="lastAttack")
-        Damage_03();
+            Damage_03();
     }
     void Update() {
         
