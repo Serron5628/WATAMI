@@ -7,9 +7,11 @@ public class BossDonguriMove : MonoBehaviour
 {
     public Transform target;
     public GameObject donguri;
-    public GameObject particleObj;
+    public GameObject BparticleObj;
+    public GameObject TparticleObj;
     public GameObject wallCheckObj;
     private ParticleSystem particle;
+    private ParticleSystem tparticle;
     NavMeshAgent agent;
     NavMeshObstacle obstacle;
     Rigidbody rb;
@@ -28,6 +30,7 @@ public class BossDonguriMove : MonoBehaviour
     private Animator animator;
     private string walkStr = "isWalk";
     private string stampStr = "isStamp";
+    private string tackleStr = "isTackle";
 
     bool setVec = false;
 
@@ -52,13 +55,15 @@ public class BossDonguriMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
-        particle = particleObj.GetComponent<ParticleSystem>();
+        particle = BparticleObj.GetComponent<ParticleSystem>();
+        tparticle = TparticleObj.GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         wallcheck = wallCheckObj.GetComponent<WallCheck>();
         GameObject targetObject = target.gameObject;
         timecount = 0;
         attackCount = 0;
         particle.Stop();
+        tparticle.Stop();
         TSetSpeed = Tspeed;
     }
 
@@ -77,7 +82,7 @@ public class BossDonguriMove : MonoBehaviour
         {
             //1の場合足踏み攻撃(Stamp),2の場合ブレス攻撃(Breath),3の場合突進攻撃(Tackle)
             //selectAttack = Random.Range(1, 4);
-            //selectAttack = 3;
+            //selectAttack = 2;
             timecount = 0;
             timeSet = true;
             if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
@@ -296,9 +301,10 @@ public class BossDonguriMove : MonoBehaviour
             {
                 if (wallcheck.touchWall == true)
                 {
+                    tparticle.Stop();
                     rb.velocity = Vector3.zero;
                     stunCount += Time.deltaTime;
-
+                    this.animator.SetBool(tackleStr, false);
 
                     if (stunCount >= TstunTime)
                     {
@@ -316,6 +322,7 @@ public class BossDonguriMove : MonoBehaviour
                 else
                 {
                     this.animator.SetBool(walkStr, false);
+                    this.animator.SetBool(tackleStr, true);
                     rb.isKinematic = false;
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -323,6 +330,7 @@ public class BossDonguriMove : MonoBehaviour
                     Tspeed = Mathf.Clamp(Tspeed, 0, TMaxSpeed);
                     rb.velocity = Vector3.zero;
                     rb.velocity = transform.forward * Tspeed;
+                    tparticle.Play();
                 }
             }
            
