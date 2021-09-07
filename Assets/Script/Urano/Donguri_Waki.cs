@@ -16,10 +16,11 @@ public class Donguri_Waki : MonoBehaviour
     float height;
     [SerializeField]
     int make;
+    private CriAtomSource Fall;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Fall = GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -52,6 +53,11 @@ public class Donguri_Waki : MonoBehaviour
                 donguri.GetComponent<EnemyMove>().enabled = false;
                 donguri.GetComponent<MeshCollider>().enabled = false;
                 donguri.AddComponent<Donguri_FirstSet>();
+
+                if (i == 0)
+                {
+                    Fall.Play();
+                }
             }
         }
     }

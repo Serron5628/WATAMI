@@ -13,10 +13,14 @@ public class HitControllTemp : MonoBehaviour
     [SerializeField] GameObject donguri;
     public GameObject counter;
     // Start is called before the first frame update
+
+    private CriAtomSource Enemy;
+
     void Start()
     {
         hitCount = 0;
         stickFlag = false;
+        Enemy = GetComponent<CriAtomSource>();
     }
 
     void FixedUpdate()
@@ -36,6 +40,7 @@ public class HitControllTemp : MonoBehaviour
         if(stickFlag == true)
         {
             donguri.GetComponent<StickE5>().enabled = true;
+            Enemy.Play();
             if (counter == true)
             {
                 counter.GetComponent<EneDestCount>().count--;
@@ -44,7 +49,8 @@ public class HitControllTemp : MonoBehaviour
             donguri.GetComponent<EnemyMove>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
-
+            stickFlag = false;
+            hitCount++;
         }
     }
 
