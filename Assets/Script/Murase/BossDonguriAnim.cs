@@ -6,18 +6,10 @@ public class BossDonguriAnim : MonoBehaviour
 {
     public GameObject RstampObj;
     public GameObject LstampObj;
+    public bool IsBreath = false;
+    public bool stopBreath = false;
+    public bool finishBreath = false;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void RightFoot()
     {
         RstampObj.SetActive(true);
@@ -34,5 +26,22 @@ public class BossDonguriAnim : MonoBehaviour
     void DLeftFoot()
     {
         LstampObj.SetActive(false);
+    }
+
+    void startBreath()
+    {
+        finishBreath = false;
+        stopBreath = false;
+        IsBreath = true;
+    }
+    void StopBreath()
+    {
+        stopBreath = true;
+        IsBreath = false;
+    }
+
+    void FinishBreath()
+    {
+        finishBreath = true;
     }
 }

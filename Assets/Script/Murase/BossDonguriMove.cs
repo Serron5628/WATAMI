@@ -16,6 +16,7 @@ public class BossDonguriMove : MonoBehaviour
     NavMeshObstacle obstacle;
     Rigidbody rb;
     WallCheck wallcheck;
+    BossDonguriAnim bossanim;
     public float Speed;
     public float rotateSpeed;
     public float stopDist;
@@ -30,38 +31,35 @@ public class BossDonguriMove : MonoBehaviour
     private Animator animator;
     private string walkStr = "isWalk";
     private string stampStr = "isStamp";
+    private string breathStr = "isBreath";
     private string tackleStr = "isTackle";
 
     bool setVec = false;
 
     public float timecount;
-    float attackCount;
     public int AttackSelectTime;
     public int selectAttack;
-    private bool isParticle = false;
+    private bool startBreath = false;
     private bool timeSet = false;
-    private float particleCount = 0;
-    private int particlePlayCount = 4;
     private bool startStampflag = false;
     private bool startStamp = false;
     private float stunCount = 0;
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
-
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
+        bossanim = donguri.GetComponent<BossDonguriAnim>();
         particle = BparticleObj.GetComponent<ParticleSystem>();
         tparticle = TparticleObj.GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         wallcheck = wallCheckObj.GetComponent<WallCheck>();
         GameObject targetObject = target.gameObject;
         timecount = 0;
-        attackCount = 0;
         particle.Stop();
         tparticle.Stop();
         TSetSpeed = Tspeed;
@@ -82,10 +80,10 @@ public class BossDonguriMove : MonoBehaviour
         {
             //1の場合足踏み攻撃(Stamp),2の場合ブレス攻撃(Breath),3の場合突進攻撃(Tackle)
             //selectAttack = Random.Range(1, 4);
-            //selectAttack = 2;
+            selectAttack = 3;
             timecount = 0;
             timeSet = true;
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            /*if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
                 selectAttack = 1;
             }
@@ -120,7 +118,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     selectAttack = 3;
                 }
-            }
+            }*/
         }
 
         //行動を選択するまでの時間の行動
@@ -224,49 +222,49 @@ public class BossDonguriMove : MonoBehaviour
         //Breath攻撃
         if (selectAttack == 2)
         {
-            this.animator.SetBool(walkStr, false);
             agent.enabled = false;
-            //Breath攻撃の発生までの時間
-            int preCount = 1;
-            attackCount += Time.deltaTime;
-            if (attackCount < preCount)
+            this.animator.SetBool(walkStr, false);
+            this.animator.SetBool(breathStr, true);
+
+            //ブレス攻撃が始まるまでのボスの向きを変更
+            if (!startBreath)
             {
                 float speed = 0.03f;
                 Vector3 vec = target.position - transform.position;
                 Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
                 Quaternion rotation = Quaternion.LookRotation(nvec);
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                
+
                 Vector3 enemyVec = transform.eulerAngles;
                 enemyVec.x = 0.0f;
                 enemyVec.z = 0.0f;
 
                 transform.eulerAngles = enemyVec;
             }
-            else
+            
+            if (bossanim.IsBreath)
             {
-                if (isParticle == false)
+                if (!startBreath)
                 {
                     particle.Play();
-                    isParticle = true;
-                }  
-                else
-                {
-                    particleCount += Time.deltaTime;
                 }
+                
+                startBreath = true;
             }
-
-
-            if (particleCount >= particlePlayCount)
+           
+            if (bossanim.stopBreath)
             {
+                this.animator.SetBool(breathStr, false);
                 particle.Stop();
-                attackCount = 0;
-                particleCount = 0;
-                selectAttack = 0;
-                isParticle = false;
-                timeSet = false;
-                agent.enabled = true;
             }
+
+            /*if (bossanim.finishBreath)
+            {     
+                selectAttack = 0;
+                timeSet = false;
+                startBreath = false;
+                agent.enabled = true;
+            }*/
         }
 
         //Tackle攻撃

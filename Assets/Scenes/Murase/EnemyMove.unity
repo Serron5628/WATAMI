@@ -668,6 +668,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 984034141052973811, guid: 0ca58fd56260a854ba2a07aeec24753e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0066
+      objectReference: {fileID: 0}
+    - target: {fileID: 984034141052973811, guid: 0ca58fd56260a854ba2a07aeec24753e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0251
+      objectReference: {fileID: 0}
     - target: {fileID: 5719479439308700910, guid: 0ca58fd56260a854ba2a07aeec24753e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1068,6 +1078,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RstampObj: {fileID: 1903973584}
   LstampObj: {fileID: 525332430}
+  IsBreath: 0
+  stopBreath: 0
+  finishBreath: 0
 --- !u!1 &1274500699
 GameObject:
   m_ObjectHideFlags: 0
