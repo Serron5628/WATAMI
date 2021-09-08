@@ -47,6 +47,7 @@ public class BossDonguriMove : MonoBehaviour
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
+    private bool isTackle = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -299,6 +300,7 @@ public class BossDonguriMove : MonoBehaviour
             {
                 if (wallcheck.touchWall == true)
                 {
+                    isTackle = false;
                     tparticle.Stop();
                     rb.velocity = Vector3.zero;
                     stunCount += Time.deltaTime;
@@ -328,7 +330,12 @@ public class BossDonguriMove : MonoBehaviour
                     Tspeed = Mathf.Clamp(Tspeed, 0, TMaxSpeed);
                     rb.velocity = Vector3.zero;
                     rb.velocity = transform.forward * Tspeed;
-                    tparticle.Play();
+                    if (!isTackle)
+                    {
+                        tparticle.Play();
+                        isTackle = true;
+                    }
+                   
                 }
             }
            
