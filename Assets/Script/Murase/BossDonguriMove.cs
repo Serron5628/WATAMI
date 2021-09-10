@@ -81,10 +81,10 @@ public class BossDonguriMove : MonoBehaviour
         {
             //1の場合足踏み攻撃(Stamp),2の場合ブレス攻撃(Breath),3の場合突進攻撃(Tackle)
             //selectAttack = Random.Range(1, 4);
-            selectAttack = 3;
+            //selectAttack = 2;
             timecount = 0;
             timeSet = true;
-            /*if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
                 selectAttack = 1;
             }
@@ -119,7 +119,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     selectAttack = 3;
                 }
-            }*/
+            }
         }
 
         //行動を選択するまでの時間の行動
@@ -255,17 +255,17 @@ public class BossDonguriMove : MonoBehaviour
            
             if (bossanim.stopBreath)
             {
-                this.animator.SetBool(breathStr, false);
                 particle.Stop();
             }
 
-            /*if (bossanim.finishBreath)
-            {     
+            if (bossanim.finishBreath)
+            {
+                this.animator.SetBool(breathStr, false);
                 selectAttack = 0;
                 timeSet = false;
                 startBreath = false;
                 agent.enabled = true;
-            }*/
+            }
         }
 
         //Tackle攻撃

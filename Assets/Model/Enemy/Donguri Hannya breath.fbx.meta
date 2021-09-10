@@ -59,21 +59,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.33760685
+      - time: 0.35731134
         functionName: startBreath
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8813541
+      - time: 0.8551068
         functionName: StopBreath
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99685115
+      - time: 0.9605911
         functionName: FinishBreath
         data: 
         objectReferenceParameter: {instanceID: 0}

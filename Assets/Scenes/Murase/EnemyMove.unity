@@ -1096,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0e3a0fa03258f48b390d0382bc4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossDonguri: {fileID: 1432003498}
   RstampObj: {fileID: 1903973584}
   LstampObj: {fileID: 525332430}
   IsBreath: 0
@@ -1216,6 +1217,11 @@ PrefabInstance:
     - target: {fileID: 5988437179140372932, guid: bdad3742c89865142ab05922972cac06,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959939079926340964, guid: bdad3742c89865142ab05922972cac06,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8887635267707013386, guid: bdad3742c89865142ab05922972cac06,
