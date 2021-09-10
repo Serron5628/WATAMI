@@ -40,13 +40,27 @@ public class ScoreTime : MonoBehaviour
             time += Time.deltaTime;
         }
 
-        if (timeD == time)
+        if (timeText != null)
         {
-            timeText.text = str + "：" + time.ToString($"f{cutStop}");
+            if (timeD == time)
+            {
+                timeText.text = str + "：" + time.ToString($"f{cutStop}");
+            }
+            else
+            {
+                timeText.text = str + "：" + time.ToString($"f{cutMove}");
+            }
         }
         else
         {
-            timeText.text = str + "：" + time.ToString($"f{cutMove}");
+            if (timeD == time)
+            {
+                Debug.Log(str + "：" + time.ToString($"f{cutStop}"));
+            }
+            else
+            {
+                Debug.Log(str + "：" + time.ToString($"f{cutMove}"));
+            }
         }
 
         timeD = time;
