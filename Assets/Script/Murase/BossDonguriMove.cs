@@ -7,13 +7,16 @@ public class BossDonguriMove : MonoBehaviour
 {
     public Transform target;
     public GameObject donguri;
-    public GameObject particleObj;
+    public GameObject BparticleObj;
+    public GameObject TparticleObj;
     public GameObject wallCheckObj;
     private ParticleSystem particle;
+    private ParticleSystem tparticle;
     NavMeshAgent agent;
     NavMeshObstacle obstacle;
     Rigidbody rb;
     WallCheck wallcheck;
+    BossBreathEvent bossanim;
     public float Speed;
     public float rotateSpeed;
     public float stopDist;
@@ -28,23 +31,23 @@ public class BossDonguriMove : MonoBehaviour
     private Animator animator;
     private string walkStr = "isWalk";
     private string stampStr = "isStamp";
+    private string breathStr = "isBreath";
+    private string tackleStr = "isTackle";
 
     bool setVec = false;
 
     public float timecount;
-    float attackCount;
     public int AttackSelectTime;
     public int selectAttack;
-    private bool isParticle = false;
+    private bool startBreath = false;
     private bool timeSet = false;
-    private float particleCount = 0;
-    private int particlePlayCount = 4;
     private bool startStampflag = false;
     private bool startStamp = false;
     private float stunCount = 0;
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
+    private bool isTackle = false;
 
     //サウンド関係の部分
     private CriAtomSource Breath;
@@ -55,13 +58,15 @@ public class BossDonguriMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
-        particle = particleObj.GetComponent<ParticleSystem>();
+        bossanim = donguri.GetComponent<BossBreathEvent>();
+        particle = BparticleObj.GetComponent<ParticleSystem>();
+        tparticle = TparticleObj.GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
         wallcheck = wallCheckObj.GetComponent<WallCheck>();
         GameObject targetObject = target.gameObject;
         timecount = 0;
-        attackCount = 0;
         particle.Stop();
+        tparticle.Stop();
         TSetSpeed = Tspeed;
 
         //サウンド
@@ -83,7 +88,7 @@ public class BossDonguriMove : MonoBehaviour
         {
             //1の場合足踏み攻撃(Stamp),2の場合ブレス攻撃(Breath),3の場合突進攻撃(Tackle)
             //selectAttack = Random.Range(1, 4);
-            //selectAttack = 3;
+            //selectAttack = 2;
             timecount = 0;
             timeSet = true;
             if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
@@ -127,8 +132,6 @@ public class BossDonguriMove : MonoBehaviour
         //行動を選択するまでの時間の行動
         if (selectAttack == 0)
         {
-            agent.enabled = true;
-
             if (target != null && agent.enabled == true)
             {
                 agent.destination = target.position;
@@ -141,11 +144,13 @@ public class BossDonguriMove : MonoBehaviour
             if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
                 //Wait
+                agent.enabled = false;
                 this.animator.SetBool(walkStr, false);
             }
             else
             {
-                //Walk       
+                //Walk 
+                agent.enabled = true;
                 this.animator.SetBool(walkStr, true);
             }
         }
@@ -160,6 +165,7 @@ public class BossDonguriMove : MonoBehaviour
             {
                 if (startStamp == true)
                 {
+                    this.animator.SetBool(stampStr, false);
                     timeSet = false;
                     selectAttack = 0;
                     startStampflag = false;
@@ -180,96 +186,98 @@ public class BossDonguriMove : MonoBehaviour
                 agent.stoppingDistance = stopDist - 0.3f;
             }
 
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (!startStampflag)
             {
-                agent.enabled = false;
-                //obstacle.enabled = true;
-
-                //Waitモーション時にプレイヤーの方を向かせる
-                if (isWait == true)
+                if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
                 {
-                    float speed = 0.03f;
-                    Vector3 vec = target.position - transform.position;
-                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                    Quaternion rotation = Quaternion.LookRotation(nvec);
-                    transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                    //transform.LookAt(nvec);
-                    Vector3 enemyVec = transform.eulerAngles;
-                    enemyVec.x = 0.0f;
-                    enemyVec.z = 0.0f;
+                    agent.enabled = false;
+                    //obstacle.enabled = true;
 
-                    transform.eulerAngles = enemyVec;
-                    setVec = true;
+                    //Waitモーション時にプレイヤーの方を向かせる
+                    if (isWait == true)
+                    {
+                        float speed = 0.03f;
+                        Vector3 vec = target.position - transform.position;
+                        Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
+                        Quaternion rotation = Quaternion.LookRotation(nvec);
+                        transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+                        //transform.LookAt(nvec);
+                        Vector3 enemyVec = transform.eulerAngles;
+                        enemyVec.x = 0.0f;
+                        enemyVec.z = 0.0f;
+
+                        transform.eulerAngles = enemyVec;
+                        setVec = true;
+                    }
+
+                    this.animator.SetBool(walkStr, false);
+                    this.animator.SetBool(stampStr, true);
+
+                    startStampflag = true;
                 }
-
-                this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(stampStr, true);
-
-                startStampflag = true;
-            }
-            else
-            {
-                this.animator.SetBool(stampStr, false);
-
-                if (isAttack == false)
+                else
                 {
+                    this.animator.SetBool(stampStr, false);
 
-                    agent.enabled = true;
-                    //obstacle.enabled = false;
+                    if (isAttack == false)
+                    {
 
-                    this.animator.SetBool(walkStr, true);
+                        agent.enabled = true;
+                        //obstacle.enabled = false;
+
+                        this.animator.SetBool(walkStr, true);
+                    }
                 }
-            }
+            }      
         }
 
         //Breath攻撃
         if (selectAttack == 2)
         {
-            this.animator.SetBool(walkStr, false);
             agent.enabled = false;
-            //Breath攻撃の発生までの時間
-            int preCount = 1;
-            attackCount += Time.deltaTime;
-            if (attackCount < preCount)
+            this.animator.SetBool(walkStr, false);
+            this.animator.SetBool(breathStr, true);
+
+            //ブレス攻撃が始まるまでのボスの向きを変更
+            if (!startBreath)
             {
                 float speed = 0.03f;
                 Vector3 vec = target.position - transform.position;
                 Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
                 Quaternion rotation = Quaternion.LookRotation(nvec);
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                
+
                 Vector3 enemyVec = transform.eulerAngles;
                 enemyVec.x = 0.0f;
                 enemyVec.z = 0.0f;
 
                 transform.eulerAngles = enemyVec;
             }
-            else
+            
+            if (bossanim.IsBreath)
             {
-                if (isParticle == false)
+                if (!startBreath)
                 {
                     particle.Play();
-                    isParticle = true;
-
+         
                     //サウンド
-                    Breath.Play();
+                    //Breath.Play();
                 }  
-                else
-                {
-                    particleCount += Time.deltaTime;
-                }
+                
+                startBreath = true;
             }
-
-
-            if (particleCount >= particlePlayCount)
+           
+            if (bossanim.stopBreath)
             {
                 particle.Stop();
-                attackCount = 0;
-                particleCount = 0;
+            }
+
+            if (bossanim.finishBreath)
+            {
+                this.animator.SetBool(breathStr, false);
                 selectAttack = 0;
-                isParticle = false;
                 timeSet = false;
-                agent.enabled = true;
+                startBreath = false;
             }
         }
 
@@ -305,15 +313,16 @@ public class BossDonguriMove : MonoBehaviour
             {
                 if (wallcheck.touchWall == true)
                 {
+                    isTackle = false;
+                    tparticle.Stop();
                     rb.velocity = Vector3.zero;
                     stunCount += Time.deltaTime;
-
+                    this.animator.SetBool(tackleStr, false);
 
                     if (stunCount >= TstunTime)
                     {
                         stunCount = 0;
                         rb.constraints = RigidbodyConstraints.None;
-                        agent.enabled = true;
                         rb.isKinematic = true;
                         startTackle = false;
                         Tspeed = TSetSpeed;
@@ -325,6 +334,7 @@ public class BossDonguriMove : MonoBehaviour
                 else
                 {
                     this.animator.SetBool(walkStr, false);
+                    this.animator.SetBool(tackleStr, true);
                     rb.isKinematic = false;
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
 
@@ -332,67 +342,16 @@ public class BossDonguriMove : MonoBehaviour
                     Tspeed = Mathf.Clamp(Tspeed, 0, TMaxSpeed);
                     rb.velocity = Vector3.zero;
                     rb.velocity = transform.forward * Tspeed;
+                    if (!isTackle)
+                    {
+                        tparticle.Play();
+                        isTackle = true;
+                    }
+                   
                 }
             }
            
         }
-
-        /*if (Vector3.Distance(agent.transform.position, target.position) <= searchDist)
-        {
-
-            if (target != null && agent.enabled == true)
-            {
-                agent.destination = target.position;
-                agent.speed = Speed;
-                //経路探索を終了するstoppingDistanceとアニメーションを遷移させるstopDistが同じ値だと
-                //不具合があったので、-0.3fした距離を設定
-                agent.stoppingDistance = stopDist - 0.3f;
-            }
-
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
-            {
-                agent.enabled = false;
-                //obstacle.enabled = true;
-
-                //Waitモーション時にプレイヤーの方を向かせる
-                if (isWait == true)
-                {
-                    float speed = 0.03f;
-                    Vector3 vec = target.position - transform.position;
-                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                    Quaternion rotation = Quaternion.LookRotation(nvec);
-                    transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                    //transform.LookAt(nvec);
-                    Vector3 enemyVec = transform.eulerAngles;
-                    enemyVec.x = 0.0f;
-                    enemyVec.z = 0.0f;
-
-                    transform.eulerAngles = enemyVec;
-                    setVec = true;
-                }
-
-                this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(stampStr, true);
-            }
-            else
-            {
-                this.animator.SetBool(stampStr, false);
-
-                if (isAttack == false)
-                {
-
-                    agent.enabled = true;
-                    //obstacle.enabled = false;
-
-                    this.animator.SetBool(walkStr, true);
-                }
-            }      
-        }
-        else
-        {
-            this.agent.enabled = false;
-            this.animator.SetBool(walkStr, false);
-        }*/
     }
 
     private bool changeAttack(int rate)
