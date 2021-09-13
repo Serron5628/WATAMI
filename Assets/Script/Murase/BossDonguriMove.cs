@@ -16,7 +16,7 @@ public class BossDonguriMove : MonoBehaviour
     NavMeshObstacle obstacle;
     Rigidbody rb;
     WallCheck wallcheck;
-    BossDonguriAnim bossanim;
+    BossBreathEvent bossanim;
     public float Speed;
     public float rotateSpeed;
     public float stopDist;
@@ -47,21 +47,18 @@ public class BossDonguriMove : MonoBehaviour
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
-<<<<<<< HEAD
     private bool isTackle = false;
-=======
 
     //サウンド関係の部分
     private CriAtomSource Breath;
 
->>>>>>> master
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
-        bossanim = donguri.GetComponent<BossDonguriAnim>();
+        bossanim = donguri.GetComponent<BossBreathEvent>();
         particle = BparticleObj.GetComponent<ParticleSystem>();
         tparticle = TparticleObj.GetComponent<ParticleSystem>();
         rb = GetComponent<Rigidbody>();
@@ -262,18 +259,10 @@ public class BossDonguriMove : MonoBehaviour
                 if (!startBreath)
                 {
                     particle.Play();
-<<<<<<< HEAD
-=======
-                    isParticle = true;
-
+         
                     //サウンド
-                    Breath.Play();
+                    //Breath.Play();
                 }  
-                else
-                {
-                    particleCount += Time.deltaTime;
->>>>>>> master
-                }
                 
                 startBreath = true;
             }

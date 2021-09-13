@@ -1065,7 +1065,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1793883913}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1127098074
+--- !u!95 &1127098073
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1075,7 +1075,7 @@ Animator:
   m_GameObject: {fileID: 1127098072}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4ff3caa3d1de61746868734a4d418c4c, type: 2}
+  m_Controller: {fileID: 9100000, guid: e2cb8c34217b937438cf287744122c07, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1096,9 +1096,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0e3a0fa03258f48b390d0382bc4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossDonguri: {fileID: 1432003498}
   RstampObj: {fileID: 1903973584}
   LstampObj: {fileID: 525332430}
+--- !u!114 &1127098076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127098072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1dee28579e03c499f4741c65422473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossDonguri: {fileID: 1432003498}
   IsBreath: 0
   stopBreath: 0
   finishBreath: 0
