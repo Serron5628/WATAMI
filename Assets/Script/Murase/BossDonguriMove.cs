@@ -125,8 +125,6 @@ public class BossDonguriMove : MonoBehaviour
         //行動を選択するまでの時間の行動
         if (selectAttack == 0)
         {
-            agent.enabled = true;
-
             if (target != null && agent.enabled == true)
             {
                 agent.destination = target.position;
@@ -139,11 +137,13 @@ public class BossDonguriMove : MonoBehaviour
             if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
             {
                 //Wait
+                agent.enabled = false;
                 this.animator.SetBool(walkStr, false);
             }
             else
             {
-                //Walk       
+                //Walk 
+                agent.enabled = true;
                 this.animator.SetBool(walkStr, true);
             }
         }
@@ -158,6 +158,7 @@ public class BossDonguriMove : MonoBehaviour
             {
                 if (startStamp == true)
                 {
+                    this.animator.SetBool(stampStr, false);
                     timeSet = false;
                     selectAttack = 0;
                     startStampflag = false;
@@ -178,46 +179,49 @@ public class BossDonguriMove : MonoBehaviour
                 agent.stoppingDistance = stopDist - 0.3f;
             }
 
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (!startStampflag)
             {
-                agent.enabled = false;
-                //obstacle.enabled = true;
-
-                //Waitモーション時にプレイヤーの方を向かせる
-                if (isWait == true)
+                if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
                 {
-                    float speed = 0.03f;
-                    Vector3 vec = target.position - transform.position;
-                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                    Quaternion rotation = Quaternion.LookRotation(nvec);
-                    transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                    //transform.LookAt(nvec);
-                    Vector3 enemyVec = transform.eulerAngles;
-                    enemyVec.x = 0.0f;
-                    enemyVec.z = 0.0f;
+                    agent.enabled = false;
+                    //obstacle.enabled = true;
 
-                    transform.eulerAngles = enemyVec;
-                    setVec = true;
+                    //Waitモーション時にプレイヤーの方を向かせる
+                    if (isWait == true)
+                    {
+                        float speed = 0.03f;
+                        Vector3 vec = target.position - transform.position;
+                        Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
+                        Quaternion rotation = Quaternion.LookRotation(nvec);
+                        transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
+                        //transform.LookAt(nvec);
+                        Vector3 enemyVec = transform.eulerAngles;
+                        enemyVec.x = 0.0f;
+                        enemyVec.z = 0.0f;
+
+                        transform.eulerAngles = enemyVec;
+                        setVec = true;
+                    }
+
+                    this.animator.SetBool(walkStr, false);
+                    this.animator.SetBool(stampStr, true);
+
+                    startStampflag = true;
                 }
-
-                this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(stampStr, true);
-
-                startStampflag = true;
-            }
-            else
-            {
-                this.animator.SetBool(stampStr, false);
-
-                if (isAttack == false)
+                else
                 {
+                    this.animator.SetBool(stampStr, false);
 
-                    agent.enabled = true;
-                    //obstacle.enabled = false;
+                    if (isAttack == false)
+                    {
 
-                    this.animator.SetBool(walkStr, true);
+                        agent.enabled = true;
+                        //obstacle.enabled = false;
+
+                        this.animator.SetBool(walkStr, true);
+                    }
                 }
-            }
+            }      
         }
 
         //Breath攻撃
@@ -264,7 +268,6 @@ public class BossDonguriMove : MonoBehaviour
                 selectAttack = 0;
                 timeSet = false;
                 startBreath = false;
-                agent.enabled = true;
             }
         }
 
@@ -310,7 +313,6 @@ public class BossDonguriMove : MonoBehaviour
                     {
                         stunCount = 0;
                         rb.constraints = RigidbodyConstraints.None;
-                        agent.enabled = true;
                         rb.isKinematic = true;
                         startTackle = false;
                         Tspeed = TSetSpeed;
@@ -340,63 +342,6 @@ public class BossDonguriMove : MonoBehaviour
             }
            
         }
-
-        /*if (Vector3.Distance(agent.transform.position, target.position) <= searchDist)
-        {
-
-            if (target != null && agent.enabled == true)
-            {
-                agent.destination = target.position;
-                agent.speed = Speed;
-                //経路探索を終了するstoppingDistanceとアニメーションを遷移させるstopDistが同じ値だと
-                //不具合があったので、-0.3fした距離を設定
-                agent.stoppingDistance = stopDist - 0.3f;
-            }
-
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
-            {
-                agent.enabled = false;
-                //obstacle.enabled = true;
-
-                //Waitモーション時にプレイヤーの方を向かせる
-                if (isWait == true)
-                {
-                    float speed = 0.03f;
-                    Vector3 vec = target.position - transform.position;
-                    Vector3 nvec = new Vector3(vec.x, transform.position.y, vec.z);
-                    Quaternion rotation = Quaternion.LookRotation(nvec);
-                    transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, speed);
-                    //transform.LookAt(nvec);
-                    Vector3 enemyVec = transform.eulerAngles;
-                    enemyVec.x = 0.0f;
-                    enemyVec.z = 0.0f;
-
-                    transform.eulerAngles = enemyVec;
-                    setVec = true;
-                }
-
-                this.animator.SetBool(walkStr, false);
-                this.animator.SetBool(stampStr, true);
-            }
-            else
-            {
-                this.animator.SetBool(stampStr, false);
-
-                if (isAttack == false)
-                {
-
-                    agent.enabled = true;
-                    //obstacle.enabled = false;
-
-                    this.animator.SetBool(walkStr, true);
-                }
-            }      
-        }
-        else
-        {
-            this.agent.enabled = false;
-            this.animator.SetBool(walkStr, false);
-        }*/
     }
 
     private bool changeAttack(int rate)
