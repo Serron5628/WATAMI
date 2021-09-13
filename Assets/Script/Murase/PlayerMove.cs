@@ -43,15 +43,12 @@ public class PlayerMove : MonoBehaviour
     bool reachEndPos = false;
     int tmp = 0;
 
-    private CriAtomSource KoganeRun;  //サウンド関連
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         groundCheck = GameObject.Find("GroundChecker").GetComponent<GroundCheck>();
         Physics.gravity = new Vector3(0, -gravity, 0);
 
-        //CriAtomSourceの取得
-        KoganeRun = GetComponent<CriAtomSource>();
     }
 
     void FixedUpdate()
@@ -178,24 +175,6 @@ public class PlayerMove : MonoBehaviour
                     transform.Translate(0.0f, PriseSpeed, 0.0f);
                 }
             }
-        }
-
-        //足音実装
-        if (Input.GetKey(KeyCode.W))
-        {
-            KoganeRun.Play();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            KoganeRun.Play();
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            KoganeRun.Play();
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            KoganeRun.Play();
         }
     }
 
