@@ -135,15 +135,17 @@ public class AttackController : MonoBehaviour
                 targetOgj=target;
                 redRange.SetActive(true);
                 targetDist = dist;
-                redRange.transform.position = new Vector3
-                (
-                    targetOgj.transform.position.x,
-                    targetOgj.transform.position.y-3.0f,
-                    targetOgj.transform.position.z
-                );
+                redRange.transform.position = 
+                    new Vector3
+                    (
+                        targetOgj.transform.position.x,
+                        targetOgj.transform.position.y-3.0f,
+                        targetOgj.transform.position.z
+                    );
                 if(lockState)
                 {
-                    player.transform.LookAt(
+                    player.transform.LookAt
+                    (
                         new Vector3
                         (
                             target.transform.position.x,
@@ -171,7 +173,8 @@ public class AttackController : MonoBehaviour
                     redRange.transform.Rotate(new Vector3(0, 0, 100*Time.deltaTime));
                     break;
                 }
-                else{
+                else
+                {
                     redRange.SetActive(false);
                 }
             }

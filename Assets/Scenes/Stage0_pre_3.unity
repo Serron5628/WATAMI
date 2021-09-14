@@ -1047,18 +1047,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 185007070}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &185007072 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1486020120999623700, guid: f1ac47512fb1e1946a5ac1820841a8f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 185007070}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &185325073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,12 +3175,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64ba5c2a73c545a44b7d97561965acb3, type: 3}
---- !u!1 &629190162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 984034141052973808, guid: 0ca58fd56260a854ba2a07aeec24753e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1055920321}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &631502304
 GameObject:
   m_ObjectHideFlags: 0
@@ -13801,7 +13783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf5bfff0e94a54abdc47067ca181e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 185007072}
 --- !u!208 &2141161945
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -14497,7 +14478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5478437600725379396}
   donguri: {fileID: 2036713938}
-  particleObj: {fileID: 629190162}
+  BparticleObj: {fileID: 0}
+  TparticleObj: {fileID: 0}
   wallCheckObj: {fileID: 429963310}
   Speed: 1.5
   rotateSpeed: 7
