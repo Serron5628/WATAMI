@@ -261,7 +261,7 @@ public class BossDonguriMove : MonoBehaviour
                     particle.Play();
          
                     //サウンド
-                    //Breath.Play();
+                    Breath.Play();
                 }  
                 
                 startBreath = true;
