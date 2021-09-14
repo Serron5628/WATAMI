@@ -135,20 +135,25 @@ public class AttackController : MonoBehaviour
                 targetOgj=target;
                 redRange.SetActive(true);
                 targetDist = dist;
-                redRange.transform.position = new Vector3
-                (
-                    targetOgj.transform.position.x,
-                    targetOgj.transform.position.y-3.0f,
-                    targetOgj.transform.position.z
-                );
-                if(lockState==true)
-                    player.transform.LookAt(new Vector3
+                redRange.transform.position = 
+                    new Vector3
                     (
-                        target.transform.position.x,
-                        playerPos.y,
-                        target.transform.position.z
-                    )
-                );
+                        targetOgj.transform.position.x,
+                        targetOgj.transform.position.y-3.0f,
+                        targetOgj.transform.position.z
+                    );
+                if(lockState)
+                {
+                    player.transform.LookAt
+                    (
+                        new Vector3
+                        (
+                            target.transform.position.x,
+                            playerPos.y,
+                            target.transform.position.z
+                        )
+                    );
+                }
             }
             else
             {
@@ -168,14 +173,15 @@ public class AttackController : MonoBehaviour
                     redRange.transform.Rotate(new Vector3(0, 0, 100*Time.deltaTime));
                     break;
                 }
-                else{
+                else
+                {
                     redRange.SetActive(false);
                 }
             }
     }
     public void CameraForwardAttack(Vector3 moveForward)
     {
-        if(lockState==true)
+        if(lockState)
         {
             player. transform.rotation = Quaternion.LookRotation(moveForward);
         }
@@ -202,7 +208,7 @@ public class AttackController : MonoBehaviour
         arrowObj.transform.position = new Vector3(playerParentPos.x, 1,playerParentPos.z);
 
         
-        if(lockState==true)
+        if(lockState)
         {
             player. transform.rotation = Quaternion.LookRotation(arrowForward);
         }
