@@ -40043,15 +40043,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.625
+  - time: 1.125
+    functionName: DestroyEnemy
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
     functionName: BossAttacked
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.75
-    functionName: DestroyEnemy
+  - time: 1.2083334
+    functionName: ActiveTrue
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5
+    functionName: ActiveFalse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
