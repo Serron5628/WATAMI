@@ -8,6 +8,7 @@ public class BossHPScript : MonoBehaviour
     public Slider bossHpSlieder;
     public int maxHp = 100,nowHp;
     public EnemyDestroy_02 enemyDestroy_02;
+    public int baseDamage = 2;
     void Start()
     {
         nowHp = maxHp;
