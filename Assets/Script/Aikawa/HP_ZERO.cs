@@ -24,7 +24,7 @@ public class HP_ZERO : MonoBehaviour
 
                 と宣言しておいて
 
-            if(!hp_zero.bossHP)
+            if(!hp_zero.bossHP_ZERO)
             {
             }
     */
