@@ -7,6 +7,7 @@ public class BossHPScript : MonoBehaviour
 {
     public Slider bossHpSlieder;
     public int maxHp = 100,nowHp;
+    public EnemyDestroy_02 enemyDestroy_02;
     void Start()
     {
         nowHp = maxHp;
@@ -17,11 +18,15 @@ public class BossHPScript : MonoBehaviour
     {
         if(other.gameObject.tag=="lastAttack")
         {
-            Attack_1();
+            Attack_DonguriLength();
         }
     }
     public void Attack_1()
     {
         bossHpSlieder.value -= 10;
+    }
+    public void Attack_DonguriLength()
+    {
+        bossHpSlieder.value -= enemyDestroy_02.ChildObject.Length;
     }
 }
