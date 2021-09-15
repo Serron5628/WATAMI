@@ -13667,6 +13667,18 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+--- !u!114 &1679583717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3211623227736666334, guid: bdad3742c89865142ab05922972cac06,
+    type: 3}
+  m_PrefabInstance: {fileID: 3211623226740274208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679583713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45374d422f2917e449539fcea315c2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1679583721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81208,6 +81220,7 @@ MonoBehaviour:
   bossHpSlieder: {fileID: 1464140184}
   maxHp: 100
   nowHp: 0
+  enemyDestroy_02: {fileID: 1679583717}
 --- !u!1 &7268292134062509992
 GameObject:
   m_ObjectHideFlags: 0
