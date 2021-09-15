@@ -9177,7 +9177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45374d422f2917e449539fcea315c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentObject: {fileID: 0}
+  ParentObject: {fileID: 1269178926}
   ChildObject: []
 --- !u!114 &1201423615
 MonoBehaviour:
@@ -15237,7 +15237,8 @@ PrefabInstance:
       propertyPath: ParentObject
       value: 
       objectReference: {fileID: 1269178926}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9166606941992190888, guid: aff80bfeafc6639419ff9d93e405b19c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aff80bfeafc6639419ff9d93e405b19c, type: 3}
 --- !u!4 &1892470728 stripped
 Transform:
