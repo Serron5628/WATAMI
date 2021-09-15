@@ -1920,6 +1920,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 829658008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &264198712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264198713}
+  m_Layer: 5
+  m_Name: PlayerHP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &264198713
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264198712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1504385131}
+  - {fileID: 1466524542}
+  - {fileID: 684845593}
+  m_Father: {fileID: 382282382}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &265902993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947505586233247038, guid: 0f0b99a6d93000b47b167dd241b43251,
@@ -3222,9 +3260,7 @@ RectTransform:
   m_Children:
   - {fileID: 782191446}
   - {fileID: 1317961133}
-  - {fileID: 1504385131}
-  - {fileID: 1466524542}
-  - {fileID: 684845593}
+  - {fileID: 264198713}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.097}
@@ -5679,16 +5715,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684845592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 382282382}
-  m_RootOrder: 4
+  m_Father: {fileID: 264198713}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 52.5, y: 46.5}
+  m_AnchoredPosition: {x: -297.49997, y: -154.49686}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &684845594
@@ -6828,6 +6864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863777565}
   - component: {fileID: 863777564}
+  - component: {fileID: 863777566}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -6866,6 +6903,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863777566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863777563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319149c6131ff70478cb4e5d83fa3089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: {fileID: 1854061939}
+  bossHP: {fileID: 1464140184}
 --- !u!1 &864704434
 GameObject:
   m_ObjectHideFlags: 0
@@ -11511,7 +11562,7 @@ GameObject:
   - component: {fileID: 1464140183}
   - component: {fileID: 1464140184}
   m_Layer: 0
-  m_Name: HPber
+  m_Name: BossHPber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11625,16 +11676,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466524541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 382282382}
-  m_RootOrder: 3
+  m_Father: {fileID: 264198713}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 52.5, y: 46.5}
+  m_AnchoredPosition: {x: -297.49997, y: -154.49686}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466524543
@@ -12142,17 +12193,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504385130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 1.7, z: 1}
   m_Children:
   - {fileID: 1854061938}
-  m_Father: {fileID: 382282382}
-  m_RootOrder: 2
+  m_Father: {fileID: 264198713}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 161, y: 49}
+  m_AnchoredPosition: {x: -189, y: -151.99686}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504385132
@@ -14723,7 +14774,7 @@ GameObject:
   - component: {fileID: 1854061938}
   - component: {fileID: 1854061939}
   m_Layer: 5
-  m_Name: HP
+  m_Name: PlayerHPber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81221,6 +81272,7 @@ MonoBehaviour:
   maxHp: 100
   nowHp: 0
   enemyDestroy_02: {fileID: 1679583717}
+  baseDamage: 2
 --- !u!1 &7268292134062509992
 GameObject:
   m_ObjectHideFlags: 0
