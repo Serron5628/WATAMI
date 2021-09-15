@@ -42,7 +42,7 @@ public class HP_ZERO : MonoBehaviour
         {
             playerHP_ZERO = true;
         }
-        if(playerHP.value == 0)
+        if(bossHP.value == 0)
         {
             bossHP_ZERO = true;
         }
