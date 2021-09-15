@@ -33,8 +33,8 @@ public class HP_ZERO : MonoBehaviour
     public Slider playerHP;
     public Slider bossHP;
 
-    public static bool playerHP_ZERO = false;
-    public static bool bossHP_ZERO = false;
+    public bool playerHP_ZERO = false;
+    public bool bossHP_ZERO = false;
 
     void Update()
     {

@@ -6917,6 +6917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHP: {fileID: 1854061939}
   bossHP: {fileID: 1464140184}
+  playerHP_ZERO: 0
+  bossHP_ZERO: 0
 --- !u!1 &864704434
 GameObject:
   m_ObjectHideFlags: 0
