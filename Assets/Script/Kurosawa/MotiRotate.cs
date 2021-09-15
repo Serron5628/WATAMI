@@ -13,12 +13,17 @@ public class MotiRotate : MonoBehaviour
     float RotationCount = 0;
     bool action = false;
 
+    public float FirstSpeed;
+    public float UpSpeed;
+
     private CriAtomSource MotiWind;
     public GameObject MotiSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        tan = FirstSpeed;
+
         // 画面の縦横の半分 
         screenSizeHalf.x = Screen.width / 2f;
         screenSizeHalf.y = Screen.height / 2f;
@@ -62,6 +67,9 @@ public class MotiRotate : MonoBehaviour
                 HUGE.ResetE();//餅の大きさリセット
             }
             tan += Mathf.Tan(dRad); //タンジェント // * mPos.magnitude;
+
+            Debug.Log("tan" + tan);
+
             Player.transform.Rotate(new Vector3(0, tan / 10, 0));//プレイヤーの回転
 
             if (dRad > 1 || dRad < -1) //フレームの角度の差が1以上あれば餅伸ばし実行
@@ -82,6 +90,12 @@ public class MotiRotate : MonoBehaviour
             }
         }
         previousRad = rad; // 今のフレームの角度を保存
+    }
+
+    public void SpeedUp()
+    {
+        tan += UpSpeed;
+        Debug.Log("yes");
     }
 }
 
