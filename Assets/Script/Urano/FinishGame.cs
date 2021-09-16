@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndClear : MonoBehaviour
+public class FinishGame : MonoBehaviour
 {
     bool end;
     public HP_ZERO hp_zero;

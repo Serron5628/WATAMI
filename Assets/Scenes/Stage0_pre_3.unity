@@ -13953,7 +13953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   black: {fileID: 646261199}
-  darkSec: 5
+  darkSec: 2
   nextStageName: GameOver
   waitTime: 0
 --- !u!114 &1679583717 stripped

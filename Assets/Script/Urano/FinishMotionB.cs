@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EndMotionB : MonoBehaviour
+public class FinishMotionB : MonoBehaviour
 {
     public GameObject black;
     Image rend;
