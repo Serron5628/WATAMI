@@ -2623,6 +2623,7 @@ MonoBehaviour:
   fallState: Fall
   gravity: 16
   moveSpeed: 8
+  RmoveSpeed: 3
   jumpUPPower: 8
   jumpForwardPower: 4
   fallkansei: 0
@@ -2663,6 +2664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 7965621186933088144}
   HUGE: {fileID: 1264261111086206218}
+  FirstSpeed: 0
+  UpSpeed: 0
   MotiSound: {fileID: 2489579909006343780}
 --- !u!114 &2489579910152654432
 MonoBehaviour:
