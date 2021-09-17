@@ -36,7 +36,6 @@ public class MotiRotate : MonoBehaviour
     void OnMoveOnScreen(InputValue input)
     {
         mPos = input.Get<Vector2>() - screenSizeHalf;
-        previousRad = Mathf.Atan2(mPos.x, mPos.y);
     }
 
     // Start is called before the first frame update

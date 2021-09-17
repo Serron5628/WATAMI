@@ -31,24 +31,29 @@ public class CameraMove : MonoBehaviour{
    
     bool mousePressed = false;
 
+    Vector2 lookVector;
+
     void OnFire(InputValue input)
     {
         mousePressed = input.isPressed;
     }
     void OnLook(InputValue input)
     {
-        var lookVector = input.Get<Vector2>();
-        if (!mousePressed) {
-            updateAngle(lookVector.x, lookVector.y);
-        }
+        lookVector = input.Get<Vector2>();
     }
 
     void Start(){
         disdata = distance;
         disZoomSpeedData = disZoomSpeed;
+        lookVector = new Vector2(0.0f, 0.0f);
     }
     void Update(){
         RaycastHit hit;
+
+        if (!mousePressed) {
+            updateAngle(lookVector.x, lookVector.y);
+        }
+
         Vector3 playerPos = player.transform.position;
         Vector3 playerParentPos = playerParent.transform.position;
         Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);

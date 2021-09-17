@@ -6437,8 +6437,8 @@ MonoBehaviour:
   azimuthalAngle: 270
   minPolarAngle: 20
   maxPolarAngle: 140
-  mouseXSensitivity: 0.1
-  mouseYSensitivity: 0.1
+  mouseXSensitivity: 0.5
+  mouseYSensitivity: 0.5
   mouserotaXSpd: 2
   mouserotaYSpd: 1
 --- !u!81 &763867624
