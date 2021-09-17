@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// The camera added this script will follow the specified object.
@@ -28,6 +29,20 @@ public class CameraMove : MonoBehaviour{
     float touchTime=0.0f;
     private GameObject hitObj;
    
+    bool mousePressed = false;
+
+    void OnFire(InputValue input)
+    {
+        mousePressed = input.isPressed;
+    }
+    void OnLook(InputValue input)
+    {
+        var lookVector = input.Get<Vector2>();
+        if (!mousePressed) {
+            updateAngle(lookVector.x, lookVector.y);
+        }
+    }
+
     void Start(){
         disdata = distance;
         disZoomSpeedData = disZoomSpeed;
@@ -52,8 +67,7 @@ public class CameraMove : MonoBehaviour{
                 touchTime += Time.deltaTime;
             plusDistance();
         }
-        if(!(Input.GetMouseButton(0)))
-            updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
         var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);

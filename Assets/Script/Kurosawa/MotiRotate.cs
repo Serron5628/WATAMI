@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MotiRotate : MonoBehaviour
 {
     public GameObject Player;
     Vector2 mPos;
-    Vector3 screenSizeHalf;
+    Vector2 screenSizeHalf;
     public MotiHuge HUGE;
     float previousRad;
     float tan = 0f;
@@ -19,6 +20,25 @@ public class MotiRotate : MonoBehaviour
     private CriAtomSource MotiWind;
     public GameObject MotiSound;
 
+    void OnFire(InputValue input)
+    {
+        var pressed = input.isPressed;
+
+        action = pressed;
+
+        if (!pressed)
+        {
+            tan = 0;
+            RotationCount = 0;
+        }
+    }
+
+    void OnMoveOnScreen(InputValue input)
+    {
+        mPos = input.Get<Vector2>() - screenSizeHalf;
+        previousRad = Mathf.Atan2(mPos.x, mPos.y);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +47,11 @@ public class MotiRotate : MonoBehaviour
         // 画面の縦横の半分 
         screenSizeHalf.x = Screen.width / 2f;
         screenSizeHalf.y = Screen.height / 2f;
-        screenSizeHalf.z = 0f;
 
         // マウスの初期位置
-        mPos = Input.mousePosition - screenSizeHalf;
-        previousRad = Mathf.Atan2(mPos.x, mPos.y);
+        mPos = new Vector2(0.0f, 0.0f);
+        /*mPos = Input.mousePosition - screenSizeHalf;
+        previousRad = Mathf.Atan2(mPos.x, mPos.y);*/
 
         MotiWind = MotiSound.GetComponent<CriAtomSource>();
     }
@@ -39,24 +59,12 @@ public class MotiRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            action = true;
-        }
-        else
-        {
-            action = false;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            tan = 0;
-            RotationCount = 0;
-        }
     }
+
     private void FixedUpdate()
     {
         // 真ん中が(0,0,0)になるようにマウスの位置を取得
-        mPos = Input.mousePosition - screenSizeHalf;
+        //mPos = Input.mousePosition - screenSizeHalf;
 
         float rad = Mathf.Atan2(mPos.x, mPos.y); // 上向きとマウス位置のなす角
         float dRad = rad - previousRad; // 前のフレームの角度との差
