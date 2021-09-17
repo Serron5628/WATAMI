@@ -27,7 +27,7 @@
                     "id": "996261a0-2b09-4896-a470-e3166c22a613",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Pause",
@@ -59,7 +59,7 @@
                     "id": "c7382abf-68e9-46cf-bf04-70ba84f021af",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Jump",
