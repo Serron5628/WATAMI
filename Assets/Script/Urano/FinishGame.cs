@@ -6,10 +6,10 @@ public class FinishGame : MonoBehaviour
 {
     bool end;
     public HP_ZERO hp_zero;
-    public GameObject kogane; //kogane_wait
+    public GameObject kogane;   //kogane_wait
     public GameObject koganeMat;
     public Material gameOverMat;
-    public GameObject boss;
+    public GameObject boss; //Donguri Hannya2
 
     // Start is called before the first frame update
     void Start()
@@ -26,10 +26,12 @@ public class FinishGame : MonoBehaviour
             {
                 kogane.GetComponent<Animator>().SetTrigger("gameover");
                 koganeMat.GetComponent<Renderer>().material = gameOverMat;
+                end = true;
             }
             else if (hp_zero.bossHP_ZERO)
             {
                 boss.GetComponent<Animator>().SetTrigger("down");
+                end = true;
             }
         }
     }
