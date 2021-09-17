@@ -65,7 +65,7 @@ public class CameraControll : MonoBehaviour {
         if(pause && start && !mousePressed){
             CursorOn();
             Pause();
-        }else if(pause && start && !mousePressed){
+        }else if(!pause && start && !mousePressed){
             CursorOff();
             CameraMoveTrue();
         }
