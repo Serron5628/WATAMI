@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CameraControll : MonoBehaviour {
 
@@ -24,18 +25,47 @@ public class CameraControll : MonoBehaviour {
     string cursor;
     private CameraMove CameraCs;
 
+    bool mousePressed = false;
+
     void Start () {
         endingCamera.SetActive(false);
         endingCameraDistance = 5.0f;
         CameraMoveTrue();
 	}
 
+    void OnFire(InputValue input) 
+    {
+        mousePressed = input.isPressed;
+    }
+
+    void OnPause(InputValue input) 
+    {
+        var pressed = input.isPressed;
+        if (pressed) {
+            if (pause) {
+                pause = false;
+                esc=true;
+            } else {
+                pause = true;
+                esc=false;
+            }
+        }
+    }
+
+    void OnBossCameraReset(InputValue input)
+    {
+        var pressed = input.isPressed;
+        if (pressed && bossDeath) {
+            BossCameraReset();
+        }
+    }
+
 	void Update () {
         start = true;
-        if(pause==true&&start==true&&!(Input.GetMouseButton(0))){
+        if(pause && start && !mousePressed){
             CursorOn();
             Pause();
-        }else if(pause==false&&start==true&&!(Input.GetMouseButton(0))){
+        }else if(!pause && start && !mousePressed){
             CursorOff();
             CameraMoveTrue();
         }
@@ -50,19 +80,12 @@ public class CameraControll : MonoBehaviour {
         sub.transform.position = Vector3.Lerp(
             player.transform.position,bossObj.transform.position,0.5f);
         bossDistance = Vector3.Distance(bossObjPos,endingCamera.transform.position);
-        if(Input.GetMouseButton(0))
+        if(mousePressed)
             CursorOn();
-        if(Input.GetKeyDown(KeyCode.Escape)&&pause==false){
-            pause = true;
-            esc=false;
-        }else if(Input.GetKeyDown(KeyCode.Escape)){
-            pause = false;
-            esc=true;
-        }
-        //else if(Input.GetKeyDown(KeyCode.B))
+        
+        //if(Input.GetKeyDown(KeyCode.B))
         //    DestroyBoss();
-        else if(Input.GetKeyDown(KeyCode.R)&&bossDeath==true)
-            BossCameraReset();
+
         if(bossDeath==true){
             EndingCameraMove(bossObjPos,playerPos);
             UpdateCameraPos(moveTargetPos,bossObjPos);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BossDonguriTackle : MonoBehaviour
 {
@@ -13,17 +14,11 @@ public class BossDonguriTackle : MonoBehaviour
     public float AddSpeed;
     public float MaxSpeed;
     float SetSpeed;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        wallcheck = GameObject.Find("WallCheck").GetComponent<WallCheck>();
-        SetSpeed = speed;
-    }
 
-    // Update is called once per frame
-    void Update()
+    void OnBossDonguriTackle(InputValue input)
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        var pressed = input.isPressed;
+        if (pressed)
         {
             keyCount += 1;
             if (keyCount == 1)
@@ -36,9 +31,19 @@ public class BossDonguriTackle : MonoBehaviour
                 speed = SetSpeed;
                 keyCount = 0;
             }
-            
         }
+    }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        wallcheck = GameObject.Find("WallCheck").GetComponent<WallCheck>();
+        SetSpeed = speed;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (isTackle)
         {
             if (wallcheck.touchWall == true)

@@ -516,9 +516,9 @@ GameObject:
   - component: {fileID: 1814043005841404478}
   - component: {fileID: 1814043005841404417}
   - component: {fileID: 3211623228056935657}
-  - component: {fileID: 3211623227736666330}
   - component: {fileID: 3211623227736666334}
   - component: {fileID: 3211623227736666335}
+  - component: {fileID: 1482603225876686518}
   m_Layer: 0
   m_Name: kogane_wait
   m_TagString: Untagged
@@ -597,19 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3082d986674172048a7751d52d5ac13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3211623227736666330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580111808638496918}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 957a2f45385ce8948a1eee0107c22962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastAttack: {fileID: 0}
 --- !u!114 &3211623227736666334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentObject: {fileID: 2328523316941115240}
+  ChildObject: []
 --- !u!114 &3211623227736666335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,10 +623,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd54edaea99fbd49b7694bbdcbec6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerParent: {fileID: 0}
   targetDist: 10
   player: {fileID: 6959939079926340965}
   redRange: {fileID: 0}
+  arrowObj: {fileID: 0}
   modeTaxt: {fileID: 0}
+  obj: {fileID: 0}
+--- !u!114 &1482603225876686518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580111808638496918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2c814e0d584ca5f42ad6aea93097c80c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1723432743748954958
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +738,7 @@ GameObject:
   - component: {fileID: 3211623227734514381}
   - component: {fileID: 2328523316941115242}
   - component: {fileID: 2328523316941115241}
+  - component: {fileID: 7070887195244320500}
   m_Layer: 0
   m_Name: mochi
   m_TagString: Moti
@@ -771,6 +794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plus: 0.5
+  bairitu: 0
+  bairitu2: 0
 --- !u!114 &3211623227734514382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentObject: {fileID: 0}
+  ChildObject: []
 --- !u!114 &2328523316941115242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,6 +880,37 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+--- !u!114 &7070887195244320500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328523316941115240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2c814e0d584ca5f42ad6aea93097c80c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2329317779087763255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2169,6 @@ GameObject:
   - component: {fileID: 4108408921173145711}
   - component: {fileID: 1330913629592066352}
   - component: {fileID: 6151949242546261260}
-  - component: {fileID: 3211623228495488245}
   m_Layer: 5
   m_Name: hpCanvas
   m_TagString: Untagged
@@ -2200,21 +2256,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &3211623228495488245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5690097570531907647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893f17d319ca2934082d57e0aee29439, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIcenter: {fileID: 0}
-  pCenter: {fileID: 0}
-  uIPos: {x: 0, y: 2, z: 0}
 --- !u!1 &5823682668724959055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,8 +2541,8 @@ GameObject:
   - component: {fileID: 6959939079926340963}
   - component: {fileID: 6959939079926340962}
   - component: {fileID: 3211623227100990613}
-  - component: {fileID: 3211623227100990621}
   - component: {fileID: 3211623227100990622}
+  - component: {fileID: 7292375134693340122}
   m_Layer: 0
   m_Name: Kogane
   m_TagString: Player
@@ -2581,6 +2622,11 @@ MonoBehaviour:
   jumpUPPower: 8
   jumpForwardPower: 4
   fallkansei: 0
+  PmoveSpeed: 0
+  PminFallSpeed: 0
+  PriseSpeed: 0
+  useParachute: 0
+  inUpdraft: 0
 --- !u!114 &6959939079926340963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2588,7 +2634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6959939079926340965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af1bbcde69138f0498e36ce165f8632e, type: 3}
   m_Name: 
@@ -2613,6 +2659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 6959939079926340965}
   HUGE: {fileID: 3211623227734514383}
+  FirstSpeed: 0
+  UpSpeed: 0
   MotiSound: {fileID: 3211623228370009233}
 --- !u!114 &3211623227100990613
 MonoBehaviour:
@@ -2621,26 +2669,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6959939079926340965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86070b1ba8de4b346befa912e1507e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   climbSpeed: 2
   rotateSpeed: 3
---- !u!114 &3211623227100990621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959939079926340965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e04ededc6b55f46b90bdf2ffadfe48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Warp: {fileID: 0}
 --- !u!114 &3211623227100990622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,6 +2709,37 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+--- !u!114 &7292375134693340122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959939079926340965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2c814e0d584ca5f42ad6aea93097c80c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &7142607604705158422
 GameObject:
   m_ObjectHideFlags: 0
