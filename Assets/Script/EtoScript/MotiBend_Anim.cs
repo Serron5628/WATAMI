@@ -16,8 +16,8 @@ public class MotiBend_Anim : MonoBehaviour
     float tan = 0f;
     float RotationCount = 0;
     bool action = false;
-    float mousu_move_x = Input.GetAxis("Mouse X");
-    float mousu_move_y = Input.GetAxis("Mouse Y");
+    float mousu_move_x;
+    float mousu_move_y;
 
     //float current_length = this.animator.GetFloat("Length");
     //public GameObject Player;
@@ -25,6 +25,8 @@ public class MotiBend_Anim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mousu_move_x = Input.GetAxis("Mouse X");
+        mousu_move_y = Input.GetAxis("Mouse Y");
         //自身のAnimatorを習得する
         this.animator = GetComponent<Animator>();
         this.animator.SetBool(motiStr, false);
@@ -42,22 +44,28 @@ public class MotiBend_Anim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float blend = this.animator.GetFloat("Blend");
+        float blend2 = this.animator.GetFloat("Blend2");
         if (Input.GetMouseButton(0))
         {
             //action = true;
             //this.animator.SetBool(bendStr, true);
-            float blend = this.animator.GetFloat("Blend");
-            float blend2 = this.animator.GetFloat("Blend2");
+            
             if((mousu_move_x>=0&&mousu_move_y>=0)|| (mousu_move_x >= 0 && mousu_move_y <= 0)|| (mousu_move_x <= 0 && mousu_move_y <= 0) || (mousu_move_x <= 0 && mousu_move_y <= 0))
             {
+                
                 blend = blend + 0.1f * Time.deltaTime;
+                //blend2 = blend2 + 0.1f * Time.deltaTime;
+                this.animator.SetFloat("Blend", blend);
+                //this.animator.SetFloat("Blend2", blend2);
             }
-            else if ((mousu_move_x <= 0 && mousu_move_y >= 0) || (mousu_move_x <= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0))
+            if ((mousu_move_x <= 0 && mousu_move_y >= 0) || (mousu_move_x <= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0) || (mousu_move_x >= 0 && mousu_move_y <= 0))
             {
-                blend2 = blend2 + 0.1f * Time.deltaTime;
+                //blend2 = blend2 + 0.1f * Time.deltaTime;
+                //this.animator.SetFloat("Blend2", blend2);
             }
-            this.animator.SetFloat("Blend", blend);
-            this.animator.SetFloat("Blend2", blend2);
+            
+            
 
             tan = 0;
             RotationCount = 0;
@@ -65,9 +73,9 @@ public class MotiBend_Anim : MonoBehaviour
         else
         {
             //action = false;
-            float blend = this.animator.GetFloat("Blend");
+            //float blend = this.animator.GetFloat("Blend");
             blend = 0.0f;
-            float blend2 = this.animator.GetFloat("Blend2");
+            //float blend2 = this.animator.GetFloat("Blend2");
             blend2 = 0.0f;
             //blend = blend;
             this.animator.SetFloat("Blend", blend);
