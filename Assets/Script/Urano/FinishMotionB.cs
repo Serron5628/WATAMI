@@ -34,7 +34,7 @@ public class FinishMotionB : MonoBehaviour
         }
         if (color.a > 1.0f)
         {
-            Invoke("ChangeSceneEnd", waitTime);
+            Invoke("ChangeSceneResult", waitTime);
         }
     }
 
@@ -43,7 +43,7 @@ public class FinishMotionB : MonoBehaviour
         blackTrig = true;
     }
 
-    void ChangeSceneEnd()
+    void ChangeSceneResult()
     {
         SceneManager.LoadScene(nextStageName);
     }
