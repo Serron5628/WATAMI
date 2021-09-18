@@ -28,7 +28,7 @@ public class MotiRotate : MonoBehaviour
 
         if (!pressed)
         {
-            tan = 0;
+            tan = FirstSpeed;
             RotationCount = 0;
         }
     }
@@ -73,9 +73,7 @@ public class MotiRotate : MonoBehaviour
             {
                 HUGE.ResetE();//餅の大きさリセット
             }
-            tan += Mathf.Tan(dRad); //タンジェント // * mPos.magnitude;
-
-            Debug.Log("tan" + tan);
+            tan += Mathf.Abs(dRad); //タンジェント // * mPos.magnitude;
 
             Player.transform.Rotate(new Vector3(0, tan / 10, 0));//プレイヤーの回転
 
