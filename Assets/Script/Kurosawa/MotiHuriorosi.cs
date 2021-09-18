@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MotiHuriorosi : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class MotiHuriorosi : MonoBehaviour
     public MotiHuge HUGE;
     private string motiStr = "isMoti";
     bool MotiAnimation = false;
+
+    void OnFire(InputValue input)
+    {
+        var mousePressed = input.isPressed;
+        MotiAnimation = !mousePressed;
+    }
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +26,6 @@ public class MotiHuriorosi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonUp(0))
-        {
-            MotiAnimation = true;
-        }
-        else
-        {
-            if(Input.GetMouseButton(0))
-            {
-                MotiAnimation = false;
-            }
-        }
     }
     private void FixedUpdate()
     {

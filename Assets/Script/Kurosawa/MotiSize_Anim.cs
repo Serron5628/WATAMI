@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MotiSize_Anim : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class MotiSize_Anim : MonoBehaviour
     //public MotiHuge HUGE;
     private string motiStr = "IsMotiSize";
     bool MotiSizeAnim = false;
+
+    void OnFire(InputValue input)
+    {
+        var mousePressed = input.isPressed;
+        MotiSizeAnim = !mousePressed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,17 +26,6 @@ public class MotiSize_Anim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            MotiSizeAnim = true;
-        }
-        else
-        {
-            if (Input.GetMouseButton(0))
-            {
-                MotiSizeAnim = false;
-            }
-        }
     }
     void FixedUpdate()
     {
