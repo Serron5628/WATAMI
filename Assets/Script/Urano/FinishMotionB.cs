@@ -21,6 +21,10 @@ public class FinishMotionB : MonoBehaviour
     {
         blackTrig = false;
         rend = black.GetComponent<Image>();
+        if (black.activeSelf == true)
+        {
+            black.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +45,7 @@ public class FinishMotionB : MonoBehaviour
     public void TriggerBlack()
     {
         blackTrig = true;
+        black.SetActive(true);
     }
 
     void ChangeSceneResult()
