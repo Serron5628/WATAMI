@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
 
     public float gravity;　　//（注）ゲーム全体の重力変更
     public float moveSpeed;
+    public float RmoveSpeed;//餅回転中の歩行速度
     public float jumpUPPower;
     public float jumpForwardPower;
     public float fallkansei;
@@ -98,17 +99,19 @@ public class PlayerMove : MonoBehaviour
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             // 方向キーの入力値とカメラの向きから、移動方向を決定
             Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
-            // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
-            rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
-            // キャラクターの向きを進行方向に
+            
+            
             if (moveForward != Vector3.zero)
             {
                 if (pushmouse)
                 {
-
+                    rb.velocity = moveForward * RmoveSpeed + new Vector3(0, rb.velocity.y, 0);
                 }
                 else
                 {
+                    // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+                    rb.velocity = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
+                    // キャラクターの向きを進行方向に
                     transform.rotation = Quaternion.LookRotation(moveForward);
                 }
             }
