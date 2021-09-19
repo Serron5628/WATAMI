@@ -17,8 +17,8 @@ public class MotiBend_Anim : MonoBehaviour
     //float tan = 0f;
     float RotationCount = 0;
     bool action = false;
-    float mousu_move_x;
-    float mousu_move_y;
+    float mousu_move_x = 0.0f;
+    float mousu_move_y = 0.0f;
 
     bool mousePressed = false;
 
@@ -43,8 +43,6 @@ public class MotiBend_Anim : MonoBehaviour
 
     void Start()
     {
-        mousu_move_x = Input.GetAxis("Mouse X");
-        mousu_move_y = Input.GetAxis("Mouse Y");
         //自身のAnimatorを習得する
         this.animator = GetComponent<Animator>();
         this.animator.SetBool(motiStr, false);
