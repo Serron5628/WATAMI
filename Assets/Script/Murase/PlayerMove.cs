@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -43,6 +44,44 @@ public class PlayerMove : MonoBehaviour
     public bool inUpdraft = false;
     bool reachEndPos = false;
     int tmp = 0;
+
+    void OnFire(InputValue input)
+    {
+        pushmouse = input.isPressed;
+    }
+    void OnMove(InputValue input)
+    {
+        var inputVec = input.Get<Vector2>();
+        inputHorizontal = inputVec.x;
+        inputVertical = inputVec.y;
+    }
+    void OnParachute(InputValue input)
+    {
+        useParachute = input.isPressed;
+    }
+    void OnJump(InputValue input)
+    {
+        var pressed = input.isPressed;
+        if (pressed && playerState == groundState)
+        {
+            startJumpflag = 1;
+            //ジャンプ時における方向入力の有無
+            if (inputHorizontal != 0 || inputVertical != 0)
+            {
+                playerState = jumpState;
+                rb.velocity = Vector3.zero;
+
+                jumpflag = 1;
+            }
+            else
+            {
+                playerState = jumpState;
+                rb.velocity = Vector3.zero;
+
+                jumpflag = 2;
+            }
+        }
+    }
 
     void Start()
     {
@@ -183,27 +222,15 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        pushmouse = Input.GetMouseButton(0);
-
-        if (playerState != jumpState)
-        {
-            inputHorizontal = Input.GetAxisRaw("Horizontal");
-            inputVertical = Input.GetAxisRaw("Vertical");
-        }
         if (playerState != fallState)
         {
             setFallVelocity = false;
         }
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            useParachute = true;
-        }
-        else
+        if (!useParachute)
         {
             rb.drag = 0;
             rb.useGravity = true;
-            useParachute = false;
             tmp = 0;
         }
 
@@ -231,26 +258,6 @@ public class PlayerMove : MonoBehaviour
             groundcheckCount1 = 0;
             groundcheckCount2 = 0;
             groundcheckCount3 = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && playerState == groundState)
-        {
-            startJumpflag = 1;
-            //ジャンプ時における方向入力の有無
-            if (inputHorizontal != 0 || inputVertical != 0)
-            {
-                playerState = jumpState;
-                rb.velocity = Vector3.zero;
-
-                jumpflag = 1;
-            }
-            else
-            {
-                playerState = jumpState;
-                rb.velocity = Vector3.zero;
-
-                jumpflag = 2;
-            }
         }
 
         if (rb.velocity.y < -0.1 && playerState != jumpState)

@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharaJumpCtrl : MonoBehaviour
 {
     private Animator usagi;
     private string usagiStr = "isHissatu";
     bool HissatuAnim = false;
+
+    void OnFire(InputValue input)
+    {
+        var mousePressed = input.isPressed;
+
+        HissatuAnim = !mousePressed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +26,6 @@ public class CharaJumpCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonUp(0))
-        {
-            HissatuAnim = true;
-        }
-        else
-        {
-            if(Input.GetMouseButton(0))
-            {
-                HissatuAnim = false;
-            }
-        }
     }
     void FixedUpdate()
     {

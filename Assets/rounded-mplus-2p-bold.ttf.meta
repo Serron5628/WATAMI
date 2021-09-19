@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2274ceb8e88ed4948a71ade36bf765ce
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rounded M+ 2p
+  fontNames:
+  - Rounded M+ 2p
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d25ad4cad71c58f42bee9c27bf35ad44, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
