@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KoganeAnimation : MonoBehaviour
 {
@@ -9,6 +10,29 @@ public class KoganeAnimation : MonoBehaviour
 
     private string rotateStr = "isRotate";
     private string runStr = "isRun";
+
+    bool mousePressed = false;
+
+    void OnFire(InputValue input)
+    {
+        mousePressed = input.isPressed;
+
+        //wait next Rotation
+        this.animator.SetBool(rotateStr, mousePressed);
+    }
+    void OnMove(InputValue input)
+    {
+        var inputVec = input.Get<Vector2>();
+        if (inputVec.x > 0.01f || inputVec.x < -0.01f || inputVec.y > 0.01f || inputVec.y < -0.01f)
+        {
+            this.animator.SetBool(runStr, true);
+        }
+        else
+        {
+            this.animator.SetBool(runStr, false);
+        }
+    }
+
     void Start()
     {
         this.animator = GetComponent<Animator>();
@@ -17,24 +41,5 @@ public class KoganeAnimation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            this.animator.SetBool(runStr, true);
-        }
-        else
-        {
-            this.animator.SetBool(runStr, false);
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-            //wait next Rotation
-            this.animator.SetBool(rotateStr, true);
-        }
-        else
-        {
-            //wait
-            this.animator.SetBool(rotateStr, false);
-        }
     }
 }

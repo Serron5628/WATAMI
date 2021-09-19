@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class AttackController : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class AttackController : MonoBehaviour
     private bool lockState=false;
     bool a_flag;
     float a_color;
+
+    bool mousePressed = false;
+
     void Start()
     {
         redRange.SetActive(false);
@@ -36,14 +40,25 @@ public class AttackController : MonoBehaviour
         a_flag = true;
         a_color = 1;
     }
-    void Update()
+
+    void OnMove(InputValue input)
     {
         //modeTaxt.text = "MODE : " + mode;
-        var inputHorizontal = Input.GetAxisRaw("Horizontal");
-        var inputVertical = Input.GetAxisRaw("Vertical");
+        var inputVector = input.Get<Vector2>();
+        var inputHorizontal = inputVector.x;
+        var inputVertical = inputVector.y;
         var cameraForward = Vector3.Scale(
             Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         var moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+    }
+    void OnFire(InputValue input)
+    {
+        mousePressed = input.isPressed;
+    }
+
+    void Update()
+    {
+        
         var playerPos = player.transform.position;
         var playerParentPos = playerParent.transform.position;
         /*
@@ -64,7 +79,7 @@ public class AttackController : MonoBehaviour
             TextColor();        
         }
         */
-        if(Input.GetMouseButton(0))
+        if(mousePressed)
         {
             time = 0.0f;
         }
@@ -186,7 +201,7 @@ public class AttackController : MonoBehaviour
             player. transform.rotation = Quaternion.LookRotation(moveForward);
         }
     }
-    public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward, Vector3 playerParentPos)
+    /*public void AttackTowardsTheArrow(Vector3 playerPos, Vector3 cameraForward, Vector3 playerParentPos)
     {
         if(Input.GetMouseButton(0))
         {
@@ -212,7 +227,7 @@ public class AttackController : MonoBehaviour
         {
             player. transform.rotation = Quaternion.LookRotation(arrowForward);
         }
-    }
+    }*/
     public void BossAttack()
     {
         lockState=true;
