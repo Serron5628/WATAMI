@@ -6,18 +6,8 @@ public class BossDonguriAnim : MonoBehaviour
 {
     public GameObject RstampObj;
     public GameObject LstampObj;
+  
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void RightFoot()
     {
         RstampObj.SetActive(true);

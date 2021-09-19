@@ -22,7 +22,7 @@ public class StickE5 : MonoBehaviour
     public GameObject moti5;
     public GameObject moti6;
     public DeleteE deleteE;
-    Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {

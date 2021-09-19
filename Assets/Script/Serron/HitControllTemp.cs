@@ -11,12 +11,21 @@ public class HitControllTemp : MonoBehaviour
     public int HP2;
     bool stickFlag;
     [SerializeField] GameObject donguri;
+    public GameObject Kogane;
     public GameObject counter;
+
+    MotiRotate rotate;
+
+    private CriAtomSource Enemy;
     // Start is called before the first frame update
+
+
     void Start()
     {
         hitCount = 0;
         stickFlag = false;
+        Enemy = GetComponent<CriAtomSource>();
+        rotate = Kogane.GetComponent<MotiRotate>();
     }
 
     void FixedUpdate()
@@ -36,6 +45,8 @@ public class HitControllTemp : MonoBehaviour
         if(stickFlag == true)
         {
             donguri.GetComponent<StickE5>().enabled = true;
+            Enemy.Play();
+            rotate.SpeedUp();
             if (counter == true)
             {
                 counter.GetComponent<EneDestCount>().count--;
@@ -44,7 +55,8 @@ public class HitControllTemp : MonoBehaviour
             donguri.GetComponent<EnemyMove>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
-
+            stickFlag = false;
+            hitCount++;
         }
     }
 

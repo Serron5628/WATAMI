@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// The camera added this script will follow the specified object.
@@ -13,8 +13,8 @@ public class CameraMove : MonoBehaviour{
     public GameObject player,playerParent;
     public Vector3 offset;
     
-    [SerializeField] private float distance = 7.0f; 
-    [SerializeField] private float disZoomSpeed = 20.0f;
+    private float distance = 9.0f; 
+    [SerializeField] private float disZoomSpeed = 1.0f;
     [SerializeField] private float polarAngle = 80.0f; 
     [SerializeField] private float azimuthalAngle = 270.0f; 
 
@@ -25,32 +25,61 @@ public class CameraMove : MonoBehaviour{
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
-    float dis,disdata;
+    float dis,disdata,disZoomSpeedData;
+    float touchTime=0.0f;
     private GameObject hitObj;
    
+    bool mousePressed = false;
+
+    Vector2 lookVector;
+
+    void OnFire(InputValue input)
+    {
+        mousePressed = input.isPressed;
+    }
+    void OnLook(InputValue input)
+    {
+        lookVector = input.Get<Vector2>();
+    }
+
     void Start(){
         disdata = distance;
+        disZoomSpeedData = disZoomSpeed;
+        lookVector = new Vector2(0.0f, 0.0f);
     }
     void Update(){
         RaycastHit hit;
+
+        if (!mousePressed) {
+            updateAngle(lookVector.x, lookVector.y);
+        }
+
         Vector3 playerPos = player.transform.position;
         Vector3 playerParentPos = playerParent.transform.position;
         Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);
         if (Physics.Linecast(playerPos+offset,transform.position, out hit)) {
+            touchTime = 0.0f;
             dis = Vector3.Distance(playerPos+offset,hit.point);
             hitObj = hit.collider.gameObject;
-            if(dis+0.2f<=distance&&(
+            if(dis-2.0f<=distance&&(
                 hit.collider.tag =="Floor"||
-                hit.collider.tag =="Wall"
+                hit.collider.tag =="Wall"||
+                hit.collider.tag =="Ground"
             ))minusDistance();
         }
-        else if(disdata>distance+0.2f)
+        else if(distance<disdata){
+            if(touchTime<10)
+                touchTime += Time.deltaTime;
             plusDistance();
-        if(!(Input.GetMouseButton(0)))
-            updateAngle(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        }
+
         var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
         updatePosition(lookAtPos);
         transform.LookAt(lookAtPos);
+        if(touchTime>0.2f)
+            disZoomSpeed = 20.0f;
+        else
+            disZoomSpeed = disZoomSpeedData;
     }
     public void minusDistance(){
         distance = dis;

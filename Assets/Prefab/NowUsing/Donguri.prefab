@@ -46,6 +46,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 23, y: 33.82353, z: 23}
   m_Children:
+  - {fileID: 4832827272384557727}
   - {fileID: 1705351678082627683}
   m_Father: {fileID: 4691385996534898671}
   m_RootOrder: 0
@@ -66,9 +67,10 @@ GameObject:
   - component: {fileID: 7466607907844206541}
   - component: {fileID: 4632863600390063673}
   - component: {fileID: 7026286948427055991}
-  - component: {fileID: 9137508687613935750}
   - component: {fileID: 4190321203424457183}
   - component: {fileID: 2887815861698247401}
+  - component: {fileID: 9137508687613935750}
+  - component: {fileID: -6747519881233226172}
   m_Layer: 0
   m_Name: Donguri
   m_TagString: enemy
@@ -151,11 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  donguri: {fileID: 2081068731656266457}
-  Speed: 0.5
-  rotateSpeed: 0
-  stopDist: 1.4
-  searchDist: 0
+  donguri: {fileID: 5213609677182298149}
+  Speed: 1
+  rotateSpeed: 90
+  stopDist: 1.3
+  searchDist: 7
 --- !u!64 &4989361769300694071
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -226,21 +228,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &9137508687613935750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4691385996534898670}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2ca664da42cb64a9c9731dfcebdc92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReParent: 0
-  moti: {fileID: 0}
-  deleteE: {fileID: 2887815861698247401}
 --- !u!114 &4190321203424457183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5753790766a22c4ebd9631ab6de39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP1: 5
+  HP1: 1
   HP2: 0
   donguri: {fileID: 4691385996534898670}
   counter: {fileID: 0}
@@ -271,6 +258,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteOn: 0
   reParent: 0
+--- !u!114 &9137508687613935750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691385996534898670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2ca664da42cb64a9c9731dfcebdc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReParent: 0
+  moti: {fileID: 0}
+  deleteE: {fileID: 2887815861698247401}
+--- !u!114 &-6747519881233226172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691385996534898670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: MochiStick
+  _cueSheet: MochiStick
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -281,7 +316,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7aac3796fe36ccd4fa9c154ad67a0d32,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7aac3796fe36ccd4fa9c154ad67a0d32,
         type: 3}
@@ -338,6 +373,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donguri walk
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7aac3796fe36ccd4fa9c154ad67a0d32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aac3796fe36ccd4fa9c154ad67a0d32, type: 3}
 --- !u!1 &2081068731656266457 stripped
@@ -351,4 +391,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7aac3796fe36ccd4fa9c154ad67a0d32,
     type: 3}
   m_PrefabInstance: {fileID: 1161956387669303176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8815106381463022125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4691385995767630743}
+    m_Modifications:
+    - target: {fileID: 3607377719301276168, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_Name
+      value: Donguri Panch2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 302d0bed996c84e41b70d2992d26d19d, type: 3}
+--- !u!1 &5213609677182298149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3607377719301276168, guid: 302d0bed996c84e41b70d2992d26d19d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8815106381463022125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4832827272384557727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4126469616487422130, guid: 302d0bed996c84e41b70d2992d26d19d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8815106381463022125}
   m_PrefabAsset: {fileID: 0}
