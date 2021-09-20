@@ -8,9 +8,10 @@ public class ScoreCount : MonoBehaviour
     [SerializeField]
     GameObject mochi;
     [SerializeField]
-    float mochiHeight;
+    float mochiLength;
     [SerializeField]
     int enemyCount;
+    public int childMochi;
 
     [SerializeField]
     int point;
@@ -18,19 +19,17 @@ public class ScoreCount : MonoBehaviour
     void Start()
     {
         point = 0;
+        if (mochi == null)
+        {
+            mochi = this.gameObject;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mochi == null)
-        {
-            enemyCount = mochi.transform.childCount;
-        }
-        else
-        {
-            enemyCount = this.gameObject.transform.childCount;
-        }
+        enemyCount = mochi.transform.childCount;
+        Debug.Log(enemyCount - childMochi);
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,9 +37,9 @@ public class ScoreCount : MonoBehaviour
         //どうしようか考えてる
         if (other.gameObject == boss)
         {
-            mochiHeight = this.gameObject.GetComponent<CapsuleCollider>().height;
+            mochiLength = this.gameObject.GetComponent<CapsuleCollider>().height;
             //式は仮置きぃ
-            point += (int)mochiHeight + enemyCount;
+            point += (int)mochiLength + enemyCount;
             Debug.Log(point);
         }
     }
