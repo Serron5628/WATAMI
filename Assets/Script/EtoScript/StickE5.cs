@@ -21,33 +21,32 @@ public class StickE5 : MonoBehaviour
             m[i] = true;
         }
         m[0] = false;
+
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void OnTriggerStay(Collider collision)
     {
-        rb = gameObject.GetComponent<Rigidbody>();
         for (int i = 0; i < moti.Length; ++i)
         {
             var objName = "mochi";
-            if (i > 0) objName = objName + i;
+            if (i > 0) objName = $"mochi{i}";
 
             if (collision.gameObject.name == objName && m[i])
             {
                 this.gameObject.transform.parent = moti[i].gameObject.transform;
                 rb.isKinematic = true;
 
+                // このインデックス以外のmのboolをfalseに設定
                 for (int j = 0; j < moti.Length; ++j)
                 {
                     if (j != i) m[j] = false;
                 }
-
-                if (i == 6) Debug.Log("hit");
             }
         }
     }
