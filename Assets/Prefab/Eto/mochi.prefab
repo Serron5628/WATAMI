@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1804558233607593972}
   m_Layer: 0
   m_Name: mochi6
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2015736459165765007}
   m_Layer: 0
   m_Name: mochi2
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2086273366865878387}
   m_Layer: 0
   m_Name: mochi3
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 3848858852914581150}
   m_Layer: 0
   m_Name: mochi1
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 4923261834956374359}
   m_Layer: 0
   m_Name: mochi5
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 8308417363654421455}
   m_Layer: 0
   m_Name: mochi4
-  m_TagString: Untagged
+  m_TagString: Moti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

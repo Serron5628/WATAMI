@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 2887815861698247401}
   - component: {fileID: 9137508687613935750}
   - component: {fileID: -6747519881233226172}
+  - component: {fileID: 6396452365353628579}
   m_Layer: 2
   m_Name: Donguri
   m_TagString: enemy
@@ -240,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5753790766a22c4ebd9631ab6de39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCount: 0
   HP1: 1
   HP2: 0
   donguri: {fileID: 4691385996534898670}
@@ -309,6 +311,19 @@ MonoBehaviour:
     - 0
     - 0
     - 0
+--- !u!114 &6396452365353628579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691385996534898670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068569febbc4a164faa4e4a6e476176c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultScale: {x: 1, y: 0.68, z: 1}
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
