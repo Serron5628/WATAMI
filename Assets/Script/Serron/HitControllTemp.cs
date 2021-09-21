@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class HitControllTemp : MonoBehaviour
 {
-    int hitCount;
+    public int hitCount;
     //HP1は第一段階のHP。第2形態とかがない敵ならこの値の設定だけでいい
     public int HP1;
     public int HP2;
@@ -31,7 +31,7 @@ public class HitControllTemp : MonoBehaviour
     void FixedUpdate()
     {
         //HP減ったときに何かするってなったらここいじってくれればおｋ
-        if(hitCount == HP1)
+        if(hitCount >= HP1)
         {
             //stickFlagがtrueになるとstickEのスクリプトを活性化
             stickFlag = true;
@@ -47,15 +47,15 @@ public class HitControllTemp : MonoBehaviour
             donguri.GetComponent<StickE5>().enabled = true;
             Enemy.Play();
             rotate.SpeedUp();
-            if (counter == true)
+            if (counter)
             {
                 counter.GetComponent<EneDestCount>().count--;
-                Destroy(this);
             }
             donguri.GetComponent<EnemyMove>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
             stickFlag = false;
+            Destroy(this);
             hitCount++;
         }
     }

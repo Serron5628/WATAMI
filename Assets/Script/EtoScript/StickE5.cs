@@ -11,7 +11,7 @@ public class StickE5 : MonoBehaviour
     public GameObject[] moti = new GameObject[7];
 
     public DeleteE deleteE;
-    Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +21,12 @@ public class StickE5 : MonoBehaviour
             m[i] = true;
         }
         m[0] = false;
-
-        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void OnTriggerStay(Collider collision)
@@ -40,7 +39,6 @@ public class StickE5 : MonoBehaviour
             if (collision.gameObject.name == objName && m[i])
             {
                 this.gameObject.transform.parent = moti[i].gameObject.transform;
-                rb.isKinematic = true;
 
                 // このインデックス以外のmのboolをfalseに設定
                 for (int j = 0; j < moti.Length; ++j)

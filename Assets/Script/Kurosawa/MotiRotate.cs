@@ -107,7 +107,6 @@ public class MotiRotate : MonoBehaviour
     public void SpeedUp()
     {
         tan += UpSpeed;
-        Debug.Log("yes");
     }
 }
 
