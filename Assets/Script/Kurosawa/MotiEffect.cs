@@ -20,12 +20,7 @@ public class MotiEffect : MonoBehaviour
     void OnFire(InputValue input)
     {
         var pressed = input.isPressed;
-        MotiTrailEffect.SetActive(true);
-
-        if (!pressed)
-        {
-            MotiTrailEffect.SetActive(false);
-        }
+        MotiTrailEffect.SetActive(pressed);
     }
     public void EffectActive()
     {
