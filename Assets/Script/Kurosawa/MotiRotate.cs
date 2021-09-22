@@ -7,6 +7,7 @@ public class MotiRotate : MonoBehaviour
 {
     public GameObject Player;
     public GameObject kogane_wait;
+    public GameObject mochi;
     CanMove canmove;
     Vector2 mPos;
     Vector2 screenSizeHalf;
@@ -101,8 +102,9 @@ public class MotiRotate : MonoBehaviour
                     MotiWind.Play();
 
                 }
-                if (RotationCount > 4)
+                if (RotationCount > 1)
                 {
+                    mochi.SetActive(true);
                     HUGE.hugeScale();//餅伸ばし開始
                 }
             }

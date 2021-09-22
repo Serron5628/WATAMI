@@ -8775,7 +8775,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 0.3
+  _volume: 0.1
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -78194,17 +78194,17 @@ PrefabInstance:
     - target: {fileID: 3193810130492214149, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.0422041e-10
+      value: 1.7471308e-18
       objectReference: {fileID: 0}
     - target: {fileID: 3193810130492214149, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.037446775
+      value: 0.03744678
       objectReference: {fileID: 0}
     - target: {fileID: 3193810130492214149, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.319708
+      value: -0.000000003385465
       objectReference: {fileID: 0}
     - target: {fileID: 3813393550675062511, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
@@ -78264,7 +78264,7 @@ PrefabInstance:
     - target: {fileID: 4542125114826587753, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 8.847528e-16
+      value: 7.016709e-15
       objectReference: {fileID: 0}
     - target: {fileID: 4542125114826587753, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
@@ -78274,12 +78274,12 @@ PrefabInstance:
     - target: {fileID: 4542125114826587753, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 39.884674
+      value: 0.000000036761033
       objectReference: {fileID: 0}
     - target: {fileID: 4844344275801738925, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.0000000039526613
+      value: -8.696829e-17
       objectReference: {fileID: 0}
     - target: {fileID: 4844344275801738925, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
@@ -78289,7 +78289,7 @@ PrefabInstance:
     - target: {fileID: 4844344275801738925, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -7.8363013
+      value: -0.000000003994585
       objectReference: {fileID: 0}
     - target: {fileID: 5750991530268436665, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
@@ -78309,32 +78309,32 @@ PrefabInstance:
     - target: {fileID: 5980266481850615054, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.000000016675266
+      value: -2.643836e-14
       objectReference: {fileID: 0}
     - target: {fileID: 5980266481850615054, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0.7638985
+      value: -0.76389843
       objectReference: {fileID: 0}
     - target: {fileID: 5980266481850615054, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -40.21635
+      value: -0.00000003247785
       objectReference: {fileID: 0}
     - target: {fileID: 7144823314538646030, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.000000013463744
+      value: 2.2363274e-16
       objectReference: {fileID: 0}
     - target: {fileID: 7144823314538646030, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 2.2713335
+      value: 2.2713342
       objectReference: {fileID: 0}
     - target: {fileID: 7144823314538646030, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.1938543
+      value: -0.000000004469816
       objectReference: {fileID: 0}
     - target: {fileID: 7265682106994564191, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
@@ -79421,6 +79421,11 @@ PrefabInstance:
       propertyPath: RmoveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8713538126118041070, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: mochi
+      value: 
+      objectReference: {fileID: 825059907}
     - target: {fileID: 8713538126118041070, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: UpSpeed
