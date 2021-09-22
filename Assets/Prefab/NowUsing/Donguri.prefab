@@ -91,6 +91,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.68, z: 1}
   m_Children:
   - {fileID: 4691385995767630743}
+  - {fileID: 9108177493683026101}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -155,10 +156,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   donguri: {fileID: 5213609677182298149}
+  wallcheckObj: {fileID: 5951015853556438180}
   Speed: 1
-  rotateSpeed: 90
-  stopDist: 1.3
-  searchDist: 7
+  rotateSpeed: 7
+  stopDist: 5
+  searchDist: 100
+  RpreCount: 2
+  Rspeed: 0.1
+  RAddSpeed: 0.15
+  RMaxSpeed: 3.5
+  stuntime: 5
+  stuncount: 0
 --- !u!64 &4989361769300694071
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -324,6 +332,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultScale: {x: 1, y: 0.68, z: 1}
+--- !u!1 &5951015853556438180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9108177493683026101}
+  - component: {fileID: 4237864676534441628}
+  m_Layer: 0
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9108177493683026101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951015853556438180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4691385996534898671}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4237864676534441628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951015853556438180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6368785, y: 1, z: 0.09721947}
+  m_Center: {x: -0.05711484, y: 0, z: 0.53625965}
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
