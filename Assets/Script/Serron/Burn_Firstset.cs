@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Donguri_FirstSet : MonoBehaviour
+public class Burn_Firstset : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,16 +13,16 @@ public class Donguri_FirstSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Floor")
         {
             Destroy(GetComponent<SphereCollider>());
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<EnemyMove>().enabled = true;
+            gameObject.GetComponent<EnemyPunch>().enabled = true;
             gameObject.GetComponent<MeshCollider>().enabled = true;
             Destroy(this);
 

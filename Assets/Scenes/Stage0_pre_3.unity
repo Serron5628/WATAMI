@@ -14575,9 +14575,24 @@ PrefabInstance:
       objectReference: {fileID: 580737744}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: Rspeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 5478437600725379396}
+    - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: RAddSpeed
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: RMaxSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist

@@ -52,7 +52,7 @@ public class HitControllBurn : MonoBehaviour
             {
                 counter.GetComponent<EneDestCount>().count--;
             }
-            donguri.GetComponent<EnemyMove>().enabled = false;
+            donguri.GetComponent<EnemyPunch>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
             Burn.SetActive(false);

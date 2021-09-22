@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9108177493683026101}
   - component: {fileID: 4237864676534441628}
+  - component: {fileID: 5632563391508018280}
   m_Layer: 0
   m_Name: WallCheck
   m_TagString: Untagged
@@ -376,6 +377,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6368785, y: 1, z: 0.09721947}
   m_Center: {x: -0.05711484, y: 0, z: 0.53625965}
+--- !u!114 &5632563391508018280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951015853556438180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0aa90ed769e724ea546ebb58d571dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchWall: 0
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
