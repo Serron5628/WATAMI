@@ -61,7 +61,6 @@ public class Donguri_Waki : MonoBehaviour
                 donguri.transform.position = pos + gameObject.transform.position;
                 donguri.SetActive(true);
                 donguri.AddComponent<SphereCollider>().radius = 0.75f;
-                donguri.AddComponent<Rigidbody>();
                 donguri.GetComponent<Rigidbody>().useGravity = true;
 
                 if (i % 5 == 0)
