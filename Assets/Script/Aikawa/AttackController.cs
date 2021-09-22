@@ -124,8 +124,8 @@ public class AttackController : MonoBehaviour{
                 ), 
                 playerPos
             );
-            if(targetDist>dist){
-                targetOgj=target;
+            if(targetDist > dist){
+                targetOgj = target;
                 redRange.SetActive(true);
                 targetDist = dist;
                 redRange.transform.position = 
@@ -161,7 +161,7 @@ public class AttackController : MonoBehaviour{
                     ) ,
                     playerPos
                 );
-            if((float)disArray<targetDistSave){
+            if((float)disArray < targetDistSave){
                 redRange.SetActive(true);
                 redRange.transform.Rotate(new Vector3(0, 0, 100 * Time.deltaTime));
                 break;
@@ -204,12 +204,12 @@ public class AttackController : MonoBehaviour{
         }
     }*/
     public void BossAttack(){
-        lockState=true;
-        playerParent.GetComponent<PlayerMove>().enabled=false;
+        lockState = true;
+        playerParent.GetComponent<PlayerMove>().enabled = false;
     }
     public void BossAttacked(){
-        lockState=false;
-        playerParent.GetComponent<PlayerMove>().enabled=true;
+        lockState = false;
+        playerParent.GetComponent<PlayerMove>().enabled = true;
     }
 
     public GameObject obj;
