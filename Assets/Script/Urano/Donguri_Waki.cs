@@ -6,6 +6,7 @@ public class Donguri_Waki : MonoBehaviour
 {
     public GameObject boss;
     public GameObject donguriTemp;
+    public GameObject BurndonguriTemp;
     public GameObject stageObj;
     int count;
     [SerializeField]
@@ -31,7 +32,13 @@ public class Donguri_Waki : MonoBehaviour
             count -= countMax;
             for (int i = 0; i < make; i++)
             {
+
                 GameObject donguri = Instantiate(donguriTemp, stageObj.transform);
+
+                if(i%5 == 0)
+                {
+                    donguri = Instantiate(BurndonguriTemp, stageObj.transform);
+                }
                 Vector3 pos;
                 while (true)
                 {
