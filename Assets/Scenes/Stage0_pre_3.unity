@@ -613,6 +613,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0b99a6d93000b47b167dd241b43251, type: 3}
+--- !u!1 &94958429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199686789208686103, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+    type: 3}
+  m_PrefabInstance: {fileID: 2622124941172579910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &106180098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 55237266527021864, guid: 64ba5c2a73c545a44b7d97561965acb3,
@@ -24712,12 +24718,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971487263}
     m_Modifications:
-    - target: {fileID: 2181055395141845181, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+    - target: {fileID: 1718875202986050464, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: Burn
+      value: 
+      objectReference: {fileID: 94958429}
+    - target: {fileID: 1718875202986050464, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
-    - target: {fileID: 2181055395141845181, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+    - target: {fileID: 1718875202986050464, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
       propertyPath: counter
       value: 
@@ -24726,12 +24737,12 @@ PrefabInstance:
         type: 3}
       propertyPath: counter
       value: 
-      objectReference: {fileID: 580737745}
+      objectReference: {fileID: 0}
     - target: {fileID: 5199686789208686104, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6533978693017121252, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
       propertyPath: moti.Array.data[0]
