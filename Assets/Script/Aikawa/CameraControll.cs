@@ -6,33 +6,55 @@ using UnityEngine.InputSystem;
 
 public class CameraControll : MonoBehaviour {
     private GameObject mainCameraObj;
-    private bool pause = false;
+    private bool pause = false, pressFlag = false;
     
     private void Start() {
         mainCameraObj = GameObject.FindGameObjectWithTag("MainCamera");
     }
-
+    public void OnFire(){
+        if(!pressFlag) pressFlag = true;
+        else pressFlag = false;
+    }
+    int testCnt = 0;
 	void Update (){
         if(Keyboard.current[Key.Escape].wasPressedThisFrame){
             if(!pause){
-                mainCameraObj.GetComponent<CameraMove>().enabled = false;
-                Time.timeScale = 0.0f;
+                if(pressFlag) pressFlag = false;
                 pause = true;
             }
-            else{
-                mainCameraObj.GetComponent<CameraMove>().enabled = true;
-                Time.timeScale = 1.0f;
-                pause = false;
-            }
+            else pause = false;
         }
-        
-        if(Time.timeScale == 0.0f){
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        if(!pause){
+            mainCameraObj.GetComponent<CameraMove>().enabled = true;
+            if(pressFlag) CursorOn();
+            else{
+                CursorOff();
+            }
+            TimeScale_1();
         }
         else{
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            mainCameraObj.GetComponent<CameraMove>().enabled = false;
+            CursorOn();
+            TimeScale_0();
         }
+        
 	}
+    private void FixedUpdate() {
+        if(!pause && !pressFlag) CursorOff();
+        if(Time.timeScale != 0.0f && !pressFlag) CursorOff();
+    }
+    public void CursorOn(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void CursorOff(){
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;;
+    }
+    public void TimeScale_1(){
+        Time.timeScale = 1.0f;
+    }
+    public void TimeScale_0(){
+        Time.timeScale = 0.0f;
+    }
 }
