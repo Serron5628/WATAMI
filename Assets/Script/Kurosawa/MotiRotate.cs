@@ -7,6 +7,7 @@ public class MotiRotate : MonoBehaviour
 {
     public GameObject Player;
     public GameObject kogane_wait;
+    public GameObject mochi;
     CanMove canmove;
     Vector2 mPos;
     Vector2 screenSizeHalf;
@@ -18,6 +19,7 @@ public class MotiRotate : MonoBehaviour
 
     public float FirstSpeed;
     public float UpSpeed;
+    public float MaxSpeed;
 
     private CriAtomSource MotiWind;
     public GameObject MotiSound;
@@ -81,6 +83,11 @@ public class MotiRotate : MonoBehaviour
                 }
                 tan += Mathf.Abs(dRad); //タンジェント // * mPos.magnitude;
 
+                if(tan >= MaxSpeed)
+                {
+                    tan = MaxSpeed;
+                }
+
                 Player.transform.Rotate(new Vector3(0, tan / 10, 0));//プレイヤーの回転
 
                 if (dRad > 1 || dRad < -1) //フレームの角度の差が1以上あれば餅伸ばし実行
@@ -95,8 +102,9 @@ public class MotiRotate : MonoBehaviour
                     MotiWind.Play();
 
                 }
-                if (RotationCount > 4)
+                if (RotationCount > 1)
                 {
+                    mochi.SetActive(true);
                     HUGE.hugeScale();//餅伸ばし開始
                 }
             }

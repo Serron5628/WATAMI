@@ -33,12 +33,17 @@ public class Donguri_Waki : MonoBehaviour
             for (int i = 0; i < make; i++)
             {
 
-                GameObject donguri = Instantiate(donguriTemp, stageObj.transform);
+                GameObject donguri;
 
                 if(i%5 == 0)
                 {
                     donguri = Instantiate(BurndonguriTemp, stageObj.transform);
                 }
+                else
+                {
+                    donguri = Instantiate(donguriTemp, stageObj.transform);
+                }
+
                 Vector3 pos;
                 while (true)
                 {
@@ -56,10 +61,20 @@ public class Donguri_Waki : MonoBehaviour
                 donguri.transform.position = pos + gameObject.transform.position;
                 donguri.SetActive(true);
                 donguri.AddComponent<SphereCollider>().radius = 0.75f;
-                donguri.AddComponent<Rigidbody>();
-                donguri.GetComponent<EnemyMove>().enabled = false;
+                donguri.GetComponent<Rigidbody>().useGravity = true;
+
+                if (i % 5 == 0)
+                {
+                    donguri.GetComponent<EnemyPunch>().enabled = false;
+                    donguri.AddComponent<Burn_Firstset>();
+                }
+                else
+                {
+                    donguri.GetComponent<EnemyMove>().enabled = false;
+                    donguri.AddComponent<Donguri_FirstSet>();
+                }
+
                 donguri.GetComponent<MeshCollider>().enabled = false;
-                donguri.AddComponent<Donguri_FirstSet>();
 
                 if (i == 0)
                 {
