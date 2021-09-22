@@ -3,14 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-
-/// <summary>
-/// The camera added this script will follow the specified object.
-/// The camera can be moved by left mouse drag and mouse wheel.
-/// </summary>
-[ExecuteInEditMode, DisallowMultipleComponent]
-public class CameraMove : MonoBehaviour{
-    public GameObject player,playerParent;
+public class CameraMove : MonoBehaviour
+{
+    public GameObject player, playerParent;
     public Vector3 offset;
     
     private float distance = 9.0f; 
@@ -25,61 +20,62 @@ public class CameraMove : MonoBehaviour{
     [SerializeField] private float mouserotaXSpd = 2.0f;
     [SerializeField] private float mouserotaYSpd = 1.0f;
     
-    float dis,disdata,disZoomSpeedData;
-    float touchTime=0.0f;
+    private float dis, disdata, disZoomSpeedData;
+    private float touchTime = 0.0f;
     private GameObject hitObj;
-   
-    bool mousePressed = false;
+    private bool mousePressed = false;
 
     Vector2 lookVector;
 
-    void OnFire(InputValue input)
-    {
+    void OnFire(InputValue input){
         mousePressed = input.isPressed;
     }
-    void OnLook(InputValue input)
-    {
+    void OnLook(InputValue input){
         lookVector = input.Get<Vector2>();
     }
 
     void Start(){
         disdata = distance;
-        disZoomSpeedData = disZoomSpeed;
         lookVector = new Vector2(0.0f, 0.0f);
     }
-    void Update(){
+    void FixedUpdate(){
         RaycastHit hit;
-
-        if (!mousePressed) {
+        if (!mousePressed){
             updateAngle(lookVector.x, lookVector.y);
         }
 
         Vector3 playerPos = player.transform.position;
         Vector3 playerParentPos = playerParent.transform.position;
-        Debug.DrawLine(playerPos+offset, transform.position, Color.magenta, 0f, false);
-        if (Physics.Linecast(playerPos+offset,transform.position, out hit)) {
+
+        Debug.DrawLine(playerPos + offset, transform.position, Color.magenta, 0f, false);
+
+        if (Physics.Linecast(playerPos + offset, transform.position, out hit)){
             touchTime = 0.0f;
-            dis = Vector3.Distance(playerPos+offset,hit.point);
+            dis = Vector3.Distance(playerPos + offset, hit.point);
             hitObj = hit.collider.gameObject;
-            if(dis-2.0f<=distance&&(
+            if(dis - 2.0f <= distance &&(
                 hit.collider.tag =="Floor"||
                 hit.collider.tag =="Wall"||
                 hit.collider.tag =="Ground"
             ))minusDistance();
         }
-        else if(distance<disdata){
-            if(touchTime<10)
+        else if(distance < disdata){
+            if(touchTime < 10){
                 touchTime += Time.deltaTime;
+            }
             plusDistance();
         }
-
         var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
+
         updatePosition(lookAtPos);
-        transform.LookAt(lookAtPos);
-        if(touchTime>0.2f)
+        this.transform.LookAt(lookAtPos);
+
+        if(touchTime > 0.2f){
             disZoomSpeed = 20.0f;
-        else
-            disZoomSpeed = disZoomSpeedData;
+        }
+        else{
+            disZoomSpeed = 0;
+        }
     }
     public void minusDistance(){
         distance = dis;
@@ -98,10 +94,12 @@ public class CameraMove : MonoBehaviour{
     void updatePosition(Vector3 lookAtPos){
         var da = azimuthalAngle * Mathf.Deg2Rad;
         var dp = polarAngle * Mathf.Deg2Rad;
-        transform.position = new Vector3(
-            lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
-            lookAtPos.y + distance * Mathf.Cos(dp),
-            lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da));
+        transform.position = 
+            new Vector3(
+                lookAtPos.x + distance * Mathf.Sin(dp) * Mathf.Cos(da),
+                lookAtPos.y + distance * Mathf.Cos(dp),
+                lookAtPos.z + distance * Mathf.Sin(dp) * Mathf.Sin(da)
+            );
     }
     
 }

@@ -5,13 +5,22 @@ using UnityEngine;
 public class StickE5 : MonoBehaviour
 {
     public bool ReParent;
-    public GameObject moti;
+
+    public bool[] m = new bool[7];
+
+    public GameObject[] moti = new GameObject[7];
+
     public DeleteE deleteE;
 
     // Start is called before the first frame update
     void Start()
     {
         ReParent = deleteE.reParent;
+        for (int i = 1; i < m.Length; i++)
+        {
+            m[i] = true;
+        }
+        m[0] = false;
     }
 
     // Update is called once per frame
@@ -22,9 +31,21 @@ public class StickE5 : MonoBehaviour
 
     void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.name == "mochi" && ReParent == true)
+        for (int i = 0; i < moti.Length; ++i)
         {
-            this.gameObject.transform.parent = moti.gameObject.transform;
+            var objName = "mochi";
+            if (i > 0) objName = $"mochi{i}";
+
+            if (collision.gameObject.name == objName && m[i])
+            {
+                this.gameObject.transform.parent = moti[i].gameObject.transform;
+
+                // このインデックス以外のmのboolをfalseに設定
+                for (int j = 0; j < moti.Length; ++j)
+                {
+                    if (j != i) m[j] = false;
+                }
+            }
         }
     }
 }
