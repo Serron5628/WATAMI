@@ -24,18 +24,10 @@ public class CameraControll : MonoBehaviour {
             }
             else pause = false;
         }
-        
-	}
-    private void FixedUpdate() {
-        if(!pause && !pressFlag) CursorOff();
-        if(Time.timeScale != 0.0f && !pressFlag) CursorOff();
-
         if(!pause){
             mainCameraObj.GetComponent<CameraMove>().enabled = true;
             if(pressFlag) CursorOn();
             else{
-                testCnt+=1;
-                Debug.Log(testCnt);
                 CursorOff();
             }
             TimeScale_1();
@@ -45,14 +37,19 @@ public class CameraControll : MonoBehaviour {
             CursorOn();
             TimeScale_0();
         }
+        
+	}
+    private void FixedUpdate() {
+        if(!pause && !pressFlag) CursorOff();
+        if(Time.timeScale != 0.0f && !pressFlag) CursorOff();
     }
     public void CursorOn(){
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
     public void CursorOff(){
-        Cursor.lockState = CursorLockMode.Locked;;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;;
     }
     public void TimeScale_1(){
         Time.timeScale = 1.0f;
