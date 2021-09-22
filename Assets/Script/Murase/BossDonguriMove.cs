@@ -48,6 +48,7 @@ public class BossDonguriMove : MonoBehaviour
     private int TstartTime = 4;
     private bool startTackle = false;
     private bool isTackle = false;
+    private float BafterCount = 0;
 
     //サウンド関係の部分
     private CriAtomSource Breath;
@@ -78,6 +79,7 @@ public class BossDonguriMove : MonoBehaviour
     {
         bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Stamp");
         bool isWait = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Wait");
+        bool IsBreath = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Breath");
 
         if (timeSet == false)
         {
@@ -266,19 +268,35 @@ public class BossDonguriMove : MonoBehaviour
                 
                 startBreath = true;
             }
-           
-            if (bossanim.stopBreath)
+
+            if (startBreath && !IsBreath)
             {
+                this.animator.SetBool(breathStr, false);
                 particle.Stop();
+                BafterCount += Time.deltaTime;
             }
 
-            if (bossanim.finishBreath)
+            if (BafterCount >= 1)
+            {
+                selectAttack = 0;
+                timeSet = false;
+                startBreath = false;
+                BafterCount = 0;
+            }
+           
+            /*if (bossanim.stopBreath)
+            {
+                particle.Stop();
+            }*/
+
+
+            /*if (bossanim.finishBreath)
             {
                 this.animator.SetBool(breathStr, false);
                 selectAttack = 0;
                 timeSet = false;
                 startBreath = false;
-            }
+            }*/
         }
 
         //Tackle攻撃
