@@ -5,26 +5,43 @@ using System.Linq;
 
 public class EnemyDestroy_02 : MonoBehaviour
 {
-    [SerializeField] private GameObject ParentObject;
+    int childNumber = 0;
+    int count = 0;
+    [SerializeField] private GameObject[] ParentObject;
     public GameObject[] ChildObject;
     private void GetAllChildObject()
     {
-        ChildObject = new GameObject[ParentObject.transform.childCount];
-        for (int i = 0; i < ChildObject.Length; i++)
+        childNumber = 0;
+        count = 0;
+        for (int i = 0; i < ParentObject.Length; i++)
         {
-            if(ParentObject.transform.GetChild(i).tag == "enemy")
+            childNumber += ParentObject[i].transform.childCount;
+        }
+        ChildObject = new GameObject[childNumber];
+        for (int j = 0; j < ParentObject.Length; j++)
+        {
+            for (int i = 0; i < ParentObject[j].transform.childCount; i++)
             {
-                ChildObject[i] = ParentObject.transform.GetChild(i).gameObject;
+                if (ParentObject[j].transform.GetChild(i).tag == "enemy")
+                {
+                    ChildObject[count] = ParentObject[j].transform.GetChild(i).gameObject;
+                    count++;
+                }
             }
         }
     }
     public void DestroyEnemy()
     {
-        for (int i = 0; i < ChildObject.Length; i++)
+        count = 0;
+        for (int j = 0; j < ParentObject.Length; j++)
         {
-            if(ParentObject.transform.GetChild(i).tag == "enemy")
+            for (int i = 0; i < ParentObject[j].transform.childCount; i++)
             {
-                Destroy(ChildObject[i]);
+                if (ParentObject[j].transform.GetChild(i).tag == "enemy")
+                {
+                    Destroy(ChildObject[count]);
+                    count++;
+                }
             }
         }
     }

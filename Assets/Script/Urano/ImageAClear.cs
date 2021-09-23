@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ImageAClear : MonoBehaviour
 {
+    public GameObject black;
     Image rend;
     public float darkSec;
     Color color;
@@ -12,7 +13,11 @@ public class ImageAClear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rend = gameObject.GetComponent<Image>();
+        if (black.activeSelf == false)
+        {
+            black.SetActive(true);
+        }
+        rend = black.gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -23,7 +28,8 @@ public class ImageAClear : MonoBehaviour
         rend.color = color;
         if (color.a < 0.0f)
         {
-            Destroy(this.gameObject);
+            Destroy(black.gameObject);
+            Destroy(this);
         }
     }
 }

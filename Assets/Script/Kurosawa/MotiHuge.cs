@@ -12,7 +12,6 @@ public class MotiHuge : MonoBehaviour
     {
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,14 +20,13 @@ public class MotiHuge : MonoBehaviour
 
     public void hugeScale()
     {
-        transform.localScale = new Vector3(0f+plus, 1f, 1f+bairitu*plus);
+        transform.localScale = new Vector3(0.5f+plus, 1f, 1f+bairitu*plus);
         transform.localPosition = new Vector3(0.0f, 0.25f, 0f-bairitu2*plus);//(1.5f+plus*0.5f, 0, 0);-0.5f - plus
         plus = plus + 0.005f;
         if (plus > 5)
         {
             plus = 5;//餅の大きさの限界
         }
-
     }
     public void KeepScale()
     {
