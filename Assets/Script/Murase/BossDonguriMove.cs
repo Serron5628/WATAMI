@@ -47,7 +47,7 @@ public class BossDonguriMove : MonoBehaviour
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
-    private bool isTackle = false;
+    public bool isTackle = false;
     private float BafterCount = 0;
 
     //サウンド関係の部分
