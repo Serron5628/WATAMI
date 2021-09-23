@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     public string playerState;
     string jumpState = "Jump";
-    string groundState = "Ground";
+    public string groundState = "Ground";
     public string fallState = "Fall";
     string parachuteUPState = "Pup";
     string parachuteDOWNState = "Pdown";
