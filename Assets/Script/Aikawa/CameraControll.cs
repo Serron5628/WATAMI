@@ -6,14 +6,14 @@ using UnityEngine.InputSystem;
 
 public class CameraControll : MonoBehaviour {
     private GameObject mainCameraObj;
-    private bool pause = false, pressFlag = false;
+    private bool pause = false, pressFlag;
     
     private void Start() {
         mainCameraObj = GameObject.FindGameObjectWithTag("MainCamera");
+        pressFlag = false;
     }
-    public void OnFire(){
-        if(!pressFlag) pressFlag = true;
-        else pressFlag = false;
+    public void OnFire(InputValue input){
+        pressFlag = input.isPressed;
     }
     int testCnt = 0;
 	void Update (){
