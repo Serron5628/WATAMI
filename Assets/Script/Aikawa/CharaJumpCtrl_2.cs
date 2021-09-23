@@ -7,18 +7,17 @@ public class CharaJumpCtrl_2 : MonoBehaviour
 {
     private Animator usagi;
     private string usagiStr = "isHissatu";
-    public static bool HissatuAnim = false;
 
     void OnFire(InputValue input)
     {
-        var pressed = input.isPressed;
-        if(!pressed){
+        bool pressed = input.isPressed;
+        if (!pressed)
+        {
             this.usagi.SetBool(usagiStr, true);
-            HissatuAnim = true;
         }
-        else{
+        else
+        {
             this.usagi.SetBool(usagiStr, false);
-            HissatuAnim = false;
         }
     }
 

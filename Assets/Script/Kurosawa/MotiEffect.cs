@@ -23,7 +23,7 @@ public class MotiEffect : MonoBehaviour
         if (charge)
         {
             countup += Time.deltaTime;
-            Debug.Log(countup);
+            //Debug.Log(countup);
         }
     }
 

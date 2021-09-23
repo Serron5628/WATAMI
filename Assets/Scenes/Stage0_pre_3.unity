@@ -14807,6 +14807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1270297154}
+  isBreathHit: 0
 --- !u!114 &1544779370134503749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14852,6 +14853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RstampObj: {fileID: 1544779370077078782}
   LstampObj: {fileID: 1544779371657068512}
+  isLeftFoot: 0
+  isRightFoot: 0
 --- !u!95 &1544779370912659191
 Animator:
   serializedVersion: 3
@@ -78071,6 +78074,7 @@ MonoBehaviour:
   timecount: 0
   AttackSelectTime: 3
   selectAttack: 0
+  isTackle: 0
 --- !u!208 &7105920141996165647
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -78357,6 +78361,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000000003994585
       objectReference: {fileID: 0}
+    - target: {fileID: 5207596233067161509, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 5750991530268436665, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -79126,6 +79135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.70709157
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713538125575351875, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: pressed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713538125575351884, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}

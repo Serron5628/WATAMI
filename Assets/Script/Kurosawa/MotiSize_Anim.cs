@@ -6,14 +6,19 @@ using UnityEngine.InputSystem;
 public class MotiSize_Anim : MonoBehaviour
 {
     private Animator Moti_main;
-    //public MotiHuge HUGE;
     private string motiStr = "IsMotiSize";
-    bool MotiSizeAnim = false;
 
     void OnFire(InputValue input)
     {
-        var mousePressed = input.isPressed;
-        MotiSizeAnim = !mousePressed;
+        bool pressed = input.isPressed;
+        if (!pressed)
+        {
+            this.Moti_main.SetBool(motiStr, true);
+        }
+        else
+        {
+            this.Moti_main.SetBool(motiStr, false);
+        }
     }
 
     // Start is called before the first frame update
@@ -29,17 +34,5 @@ public class MotiSize_Anim : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (MotiSizeAnim)
-        {
-            this.Moti_main.SetBool(motiStr, true);
-        }
-        else
-        {
-            if (MotiSizeAnim == false)
-            {
-                this.Moti_main.SetBool(motiStr, false);
-                //HUGE.ResetE();
-            }
-        }
     }
 }

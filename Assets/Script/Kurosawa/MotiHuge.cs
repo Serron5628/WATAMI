@@ -38,5 +38,6 @@ public class MotiHuge : MonoBehaviour
         transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);//マウス放したときに餅のサイズを０にする
         //transform.localPosition = new Vector3(1.5f, 0, 0);
         plus = 0;//サイズリセット
+        this.gameObject.SetActive(false);
     }
 }
