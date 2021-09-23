@@ -4833,7 +4833,7 @@ GameObject:
   - component: {fileID: 8649000015290344701}
   - component: {fileID: 8649000015290344700}
   m_Layer: 0
-  m_Name: MotiHitEffect 1
+  m_Name: MotiHitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
