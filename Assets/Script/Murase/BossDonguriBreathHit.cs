@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossDonguriBreathHit : MonoBehaviour
 {
     public GameObject target;
+    public bool isBreathHit = false;
     Vector3 targetPos;
     Vector3 forward;
     RangeObject parameter;
@@ -29,11 +30,11 @@ public class BossDonguriBreathHit : MonoBehaviour
 
         if (isInsideOfSector && isInsideOfSectorY)
         {
-            Debug.Log("Hit!!!");
+            isBreathHit = true;
         }
         else
         {
-            Debug.Log("noHit!!!");
+            isBreathHit = false;
         }
     }
     public static bool IsInsideOfCircle(Vector3 target, float radius)
