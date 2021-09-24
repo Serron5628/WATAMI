@@ -90,7 +90,6 @@ public class MotiBend_Anim : MonoBehaviour
             //blend = blend;
             this.animator.SetFloat("Blend", blend);
             this.animator.SetFloat("Blend2", blend2);
-
         }
     }
 

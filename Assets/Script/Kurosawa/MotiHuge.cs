@@ -7,10 +7,11 @@ public class MotiHuge : MonoBehaviour
     public float plus;
     public float bairitu;
     public float bairitu2;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
     }
     // Update is called once per frame
     void Update()
@@ -38,6 +39,6 @@ public class MotiHuge : MonoBehaviour
         transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);//マウス放したときに餅のサイズを０にする
         //transform.localPosition = new Vector3(1.5f, 0, 0);
         plus = 0;//サイズリセット
-        this.gameObject.SetActive(false);
     }
+
 }

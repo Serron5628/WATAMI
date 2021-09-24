@@ -8,6 +8,10 @@ public class CharaJumpCtrl_2 : MonoBehaviour
     private Animator usagi;
     private string usagiStr = "isHissatu";
 
+    public GameObject moti;
+    private Animator Moti_spin;
+    private string motiStr = "IsMotiSize";
+
     void OnFire(InputValue input)
     {
         bool pressed = input.isPressed;
@@ -17,14 +21,21 @@ public class CharaJumpCtrl_2 : MonoBehaviour
         }
         else
         {
+            moti.SetActive(true);
             this.usagi.SetBool(usagiStr, false);
+            Moti_spin.SetBool(motiStr, false);
         }
     }
 
     void Start(){
-        this.usagi = GetComponent<Animator>();
-        this.usagi.SetBool(usagiStr, false);
+        usagi = GetComponent<Animator>();
+        usagi.SetBool(usagiStr, false);
+
+        Moti_spin = moti.GetComponent<Animator>();
+        Moti_spin.SetBool(motiStr, false);
     }
-    void Update(){
+    void Update()
+    {
+
     }
 }

@@ -104,7 +104,6 @@ public class MotiRotate : MonoBehaviour
                 }
                 if (RotationCount > 1)
                 {
-                    mochi.SetActive(true);
                     HUGE.hugeScale();//餅伸ばし開始
                 }
             }
