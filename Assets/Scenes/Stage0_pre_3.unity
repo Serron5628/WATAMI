@@ -78416,6 +78416,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7265682108490944257, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 8713538124409943383, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_LocalRotation.w

@@ -1256,7 +1256,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.5
+    m_StopTime: 2.0833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -7971,14 +7971,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2.0833333
-    functionName: DontTatakituke
+    functionName: ActiveFalse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.5
-    functionName: ActiveFalse
+  - time: 2.0833333
+    functionName: DontTatakituke
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
