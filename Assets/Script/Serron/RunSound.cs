@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class RunSound : MonoBehaviour
 {
-    private CriAtomSource Run;
+    public GameObject R;
+    private CriAtomSource RAshioto;
+    public GameObject L;
+    private CriAtomSource LAshioto;
     // Start is called before the first frame update
     void Start()
     {
-        Run = GetComponent<CriAtomSource>();
+        RAshioto = R.GetComponent<CriAtomSource>();
+        LAshioto = L.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -17,9 +21,12 @@ public class RunSound : MonoBehaviour
 
     }
 
-    void RunFlag()
+    void RRunFlag()
     {
-        Run.Play();
+        RAshioto.Play();
     }
-
+    void LRunFlag()
+    {
+        LAshioto.Play();
+    }
 }

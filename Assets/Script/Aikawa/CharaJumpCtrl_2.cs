@@ -7,25 +7,44 @@ public class CharaJumpCtrl_2 : MonoBehaviour
 {
     private Animator usagi;
     private string usagiStr = "isHissatu";
-    public static bool HissatuAnim = false;
+
+    public GameObject moti;
+    private Animator Moti_spin;
+    private string motiStr = "IsMotiSize";
+
+    public bool CanBlend;
+    public bool Tatakituke;
 
     void OnFire(InputValue input)
     {
-        var pressed = input.isPressed;
-        if(!pressed){
+        bool pressed = input.isPressed;
+        if (!pressed)
+        {
             this.usagi.SetBool(usagiStr, true);
-            HissatuAnim = true;
+            CanBlend = false;
+            Tatakituke = true;
         }
-        else{
+        else
+        {
+            moti.SetActive(true);
+            CanBlend = true;
+            Tatakituke = false;
             this.usagi.SetBool(usagiStr, false);
-            HissatuAnim = false;
+            Moti_spin.SetBool(motiStr, false);
         }
     }
 
     void Start(){
-        this.usagi = GetComponent<Animator>();
-        this.usagi.SetBool(usagiStr, false);
+        usagi = GetComponent<Animator>();
+        usagi.SetBool(usagiStr, false);
+
+        Moti_spin = moti.GetComponent<Animator>();
+        Moti_spin.SetBool(motiStr, false);
+
+        CanBlend = false;
     }
-    void Update(){
+    void Update()
+    {
+
     }
 }
