@@ -262,8 +262,6 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     particle.Play();
          
-                    //サウンド
-                    Breath.Play();
                 }  
                 
                 startBreath = true;
@@ -383,5 +381,11 @@ public class BossDonguriMove : MonoBehaviour
             return false;
         }
         
+    }
+
+    public void BreathSound()
+    {
+        //サウンド
+        Breath.Play();
     }
 }
