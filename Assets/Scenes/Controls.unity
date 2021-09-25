@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee29a3ce3251a64690093d3302252eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStageName: Stage0_pre_3
+  nextStageName: Stage0_pre_4
   waitTime: 0.5
 --- !u!114 &135377575
 MonoBehaviour:
