@@ -54,6 +54,7 @@ public class HitControllTemp : MonoBehaviour
             donguri.GetComponent<EnemyMove>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
+            donguri.GetComponent<MeshCollider>().enabled = false;
             stickFlag = false;
             Destroy(this);
             hitCount++;

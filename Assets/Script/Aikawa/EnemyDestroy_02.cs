@@ -5,10 +5,11 @@ using System.Linq;
 
 public class EnemyDestroy_02 : MonoBehaviour
 {
-    int childNumber = 0;
+    public int childNumber = 0;
     int count = 0;
     [SerializeField] private GameObject[] ParentObject;
     public GameObject[] ChildObject;
+
     private void GetAllChildObject()
     {
         childNumber = 0;
