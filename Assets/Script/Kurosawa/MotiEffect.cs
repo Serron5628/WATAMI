@@ -11,6 +11,9 @@ public class MotiEffect : MonoBehaviour
     public float countup = 0.0f;
     public float ActiveTime = 5.0f;
     // Start is called before the first frame update
+
+    public GameObject kogane_wait;
+
     void Start()
     {
         MotiTrailEffect.SetActive(false);
@@ -20,6 +23,7 @@ public class MotiEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        charge = kogane_wait.GetComponent<CharaJumpCtrl_2>().CanBlend;
         if (charge)
         {
             countup += Time.deltaTime;
@@ -30,7 +34,6 @@ public class MotiEffect : MonoBehaviour
     void OnFire(InputValue input)
     {
         var pressed = input.isPressed;
-        charge = pressed;
         MotiTrailEffect.SetActive(pressed);
     }
     public void EffectActive()
