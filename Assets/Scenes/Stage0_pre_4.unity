@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09304438, g: 0.11882646, b: 0.15370443, a: 1}
+  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 74338be0559780f4bad7ecee1db601d8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bae3b6f1c8f982e4b8ae5fddcb06b010, type: 2}
 --- !u!4 &2927686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 55237266527021864, guid: 64ba5c2a73c545a44b7d97561965acb3,
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee29a3ce3251a64690093d3302252eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextStageName: Stage0_pre_3
+  nextStageName: Stage0_pre_4
   waitTime: 0
 --- !u!4 &378283441 stripped
 Transform:
@@ -11739,6 +11739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1464140183}
   - component: {fileID: 1464140184}
+  - component: {fileID: 1464140185}
   m_Layer: 0
   m_Name: BossHPber
   m_TagString: Untagged
@@ -11829,6 +11830,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1464140185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464140182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5646921b53b586438bdc01c4a0bc969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpColor: {fileID: 789475119}
+  hpValueMax: 0
+  hpValue: 0
+  yellowBorder: 50
+  redBorder: 20
+  greenColor: {r: 0.9528302, g: 0.6906553, b: 0.25618547, a: 1}
+  yellowColor: {r: 0.7137255, g: 0.5176471, b: 0.19215687, a: 1}
+  redColor: {r: 0.7137255, g: 0.34509805, b: 0.1254902, a: 1}
 --- !u!1 &1466524541
 GameObject:
   m_ObjectHideFlags: 0
@@ -13483,6 +13504,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: -674449036139524865, guid: 61e08f2ab9ee4774ea786ab60969a853,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61e08f2ab9ee4774ea786ab60969a853,
         type: 3}
       propertyPath: m_Name
@@ -15119,6 +15145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1854061938}
   - component: {fileID: 1854061939}
+  - component: {fileID: 1854061940}
   m_Layer: 5
   m_Name: PlayerHPber
   m_TagString: Untagged
@@ -15198,6 +15225,26 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1854061940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854061937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5646921b53b586438bdc01c4a0bc969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpColor: {fileID: 991619755}
+  hpValueMax: 0
+  hpValue: 0
+  yellowBorder: 50
+  redBorder: 20
+  greenColor: {r: 0, g: 0.9, b: 0, a: 1}
+  yellowColor: {r: 1, g: 1, b: 0, a: 1}
+  redColor: {r: 0.8, g: 0, b: 0, a: 1}
 --- !u!1001 &1858366568
 PrefabInstance:
   m_ObjectHideFlags: 0
