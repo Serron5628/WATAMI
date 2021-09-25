@@ -50,9 +50,6 @@ public class BossDonguriMove : MonoBehaviour
     public bool isTackle = false;
     private float BafterCount = 0;
 
-    //サウンド関係の部分
-    private CriAtomSource Breath;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -70,8 +67,6 @@ public class BossDonguriMove : MonoBehaviour
         tparticle.Stop();
         TSetSpeed = Tspeed;
 
-        //サウンド
-        Breath = GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -381,11 +376,5 @@ public class BossDonguriMove : MonoBehaviour
             return false;
         }
         
-    }
-
-    public void BreathSound()
-    {
-        //サウンド
-        Breath.Play();
     }
 }

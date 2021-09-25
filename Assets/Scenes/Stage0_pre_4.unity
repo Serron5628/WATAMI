@@ -81463,6 +81463,7 @@ GameObject:
   - component: {fileID: 7105920141996165646}
   - component: {fileID: 7105920141996165650}
   - component: {fileID: 7105920141996165652}
+  - component: {fileID: 7105920141996165649}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -81554,6 +81555,26 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7105920141996165649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105920141996165644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e299b28ff2d62f42afa691747afba39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1270297154}
+  leftFootColl: {fileID: 1544779371657068512}
+  rightFootColl: {fileID: 1544779370077078782}
+  breathObj: {fileID: 1790134059235366222}
+  stumpHitradius: 5
+  hitBreath: 0
+  hitLeftStump: 0
+  hitRightStump: 0
 --- !u!54 &7105920141996165650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -82904,6 +82925,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.38920966
       objectReference: {fileID: 0}
+    - target: {fileID: 8713538125936658361, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: BAH
+      value: 
+      objectReference: {fileID: 7105920141996165649}
     - target: {fileID: 8713538125936658361, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: hpSlider
