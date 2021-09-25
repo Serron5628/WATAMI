@@ -55,6 +55,7 @@ public class HitControllBurn : MonoBehaviour
             donguri.GetComponent<EnemyPunch>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
+            donguri.GetComponent<MeshCollider>().enabled = false;
             Burn.SetActive(false);
             stickFlag = false;
             Destroy(this);

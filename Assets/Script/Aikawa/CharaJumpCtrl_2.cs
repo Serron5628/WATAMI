@@ -15,6 +15,8 @@ public class CharaJumpCtrl_2 : MonoBehaviour
     public bool CanBlend;
     public bool Tatakituke;
 
+    public GameObject MotiTrailEffect;
+
     void OnFire(InputValue input)
     {
         bool pressed = input.isPressed;
@@ -27,6 +29,7 @@ public class CharaJumpCtrl_2 : MonoBehaviour
         else
         {
             moti.SetActive(true);
+            MotiTrailEffect.SetActive(true);
             CanBlend = true;
             Tatakituke = false;
             this.usagi.SetBool(usagiStr, false);
