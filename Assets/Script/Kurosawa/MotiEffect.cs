@@ -12,6 +12,9 @@ public class MotiEffect : MonoBehaviour
     bool charge = false;
     public float countup = 0.0f;
     public float ActiveTime = 5.0f;
+    public int EffectCount = 0;
+    public HitControllBurn BurnEnemyHit;
+    public HitControllTemp TempEnemyHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,13 +63,36 @@ public class MotiEffect : MonoBehaviour
     public void HurioroshiActive()
     {
         MotiHurioroshiEffect_03.SetActive(true);
-        if (countup >= ActiveTime)
+        MotiHurioroshiEffect_02.SetActive(true);
+        MotiHurioroshiEffect_03.SetActive(true);
+        if (EffectCount>=1)
         {
             MotiHurioroshiEffect_01.SetActive(true);
-            if (countup >= ActiveTime * 2)
+            Debug.Log("Zikkou");
+            if (EffectCount>=5)
             {
                 MotiHurioroshiEffect_02.SetActive(true);
             }
+        }
+        //if (countup >= ActiveTime)
+        //{
+        //    MotiHurioroshiEffect_01.SetActive(true);
+        //    if (countup >= ActiveTime * 2)
+        //    {
+        //        MotiHurioroshiEffect_02.SetActive(true);
+        //    }
+        //}
+        //if (EnemyHit.hitCount > 5)
+        //{
+
+        //}
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            EffectCount++;
+            Debug.Log("EffectCount");
         }
     }
 }

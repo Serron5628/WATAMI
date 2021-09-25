@@ -779,6 +779,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MotiSyougekiEffect_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3941135926024979697, guid: 7a0db5d29fe4a31479edede7a6463d95,
+        type: 3}
+      propertyPath: m_TagString
+      value: Moti
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0db5d29fe4a31479edede7a6463d95, type: 3}
 --- !u!1001 &123374064
@@ -2085,6 +2090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MotiSyougekiEffect _02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941135926024979697, guid: dd31474c199d3f643bfeb28eb29c7a72,
+        type: 3}
+      propertyPath: m_TagString
+      value: Moti
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd31474c199d3f643bfeb28eb29c7a72, type: 3}
@@ -3937,6 +3947,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MotiHitEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649000015290344703, guid: 2f14fdd75c8783148abde10c3605c9e8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Moti
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f14fdd75c8783148abde10c3605c9e8, type: 3}
@@ -5906,6 +5921,11 @@ MonoBehaviour:
   MotiHurioroshiEffect_03: {fileID: 377246175}
   countup: 0
   ActiveTime: 5
+  EffectCount: 0
+  BurnEnemyHit: {fileID: 8696175457932606225, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+    type: 3}
+  TempEnemyHit: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+    type: 3}
 --- !u!4 &826673303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947505586233247038, guid: 0f0b99a6d93000b47b167dd241b43251,
@@ -11358,6 +11378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45374d422f2917e449539fcea315c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1679583725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679583713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6078610717681a408997ab28cf4d803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrailEffect: {fileID: 655220145}
 --- !u!1 &1696739358
 GameObject:
   m_ObjectHideFlags: 0
@@ -13585,6 +13618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MotiTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7868103568006327161, guid: 903807d84b0370045b831503c31fa635,
+        type: 3}
+      propertyPath: m_TagString
+      value: Moti
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 903807d84b0370045b831503c31fa635, type: 3}
@@ -78512,6 +78550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.8943274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937195332986368515, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5207596233067161509, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
