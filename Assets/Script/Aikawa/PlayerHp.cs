@@ -20,9 +20,12 @@ public class PlayerHp : MonoBehaviour{
         if(other.gameObject.tag == "enemy"){
             hpSlider.value -= damage_touchDonguri;
         }
-        
         if(other.gameObject.tag == "Boss"){
             hpSlider.value -= damage_touchBoss;
+        }
+        if(other.gameObject.name == "BlueFlame"){
+            hpSlider.value -= damage_breath;
+            Debug.Log("a");
         }
     }
 
