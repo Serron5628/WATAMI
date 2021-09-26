@@ -31,7 +31,6 @@ public class MotiEffect : MonoBehaviour
     {
         charge = kogane_wait.GetComponent<CharaJumpCtrl_2>().CanBlend;
         child = ED_02.childNumber;
-        Debug.Log(child);
         if (charge)
         {
             countup += Time.deltaTime;
