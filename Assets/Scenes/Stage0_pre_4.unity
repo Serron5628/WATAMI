@@ -164,7 +164,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 1
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -1187,7 +1187,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (3)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -3256,7 +3256,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (1)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -4234,7 +4234,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (2)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -4533,7 +4533,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (4)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -5858,7 +5858,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (7)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -7436,7 +7436,7 @@ PrefabInstance:
     - target: {fileID: 724270755924104765, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
       propertyPath: m_Name
-      value: BurnDonguri (1)
+      value: BurnDonguri
       objectReference: {fileID: 0}
     - target: {fileID: 724270755924104765, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
@@ -7929,7 +7929,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (5)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -16421,7 +16421,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_Name
-      value: Donguri (6)
+      value: Donguri
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898670, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -81587,6 +81587,7 @@ MonoBehaviour:
   nowHp: 0
   enemyDestroy_02: {fileID: 1679583717}
   baseDamage: 2
+  Damage: 0
 --- !u!1 &7268292134062509992
 GameObject:
   m_ObjectHideFlags: 0
@@ -82574,6 +82575,16 @@ PrefabInstance:
       propertyPath: redRange
       value: 
       objectReference: {fileID: 952874081}
+    - target: {fileID: 8713538125575351886, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: Donguri
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713538125575351886, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: BurnDonguri
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8713538125575351886, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: ParentObject

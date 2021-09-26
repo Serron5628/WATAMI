@@ -9,6 +9,11 @@ public class BossHPScript : MonoBehaviour
     public int maxHp = 100,nowHp;
     public EnemyDestroy_02 enemyDestroy_02;
     public int baseDamage = 2;
+
+    public int Damage;
+    int Donguri;
+    int Burn;
+
     void Start()
     {
         nowHp = maxHp;
@@ -26,8 +31,14 @@ public class BossHPScript : MonoBehaviour
     {
         bossHpSlieder.value -= 10;
     }
+    //ダメージ計算はこの下に。Donguriがくっついてるどんぐりの数で、Burnが燃えてるどんぐりの数
     public void Attack_DonguriLength()
     {
-        bossHpSlieder.value -= enemyDestroy_02.ChildObject.Length;
+        Donguri = enemyDestroy_02.DonguriNumber;
+        Burn = enemyDestroy_02.BurnDonguriNumber;
+
+
+        Damage = enemyDestroy_02.DonguriNumber * 2 + enemyDestroy_02.BurnDonguriNumber * 4;
+        bossHpSlieder.value -= Damage;
     }
 }
