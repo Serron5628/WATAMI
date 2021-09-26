@@ -256,6 +256,7 @@ MonoBehaviour:
   donguri: {fileID: 4691385996534898670}
   Kogane: {fileID: 0}
   counter: {fileID: 0}
+  WallCheck: {fileID: 5951015853556438180}
 --- !u!114 &2887815861698247401
 MonoBehaviour:
   m_ObjectHideFlags: 0

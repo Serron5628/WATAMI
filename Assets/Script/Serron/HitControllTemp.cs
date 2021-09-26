@@ -13,6 +13,7 @@ public class HitControllTemp : MonoBehaviour
     [SerializeField] GameObject donguri;
     public GameObject Kogane;
     public GameObject counter;
+    public GameObject WallCheck;
 
     MotiRotate rotate;
 
@@ -56,6 +57,7 @@ public class HitControllTemp : MonoBehaviour
             donguri.GetComponentInChildren<Animator>().enabled = false;
             donguri.GetComponent<MeshCollider>().enabled = false;
             stickFlag = false;
+            Destroy(WallCheck);
             Destroy(this);
             hitCount++;
         }
