@@ -47,6 +47,7 @@ public class BossDonguriMove : MonoBehaviour
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
+    public bool stopBreath = true;
     public bool isTackle = false;
     private float BafterCount = 0;
 
@@ -74,6 +75,7 @@ public class BossDonguriMove : MonoBehaviour
 
         //サウンド
         Breath = GetComponent<CriAtomSource>();
+        stopBreath = true;
         Tackle = TackleSound.GetComponent<CriAtomSource>();
     }
 
@@ -264,6 +266,7 @@ public class BossDonguriMove : MonoBehaviour
                 if (!startBreath)
                 {
                     particle.Play();
+                    stopBreath = false;
          
                 }  
                 
@@ -274,6 +277,7 @@ public class BossDonguriMove : MonoBehaviour
             {
                 this.animator.SetBool(breathStr, false);
                 particle.Stop();
+                stopBreath = true;
                 BafterCount += Time.deltaTime;
             }
 
