@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KoganeSound : MonoBehaviour
+public class RunSound : MonoBehaviour
 {
     public GameObject R;
     private CriAtomSource RAshioto;
