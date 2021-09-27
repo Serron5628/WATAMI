@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09304438, g: 0.11882646, b: 0.15370443, a: 1}
+  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11315,7 +11315,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 0.1
+  _volume: 0.15
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -18558,6 +18558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978915436b3369746befe0bd19330684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Boss: {fileID: 0}
   m_widthAngle: 32
   m_heightAngle: 33
   m_length: 9.5
@@ -81741,6 +81742,7 @@ MonoBehaviour:
   timecount: 0
   AttackSelectTime: 3
   selectAttack: 0
+  stopBreath: 1
   isTackle: 0
   TackleSound: {fileID: 284277454}
 --- !u!208 &7105920141996165647
