@@ -1011,6 +1011,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 116617721}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &120063856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120063858}
+  - component: {fileID: 120063857}
+  m_Layer: 0
+  m_Name: TackleWalkSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &120063857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120063856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: TackleWalk
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+--- !u!4 &120063858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120063856}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.05505253, y: -0.41693655, z: -0.03776626}
+  m_LocalScale: {x: 0.008695652, y: 0.008695653, z: 0.008695652}
+  m_Children: []
+  m_Father: {fileID: 1367565804176312524}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &123374064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1177,7 +1241,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -2234,6 +2298,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0b99a6d93000b47b167dd241b43251, type: 3}
+--- !u!1 &284277454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284277456}
+  - component: {fileID: 284277455}
+  m_Layer: 0
+  m_Name: TackleSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &284277455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284277454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: DonguriTackle
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+--- !u!4 &284277456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284277454}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.05505253, y: -0.41693655, z: -0.03776626}
+  m_LocalScale: {x: 0.008695652, y: 0.008695653, z: 0.008695652}
+  m_Children: []
+  m_Father: {fileID: 1367565804176312524}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285415998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3374,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -4224,7 +4352,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -4523,7 +4651,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -4803,6 +4931,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 874923620}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &638843907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638843908}
+  - component: {fileID: 638843909}
+  m_Layer: 0
+  m_Name: KoganeDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638843908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638843907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.3310394, y: -46.4477, z: 20.343119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 794650892}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638843909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638843907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: KoganeDown
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1 &646261199
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,6 +6726,12 @@ Transform:
   m_Father: {fileID: 1971487263}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &794650892 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8713538125663370743, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8713538124969510827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &809375757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7921,7 +8119,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -9590,7 +9788,7 @@ PrefabInstance:
     - target: {fileID: 3941135926024979694, guid: dd31474c199d3f643bfeb28eb29c7a72,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.93
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3941135926024979694, guid: dd31474c199d3f643bfeb28eb29c7a72,
         type: 3}
@@ -16413,7 +16611,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -17663,6 +17861,7 @@ MonoBehaviour:
   RMaxSpeed: 0
   stuntime: 0
   stuncount: 0
+  RollingSound: {fileID: 0}
 --- !u!23 &2141161950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18005,7 +18204,7 @@ PrefabInstance:
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: searchDist
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -18158,6 +18357,8 @@ Transform:
   - {fileID: 4812778766332207500}
   - {fileID: 1335373460}
   - {fileID: 14026162}
+  - {fileID: 284277456}
+  - {fileID: 120063858}
   m_Father: {fileID: 7105920141823909493}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23287,6 +23488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StampSound: {fileID: 1335373458}
   BreathSound: {fileID: 14026160}
+  TackleSound: {fileID: 284277454}
+  TackleWalkSound: {fileID: 120063856}
 --- !u!114 &1851332901020815989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81539,6 +81742,7 @@ MonoBehaviour:
   AttackSelectTime: 3
   selectAttack: 0
   isTackle: 0
+  TackleSound: {fileID: 284277454}
 --- !u!208 &7105920141996165647
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -82573,6 +82777,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.70709157
       objectReference: {fileID: 0}
+    - target: {fileID: 8713538125575351874, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 638843907}
     - target: {fileID: 8713538125575351875, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: moti
@@ -82598,6 +82807,11 @@ PrefabInstance:
       propertyPath: redRange
       value: 
       objectReference: {fileID: 952874081}
+    - target: {fileID: 8713538125575351884, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: targetDist
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8713538125575351886, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: Donguri
@@ -82692,6 +82906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00017080456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713538125663370736, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: m_Name
+      value: KoganeSound(CriAtomSource)
       objectReference: {fileID: 0}
     - target: {fileID: 8713538125691944389, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}

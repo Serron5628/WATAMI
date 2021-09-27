@@ -37,6 +37,11 @@ public class EnemyMove: MonoBehaviour
     float SetSpeed;
 
     bool setVec = false;
+
+    //サウンド関係
+    public GameObject RollingSound;
+    CriAtomSource rollingsound;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -46,6 +51,7 @@ public class EnemyMove: MonoBehaviour
         wallcheck = wallcheckObj.GetComponent<WallCheck>();
         GameObject targetObject = target.gameObject;
         SetSpeed = Rspeed;
+        rollingsound = RollingSound.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -127,6 +133,8 @@ public class EnemyMove: MonoBehaviour
 
                 transform.eulerAngles = enemyVec;
                 setVec = true;
+
+                rollingsound.Play();
             }
         }
 
@@ -143,6 +151,8 @@ public class EnemyMove: MonoBehaviour
                 startRollattack = false;
                 Rspeed = SetSpeed;
                 startStuncount = true;
+
+                rollingsound.Stop();
             }
         }
 
