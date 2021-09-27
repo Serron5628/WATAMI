@@ -31,6 +31,7 @@ public class EnemyDestroy_02 : MonoBehaviour
             {
                 if (ParentObject[j].transform.GetChild(i).tag == "enemy")
                 {
+                    //ParentObject[j].transform.GetChild(i).tag = "enemy";
                     ChildObject[count] = ParentObject[j].transform.GetChild(i).gameObject;
                     count++;
                 }
