@@ -335,13 +335,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playOnStart: 0
   _cueName: MochiStick
-  _cueSheet: MochiStick
+  _cueSheet: Mochitto_SFX
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.7
+  _volume: 1
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1

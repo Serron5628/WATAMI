@@ -164,7 +164,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.3
+  _volume: 0.45
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -1151,21 +1151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971487263}
     m_Modifications:
-    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
-        type: 3}
-      propertyPath: _pitch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
-        type: 3}
-      propertyPath: _cueSheet
-      value: Mochitto_SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
-        type: 3}
-      propertyPath: _playOnStart
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00000061255423
@@ -2931,7 +2916,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.5
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -3609,7 +3594,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.223
+  _volume: 0.25
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -6017,7 +6002,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 1
+  _volume: 0.4
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -6778,7 +6763,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7366,8 +7351,8 @@ RectTransform:
   m_Father: {fileID: 1846351488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9123,7 +9108,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.5
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -11532,7 +11517,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 0.15
+  _volume: 0.3
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -11685,7 +11670,7 @@ MonoBehaviour:
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 1
-  _volume: 0.65
+  _volume: 0.6
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1
@@ -18331,11 +18316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1971487263}
     m_Modifications:
-    - target: {fileID: -6747519881233226172, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
-        type: 3}
-      propertyPath: _volume
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.00000061255423
@@ -81946,7 +81926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7105920141996165645
 Transform:
   m_ObjectHideFlags: 0
