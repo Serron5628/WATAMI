@@ -82782,6 +82782,11 @@ PrefabInstance:
       propertyPath: Down
       value: 
       objectReference: {fileID: 638843907}
+    - target: {fileID: 8713538125575351874, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: DownSound
+      value: 
+      objectReference: {fileID: 638843907}
     - target: {fileID: 8713538125575351875, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: moti
