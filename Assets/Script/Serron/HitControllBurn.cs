@@ -15,10 +15,12 @@ public class HitControllBurn : MonoBehaviour
     public GameObject counter;
     public GameObject Burn;
     public GameObject WallCheck;
+    public GameObject BurningSound;
 
     MotiRotate rotate;
 
     private CriAtomSource Enemy;
+    private CriAtomSource Burning;
     // Start is called before the first frame update
 
 
@@ -28,6 +30,7 @@ public class HitControllBurn : MonoBehaviour
         stickFlag = false;
         Enemy = GetComponent<CriAtomSource>();
         rotate = Kogane.GetComponent<MotiRotate>();
+        Burning = BurningSound.GetComponent<CriAtomSource>();
     }
 
     void FixedUpdate()
@@ -58,6 +61,7 @@ public class HitControllBurn : MonoBehaviour
             donguri.GetComponentInChildren<Animator>().enabled = false;
             donguri.GetComponent<MeshCollider>().enabled = false;
             Burn.SetActive(false);
+            Burning.Stop();
             stickFlag = false;
             Destroy(WallCheck);
             Destroy(this);

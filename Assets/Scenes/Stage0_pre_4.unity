@@ -1178,6 +1178,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
       objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3567,6 +3572,134 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0b99a6d93000b47b167dd241b43251, type: 3}
+--- !u!1 &415441965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415441967}
+  - component: {fileID: 415441966}
+  m_Layer: 0
+  m_Name: DonguriVanish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &415441966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415441965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: DonguriVanish
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 0.223
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+--- !u!4 &415441967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415441965}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.0043478254, z: 0}
+  m_LocalScale: {x: 0.008695652, y: 0.008695653, z: 0.008695652}
+  m_Children: []
+  m_Father: {fileID: 1367565804176312524}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &422390886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422390887}
+  - component: {fileID: 422390888}
+  m_Layer: 0
+  m_Name: DonguriBurning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422390887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422390886}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -1.0147059, z: 4.75}
+  m_LocalScale: {x: 1, y: 1.4705882, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4691385997529395403}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &422390888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422390886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 1
+  _cueName: DonguriBurning
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 0.104
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!4 &430864617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947505586233247038, guid: 0f0b99a6d93000b47b167dd241b43251,
@@ -4289,6 +4422,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
       objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4587,6 +4725,11 @@ PrefabInstance:
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -7334,6 +7477,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f0b99a6d93000b47b167dd241b43251, type: 3}
+--- !u!1 &882693297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882693298}
+  - component: {fileID: 882693299}
+  m_Layer: 0
+  m_Name: DonguriBurning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &882693298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882693297}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -1.0147059, z: 4.75}
+  m_LocalScale: {x: 1, y: 1.4705882, z: 1}
+  m_Children: []
+  m_Father: {fileID: 106517022}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882693299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882693297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 1
+  _cueName: DonguriBurning
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 0.104
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1 &896042604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7693,6 +7900,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 8696175457932606225, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: BurningSound
+      value: 
+      objectReference: {fileID: 882693297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6678dce3fe9a34082c0d4bb46e6042, type: 3}
 --- !u!4 &940446764 stripped
@@ -8055,6 +8267,11 @@ PrefabInstance:
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -16548,6 +16765,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
       objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0.208
+      objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18052,7 +18274,7 @@ Transform:
   - {fileID: 419569751587489596}
   m_Father: {fileID: 4812778766332207500}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 18.729431, y: -177.34344, z: 46.96554}
+  m_LocalEulerAnglesHint: {x: 0.0000000010930166, y: -180, z: 59.585823}
 --- !u!1 &900622239845155422
 GameObject:
   m_ObjectHideFlags: 0
@@ -18125,6 +18347,11 @@ PrefabInstance:
     - target: {fileID: 2502029430551447, guid: e1e2d61ffcac3cf4eb1a7eb251db653d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -121.68013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065807313722578568, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: _volume
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1233651814456877990, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
@@ -18359,6 +18586,7 @@ Transform:
   - {fileID: 14026162}
   - {fileID: 284277456}
   - {fileID: 120063858}
+  - {fileID: 415441967}
   m_Father: {fileID: 7105920141823909493}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18558,6 +18786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978915436b3369746befe0bd19330684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Boss: {fileID: 7105920141996165644}
   m_widthAngle: 32
   m_heightAngle: 33
   m_length: 9.5
@@ -23403,6 +23632,7 @@ GameObject:
   - component: {fileID: 4062656339408389662}
   - component: {fileID: 1544779370134503749}
   - component: {fileID: 1544779370134503746}
+  - component: {fileID: 1790134059235366224}
   m_Layer: 0
   m_Name: BlueFlame
   m_TagString: Untagged
@@ -23474,6 +23704,21 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1790134059235366224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790134059235366222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983467e6d30769f478872ad5a853bbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1790134059235366220}
+  Boss: {fileID: 7105920141996165644}
+  dist: 0
 --- !u!114 &1851332901020815988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23490,6 +23735,7 @@ MonoBehaviour:
   BreathSound: {fileID: 14026160}
   TackleSound: {fileID: 284277454}
   TackleWalkSound: {fileID: 120063856}
+  DonguriVanish: {fileID: 415441965}
 --- !u!114 &1851332901020815989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23577,7 +23823,7 @@ MonoBehaviour:
   leftFootColl: {fileID: 1544779371657068512}
   rightFootColl: {fileID: 1544779370077078782}
   breathObj: {fileID: 1790134059235366222}
-  stumpHitradius: 0
+  stumpHitradius: 10
   hitBreath: 0
   hitLeftStump: 0
   hitRightStump: 0
@@ -28397,7 +28643,7 @@ Transform:
   - {fileID: 1544779370077078783}
   m_Father: {fileID: 4812778766332207500}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0.87825584, y: -91.78381, z: 2.0865486}
+  m_LocalEulerAnglesHint: {x: -0.0000000020776472, y: 180, z: 3.4238737}
 --- !u!1 &3655514598314758437
 GameObject:
   m_ObjectHideFlags: 0
@@ -76554,7 +76800,7 @@ Transform:
   - {fileID: 640264903688383522}
   m_Father: {fileID: 1367565804176312524}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.68192005, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.00000037056495, y: 0, z: 0}
 --- !u!114 &4906903070532762159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76695,6 +76941,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 8696175457932606225, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: BurningSound
+      value: 
+      objectReference: {fileID: 422390886}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6678dce3fe9a34082c0d4bb46e6042, type: 3}
 --- !u!4 &5478437600725379396 stripped
@@ -76738,7 +76989,7 @@ Transform:
   - {fileID: 1544779371657068513}
   m_Father: {fileID: 4812778766332207500}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -0.87825966, y: -0.0015867912, z: -177.91345}
+  m_LocalEulerAnglesHint: {x: -0.0000008502843, y: -0.000000048984916, z: -176.57611}
 --- !u!1 &6098701928506921199
 GameObject:
   m_ObjectHideFlags: 0
@@ -81741,6 +81992,7 @@ MonoBehaviour:
   timecount: 0
   AttackSelectTime: 3
   selectAttack: 0
+  stopBreath: 1
   isTackle: 0
   TackleSound: {fileID: 284277454}
 --- !u!208 &7105920141996165647
@@ -81859,7 +82111,7 @@ Transform:
   - {fileID: 6327844538133175121}
   m_Father: {fileID: 4812778766332207500}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -18.72943, y: -2.6565647, z: -133.03445}
+  m_LocalEulerAnglesHint: {x: -0.00000040018148, y: -0.000000757049, z: -119.56413}
 --- !u!4 &8569516169268507503
 Transform:
   m_ObjectHideFlags: 0
