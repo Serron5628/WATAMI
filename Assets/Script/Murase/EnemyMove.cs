@@ -130,16 +130,16 @@ public class EnemyMove: MonoBehaviour
                 Vector3 enemyVec = transform.eulerAngles;
                 enemyVec.x = 0.0f;
                 enemyVec.z = 0.0f;
+                rollingsound.Play();
 
                 transform.eulerAngles = enemyVec;
                 setVec = true;
-
-                rollingsound.Play();
             }
         }
 
         if (isRoll)
         {
+
             if (wallcheck.touchWall == true)
             {
                 count = 0;
