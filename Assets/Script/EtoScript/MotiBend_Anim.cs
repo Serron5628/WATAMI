@@ -20,6 +20,10 @@ public class MotiBend_Anim : MonoBehaviour
     float mousu_move_x;
     float mousu_move_y;
     bool mousePressed = false;
+    bool CanBlend;
+
+    public GameObject kogane_wait;
+    CharaJumpCtrl_2 CJC_2;
 
     //float current_length = this.animator.GetFloat("Length");
     //public GameObject Player;
@@ -55,12 +59,15 @@ public class MotiBend_Anim : MonoBehaviour
         mPos = Input.mousePosition - screenSizeHalf;
         previousRad = Mathf.Atan2(mPos.x, mPos.y);
         */
+
+        CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mousePressed)
+        CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>();
+        if (CanBlend)
         {
             //action = true;
             //this.animator.SetBool(bendStr, true);
@@ -90,7 +97,6 @@ public class MotiBend_Anim : MonoBehaviour
             //blend = blend;
             this.animator.SetFloat("Blend", blend);
             this.animator.SetFloat("Blend2", blend2);
-
         }
     }
 

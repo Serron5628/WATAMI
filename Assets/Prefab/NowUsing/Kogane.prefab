@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4000699914374120696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8721280599598517460}
+  - component: {fileID: 1190505743332595199}
+  m_Layer: 0
+  m_Name: L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8721280599598517460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000699914374120696}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 3.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8713538125663370743}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190505743332595199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000699914374120696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: KoganeMoveL
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
+--- !u!1 &5534970112311335282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2668581066756777968}
+  - component: {fileID: 5511502868357859312}
+  m_Layer: 0
+  m_Name: R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2668581066756777968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534970112311335282}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 3.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8713538125663370743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5511502868357859312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534970112311335282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: KoganeMoveR
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 1
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1 &8713538124409943376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1365,6 @@ GameObject:
   - component: {fileID: 8713538125575351886}
   - component: {fileID: 8713538125575351884}
   - component: {fileID: 8713538125575351885}
-  - component: {fileID: 8713538125575351880}
   - component: {fileID: 8713538125575351887}
   - component: {fileID: 8713538125575351874}
   - component: {fileID: 8713538125575351878}
@@ -1331,7 +1458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45374d422f2917e449539fcea315c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentObject: {fileID: 0}
+  ParentObject:
+  - {fileID: 0}
   ChildObject: []
 --- !u!114 &8713538125575351884
 MonoBehaviour:
@@ -1383,39 +1511,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8713538125575351880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8713538125575351882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playOnStart: 0
-  _cueName: KoganeMoveZyari
-  _cueSheet: Mochitto_SFX
-  _regionOnStart: {fileID: 0}
-  _listenerOnStart: {fileID: 0}
-  _use3dPositioning: 1
-  _freezeOrientation: 0
-  _loop: 0
-  _volume: 1
-  _pitch: 0
-  _androidUseLowLatencyVoicePool: 0
-  need_to_player_update_all: 1
-  _use3dRandomization: 0
-  _randomPositionListMaxLength: 0
-  randomize3dConfig:
-    followsOriginalSource: 0
-    calculationType: 0
-    calculationParameters:
-    - 0
-    - 0
-    - 0
 --- !u!114 &8713538125575351887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2f26816d2d14f4fb378ac30f19280f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  R: {fileID: 5534970112311335282}
+  L: {fileID: 4000699914374120696}
 --- !u!114 &8713538125575351878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,7 +1710,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8713538125663370743}
-  - component: {fileID: 8713538125663370742}
   m_Layer: 0
   m_Name: KoganeRun(CriAtomSource)
   m_TagString: Untagged
@@ -1631,43 +1727,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2668581066756777968}
+  - {fileID: 8721280599598517460}
   m_Father: {fileID: 3813393550675062511}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8713538125663370742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8713538125663370736}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playOnStart: 0
-  _cueName: KoganeRun
-  _cueSheet: Mochitto_SFX
-  _regionOnStart: {fileID: 0}
-  _listenerOnStart: {fileID: 0}
-  _use3dPositioning: 1
-  _freezeOrientation: 0
-  _loop: 0
-  _volume: 1
-  _pitch: 0
-  _androidUseLowLatencyVoicePool: 0
-  need_to_player_update_all: 1
-  _use3dRandomization: 0
-  _randomPositionListMaxLength: 0
-  randomize3dConfig:
-    followsOriginalSource: 0
-    calculationType: 0
-    calculationParameters:
-    - 0
-    - 0
-    - 0
 --- !u!1 &8713538125691944390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,9 +2537,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8713538126118041065}
   kogane_wait: {fileID: 8713538125575351882}
+  mochi: {fileID: 0}
   HUGE: {fileID: 5207596233067161508}
   FirstSpeed: 100
   UpSpeed: 100
+  MaxSpeed: 0
   MotiSound: {fileID: 8713538124529148433}
 --- !u!114 &8713538126118041071
 MonoBehaviour:
@@ -2741,6 +2808,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2342561326549548045, guid: eec513078257f504eb9dc1d9401fa10d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eec513078257f504eb9dc1d9401fa10d, type: 3}
+--- !u!4 &5750991530268436665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2812720481021653778, guid: eec513078257f504eb9dc1d9401fa10d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7550120070273096619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5207596233067161508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2342561326549548047, guid: eec513078257f504eb9dc1d9401fa10d,
@@ -2756,12 +2829,6 @@ MonoBehaviour:
 --- !u!1 &7265682106994564185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 870190139072989170, guid: eec513078257f504eb9dc1d9401fa10d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7550120070273096619}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5750991530268436665 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2812720481021653778, guid: eec513078257f504eb9dc1d9401fa10d,
     type: 3}
   m_PrefabInstance: {fileID: 7550120070273096619}
   m_PrefabAsset: {fileID: 0}

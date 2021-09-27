@@ -14,6 +14,7 @@ public class HitControllBurn : MonoBehaviour
     public GameObject Kogane;
     public GameObject counter;
     public GameObject Burn;
+    public GameObject WallCheck;
 
     MotiRotate rotate;
 
@@ -55,8 +56,10 @@ public class HitControllBurn : MonoBehaviour
             donguri.GetComponent<EnemyPunch>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
+            donguri.GetComponent<MeshCollider>().enabled = false;
             Burn.SetActive(false);
             stickFlag = false;
+            Destroy(WallCheck);
             Destroy(this);
             hitCount++;
         }

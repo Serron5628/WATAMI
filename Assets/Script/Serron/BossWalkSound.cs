@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class BossWalkSound : MonoBehaviour
 {
+    public GameObject StampSound;
+    public GameObject BreathSound;
+    public GameObject TackleSound;
+    public GameObject TackleWalkSound;
+
     private CriAtomSource WalkBoss;
+    private CriAtomSource stampsound;
+    private CriAtomSource breathsound;
+    private CriAtomSource tacklesound;
+    private CriAtomSource tacklewalksound;
+
     // Start is called before the first frame update
     void Start()
     {
         WalkBoss = GetComponent<CriAtomSource>();
+        stampsound = StampSound.GetComponent<CriAtomSource>();
+        breathsound = BreathSound.GetComponent<CriAtomSource>();
+        tacklesound = TackleSound.GetComponent<CriAtomSource>();
+        tacklewalksound = TackleWalkSound.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -20,5 +34,26 @@ public class BossWalkSound : MonoBehaviour
     void BossSoundWalk()
     {
         WalkBoss.Play();
+    }
+
+    void BossStampSound()
+    {
+        stampsound.Play();
+    }
+    void BossBreathSound()
+    {
+        breathsound.Play();
+    }
+    void BossTackleSound()
+    {
+        tacklesound.Play();
+    }
+    void BossTackleSoundStop()
+    {
+        tacklesound.Stop();
+    }
+    void BossTackleWalkSound()
+    {
+        tacklewalksound.Play();
     }
 }

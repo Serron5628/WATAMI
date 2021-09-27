@@ -53,6 +53,8 @@ public class BossDonguriMove : MonoBehaviour
 
     //サウンド関係の部分
     private CriAtomSource Breath;
+    public GameObject TackleSound;
+    private CriAtomSource Tackle;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +76,7 @@ public class BossDonguriMove : MonoBehaviour
         //サウンド
         Breath = GetComponent<CriAtomSource>();
         stopBreath = true;
+        Tackle = TackleSound.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -265,8 +268,6 @@ public class BossDonguriMove : MonoBehaviour
                     particle.Play();
                     stopBreath = false;
          
-                    //サウンド
-                    Breath.Play();
                 }  
                 
                 startBreath = true;
@@ -337,6 +338,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     isTackle = false;
                     tparticle.Stop();
+                    Tackle.Stop();
                     rb.velocity = Vector3.zero;
                     stunCount += Time.deltaTime;
                     this.animator.SetBool(tackleStr, false);
@@ -366,6 +368,7 @@ public class BossDonguriMove : MonoBehaviour
                     rb.velocity = transform.forward * Tspeed;
                     if (!isTackle)
                     {
+                        Tackle.Play();
                         tparticle.Play();
                         isTackle = true;
                     }
@@ -387,5 +390,11 @@ public class BossDonguriMove : MonoBehaviour
             return false;
         }
         
+    }
+
+    public void BreathSound()
+    {
+        //サウンド
+        Breath.Play();
     }
 }
