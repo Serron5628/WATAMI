@@ -15,7 +15,6 @@ public class CameraControll : MonoBehaviour {
     public void OnFire(InputValue input){
         pressFlag = input.isPressed;
     }
-    int testCnt = 0;
 	void Update (){
         if(Keyboard.current[Key.Escape].wasPressedThisFrame){
             if(!pause){

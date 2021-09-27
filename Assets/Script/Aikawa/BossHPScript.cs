@@ -38,7 +38,7 @@ public class BossHPScript : MonoBehaviour
         Burn = enemyDestroy_02.BurnDonguriNumber;
 
 
-        Damage = enemyDestroy_02.DonguriNumber * 2 + enemyDestroy_02.BurnDonguriNumber * 4;
+        Damage = enemyDestroy_02.DonguriNumber * 2 + enemyDestroy_02.BurnDonguriNumber * 3;
         bossHpSlieder.value -= Damage;
     }
 }
