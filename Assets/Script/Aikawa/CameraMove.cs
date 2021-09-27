@@ -48,45 +48,42 @@ public class CameraMove : MonoBehaviour
             updateAngle(lookVector.x, lookVector.y);
         }
         
-        switch (isometricView){
-            case true:
-                this.transform.position = player.transform.position + cameraPos_Q;
-                this.transform.LookAt(player.transform);
-                break;
-            
-            case false:
-                Vector3 playerPos = player.transform.position;
-                Vector3 playerParentPos = playerParent.transform.position;
-                Debug.DrawLine(playerPos + offset, transform.position, Color.magenta, 0f, false);
+        if(isometricView){
+            this.transform.position = player.transform.position + cameraPos_Q;
+            this.transform.LookAt(player.transform);
+        }
+        else{
+            Vector3 playerPos = player.transform.position;
+            Vector3 playerParentPos = playerParent.transform.position;
+            Debug.DrawLine(playerPos + offset, transform.position, Color.magenta, 0f, false);
 
-                if (Physics.Linecast(playerPos + offset, transform.position, out hit)){
-                    touchTime = 0.0f;
-                    dis = Vector3.Distance(playerPos + offset, hit.point);
-                    hitObj = hit.collider.gameObject;
-                    if(dis - 2.0f <= distance &&(
-                        hit.collider.tag =="Floor"||
-                        hit.collider.tag =="Wall"||
-                        hit.collider.tag =="Ground"
-                    ))minusDistance();
+            if (Physics.Linecast(playerPos + offset, transform.position, out hit)){
+                touchTime = 0.0f;
+                dis = Vector3.Distance(playerPos + offset, hit.point);
+                hitObj = hit.collider.gameObject;
+                if(dis - 2.0f <= distance &&(
+                    hit.collider.tag =="Floor"||
+                    hit.collider.tag =="Wall"||
+                    hit.collider.tag =="Ground"
+                ))minusDistance();
+            }
+            else if(distance < disdata){
+                if(touchTime < 10){
+                    touchTime += Time.deltaTime;
                 }
-                else if(distance < disdata){
-                    if(touchTime < 10){
-                        touchTime += Time.deltaTime;
-                    }
-                    plusDistance();
-                }
-                var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
+                plusDistance();
+            }
+            var lookAtPos = new Vector3(playerParentPos.x,playerPos.y,playerParentPos.z) + offset;
 
-                updatePosition(lookAtPos);
-                this.transform.LookAt(lookAtPos);
+            updatePosition(lookAtPos);
+            this.transform.LookAt(lookAtPos);
 
-                if(touchTime > 0.2f){
-                    disZoomSpeed = 20.0f;
-                }
-                else{
-                    disZoomSpeed = 0;
-                }
-                break;
+            if(touchTime > 0.2f){
+                disZoomSpeed = 20.0f;
+            }
+            else{
+                disZoomSpeed = 0;
+            }
         }
     }
 
