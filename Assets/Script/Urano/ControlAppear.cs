@@ -28,6 +28,5 @@ public class ControlAppear : MonoBehaviour
         {
             delete[j].SetActive(false);
         }
-        this.gameObject.SetActive(false);
     }
 }
