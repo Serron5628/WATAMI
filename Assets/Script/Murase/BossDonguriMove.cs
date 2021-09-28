@@ -92,7 +92,7 @@ public class BossDonguriMove : MonoBehaviour
 
         dist = Mathf.Sqrt(Mathf.Pow(Ppos.x - Epos.x, 2) + Mathf.Pow(Ppos.z - Epos.z, 2));
 
-        if (timeSet == false)
+        if (!timeSet)
         {
             timecount += Time.deltaTime;
         }
@@ -113,7 +113,7 @@ public class BossDonguriMove : MonoBehaviour
                 //ブレス攻撃を実行するかどうか
                 bool attackflag = changeAttack(50);
 
-                if (attackflag == true)
+                if (attackflag)
                 {
                     selectAttack = 0;
                     timecount = 0;
@@ -145,7 +145,7 @@ public class BossDonguriMove : MonoBehaviour
         //行動を選択するまでの時間の行動
         if (selectAttack == 0)
         {
-            if (target != null && agent.enabled == true)
+            if (target != null && agent.enabled)
             {
                 agent.destination = target.position;
                 agent.speed = Speed;
@@ -190,7 +190,7 @@ public class BossDonguriMove : MonoBehaviour
         //Stamp攻撃
         if (selectAttack == 1)
         {
-            if (target != null && agent.enabled == true)
+            if (target != null && agent.enabled)
             {
                 agent.destination = target.position;
                 agent.speed = Speed;
@@ -207,7 +207,7 @@ public class BossDonguriMove : MonoBehaviour
                     //obstacle.enabled = true;
 
                     //Waitモーション時にプレイヤーの方を向かせる
-                    if (isWait == true)
+                    if (isWait)
                     {
                         float speed = 0.03f;
                         Vector3 vec = target.position - transform.position;
@@ -232,7 +232,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     this.animator.SetBool(stampStr, false);
 
-                    if (isAttack == false)
+                    if (!isAttack)
                     {
 
                         agent.enabled = true;
@@ -340,7 +340,7 @@ public class BossDonguriMove : MonoBehaviour
 
             if (startTackle)
             {
-                if (wallcheck.touchWall == true)
+                if (wallcheck.touchWall)
                 {
                     isTackle = false;
                     tparticle.Stop();
@@ -378,10 +378,8 @@ public class BossDonguriMove : MonoBehaviour
                         tparticle.Play();
                         isTackle = true;
                     }
-                   
                 }
             }
-           
         }
     }
 
