@@ -17,6 +17,10 @@ public class HitControllBurn : MonoBehaviour
 
     MotiRotate rotate;
 
+    public GameObject kogane_wait;
+    CharaJumpCtrl_2 CJC_2;
+    bool CanBlend;
+
     private CriAtomSource Enemy;
     // Start is called before the first frame update
 
@@ -27,6 +31,7 @@ public class HitControllBurn : MonoBehaviour
         stickFlag = false;
         Enemy = GetComponent<CriAtomSource>();
         rotate = Kogane.GetComponent<MotiRotate>();
+        CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>().CanBlend;
     }
 
     void FixedUpdate()
@@ -64,11 +69,15 @@ public class HitControllBurn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>().CanBlend;
         //ヒットした回数を数えてる。
         if (other.gameObject.tag == "Moti")
         {
-            hitCount++;
-            //Debug.Log("hit!");
+            if (CanBlend)
+            {
+                hitCount++;
+                //Debug.Log("hit!");
+            }
         }
 
     }
