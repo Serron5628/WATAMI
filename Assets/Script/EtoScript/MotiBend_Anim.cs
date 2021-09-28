@@ -22,6 +22,8 @@ public class MotiBend_Anim : MonoBehaviour
     bool mousePressed = false;
     bool CanBlend;
 
+    public bool SmashOn;
+
     public GameObject kogane_wait;
     CharaJumpCtrl_2 CJC_2;
 
@@ -61,14 +63,18 @@ public class MotiBend_Anim : MonoBehaviour
         */
 
         CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>();
+
+        SmashOn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>();
         if (CanBlend)
         {
+            SmashOn = false;
             //action = true;
             //this.animator.SetBool(bendStr, true);
             float blend = this.animator.GetFloat("Blend");
@@ -97,6 +103,7 @@ public class MotiBend_Anim : MonoBehaviour
             //blend = blend;
             this.animator.SetFloat("Blend", blend);
             this.animator.SetFloat("Blend2", blend2);
+            SmashOn = true;
         }
     }
 
@@ -123,7 +130,9 @@ public class MotiBend_Anim : MonoBehaviour
 
         if (MotiSizeAnim)
         {
+            SmashOn = true;
             this.animator.SetBool(motiStr, true);
+            
         }
         else
         {
