@@ -1200,7 +1200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb35be04bcc5ce4c806afb9c245aa8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volSlider: {fileID: 0}
+  BGMVol: 0
+  SEVol: 0
+  BGMSlider: {fileID: 966165037}
+  SESlider: {fileID: 1554542797}
 --- !u!4 &576814267
 Transform:
   m_ObjectHideFlags: 0
@@ -2175,7 +2178,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 576814266}
+        m_MethodName: BGMSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1007025393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3181,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 576814266}
+        m_MethodName: SESet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1557781812
 GameObject:
   m_ObjectHideFlags: 0
