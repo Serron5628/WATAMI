@@ -102,7 +102,7 @@ public class MotiRotate : MonoBehaviour
                     MotiWind.Play();
 
                 }
-                if (RotationCount > 1)
+                if (RotationCount > 0)
                 {
                     HUGE.hugeScale();//餅伸ばし開始
                 }

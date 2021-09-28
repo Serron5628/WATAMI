@@ -14,6 +14,8 @@ public class HitControllBurn : MonoBehaviour
     public GameObject Kogane;
     public GameObject counter;
     public GameObject Burn;
+    public GameObject WallCheck;
+    public GameObject BurningSound;
 
     MotiRotate rotate;
 
@@ -22,6 +24,7 @@ public class HitControllBurn : MonoBehaviour
     bool CanBlend;
 
     private CriAtomSource Enemy;
+    private CriAtomSource Burning;
     // Start is called before the first frame update
 
 
@@ -32,6 +35,7 @@ public class HitControllBurn : MonoBehaviour
         Enemy = GetComponent<CriAtomSource>();
         rotate = Kogane.GetComponent<MotiRotate>();
         CanBlend = kogane_wait.GetComponent<CharaJumpCtrl_2>().CanBlend;
+        Burning = BurningSound.GetComponent<CriAtomSource>();
     }
 
     void FixedUpdate()
@@ -60,8 +64,11 @@ public class HitControllBurn : MonoBehaviour
             donguri.GetComponent<EnemyPunch>().enabled = false;
             donguri.GetComponent<NavMeshAgent>().enabled = false;
             donguri.GetComponentInChildren<Animator>().enabled = false;
+            donguri.GetComponent<MeshCollider>().enabled = false;
             Burn.SetActive(false);
+            Burning.Stop();
             stickFlag = false;
+            Destroy(WallCheck);
             Destroy(this);
             hitCount++;
         }

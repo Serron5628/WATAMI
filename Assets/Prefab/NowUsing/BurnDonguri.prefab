@@ -283,6 +283,7 @@ MonoBehaviour:
   Kogane: {fileID: 0}
   counter: {fileID: 0}
   Burn: {fileID: 2836513461673903782}
+  WallCheck: {fileID: 2277644120500385406}
 --- !u!114 &7135271803625681722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,13 +335,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playOnStart: 0
   _cueName: MochiStick
-  _cueSheet: MochiStick
+  _cueSheet: Mochitto_SFX
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
   _use3dPositioning: 1
   _freezeOrientation: 0
   _loop: 0
-  _volume: 0.7
+  _volume: 1
   _pitch: 0
   _androidUseLowLatencyVoicePool: 0
   need_to_player_update_all: 1

@@ -39,6 +39,7 @@ public class BossDonguriMove : MonoBehaviour
     public float timecount;
     public int AttackSelectTime;
     public int selectAttack;
+    private float dist = 0;
     private bool startBreath = false;
     private bool timeSet = false;
     private bool startStampflag = false;
@@ -47,11 +48,14 @@ public class BossDonguriMove : MonoBehaviour
     private float startTackleCount = 0;
     private int TstartTime = 4;
     private bool startTackle = false;
+    public bool stopBreath = true;
     public bool isTackle = false;
     private float BafterCount = 0;
 
     //サウンド関係の部分
     private CriAtomSource Breath;
+    public GameObject TackleSound;
+    private CriAtomSource Tackle;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +76,8 @@ public class BossDonguriMove : MonoBehaviour
 
         //サウンド
         Breath = GetComponent<CriAtomSource>();
+        stopBreath = true;
+        Tackle = TackleSound.GetComponent<CriAtomSource>();
     }
 
     // Update is called once per frame
@@ -80,6 +86,11 @@ public class BossDonguriMove : MonoBehaviour
         bool isAttack = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Stamp");
         bool isWait = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Wait");
         bool IsBreath = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Breath");
+
+        Vector3 Ppos = new Vector3(target.position.x, 0.0f, target.position.z);
+        Vector3 Epos = new Vector3(transform.position.x, 0.0f, transform.position.z);
+
+        dist = Mathf.Sqrt(Mathf.Pow(Ppos.x - Epos.x, 2) + Mathf.Pow(Ppos.z - Epos.z, 2));
 
         if (timeSet == false)
         {
@@ -93,11 +104,11 @@ public class BossDonguriMove : MonoBehaviour
             //selectAttack = 2;
             timecount = 0;
             timeSet = true;
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (dist <= stopDist)
             {
                 selectAttack = 1;
             }
-            else if(Vector3.Distance(agent.transform.position, target.position) <= BreathDist)
+            else if(dist <= BreathDist)
             {
                 //ブレス攻撃を実行するかどうか
                 bool attackflag = changeAttack(50);
@@ -143,7 +154,7 @@ public class BossDonguriMove : MonoBehaviour
                 agent.stoppingDistance = stopDist - 0.3f;
             }
 
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (dist <= stopDist)
             {
                 //Wait
                 agent.enabled = false;
@@ -190,7 +201,7 @@ public class BossDonguriMove : MonoBehaviour
 
             if (!startStampflag)
             {
-                if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+                if (dist <= stopDist)
                 {
                     agent.enabled = false;
                     //obstacle.enabled = true;
@@ -261,9 +272,8 @@ public class BossDonguriMove : MonoBehaviour
                 if (!startBreath)
                 {
                     particle.Play();
+                    stopBreath = false;
          
-                    //サウンド
-                    Breath.Play();
                 }  
                 
                 startBreath = true;
@@ -273,6 +283,7 @@ public class BossDonguriMove : MonoBehaviour
             {
                 this.animator.SetBool(breathStr, false);
                 particle.Stop();
+                stopBreath = true;
                 BafterCount += Time.deltaTime;
             }
 
@@ -333,6 +344,7 @@ public class BossDonguriMove : MonoBehaviour
                 {
                     isTackle = false;
                     tparticle.Stop();
+                    Tackle.Stop();
                     rb.velocity = Vector3.zero;
                     stunCount += Time.deltaTime;
                     this.animator.SetBool(tackleStr, false);
@@ -362,6 +374,7 @@ public class BossDonguriMove : MonoBehaviour
                     rb.velocity = transform.forward * Tspeed;
                     if (!isTackle)
                     {
+                        Tackle.Play();
                         tparticle.Play();
                         isTackle = true;
                     }
@@ -383,5 +396,11 @@ public class BossDonguriMove : MonoBehaviour
             return false;
         }
         
+    }
+
+    public void BreathSound()
+    {
+        //サウンド
+        Breath.Play();
     }
 }

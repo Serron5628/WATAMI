@@ -93,6 +93,7 @@ Transform:
   m_Children:
   - {fileID: 4691385995767630743}
   - {fileID: 9108177493683026101}
+  - {fileID: 2760900392667634265}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -256,6 +257,7 @@ MonoBehaviour:
   donguri: {fileID: 4691385996534898670}
   Kogane: {fileID: 0}
   counter: {fileID: 0}
+  WallCheck: {fileID: 5951015853556438180}
 --- !u!114 &2887815861698247401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playOnStart: 0
   _cueName: MochiStick
-  _cueSheet: MochiStick
+  _cueSheet: Mochitto_SFX
   _regionOnStart: {fileID: 0}
   _listenerOnStart: {fileID: 0}
   _use3dPositioning: 1
@@ -349,6 +351,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &716959953369308155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213609677182298149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8064d915496244daefd37a77d09a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RollingSound: {fileID: 6933733827504467576}
 --- !u!1 &5951015853556438180
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,8 +407,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6368785, y: 1, z: 0.09721947}
-  m_Center: {x: -0.05711484, y: 0, z: 0.53625965}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!114 &5632563391508018280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +422,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchWall: 0
+--- !u!1 &6933733827504467576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2760900392667634265}
+  - component: {fileID: 1065807313722578568}
+  m_Layer: 0
+  m_Name: RollingSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2760900392667634265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933733827504467576}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.4705882, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4691385996534898671}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065807313722578568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933733827504467576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e631c3b9947b54c823c6853a05529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playOnStart: 0
+  _cueName: DonguriRolling
+  _cueSheet: Mochitto_SFX
+  _regionOnStart: {fileID: 0}
+  _listenerOnStart: {fileID: 0}
+  _use3dPositioning: 1
+  _freezeOrientation: 0
+  _loop: 0
+  _volume: 0.2
+  _pitch: 0
+  _androidUseLowLatencyVoicePool: 0
+  need_to_player_update_all: 1
+  _use3dRandomization: 0
+  _randomPositionListMaxLength: 0
+  randomize3dConfig:
+    followsOriginalSource: 0
+    calculationType: 0
+    calculationParameters:
+    - 0
+    - 0
+    - 0
 --- !u!1001 &1161956387669303176
 PrefabInstance:
   m_ObjectHideFlags: 0
