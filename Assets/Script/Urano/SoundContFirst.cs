@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundCont : MonoBehaviour
+public class SoundContFirst : MonoBehaviour
 {
     public float BGMVol;
     public float SEVol;
@@ -13,8 +13,10 @@ public class SoundCont : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BGMSlider.value = CriAtom.GetCategoryVolume("Music");
-        SESlider.value = CriAtom.GetCategoryVolume("SFX");
+        BGMSlider.value = BGMVol;
+        CriAtom.SetCategoryVolume("Music", BGMVol);
+        SESlider.value = SEVol;
+        CriAtom.SetCategoryVolume("SFX", SEVol);
     }
 
     // Update is called once per frame
