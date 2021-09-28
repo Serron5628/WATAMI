@@ -11,6 +11,8 @@ public class PlayerHp : MonoBehaviour{
     public int damage_touchBoss = 2;
     public int damage_bossRush = 5;
     public int damage_breath = 1;
+    public int damage_hitLeftStump = 3;
+    public int damage_hitRightStump = 3;
 
     private float cnt1 = 0, cnt2 = 0, cnt3 = 0;
 
@@ -33,7 +35,6 @@ public class PlayerHp : MonoBehaviour{
         }
         if(other.gameObject.name == "BlueFlame"){
             hpSlider.value -= damage_breath;
-            Debug.Log("a");
         }
     }
 
@@ -77,5 +78,13 @@ public class PlayerHp : MonoBehaviour{
             hpSlider.value -= damage_touchBoss;
             cnt3 = 0.0f;
         }
+    }
+
+    public void Damage_LeftStump(){
+        hpSlider.value -= damage_hitLeftStump;
+    }
+
+    public void Damage_RightStump(){
+        hpSlider.value -= damage_hitRightStump;
     }
 }
