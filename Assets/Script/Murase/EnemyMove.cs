@@ -44,7 +44,7 @@ public class EnemyMove: MonoBehaviour
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        if (wallcheck != null)
+        if (wallcheckObj != null)
         {
             wallcheck = wallcheckObj.GetComponent<WallCheck>();
         }
@@ -136,7 +136,7 @@ public class EnemyMove: MonoBehaviour
 
         if (isRoll)
         {
-            if (wallcheck != null)
+            if (wallcheckObj != null)
             {
                 if (wallcheck.touchWall == true)
                 {

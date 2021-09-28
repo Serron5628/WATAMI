@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09304438, g: 0.11882646, b: 0.15370443, a: 1}
+  m_IndirectSpecularColor: {r: 0.09319175, g: 0.11885571, b: 0.15382013, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -856,6 +856,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -864,6 +869,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -946,9 +956,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -2773,6 +2793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -2781,6 +2806,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -2863,9 +2893,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -3454,6 +3494,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -3462,6 +3507,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -3544,9 +3594,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -3805,6 +3865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -3813,6 +3878,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -3895,9 +3965,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -4926,6 +5006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -4934,6 +5019,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -5011,9 +5101,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -5691,6 +5791,18 @@ MonoBehaviour:
   MotiHurioroshiEffect: {fileID: 707512394}
   countup: 0
   ActiveTime: 5
+--- !u!114 &825059910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7265682108490944257, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8713538124969510827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825059907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842dd128454af9444ad5bdb945f3b0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &826673303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3947505586233247038, guid: 0f0b99a6d93000b47b167dd241b43251,
@@ -6347,6 +6459,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
+    - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
       propertyPath: moti.Array.data[0]
       value: 
       objectReference: {fileID: 825059907}
@@ -6395,6 +6517,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 8696175457932606225, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6678dce3fe9a34082c0d4bb46e6042, type: 3}
 --- !u!4 &940446764 stripped
@@ -6786,6 +6913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -6794,6 +6926,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -6876,9 +7013,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -12776,6 +12923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -12784,6 +12936,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: target
@@ -12866,9 +13023,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -14443,6 +14610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: moti0
+      value: 
+      objectReference: {fileID: 825059907}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: Kogane
       value: 
       objectReference: {fileID: 1270297154}
@@ -14451,6 +14623,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 4190321203424457183, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 4691385996534898668, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: Rspeed
@@ -14548,9 +14725,19 @@ PrefabInstance:
       objectReference: {fileID: 580737745}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
       propertyPath: moti
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     - target: {fileID: 9137508687613935750, guid: e1e2d61ffcac3cf4eb1a7eb251db653d,
         type: 3}
       propertyPath: moti.Array.size
@@ -72949,6 +73136,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
         type: 3}
+      propertyPath: MBA
+      value: 
+      objectReference: {fileID: 825059910}
+    - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
+    - target: {fileID: 3880120881761831253, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
       propertyPath: moti.Array.data[0]
       value: 
       objectReference: {fileID: 825059907}
@@ -72997,6 +73194,11 @@ PrefabInstance:
       propertyPath: counter
       value: 
       objectReference: {fileID: 580737744}
+    - target: {fileID: 8696175457932606225, guid: 7d6678dce3fe9a34082c0d4bb46e6042,
+        type: 3}
+      propertyPath: kogane_wait
+      value: 
+      objectReference: {fileID: 1679583713}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d6678dce3fe9a34082c0d4bb46e6042, type: 3}
 --- !u!4 &5478437600725379396 stripped
