@@ -23363,6 +23363,8 @@ GameObject:
   - component: {fileID: 1851332901020815991}
   - component: {fileID: 1851332901020815992}
   - component: {fileID: 1851332901020815993}
+  - component: {fileID: 1851332901020815995}
+  - component: {fileID: 1851332901020815994}
   m_Layer: 0
   m_Name: Donguri Hannya2
   m_TagString: Untagged
@@ -23418,6 +23420,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossDown: {fileID: 7290135072007333661}
+--- !u!114 &1851332901020815994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851332901020815990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983467e6d30769f478872ad5a853bbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1790134059235366220}
+  Boss: {fileID: 7105920141996165644}
+  dist: 3
+--- !u!114 &1851332901020815995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851332901020815990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978915436b3369746befe0bd19330684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 7105920141996165644}
+  m_widthAngle: 0
+  m_heightAngle: 0
+  m_length: 0
 --- !u!199 &2234911177761112698
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -101035,6 +101068,11 @@ PrefabInstance:
       propertyPath: hpSlider
       value: 
       objectReference: {fileID: 1854061939}
+    - target: {fileID: 8182003387422108877, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
+        type: 3}
+      propertyPath: bossAttackHit
+      value: 
+      objectReference: {fileID: 1851332901020815992}
     - target: {fileID: 8182003387769282205, guid: 255a3f2aa9b7c964593b21490fcd7ae9,
         type: 3}
       propertyPath: m_Name

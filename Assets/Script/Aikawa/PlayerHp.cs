@@ -4,16 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerHp : MonoBehaviour{
     public Slider hpSlider;
+    public BossAttackHit bossAttackHit;
+
     public float maxHp = 50f,nowHp;
     public int damage_touchDonguri = 1;
     public int damage_touchBoss = 2;
     public int damage_bossRush = 5;
     public int damage_breath = 1;
+
     private float cnt1 = 0, cnt2 = 0, cnt3 = 0;
 
     void Start(){
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
+    }
+
+    void Update(){
+        if(bossAttackHit.hitBreath)
+            Damage_Breath();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -47,7 +55,7 @@ public class PlayerHp : MonoBehaviour{
     public void Damage_Breath(){
         //ボスのbreath攻撃のダメージ
         cnt1 += Time.deltaTime;
-        if(cnt1 > 1){
+        if(cnt1 > 0.2){
             hpSlider.value -= damage_breath;
             cnt1 = 0.0f;
         }
