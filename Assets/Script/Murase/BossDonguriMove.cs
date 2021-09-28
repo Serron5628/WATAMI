@@ -39,6 +39,7 @@ public class BossDonguriMove : MonoBehaviour
     public float timecount;
     public int AttackSelectTime;
     public int selectAttack;
+    private float dist = 0;
     private bool startBreath = false;
     private bool timeSet = false;
     private bool startStampflag = false;
@@ -86,6 +87,11 @@ public class BossDonguriMove : MonoBehaviour
         bool isWait = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Wait");
         bool IsBreath = animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Breath");
 
+        Vector3 Ppos = new Vector3(target.position.x, 0.0f, target.position.z);
+        Vector3 Epos = new Vector3(transform.position.x, 0.0f, transform.position.z);
+
+        dist = Mathf.Sqrt(Mathf.Pow(Ppos.x - Epos.x, 2) + Mathf.Pow(Ppos.z - Epos.z, 2));
+
         if (timeSet == false)
         {
             timecount += Time.deltaTime;
@@ -98,11 +104,11 @@ public class BossDonguriMove : MonoBehaviour
             //selectAttack = 2;
             timecount = 0;
             timeSet = true;
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (dist <= stopDist)
             {
                 selectAttack = 1;
             }
-            else if(Vector3.Distance(agent.transform.position, target.position) <= BreathDist)
+            else if(dist <= BreathDist)
             {
                 //ブレス攻撃を実行するかどうか
                 bool attackflag = changeAttack(50);
@@ -148,7 +154,7 @@ public class BossDonguriMove : MonoBehaviour
                 agent.stoppingDistance = stopDist - 0.3f;
             }
 
-            if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+            if (dist <= stopDist)
             {
                 //Wait
                 agent.enabled = false;
@@ -195,7 +201,7 @@ public class BossDonguriMove : MonoBehaviour
 
             if (!startStampflag)
             {
-                if (Vector3.Distance(agent.transform.position, target.position) <= stopDist)
+                if (dist <= stopDist)
                 {
                     agent.enabled = false;
                     //obstacle.enabled = true;
