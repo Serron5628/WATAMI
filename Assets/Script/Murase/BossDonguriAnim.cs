@@ -7,15 +7,19 @@ public class BossDonguriAnim : MonoBehaviour
     public GameObject RstampObj;
     public GameObject LstampObj;
 
+    public PlayerHp playerHp;
+
     public bool isLeftFoot = false;
     public bool isRightFoot = false;
-  
+
     // Start is called before the first frame update
     void RightFoot()
     {
+        playerHp.Damage_RightStump();
         RstampObj.SetActive(true);
         isRightFoot = true;
     }
+
     void DRightFoot()
     {
         RstampObj.SetActive(false);
@@ -24,9 +28,11 @@ public class BossDonguriAnim : MonoBehaviour
 
     void LeftFoot()
     {
+        playerHp.Damage_LeftStump();
         LstampObj.SetActive(true);
         isLeftFoot = true;
     }
+
     void DLeftFoot()
     {
         LstampObj.SetActive(false);
