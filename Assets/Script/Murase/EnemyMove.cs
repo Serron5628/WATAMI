@@ -44,7 +44,10 @@ public class EnemyMove: MonoBehaviour
         obstacle = GetComponent<NavMeshObstacle>();
         animator = donguri.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        wallcheck = wallcheckObj.GetComponent<WallCheck>();
+        if (wallcheck != null)
+        {
+            wallcheck = wallcheckObj.GetComponent<WallCheck>();
+        }
         GameObject targetObject = target.gameObject;
         SetSpeed = Rspeed;
     }
@@ -133,18 +136,20 @@ public class EnemyMove: MonoBehaviour
 
         if (isRoll)
         {
-
-            if (wallcheck.touchWall == true)
+            if (wallcheck != null)
             {
-                count = 0;
-                startCount = false;
-                this.animator.SetBool(rollStr, false);
-                rb.constraints = RigidbodyConstraints.None;
-                rb.velocity = Vector3.zero;
-                rb.isKinematic = true;
-                startRollattack = false;
-                Rspeed = SetSpeed;
-                startStuncount = true;
+                if (wallcheck.touchWall == true)
+                {
+                    count = 0;
+                    startCount = false;
+                    this.animator.SetBool(rollStr, false);
+                    rb.constraints = RigidbodyConstraints.None;
+                    rb.velocity = Vector3.zero;
+                    rb.isKinematic = true;
+                    startRollattack = false;
+                    Rspeed = SetSpeed;
+                    startStuncount = true;
+                }
             }
         }
 
