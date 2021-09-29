@@ -12,7 +12,7 @@ public class AttackController : MonoBehaviour{
     public static GameObject[] targets;
     public GameObject player;
     public GameObject redRange, arrowObj;
-    public Text modeTaxt;
+    //public Text modeTaxt;
 
     //private
     private float targetDistSave, time = 0.0f;
@@ -106,7 +106,7 @@ public class AttackController : MonoBehaviour{
             redRange.SetActive(false);
         }
         if (a_flag){
-            modeTaxt.color = new Color (0, 0, 0, a_color);
+            //modeTaxt.color = new Color (0, 0, 0, a_color);
             a_color -= Time.deltaTime;
             if (a_color < 0){
                 a_color = 0;
